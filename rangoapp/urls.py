@@ -3,6 +3,7 @@ from rangoapp.views import *
 
 urlpatterns = [
 
-    url(r'^home/$', index, name='article-detail'),
+    url(r'^home/$', index, name='home'),
+    url(r'^about/$', about, name='about'),
 
 ]
