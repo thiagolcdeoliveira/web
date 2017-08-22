@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rango</title>
+    <link rel="stylesheet" href="{% static "css/base.css" %}" />
+</head>
+<body>
+<h1>Rango diz:</h1>
+<div>
+    Olá parceiro! <br />
+    <strong>{{ bold_message }}</strong><br />
+</div>
+<div>
+    <a href="/rango/about/">About</a><br />
+    <img src="{% static "images/rango.jpg" %}"
+         alt="Foto do Rango" />
+</div>
+
+<div>
+    Feito por {{ autor }}
+</div>
+
+</body>
+</html>
