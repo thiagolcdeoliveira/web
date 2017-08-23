@@ -105,3 +105,5 @@ ENV/
 .idea/rango.iml
 .idea/workspace.xml
 db.sqlite3
+.idea
+rangoapp/migrations/000*
