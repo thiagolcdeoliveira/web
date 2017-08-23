@@ -107,3 +107,4 @@ ENV/
 db.sqlite3
 .idea
 rangoapp/migrations/000*
+/.idea
