@@ -13,7 +13,7 @@ from django.shortcuts import render
 def index(request):
     context_dict = {}
     bold_message = 'E aí, BSI, tudo em cima?'
-    autor = 'Marco André Mendes'
+    autor = 'Thiago'
     context_dict['bold_message'] = bold_message
     context_dict['autor'] = autor
 
