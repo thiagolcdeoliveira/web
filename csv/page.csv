@@ -1,0 +1,24 @@
+category,title,url,views
+Python,Official Python Tutorial,http://docs.python.org/2/tutorial/,1
+Python,How to Think like a Computer Scientist,http://www.greenteapress.com/thinkpython/,1
+Python,Learn Python in 10 Minutes,http:/www.korokithakis.net/tutorials/python/,1
+Django,Official Django Tutorial,https://docs.djangoproject.com/en/1.9/intro/tutorial01/,1
+Django,Django Rocks,http://www.djangorocks.com/,1
+Django,How to Tango with Django,http://www.tangowithdjango.com/,1
+Other Frameworks,Bottle,http://bottlepy.org/docs/dev/,1
+Other Frameworks,Flask,http://flask.pocoo.org,1
+git,Git de Marco André,https://bitbucket.org/marcoandre/,1
+Django,Rango de Marco André,http://marcoandre.pythonanywhere.com/rango/,1
+Django,Pycharm Django Support,https://www.jetbrains.com/pycharm/help/django.html,1
+Django,Django REST Framework,http://www.django-rest-framework.org/,1
+PyCharm,Repositório PPA do PyCharm,https://launchpad.net/~mystic-mirage/+archive/ubuntu/pycharm,1
+Django,How Django Works,https://sites.google.com/site/marcoandre/home/desenvolvimento-web-ii/How%20Django%20works.png?attredirects=0,1
+virtualenv,Configurar virtualenv,http://pythonhelp.wordpress.com/2012/10/17/virtualenv-ambientes-virtuais-para-desenvolvimento/,1
+Notícias,G1 – O seu portal de notícias,http://g1.globo.com,1
+Notícias,Terra,http://terra.com.br,1
+Educacional,IFC Araquari,araquari.ifc.edu.br,1
+Educacional,IFC,ifc.edu.br,1
+DC,FlashPoint,https://pt.wikipedia.org/wiki/Flashpoint_(comics),1000000
+Marvel,guerra Infinita,https://omelete.uol.com.br/filmes/noticia/vingadores-guerra-infinita-jon-favreau-divulga-foto-do-set-junto-com-robert-downey-jr-e-gwyneth-paltrow/,10000
+vertigo,FlashPoint 2,https://pt.wikipedia.org/wiki/Flashpoint_(comics),10000
+vertigo,FlashPoint 3,https://pt.wikipedia.org/wiki/Flashpoint_(comics),10000
