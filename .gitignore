@@ -105,6 +105,7 @@ ENV/
 .idea/rango.iml
 .idea/workspace.xml
 db.sqlite3
+
 .idea
 /rangoapp/migrations/000*
 /.idea
@@ -113,3 +114,5 @@ db.sqlite3
 .idea/dataSources/204f357d-73a4-42d5-bf69-6126e71c2821/_src_/
 .idea/dataSources/204f357d-73a4-42d5-bf69-6126e71c2821/_staging_/
 .idea/dataSources/204f357d-73a4-42d5-bf69-6126e71c2821/storage.xml
+/.idea/*
+/.idea/
