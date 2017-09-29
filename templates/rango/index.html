@@ -24,5 +24,39 @@
     Feito por {{ autor }}
 </div>
 
+<div>
+    {% if categories %}
+        <h1>Top 5 categorias mais curtidas</h1>
+        <ul>
+            {% for category in categories %}
+                <li> <a href="/rango/category/{{ category.slug }}">{{ category.name }}</a> ({{ category.likes }})</li>
+
+            {% endfor %}
+        </ul>
+    {% else %}
+        <strong>Não existem categorias cadastradas.</strong>
+    {% endif %}
+</div>
+
+<div>
+    {% if pages %}
+        <h1>Top 5 páginas mais visitadas</h1>
+        <ul>
+            {% for page in pages %}
+                    <li><a target=_blank href="{{ page.url }}">{{ page.title }}</a> ({{ page.views }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <strong>Não existem páginas cadastradas.</strong>
+    {% endif %}
+</div>
+
+
+
+ <a href="/rango/about/">About</a><br />
+    <a href="/admin/">Admin</a><br />
+    <a href="/rango/add_category/">Adicione uma nova categoria</a><br />
+    <img src="{% static "images/rango.jpg" %}"
+         alt="Foto do Rango" />
 </body>
 </html>
