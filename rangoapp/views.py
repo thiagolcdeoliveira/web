@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from audioop import reverse
-
-from django.http import HttpResponse
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -78,7 +77,11 @@ def add_page(request, category_name_slug):
                 page.views = 0
                 page.save()
                 # return show_category(request, category_name_slug)
-                return redirect(reverse("show_category",kwargs=category_name_slug))
+                # return redirect(reverse("show_category", kwargs={"category_name_slug":category_name_slug}))
+                return HttpResponseRedirect(reverse('show_category', args=[category_name_slug]))
+                # return HttpResponseRedirect(reverse('show_category', kwargs={"category_name_slug":category_name_slug}))
+
+                # return redirect(reverse("show_category", kwargs={"category_name_slug":category_name_slug}))
         else:
             print(form.errors)
 
