@@ -1,5 +1,5 @@
 from django import template
-from rangoapp.models import Category
+from rangoapp.models.category import Category
 
 register = template.Library()
 

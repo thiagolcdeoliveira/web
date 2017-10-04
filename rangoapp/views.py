@@ -11,8 +11,12 @@ from django.shortcuts import render, redirect
 #
 # def about(request):
 #     return HttpResponse("Hello World! <a href= '/rango/home/'>home</a> ")
-from rangoapp.forms import PageForm, CategoryForm, UserProfileForm, UserForm
-from rangoapp.models import Category, Page,UserProfile
+from rangoapp.forms.category import  CategoryForm
+from rangoapp.forms.page import PageForm
+from rangoapp.forms.user import UserProfileForm, UserForm
+from rangoapp.models.category import Category
+from rangoapp.models.page import  Page
+from rangoapp.models.user_profile import UserProfile
 
 
 def index(request):

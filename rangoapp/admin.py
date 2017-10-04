@@ -2,7 +2,10 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Page,Category
+from .models.category import Category
+from .models.page import Page
+from .models.user_profile import UserProfile
+
 # Register your models here.
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug':('name',)}
@@ -13,3 +16,4 @@ class PageAdmin(admin.ModelAdmin):
 
 admin.site.register(Page,PageAdmin)
 admin.site.register(Category,CategoryAdmin)
+admin.site.register(UserProfile)
