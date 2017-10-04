@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Detalhes da Categoria</title>
-    <link rel="stylesheet" href="{% static "css/base.css" %}" />
-</head>
-<body>
+{% block title_block %}
+Sobre o Rango
+{% endblock title_block %}
+
+{% block body_block %}
 <div>
     {% if category %}
         <h1>{{ category.name }}</h1>
@@ -27,5 +24,4 @@
 </div>
 <a href="/rango/category/{{category.slug}}/add_page/">Adicionar página em {{ category.name }}</a> <br/>
     <a href="{% url "home" %}">Home</a><br />
-</body>
-</html>
+{% endblock %}

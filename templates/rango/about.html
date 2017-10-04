@@ -1,21 +1,16 @@
-
-<!DOCTYPE html>
-
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sobre o Rango!</title>
-    <link rel="stylesheet" href="{% static "css/base.css" %}" />
-</head>
-<body>
-<h1>Sobre o <a href="/rango/home/">Rango</a><br /></h1>
+{% block title_block %}
+Sobre o Rango
+{% endblock title_block %}
+
+{% block body_block %}
+<h1>Sobre o <a href="{% url 'home' %}">Rango</a><br /></h1>
 <div>
     O rango é uma aplicação para o gerenciamento de sites, feito em Django e utilizado nas aulas de Desenvolvimento Web 2.
 </div>
 <div>
-    <a href="/rango/home/">Home</a><br />
     <div><img src="{% static "images/pp.jpeg" %}" alt="Foto do Flash" /></div>
     <div><img src="/media/bartholomew.jpg" alt="Foto do Bartholomew" /></div>
 </div>
@@ -23,6 +18,4 @@
 <div>
     Desenvolvido por {{ autor }}
 </div>
-
-</body>
-</html>
+{% endblock body_block %}

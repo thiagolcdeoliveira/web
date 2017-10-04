@@ -45,7 +45,6 @@ class Command(BaseCommand):
                                         title=row["title"],
                                         url=row["url"],
                                         views=row['views']
-
                                         )
                     pages.save()
 
