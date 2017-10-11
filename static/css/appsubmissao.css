@@ -1,0 +1,27 @@
+input#id_titulo:valid,
+input#id_topicos_interesse:valid,
+input#id_tipo_submissao:valid,
+input#id_arquivo:valid,
+textarea#id_resumo:valid {
+    border: 1px solid #98ddb8 !important;
+    background-color: #f0f9f4 !important;
+}
+
+h2.autores {
+    text-align: center !important;
+    color: #3d2662 !important;
+}
+
+button#adicionar-autor {
+    background-color: #00807E !important;
+    color: white !important;
+}
+
+button#adicionar-autor:hover {
+    background-color: #735e93 !important;
+    color: white !important;
+}
+
+.centralizarCheckbox{
+    margin-left: 40px;
+}

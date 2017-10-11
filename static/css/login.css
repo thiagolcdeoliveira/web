@@ -1,0 +1,73 @@
+h1.ui.center.aligned.icon {
+    color: #3d2662 !important;
+    padding: 10px;
+    text-align: center !important;
+
+}
+
+.i.user.icon {
+    color: #3d2662 !important;
+}
+
+
+form#login-form.ui.large.form {
+    color: #3d2662 !important;
+    text-align: center !important;
+
+}
+
+a.cadastre {
+    color: #3d2662 !important;
+}
+
+a.cadastre:hover {
+    color: teal !important;
+}
+
+div.ui.two.column.grid {
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+a.button {
+    text-align: center !important;
+    color: teal !important;
+}
+
+a.button:hover {
+    color: #3d2662 !important;
+}
+
+h4.color_font {
+    color: black !important;
+}
+
+div.ui.horizontal.divider {
+    color: #3d2662 !important;
+
+}
+
+p.form-row.centralizar {
+    text-align: center !important;
+}
+
+input.ui.green.button {
+    color: white !important;
+
+}
+
+input.ui.green.button:hover {
+    color: white !important;
+    background-color: #3d2662 !important;
+}
+
+input#id_username:valid {
+    border: 1px solid #98ddb8 !important;
+    background-color: #f0f9f4 !important;
+}
+
+input#id_password:valid {
+    border: 1px solid #98ddb8 !important;
+    background-color: #f0f9f4 !important;
+}
+

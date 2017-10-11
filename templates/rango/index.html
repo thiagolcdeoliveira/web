@@ -1,4 +1,4 @@
-{% extends 'rango/base.html' %}
+{% extends 'rangoapp/../base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
@@ -53,7 +53,7 @@ Sobre o Rango
 
 
 
-    <a href="/rango/add_category/">Adicione uma nova categoria</a><br />
+    <a href="{% url 'category-add' %}">Adicione uma nova categoria</a><br />
     <img src="{% static "images/rango.jpg" %}"
          alt="Foto do Rango" />
 {% endblock %}

@@ -1,0 +1,8 @@
+a.ui.green.button {
+    color: white !important;
+}
+
+a.ui.green.button:hover {
+    color: white !important;
+    background-color: #3d2662 !important;
+}

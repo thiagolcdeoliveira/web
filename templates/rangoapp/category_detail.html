@@ -1,4 +1,4 @@
-{% extends 'rangoapp/base.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
@@ -7,6 +7,7 @@ Sobre o Rango
 
 {% block body_block %}
 <div>
+{% include 'includes/message.html' %}
     {% if object %}
         <h1>{{ object.name }}</h1>
         {% if pages %}

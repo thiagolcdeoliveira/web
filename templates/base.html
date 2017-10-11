@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load system %}
+{% load staticfiles static %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href='{% static "image/icone-eventos-purple.png" %}'>
+<title>{% block title %}Autenticação Fábrica de Software{% endblock %}</title>
+
+<link rel="stylesheet" type="text/css" href='{% static "semanticui/semantic.min.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/base.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/button.css" %}'>
+
+
+{% block css_login %}{% endblock %}
+
+<script src='{% static "js/jquery-3.2.1.js" %}'></script>
+<script src='{% static "semanticui/semantic.min.js" %}'></script>
+<script src='{% static "js/js.js" %}'></script>
+
+<html>
+<head>
+    <title>
+        Rango -
+        {% block title_block %}
+            How to Tango with Django!
+        {% endblock title_block %}
+    </title>
+    <link rel="stylesheet" href="{% static "css/base.css" %}"/>
+</head>
+<body>
+<header>
+    <ul class="ui stackable borderless menu">
+        <li><a class="item {% block active_home %}{% endblock active_home %}" href="{% url 'home' %}"><i
+                class="ui browser icon"></i>Home</a></li>
+        <li><a class="item {% block active_cad_p %}{% endblock active_cad_p %}" href="{% url 'category-add' %}"><i
+                class="ui user icon"></i>Adicionar Categoria
+            Pessoa</a></li>
+        <li><a class="item {% block active_cad_t %}{% endblock active_cad_t %}" href="{% url 'about' %}"><i
+                class="ui phone icon"></i>Sobre
+            Telefone</a></li>
+        {% if user.is_authenticated %}
+            <li><a class="item {% block active_logout %}{% endblock active_logout %}" href="{% url 'logout' %}"><i
+                    class="ui sign in icon"></i>Logout</a></li>
+            <li class="item disabled">{{ user|title }}</li>
+        {% else %}
+            <li><a class="item {% block active_register %}{% endblock active_register %}" href="{% url 'register' %}"><i
+                    class="ui sign in icon"></i>Registre-se</a></li>
+            <li class="item disabled">Você não está autenticado.</li>
+            <li><a class="item {% block active_login %}{% endblock active_login %}" href="{% url 'login' %}"><i
+                    class="ui sign in icon"></i>Login</a></li>
+            <li class="item disabled">Você não está autenticado.</li>
+        {% endif %}
+    </ul>
+</header>
+<article class="ui stackable centered aligned grid row ">
+    <section class="ten wide column">
+        {% block body_block %}
+        {% endblock %}    </section>
+
+    <section class="four wide column">
+        <section class="ui inverted  segment accordion"> {% block sidebar_block %}
+            {% get_category_list category %}
+        {% endblock %}
+            dd
+        </section>
+    </section>
+</article>
+
+<footer class="ui black inverted vertical footer relaxed segment">
+    <div class="ui five column middle aligned centered inverted divided stackable grid">
+        <div class="two wide column">
+            <h2 class="ui inverted icon header">
+                <i class="rebel icon"></i>
+                <div class="content">
+                    Rebel Corporation
+                    <div class="sub header">© Copyright 2017</div>
+                </div>
+            </h2>
+        </div>
+        <div class="three wide column">
+            <ul class="ui divided celled relaxed inverted list">
+                <li class="item"><a href="http://git.fabricadesoftware.ifc.edu.br/users/sign_in" target="_blank"><i
+                        class="ui github large icon"></i>Github</a></li>
+                <li class="item"><a href="https://www.instagram.com/nodes.fabricadesoftware/" target="_blank"><i
+                        class="ui instagram large icon"></i>Instagram</a></li>
+                <li class="item"><a href="https://www.facebook.com/fabricadesoftware" target="_blank"><i
+                        class="ui facebook large icon"></i>Facebook</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 
-{% extends 'rangoapp/base.html' %}
+{% extends 'base.html' %}
 {% block title_block %}
 Adicionar Categoria
 {% endblock title_block %}
@@ -7,6 +7,7 @@ Adicionar Categoria
 
 
 {% block body_block %}
+    {{ message_success }}
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
