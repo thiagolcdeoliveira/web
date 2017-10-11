@@ -55,14 +55,13 @@
 <article class="ui stackable centered aligned grid row ">
     <section class="ten wide column">
         {% block body_block %}
-        {% endblock %}    </section>
-
-    <section class="four wide column">
-        <section class="ui inverted  segment "> {% block sidebar_block %}
-            {% get_category_list category %}
         {% endblock %}
-            dd
-        </section>
+    </section>
+
+
+        {% block sidebar_block %}
+        {% endblock %}
+
     </section>
 </article>
 

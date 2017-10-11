@@ -23,8 +23,8 @@ from rangoapp.views.views import index
 
 urlpatterns = [
       url(r'^$', index, name='home'),
-      url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
-      url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
+      # url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
+      # url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
       url(r'^admin/', admin.site.urls),
       url(r"^rango/", include('rangoapp.urls')),
       url(r"^", include('applogin.urls'))

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load system %}
+{% load staticfiles static %}
+{% block sidebar_block %}
+
+    <section class="four wide column">
+        <section class="ui inverted  segment ">
+
+            {% get_category_list category %}
+        </section>
+    </section>
+        {% endblock %}

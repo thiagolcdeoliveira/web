@@ -17,6 +17,7 @@ class UserCreateView(View):
         if self.context['user_form'].is_valid() and self.context['profile_form'].is_valid():
             user = self.context['user_form'].save()
             user.set_password(user.password)
+
             user.save()
             profile = self.context['profile_form'].save(commit=False)
             profile.user = user
