@@ -1,42 +1,8 @@
-body {
-    background-color: #F3F3F3;
+body{
+    background-color:#1b1c1d;
 }
-
-h1 {
-    color: #099195 !important;
-}
-
-ul.list > li.item:before {
-    display: none;
-}
-
-ul.list {
-    margin-left: 2px !important;
-}
-
-ul.errorlist > li, ul.errorlist {
-    list-style: none;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-.ui.large.label, .ui.large.labels .label {
-    margin: 4px;
-}
-
-
-.ui.menu.menu-principal,
-.ui.menu .ui.dropdown .menu > .item,
-.ui.menu .ui.dropdown .menu > .active.item,
-.ui.menu .ui.dropdown .menu > .item:hover {
-    border-radius: 0 !important;
-    /*background-color: #3d2662 !important;*/
-    background-color: #59487b !important;
-    color: white !important;
-}
-
 article {
-    min-height: 80% !important;
+    /*min-height: 80% !important;*/
 }
 
 footer {
@@ -44,26 +10,24 @@ footer {
     /*padding-top: 2% !important;*/
     margin-top: 2% !important;
     /*background-color: #A59FA3 !important;*/
-    background-color: #59487b !important;
+    /*background-color: #59487b !important;*/
     color: white;
 }
-
-.inputInvalido input:focus,
-.textAreaInvalido textarea:focus {
-    border: 1px solid #e0b4b4 !important;
-    background-color: #f7efef !important;
+article.ui.grid{
+    margin-top: auto;
 }
-
-.inputValido input,
-.textAreaValido textarea {
-    border: 1px solid #98ddb8 !important;
-    background-color: #f0f9f4 !important;
-}
-
-#field-instituicao {
+ul.list > li.item:before {
     display: none;
 }
 
-#mensagem-sucesso {
-    display: none;
+ul.list {
+    margin-left: 2px !important;
+}
+ul.ui.menu, article > ul.list > li.item {
+    list-style: none;
+    padding: 0;
+
+}
+.ui.bottom.attached.segment.pushable{
+    border: none;
 }

@@ -1,4 +1,0 @@
-/*esconde todos menos o primeiro step*/
-.conteudo-step:not(:first-of-type) {
-    display: none;
-}

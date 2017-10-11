@@ -30,40 +30,26 @@
     <link rel="stylesheet" href="{% static "css/base.css" %}"/>
 </head>
 <body>
-<header>
-    <ul class="ui stackable borderless menu">
-        <li><a class="item {% block active_home %}{% endblock active_home %}" href="{% url 'home' %}"><i
-                class="ui browser icon"></i>Home</a></li>
-        <li><a class="item {% block active_cad_p %}{% endblock active_cad_p %}" href="{% url 'category-add' %}"><i
-                class="ui user icon"></i>Adicionar Categoria</a></li>
-        <li><a class="item {% block active_cad_t %}{% endblock active_cad_t %}" href="{% url 'about' %}"><i
-                class="ui phone icon"></i>Sobre</a></li>
-        {% if user.is_authenticated %}
-            <li><a class="item {% block active_logout %}{% endblock active_logout %}" href="{% url 'logout' %}"><i
-                    class="ui sign in icon"></i>Logout</a></li>
-            <li class="item disabled">{{ user|title }}</li>
-        {% else %}
-            <li><a class="item {% block active_register %}{% endblock active_register %}" href="{% url 'user-add' %}"><i
-                    class="ui sign in icon"></i>Registre-se</a></li>
-            <li class="item disabled">Você não está autenticado.</li>
-            <li><a class="item {% block active_login %}{% endblock active_login %}" href="{% url 'login' %}"><i
-                    class="ui sign in icon"></i>Login</a></li>
-            <li class="item disabled">Você não está autenticado.</li>
-        {% endif %}
-    </ul>
-</header>
-<article class="ui stackable centered aligned grid row ">
-    <section class="ten wide column">
-        {% block body_block %}
-        {% endblock %}
-    </section>
+{% include 'includes/menu.html' %}
+<div class="ui bottom attached  segment pushable">
+    {% include 'includes/sidebar.html' %}
 
+    <div class="pusher">
+            <!-- main -->
+            <article class="ui stackable centered aligned grid row ">
+                <section class="ten wide column">
+                    {% block body_block %}
+                    {% endblock %}
+                </section>
+                {% block sidebar_block %}
+                {% endblock %}
+                </section>
+            </article>
+            <!-- End main -->
+        </div>
+    </div>
+</div>
 
-        {% block sidebar_block %}
-        {% endblock %}
-
-    </section>
-</article>
 
 <footer class="ui black inverted vertical footer relaxed segment">
     <div class="ui five column middle aligned centered inverted divided stackable grid">

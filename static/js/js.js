@@ -5,5 +5,9 @@ $(document).ready(function () {
         .on('click', function () {
             $(this).closest('.message').transition('fade');
         });
-
+    $('.ui.sidebar').sidebar({
+        context: $('.pushable')
+    }).sidebar('attach events', '.menu .item')
+    ;
 });
+

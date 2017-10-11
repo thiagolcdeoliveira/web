@@ -1,15 +1,15 @@
-<ul>
+<ul class="ui inverted divided list">
     {% if cats %}
         <strong>Categorias:</strong><br/>
         {% for c in cats %}
             {% if c == act_cat %}
-                <li>
+                <li class="item">
                     <strong>
                         <a href="{% url 'category-detail' c.slug %}">{{ c.name }}</a>
                     </strong>
                 </li>
             {% else %}
-                <li>
+                <li class="item">
                     <a href="{% url 'category-detail' c.slug %}">{{ c.name }}</a>
                 </li>
             {% endif %}

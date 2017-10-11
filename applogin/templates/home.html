@@ -24,21 +24,7 @@
                         <i class="sign in icon"></i>Entrar
                     </h1>
 
-                {% if message %}
-                    <p class="ui warning icon message">
-                        <i class="close icon"></i>
-                        <i class="warning icon"></i>
-                        <span class="content">
-                            <span class="header">
-                                 Permissão negada!
-                            </span>
-                            <span>
-                                Você não tem permissão para acessar essa página!
-                                Por favor efetue seu login antes de fazer uma submissão!
-                            </span>
-                        </span>
-                    </p>
-                {% endif %}
+
 
                     {% if form.errors %}
                         <p class="ui error message">
@@ -70,9 +56,9 @@
 {#                                <h5><a class='button' href="{% url 'password_reset' %}">Esqueceu a senha<i#}
 {#                                        class="help circle icon"></i></a></h5>#}
                             </div>
-                            <div class="ui basic segment row">
+                            <div class="ui  row">
                                 <div class="form">
-                                    <input class="ui green button e-green-button" type="submit" value="Entrar"/>
+                                    <input class="ui  fluid  button " type="submit" value="Entrar"/>
                                 </div>
                             </div>
                             <div class="ui horizontal divider">
