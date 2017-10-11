@@ -5,12 +5,12 @@
             {% if c == act_cat %}
                 <li>
                     <strong>
-                        <a href="{% url 'show_category' c.slug %}">{{ c.name }}</a>
+                        <a href="{% url 'category-detail' c.slug %}">{{ c.name }}</a>
                     </strong>
                 </li>
             {% else %}
                 <li>
-                    <a href="{% url 'show_category' c.slug %}">{{ c.name }}</a>
+                    <a href="{% url 'category-detail' c.slug %}">{{ c.name }}</a>
                 </li>
             {% endif %}
         {% endfor %}

@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from rangoapp.views import index
+from rangoapp.views.views import index
 
 urlpatterns = [
     url(r'^$', index, name='home'),

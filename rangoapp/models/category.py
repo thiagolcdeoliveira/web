@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.db import models
 
 # Create your models here.
@@ -20,6 +21,10 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categories'
+
+    def get_absolute_url(self):
+        return reverse_lazy('category-detail', kwargs={'category_name_slug': self.slug})
+
     def __str__(self):
         return '%s' %self.name
 

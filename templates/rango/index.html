@@ -28,7 +28,7 @@ Sobre o Rango
         <h1>Top 5 categorias mais curtidas</h1>
         <ul>
             {% for category in categories %}
-                <li> <a href="{% url 'show_category' category.slug %}">{{ category.name }}</a> ({{ category.likes }})</li>
+                <li> <a href="{% url 'category-detail' category.slug %}">{{ category.name }}</a> ({{ category.likes }})</li>
 
             {% endfor %}
         </ul>

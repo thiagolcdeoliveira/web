@@ -1,0 +1,27 @@
+{% extends 'rangoapp/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+Sobre o Rango
+{% endblock title_block %}
+
+{% block body_block %}
+<div>
+    {% if object %}
+        <h1>{{ object.name }}</h1>
+        {% if pages %}
+            <ul>
+                {% for page in pages %}
+                    <li><a target=_blank href="{{ page.url }}">{{ page.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>Não há páginas atualmente nessa categoria.</strong>
+        {% endif %}
+    {% else %}
+        404 - A categoria especificada não existe.
+    {% endif %}
+</div>
+<a href="/rango/category/{{object.slug}}/add_page/">Adicionar página em {{ object.name }}</a> <br/>
+    <a href="{% url "home" %}">Home</a><br />
+{% endblock %}
