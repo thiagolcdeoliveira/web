@@ -35,11 +35,9 @@
         <li><a class="item {% block active_home %}{% endblock active_home %}" href="{% url 'home' %}"><i
                 class="ui browser icon"></i>Home</a></li>
         <li><a class="item {% block active_cad_p %}{% endblock active_cad_p %}" href="{% url 'category-add' %}"><i
-                class="ui user icon"></i>Adicionar Categoria
-            Pessoa</a></li>
+                class="ui user icon"></i>Adicionar Categoria</a></li>
         <li><a class="item {% block active_cad_t %}{% endblock active_cad_t %}" href="{% url 'about' %}"><i
-                class="ui phone icon"></i>Sobre
-            Telefone</a></li>
+                class="ui phone icon"></i>Sobre</a></li>
         {% if user.is_authenticated %}
             <li><a class="item {% block active_logout %}{% endblock active_logout %}" href="{% url 'logout' %}"><i
                     class="ui sign in icon"></i>Logout</a></li>
