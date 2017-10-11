@@ -2,6 +2,7 @@ from django.conf.urls import url
 from rangoapp.views.views import *
 from rangoapp.views.category import *
 from rangoapp.views.page import *
+from rangoapp.views.user import *
 urlpatterns = [
 
     url(r'^home/$', index, name='home'),
@@ -11,7 +12,7 @@ urlpatterns = [
     #     show_category, name='show_category'),
     # url(r'^category/(?P<category_name_slug>[\w\-]+)/add_page/$',
     #     add_page, name='add_page'),
-    url(r'^register', register, name='register'),
+    # url(r'^register', register, name='register'),
 
     # Category
     url(r'^category/cadastrar/$', CategoryCreateView.as_view(), name='category-add'),
@@ -26,5 +27,13 @@ urlpatterns = [
     url(r'^page/(?P<category_name_slug>[\w\-]+)/editar/$', PageUpdateView.as_view(), name='page-update'),
     url(r'^page/(?P<category_name_slug>[\w\-]+)/excluir/$', PageDeleteView.as_view(), name='page-delete'),
     url(r'^page/listar/$', PageListView.as_view(), name='page-list'),
+
+    # User
+    url(r'^user/cadastrar/$', UserCreateView.as_view(), name='user-add'),
+    # url(r'^user/visualizar/(?P<user_name_slug>[\w\-]+)/$', UserDetailView.as_view(),
+    #     name='user-detail'),
+    # url(r'^user/(?P<user_name_slug>[\w\-]+)/editar/$', UserUpdateView.as_view(), name='user-update'),
+    # url(r'^user/(?P<user_name_slug>[\w\-]+)/excluir/$', UserDeleteView.as_view(), name='user-delete'),
+    # url(r'^user/listar/$', UserListView.as_view(), name='user-list'),
 
 ]

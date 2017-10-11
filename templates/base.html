@@ -43,7 +43,7 @@
                     class="ui sign in icon"></i>Logout</a></li>
             <li class="item disabled">{{ user|title }}</li>
         {% else %}
-            <li><a class="item {% block active_register %}{% endblock active_register %}" href="{% url 'register' %}"><i
+            <li><a class="item {% block active_register %}{% endblock active_register %}" href="{% url 'user-add' %}"><i
                     class="ui sign in icon"></i>Registre-se</a></li>
             <li class="item disabled">Você não está autenticado.</li>
             <li><a class="item {% block active_login %}{% endblock active_login %}" href="{% url 'login' %}"><i

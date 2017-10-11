@@ -1,16 +1,19 @@
-{% extends 'rango/base.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
 {% block title_block %}
     Register
 {% endblock %}
 {% block body_block %}
     <h1>Register for Rango</h1>
-    {% if registered %}
-        Rango says: <strong>thank you for registering!</strong>
-        <a href="{% url 'home' %}">Return to the homepage.</a><br/>
-    {% else %}
+    {% include 'includes/message.html' %}
+
+{#    {% if registered %}#}
+{#        Rango says: <strong>thank you for registering!</strong>#}
+{#        <a href="{% url 'home' %}">Return to the homepage.</a><br/>#}
+{#    {% else %}#}
         Rango says: <strong>register here!</strong><br/>
-        <form id="user_form" method="post" action="{% url 'register' %}"
+{#        <form id="user_form" method="post" action="{% url 'user-add' %}"#}
+        <form id="user_form" method="post" action=""
               enctype="multipart/form-data">
             {% csrf_token %}
             <!-- Display each form -->
@@ -19,5 +22,5 @@
             <!-- Provide a button to click to submit the form. -->
             <input type="submit" name="submit" value="Register"/>
         </form>
-    {% endif %}
+{#    {% endif %}#}
 {% endblock %}
