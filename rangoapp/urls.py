@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from rangoapp.views.views import *
 from rangoapp.views.category import *
+from rangoapp.views.page import *
 urlpatterns = [
 
     url(r'^home/$', index, name='home'),
@@ -18,5 +19,12 @@ urlpatterns = [
     url(r'^category/(?P<category_name_slug>[\w\-]+)/editar/$', CategoryUpdateView.as_view(), name='category-update'),
     url(r'^category/(?P<category_name_slug>[\w\-]+)/excluir/$', CategoryDeleteView.as_view(), name='category-delete'),
     url(r'^category/listar/$', CategoryListView.as_view(), name='category-list'),
+    
+    # Page
+    url(r'^category/(?P<category_name_slug>[\w\-]+)/page/cadastrar/$', PageCreateView.as_view(), name='page-add'),
+    # url(r'^page/visualizar/(?P<page_name_slug>[\w\-]+)/$', PageDetailView.as_view(), name='page-detail'),
+    url(r'^page/(?P<category_name_slug>[\w\-]+)/editar/$', PageUpdateView.as_view(), name='page-update'),
+    url(r'^page/(?P<category_name_slug>[\w\-]+)/excluir/$', PageDeleteView.as_view(), name='page-delete'),
+    url(r'^page/listar/$', PageListView.as_view(), name='page-list'),
 
 ]

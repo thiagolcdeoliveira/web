@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+{% block title_block %}
+Adicionar Pagina
+{% endblock title_block %}
+{% load staticfiles %}
+
+
+{% block body_block %}
+    {{ message_success }}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save"/>
+    </form>
+{% endblock %}

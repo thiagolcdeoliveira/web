@@ -23,6 +23,7 @@ Sobre o Rango
         404 - A categoria especificada não existe.
     {% endif %}
 </div>
-<a href="/rango/category/{{object.slug}}/add_page/">Adicionar página em {{ object.name }}</a> <br/>
+{#<a href="/rango/category/{{object.slug}}/page/cadastrar/">Adicionar página em {{ object.name }}</a> <br/>#}
+<a href="{% url 'page-add' object.slug %}">Adicionar página em {{ object.name }}</a> <br/>
     <a href="{% url "home" %}">Home</a><br />
 {% endblock %}
