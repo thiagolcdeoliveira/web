@@ -19,7 +19,7 @@
     * apt install git
   * Instalar a virtualenvwrapper
     * apt install python-pip
-    * pip install virtualenvwrapper ![Configuração](http://virtualenvwrapper.readthedocs.io/en/latest/install.html)
+    * pip install virtualenvwrapper [Configuração](http://virtualenvwrapper.readthedocs.io/en/latest/install.html)
   * Criar uma virtualenv
     * mkvirtualenv <nome_projeto>
       * Após criada ela executara o ambiente virtual, porém nas próximas vezes será necessario executar o comando workon <nome_projeto>
