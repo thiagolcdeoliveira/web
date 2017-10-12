@@ -1,5 +1,5 @@
 # web
-## Trabalho de web - Sistema desenvolvido com base no tutorial  do tango whith Django 
+## Trabalho de web - Sistema desenvolvido com base no tutorial  do tango with Django 
 
 ### Linguagens Utilizadas 
 
