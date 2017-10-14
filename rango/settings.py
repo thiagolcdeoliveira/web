@@ -59,7 +59,12 @@ ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, us
 REGISTRATION_AUTO_LOGIN = True  # If True, the user will be automatically logged in.
 LOGIN_REDIRECT_URL = '/'  # The page you want users to arrive at after they successful log in
 LOGIN_URL = '/accounts/login/'  # The page users are directed to if they are not logged in,
-REGISTRATION_EMAIL_HTML = False                                                              # and are trying to access pages requiring authentication
+REGISTRATION_EMAIL_HTML = False    # and are trying to access pages requiring authentication
+
+
+# then i tried using my own address and smtp.live.com
+
+
 
 # REGISTRATION_AUTO_LOGIN = True #
 # REGISTRATION_DEFAULT_FROM_EMAIL ="noreplay@starlabs.com"
@@ -89,6 +94,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
 
             ],
         },
@@ -131,12 +137,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-# LANGUAGE_CODE = 'en-us'
-#
-# TIME_ZONE = 'UTC'
-LANGUAGE_CODE = 'pt-br'
+LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Sao_Paulo'
+TIME_ZONE = 'UTC'
+# LANGUAGE_CODE = 'pt-br'
+#
+# TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 
 USE_L10N = True
@@ -158,12 +164,17 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
-# MIDDLEWARE += [
-#     'social_django.middleware.SocialAuthExceptionMiddleware',  # <-- AUTENTICAÇÃO COM AS REDE SOCIAIS
-# ]
+
 # --- INÍCIO AUTENTICAÇÃO COM AS REDE SOCIAIS ----#
 
-
+LANGUAGES = (
+    ('en', u'Inglês'),
+    ('pt-br', u'Português'),
+    ('es', u'Espanhol'),
+)
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.github.GithubOAuth2',
