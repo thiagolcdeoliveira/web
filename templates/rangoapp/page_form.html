@@ -1,5 +1,5 @@
 
-{% extends 'base_com_menu.html' %}
+{% extends 'base.html' %}
 {% block title_block %}
 Adicionar Pagina
 {% endblock title_block %}
@@ -7,10 +7,13 @@ Adicionar Pagina
 
 
 {% block body_block %}
-    {{ message_success }}
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Save"/>
-    </form>
+{#    {{ message_success }}#}
+{#    <form action="" method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ form.as_p }}#}
+{#        <input type="submit" value="Save"/>#}
+{#    </form>#}
+    <section class="six wide column">
+    {% include 'includes/form.html' %}
+    </section>
 {% endblock %}

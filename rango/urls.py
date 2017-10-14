@@ -17,16 +17,24 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login, logout
 
 from rangoapp.views.views import index
-
+from registration.backends.simple.views import RegistrationView
+# class MyRegistrationView(RegistrationView):
+#       def get_success_url(self, request, user=None):
+#             return '/'
 urlpatterns = [
       url(r'^$', index, name='home'),
       # url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
       # url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
       url(r'^admin/', admin.site.urls),
       url(r"^rango/", include('rangoapp.urls')),
-      url(r"^", include('applogin.urls'))
-
+      url(r'^login/$', login, {'template_name': 'registration/login.html'}, name='login'),
+      url(r'^logout/$', login_required(logout), name='logout'),
+      url(r'', include('social.apps.django_app.urls', namespace='social')),
+      url(r'', include('django.contrib.auth.urls', namespace='auth')),
+      # url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
+      url(r'^accounts/', include('registration.backends.default.urls')),
       ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

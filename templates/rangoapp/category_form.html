@@ -1,16 +1,43 @@
-
-{% extends 'base_com_menu.html' %}
+{% extends 'base.html' %}
 {% block title_block %}
-Adicionar Categoria
+    Adicionar Categoria
 {% endblock title_block %}
 {% load staticfiles %}
-
-
 {% block body_block %}
-    {{ message_success }}
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Save"/>
-    </form>
+
+<section class="six wide column">
+    <h1>Adicionar Categoria</h1>
+
+{% include 'includes/form.html' %}
+    </section>
+
 {% endblock %}
+{##}
+{##}
+{#{% block body_block %}#}
+{#    {{ message_success }}#}
+{#    <form class="ui form warning" action="" method="post">#}
+{##}
+{#        {% csrf_token %}#}
+{#        {% for hidden in form.hidden_fields %}#}
+{#            {{ hidden }}#}
+{#        {% endfor %}#}
+{##}
+{#        {% for field in form.visible_fields %}#}
+{#            <div class="field">#}
+{#                <label>{{ field.label }}</label>#}
+{#                {{ field }}#}
+{#            {% if field.help_text %}#}
+{#                <span class="ui pointing label">Ajuda:  {{ field.help_text }} </span>#}
+{#            {% endif %}#}
+{#            </div>#}
+{#            {% if field.errors %}#}
+{#                <span class="ui pointing red label">#}
+{#                   {{ field.errors }}#}
+{#               </span>#}
+{#            {% endif %}#}
+{#        {% endfor %}#}
+{#        <input class="ui button fluid" type="submit" value="Save"/>#}
+{#    </form>#}
+{##}
+{#{% endblock %}#}

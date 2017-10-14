@@ -1,4 +1,4 @@
-{% extends 'base_com_menu.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
@@ -6,24 +6,32 @@ Sobre o Rango
 {% endblock title_block %}
 
 {% block body_block %}
-<div>
+<section class="six wide column">
 {% include 'includes/message.html' %}
     {% if object %}
         <h1>{{ object.name }}</h1>
-        {% if pages %}
-            <ul>
+         <section class="four wide column">
+        <div class="ui celled list">
+
+            {% if pages %}
+                <h1>Top 5 páginas mais visitadas</h1>
                 {% for page in pages %}
-                    <li><a target=_blank href="{{ page.url }}">{{ page.title }}</a></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <strong>Não há páginas atualmente nessa categoria.</strong>
-        {% endif %}
-    {% else %}
-        404 - A categoria especificada não existe.
+                    <div class="item">
+                        <i class="ui icon newspaper"></i>
+                        <div class="content">
+                            <div class="header">
+                                <a target=_blank href="{{ page.url }}">{{ page.title }}</a> <a class="ui teal circular label">2</a><a class="ui green circular label">2</a>({{ page.views }})
+                            <i class="thumbs outline up icon right"></i>
+                            </div>
+                        </div>
+                    </div>  {% endfor %}
+            {% else %}
+                <strong>Não existem páginas cadastradas.</strong>
+            {% endif %}
+        </div>
     {% endif %}
-</div>
 {#<a href="/rango/category/{{object.slug}}/page/cadastrar/">Adicionar página em {{ object.name }}</a> <br/>#}
-<a href="{% url 'page-add' object.slug %}">Adicionar página em {{ object.name }}</a> <br/>
-    <a href="{% url "home" %}">Home</a><br />
+    <a href="{% url 'page-add' object.slug %}"><button class="ui button fluid">Adicionar página em {{ object.name }}</button></a>
+{#    <a href="{% url "home" %}">Home</a><br />#}
+    </section>
 {% endblock %}

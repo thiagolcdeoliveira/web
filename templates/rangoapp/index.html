@@ -1,4 +1,4 @@
-{% extends 'base_com_menu.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
@@ -8,54 +8,90 @@
 {% block body_block %}
 
 
-    <h1>Rango diz:</h1>
-    <div>
+
+    <section class="four wide column"><h1>Rango diz:</h1>
+
         Olá parceiro! <br/>
-        <strong>{{ bold_message }}</strong><br/>
-    </div>
-    <div>
-        <a href="/rango/about/">About</a><br/>
-        <img src="{% static "images/pp.jpeg" %}"
-             alt="Foto do Flash"/>
-    </div>
+        <div class="ui card">
+            <div class="image">
+                <img src="{% static "images/pp.jpeg" %}"
+                     alt="Foto do Flash"/>
+                <!--<img src="/images/avatar2/large/kristy.png">-->
+            </div>
+            <div class="content">
+                <a class="header"> Feito por {{ autor }}</a>
+                <div class="meta">
+                    <span class="date">Joined in 2013</span>
+                </div>
+                <div class="description">
+                    Kristy is an art director living in New York.
+                </div>
+            </div>
+            <div class="extra content">
+                <a>
+                    <i class="user icon"></i>
+                    22 Friends
+                </a>
+            </div>
+        </div>
 
-    <div>
-        Feito por {{ autor }}
-    </div>
 
-    <div>
-        {% if categories %}
-            <h1>Top 5 categorias mais curtidas</h1>
-            <ul>
+    </section>
+
+    <section class="four wide column">
+
+        <div class="ui celled list">
+
+
+            {% if categories %}
+                <h1>Top 5 categorias mais curtidas</h1>
+
+
                 {% for category in categories %}
-                    <li><a href="{% url 'category-detail' category.slug %}">{{ category.name }}</a>
-                        ({{ category.likes }})
-                    </li>
+                    <div class="item">
+                         <i class="ui icon newspaper"></i>
+                        <div class="content">
+                            <div class="header"><a
+                                    href="{% url 'category-detail' category.slug %}">{{ category.name }}</a>
+                               <a class="ui teal circular label">2</a><a class="ui green circular label">2</a> ({{ category.likes }})<i class="thumbs outline up icon right"></i>
+                            </div>
+                        </div>
+                    </div>
 
                 {% endfor %}
-            </ul>
-        {% else %}
-            <strong>Não existem categorias cadastradas.</strong>
-        {% endif %}
-    </div>
 
-    <div>
-        {% if pages %}
-            <h1>Top 5 páginas mais visitadas</h1>
-            <ul>
+            {% else %}
+                <strong>Não existem categorias cadastradas.</strong>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="four wide column">
+        <div class="ui celled list">
+
+            {% if pages %}
+                <h1>Top 5 páginas mais visitadas</h1>
                 {% for page in pages %}
-                    <li><a target=_blank href="{{ page.url }}">{{ page.title }}</a> ({{ page.views }})</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <strong>Não existem páginas cadastradas.</strong>
-        {% endif %}
-    </div>
+                    <div class="item">
+                        <i class="ui icon newspaper"></i>
+                        <div class="content">
+                            <div class="header">
+                                <a target=_blank href="{{ page.url }}">{{ page.title }}</a> <a class="ui teal circular label">2</a><a class="ui green circular label">2</a>({{ page.views }})
+                            <i class="thumbs outline up icon right"></i>
+                            </div>
+                        </div>
+                    </div>  {% endfor %}
+            {% else %}
+                <strong>Não existem páginas cadastradas.</strong>
+            {% endif %}
+        </div>
+    </section>
 
 
 
 
-    <a href="{% url 'category-add' %}">Adicione uma nova categoria</a><br/>
-    <img src="{% static "images/rango.jpg" %}"
-         alt="Foto do Rango"/>
+
+    <!--<a href="{% url 'category-add' %}">Adicione uma nova categoria</a><br/>-->
+    <!--<img src="{% static "images/rango.jpg" %}"
+         alt="Foto do Rango"/>-->ccc
 {% endblock %}

@@ -1,0 +1,144 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Log in" %}{% endblock %}
+
+{% block body_block %} <section class="fourteen wide column">
+
+    {% if user.is_authenticated %}
+        <div class="ui centered middle aligned grid">
+            <div class="row"></div>
+            <div class="six wide column">
+                <a href="/"><img alt="acesso proibido -  Atronauta gritando 403! Rodeado de equipamentos  como: smatphones,
+                 panetas e pokebola" class="ui medium centered image" src="/static/image/403.png"/></a>
+                <a href="/"><img alt="403 acesso proibido " class="ui medium centered image"
+                                 src="/static/image/403_texto.png"/></a>
+            </div>
+        </div>
+    {% else %}
+        <div class="ui centered middle aligned six column stackable grid">
+            <div class="five wide column row">
+                <div class="ui segment">
+                    <h1 class="ui center aligned icon">
+                        <i class="sign in icon"></i>Entrar
+                    </h1>
+
+
+
+                    {% if form.errors %}
+                        <p class="ui error message">
+                            <i class="close icon"></i>
+                            <span class="header">
+                                Erro na tentativa de entrar!
+                            </span>
+                            <span>Seu e-mail ou senha pode estar errado.</span>
+                        </p>
+                    {% endif %}
+{#                    <form method="post" action="">#}
+{#                        {% csrf_token %}#}
+{#                        {{ form.as_p }}#}
+{#                        <input type="submit" value="{% trans 'Log in' %}"/>#}
+{#                        <input type="hidden" name="next" value="{{ next }}"/>#}
+{#                    </form>#}
+                    <form novalidate class="ui large form" action="" method="post"
+                          id="login-form">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ next }}"/>
+                        <div class="fields">
+                            <div class="sixteen wide field">
+                                <label class="required" for="id_username"> <i class="mail icon"></i>E-mail:</label>
+                                <input type="text" name="username" autofocus required id="id_username"
+                                       maxlength="254"/>
+                            </div>
+                        </div>
+                        <div class="fields">
+                            <div class="sixteen wide field">
+                                <label class="required" for="id_password"> <i class=" lock icon"></i>Senha:</label>
+                                <input type="password" name="password"
+                                       required id="id_password"/>
+                            </div>
+                        </div>
+
+                        <div class="ui  row">
+                            <div class="form">
+{#                                 <input type="submit" value="{% trans 'Log in' %}"/>#}
+                                <input class="ui  fluid  button " type="submit" value="Entrar"/>
+                            </div>
+                        </div>
+                        <div class="ui horizontal divider">
+                            Ou
+                        </div>
+                        <div class="form-row centralizar">
+                            <a class="button" href="{% url 'social:begin' 'facebook' %}?next={{ next }}">
+                                <i class="facebook square icon"></i>Facebook
+                            </a>
+                            &nbsp
+                            <a class="button" href="{% url 'social:begin' 'google-oauth2' %}?next={{ next }}">
+                                <i class="google icon"></i>Gmail
+                            </a>
+                            &nbsp
+                            <a class="button cor" href="{% url 'social:begin' 'twitter' %}?next={{ next }}">
+                                <i class="twitter square icon"></i>Twitter
+                            </a>
+                        </div>
+                        <div class="ui basic segment">
+                            <div class="form-row">
+                                <div class="ui white label">
+                                    <h4 class="color_font">
+                                        <i class="user icon"></i>{% trans "Not a member?" %}
+{#                                              <a href="{% url 'registration_register' %}"><i class="plus icon"></i>Cadastre-se {% trans "Register" %}</a>.#}
+                                              <a href="{% url 'registration_register' %}"><i class="plus icon"></i> {% trans "Register" %}</a>.
+{#                                              <a href="{% url 'registration_register' %}"><i class="plus icon"></i>Cadastre-se {% trans "Register" %}</a>.#}
+{#                                        <a class='cadastre' href="{% url 'user-add' %}">#}
+
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="form-row centralizar">
+                            {#                                href="{% url 'password_reset' %}">Esqueceu a senha<i#}
+                            {#                                        class="help circle icon"></i></a></h5>#}
+                              <h5><a class='button'  href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}<i
+                                                                    class="help circle icon"></i></a></h5>
+
+                        </div>
+                        </div>
+                    </form>
+                    {#                    </div>#}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+</section>
+
+
+{% endblock %}
+
+
+{% comment %}
+**registration/login.html**
+
+It's your responsibility to provide the login form in a template called
+registration/login.html by default. This template gets passed four
+template context variables:
+
+``form``
+    A Form object representing the login form. See the forms
+    documentation for more on Form objects.
+
+``next``
+    The URL to redirect to after successful login. This may contain a
+    query string, too.
+
+``site``
+    The current Site, according to the SITE_ID setting. If you don't
+    have the site framework installed, this will be set to an instance
+    of RequestSite, which derives the site name and domain from the
+    current HttpRequest.
+
+``site_name``
+    An alias for site.name. If you don't have the site framework
+    installed, this will be set to the value of
+    request.META['SERVER_NAME']. For more on sites, see The
+    "sites" framework.
+{% endcomment %}
