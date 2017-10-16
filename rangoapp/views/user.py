@@ -7,7 +7,10 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import View, DetailView
 from django.views.generic import *
 from rangoapp.forms.user import UserProfileForm, UserForm
+from rangoapp.models.category import Category
+from rangoapp.models.page import Page
 from rangoapp.models.user_profile import UserProfile
+from rangoapp.views.ranking import calculatePosition
 
 
 class UserDetailView(DetailView):
@@ -18,6 +21,9 @@ class UserDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
         context['profile'] = get_object_or_404(UserProfile,user__username=self.kwargs['username'])
+        context['categories'] = Category.objects.filter(is_private=False,user__username=self.kwargs['username']).order_by('-likes')[:5]
+        context['pages'] = Page.objects.filter(category__is_private=False,category__user__username=self.kwargs["username"]).order_by('-views')[:5]
+        context['position'] = calculatePosition(context['profile'].points)
         print(context['profile'])
         return context
 

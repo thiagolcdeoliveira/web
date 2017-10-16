@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles system%}
+{% load staticfiles system %}
 
 {% block title_block %}
     Sobre o Rango
@@ -8,35 +8,125 @@
 {% block body_block %}
 
 
+    {##}
+    {#    <section class="six wide column"><h1>Rango diz:</h1>#}
+    {##}
+    {#        Olá parceiro! <br/>#}
+    {#        <div class="ui card">#}
+    {#            <div class="image">#}
+    {#                <img src="{% static "images/pp.jpeg" %}"#}
+    {#                     alt="Foto do Flash"/>#}
+    {#                <img src="{% media  profile.picture  %}"#}
+    {#                     alt="Foto do Flash"/>#}
+    {#            </div>#}
+    {#            <div class="content">#}
+    {#                <a class="header"> {{ object.first_name }} {{ object.last_name }}</a>#}
+    {#                <div class="meta">#}
+    {#                    <span class="date"></span>#}
+    {#                </div>#}
+    {#                <div class="description">#}
+    {#                    {{ profile.description }}#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div class="extra content">#}
+    {#                <a>#}
+    {#                    <i class="likes icon"></i>#}
+    {#                    {{ profile.likes }} Likes#}
+    {#                </a>#}
+    {#            </div>#}
+    {#        </div>#}
+    {##}
+    {##}
+    {#    </section>#}
 
-    <section class="six wide column"><h1>Rango diz:</h1>
-
-        Olá parceiro! <br/>
+    {#    {% extends 'base.html' %}#}
+    {#{% load staticfiles system%}#}
+    {##}
+    {#{% block title_block %}#}
+    {#    Sobre o Rango#}
+    {#{% endblock title_block %}#}
+    {##}
+    {#{% block body_block %}#}
+    {##}
+    <section class="four wide column">
         <div class="ui card">
             <div class="image">
-{#                <img src="{% static "images/pp.jpeg" %}"#}
-{#                     alt="Foto do Flash"/>#}
-                <img src="{% media  profile.picture  %}"
-                     alt="Foto do Flash"/>
+                <img src="{% media profile.picture %}"
+                     alt="Foto do {{ profile.user }} "/>
             </div>
             <div class="content">
-                <a class="header"> {{ object.first_name }} {{ object.last_name }}</a>
-                <div class="meta">
-                    <span class="date"></span>
-                </div>
+                <a class="header"> {{ profile.user.username }}</a>
                 <div class="description">
                     {{ profile.description }}
                 </div>
+                <div class="extra content">
+                    <i class="icon"></i>
+                    {{ position }}º no Ranking
+                    <i class="icon"></i>
+                    {{ profile.points }} Pontos
+                </div>
             </div>
-            <div class="extra content">
-                <a>
-                    <i class="likes icon"></i>
-                    {{ profile.likes }} Likes
-                </a>
-            </div>
+{#            <button class="ui button">All category </button>#}
+{#                            <button class="ui button">All page</button>#}
+
         </div>
-
-
     </section>
 
+    <section class="four wide column">
+        <div class="ui celled list">
+            {% if categories %}
+                <h1>Top 5 categorias mais curtidas</h1>
+                {% for category in categories %}
+                    <div class="item">
+                        <i class="ui icon newspaper"></i>
+                        <div class="content">
+                            <div class="header">
+                                <a href="{% url 'category-detail' category.slug %}">{{ category.name|title }}</a>
+                                <a class="ui black circular label">{{ category.likes }}</a>
+                                <i class="thumbs outline up icon big right"></i>
+                                <a href="{% url 'user-detail' category.user %}"
+                                   class="ui black circular label">{{ category.user }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url 'user-category-list' category.user %}"><button class="ui button fluid">All category </button></a>
+
+                {% endfor %}
+            {% else %}
+                <strong>Não existem categorias cadastradas.</strong>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="four wide column">
+        <div class="ui celled list">
+            {% if pages %}
+                <h1>Top 5 páginas mais visitadas</h1>
+                {% for page in pages %}
+                    <div class="item">
+                        <i class="ui icon newspaper"></i>
+                        <div class="content">
+                            <div class="header">
+                                <a target=_blank href="{{ page.url }}">{{ page.title|title }}</a>
+
+                                <a class="ui black circular label">{{ page.views }}</a>
+
+
+                                <i class="thumbs outline up icon big right"></i>
+                                <a href="{% url 'user-detail' page.category.user %}"
+                                   class="ui black circular label">{{ page.category.user }}</a>
+
+                            </div>
+                        </div>
+                    </div>
+{#                <button class="ui button">All page</button>#}
+                <a href=""> <button class="ui button fluid">All page</button></a>
+                {% endfor %}
+            {% else %}
+                <strong>Não existem páginas cadastradas.</strong>
+            {% endif %}
+        </div>
+    </section>
+
+    {#{% endblock %}#}
 {% endblock %}
