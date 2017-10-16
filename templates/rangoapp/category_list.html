@@ -7,8 +7,10 @@ Adicionar Categoria
 
 
 {% block body_block %}
+    <section class="six wide column">
+    <h1>Listar categorias</h1>
     {% for object in object_list %}
     {{ object }}
-
     {% endfor %}
+    </section>
 {% endblock %}

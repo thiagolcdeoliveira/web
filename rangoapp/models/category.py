@@ -11,7 +11,9 @@ from django.template.defaultfilters import slugify
 class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
     views = models.IntegerField(default=0)
-    likes = models.ImageField(default=0)
+    likes = models.IntegerField(default=0)
+    user = models.ForeignKey(User)
+    is_private = models.BooleanField()
     slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):

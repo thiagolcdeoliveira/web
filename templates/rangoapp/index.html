@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load staticfiles system%}
 
 {% block title_block %}
     Sobre o Rango
@@ -7,59 +7,47 @@
 
 {% block body_block %}
 
-
-
-    <section class="four wide column"><h1>Rango diz:</h1>
-
-        Olá parceiro! <br/>
+    <section class="four wide column">
         <div class="ui card">
             <div class="image">
-                <img src="{% static "images/pp.jpeg" %}"
-                     alt="Foto do Flash"/>
-                <!--<img src="/images/avatar2/large/kristy.png">-->
+                 <img src="{% media profile.picture %}"
+                   alt="Foto do {{ profile.user }} "/>
             </div>
             <div class="content">
-                <a class="header"> Feito por {{ autor }}</a>
-                <div class="meta">
-                    <span class="date">Joined in 2013</span>
-                </div>
+                <a class="header"> {{ profile.user.username }}</a>
                 <div class="description">
-                    Kristy is an art director living in New York.
+                   {{ profile.description }}
                 </div>
             </div>
             <div class="extra content">
                 <a>
-                    <i class="user icon"></i>
-                    22 Friends
+                   <i class="icon"></i>
+                   {{ position }}º no Ranking
+                </a>
+                  <a>
+                   <i class="icon"></i>
+                   {{ profile.points }} Pontos
                 </a>
             </div>
         </div>
-
-
     </section>
 
     <section class="four wide column">
-
         <div class="ui celled list">
-
-
             {% if categories %}
                 <h1>Top 5 categorias mais curtidas</h1>
-
-
                 {% for category in categories %}
                     <div class="item">
                          <i class="ui icon newspaper"></i>
                         <div class="content">
-                            <div class="header"><a
-                                    href="{% url 'category-detail' category.slug %}">{{ category.name }}</a>
-                               <a class="ui teal circular label">2</a><a class="ui green circular label">2</a> ({{ category.likes }})<i class="thumbs outline up icon right"></i>
+                            <div class="header">
+                                <a href="{% url 'category-detail' category.slug %}">{{ category.name }}</a>
+                                   <a class="ui black circular label">{{ category.likes }}</a>
+                                <i class="thumbs outline up icon right"></i>
                             </div>
                         </div>
                     </div>
-
                 {% endfor %}
-
             {% else %}
                 <strong>Não existem categorias cadastradas.</strong>
             {% endif %}
@@ -68,7 +56,6 @@
 
     <section class="four wide column">
         <div class="ui celled list">
-
             {% if pages %}
                 <h1>Top 5 páginas mais visitadas</h1>
                 {% for page in pages %}
@@ -87,11 +74,4 @@
         </div>
     </section>
 
-
-
-
-
-    <!--<a href="{% url 'category-add' %}">Adicione uma nova categoria</a><br/>-->
-    <!--<img src="{% static "images/rango.jpg" %}"
-         alt="Foto do Rango"/>-->ccc
 {% endblock %}

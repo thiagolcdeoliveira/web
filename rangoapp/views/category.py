@@ -7,11 +7,26 @@ from rangoapp.models.category import Category
 from rangoapp.forms.category import CategoryForm
 from rangoapp.models.page import Page
 
-
 class CategoryListView(ListView):
     queryset = Category.objects.all()
 
+    def get_queryset(self):
+        queryset = super(CategoryListView, self).get_queryset()
+        queryset = queryset.filter(user=self.request.user)
+        return queryset
 
+class CategoryListByUserView(ListView):
+    queryset = Category.objects.all()
+    # slug_field = 'username'
+    # slug_url_kwarg = 'username'
+    #template_name =
+
+    def get_queryset(self):
+        queryset = super(CategoryListByUserView, self).get_queryset()
+        queryset = queryset.filter(is_private=False,user__username=self.kwargs["username"])
+        return queryset
+
+#permissao na categoory
 class CategoryDetailView(DetailView):
     queryset = Category.objects.all()
     slug_field = 'slug'
@@ -19,7 +34,6 @@ class CategoryDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(CategoryDetailView, self).get_context_data(**kwargs)
-        print(self.kwargs['category_name_slug'])
         context['pages'] = Page.objects.filter(category__slug=self.kwargs['category_name_slug'])
         return context
 
@@ -30,6 +44,7 @@ class CategoryCreateView(SuccessMessageMixin,CreateView):
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
+        self.object.user = self.request.user
         self.object.save()
         # messages.success(self.request, "Cadastrado com sucesso!", extra_tags='msg')
         return super(CategoryCreateView, self).form_valid(form)

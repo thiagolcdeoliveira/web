@@ -20,13 +20,13 @@ from django.conf.urls.static import static
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login, logout
 
-from rangoapp.views.views import index
+from rangoapp.views.index import IndexViews
 from registration.backends.simple.views import RegistrationView
 # class MyRegistrationView(RegistrationView):
 #       def get_success_url(self, request, user=None):
 #             return '/'
 urlpatterns = [
-      url(r'^$', index, name='home'),
+      url(r'^$', IndexViews.as_view(), name='home'),
       # url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
       # url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
       url(r'^admin/', admin.site.urls),

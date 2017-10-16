@@ -11,10 +11,11 @@ class CategoryForm(forms.ModelForm):
                            help_text="Nome da categoria.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+    is_private = forms.BooleanField(required=False)
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
     # paginas = forms.ModelChoiceField(queryset=User.objects.all(), widget=forms.Select(attrs={'class': 'ui dropdown'}))
 
     class Meta:
         model = Category
-        fields = ('name',)
+        fields = ('name','is_private')
 

@@ -25,10 +25,10 @@ def index(request):
     autor = 'Thiago'
     context_dict['bold_message'] = bold_message
     context_dict['autor'] = autor
-    category_list = Category.objects.order_by('-likes')[:5]
+    category_list = Category.objects.filter(is_private=False).order_by('-likes')[:5]
     context_dict['categories'] = category_list
 
-    page_list = Page.objects.order_by('-views')[:5]
+    page_list = Page.objects.filter(category__is_private=False).order_by('-views')[:5]
     context_dict['pages'] = page_list
 
     return render(request, 'rangoapp/index.html', context_dict)
