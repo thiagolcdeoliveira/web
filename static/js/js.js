@@ -7,7 +7,7 @@ $(document).ready(function () {
         });
     $('.ui.sidebar').sidebar({
         context: $('.pushable')
-    }).sidebar('attach events', '.menu .item')
+    }).sidebar('attach events', '.menu .item.sidebar-menu')
     ;
 
 });

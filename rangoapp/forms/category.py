@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from django import forms
+from django.contrib.auth.models import User
+
 from rangoapp.models.category import Category
 
 
@@ -10,6 +12,7 @@ class CategoryForm(forms.ModelForm):
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
+    # paginas = forms.ModelChoiceField(queryset=User.objects.all(), widget=forms.Select(attrs={'class': 'ui dropdown'}))
 
     class Meta:
         model = Category
