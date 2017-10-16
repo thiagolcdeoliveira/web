@@ -23,3 +23,5 @@
   * Criar uma virtualenv
     * mkvirtualenv <nome_projeto>
       * Após criada ela executara o ambiente virtual, porém nas próximas vezes será necessario executar o comando workon <nome_projeto>
+  * Instalar Postfix
+  * Instalar GetText
