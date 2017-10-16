@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     # 'jet.dashboard',
     # 'jet',
     'django.contrib.admin',
- #   'django.contrib.sites',
+   # 'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -51,9 +51,9 @@ INSTALLED_APPS = [
 
     #'applogin',
 ]
-#SITE_ID=1
+# SITE_ID=1
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 REGISTRATION_OPEN = True                # If True, users can register
 ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
 REGISTRATION_AUTO_LOGIN = True  # If True, the user will be automatically logged in.
@@ -61,14 +61,17 @@ LOGIN_REDIRECT_URL = '/'  # The page you want users to arrive at after they succ
 LOGIN_URL = '/accounts/login/'  # The page users are directed to if they are not logged in,
 REGISTRATION_EMAIL_HTML = False    # and are trying to access pages requiring authentication
 
-
+#
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = 1025
 # then i tried using my own address and smtp.live.com
 
-
+# if DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 # REGISTRATION_AUTO_LOGIN = True #
-# REGISTRATION_DEFAULT_FROM_EMAIL ="noreplay@starlabs.com"
-#REGISTRATION_DEFAULT_FROM_EMAIL ="thiagolocatellicdeoliveira@gmail.com"
+REGISTRATION_DEFAULT_FROM_EMAIL ="noreplay@starlabs.com"
+# REGISTRATION_DEFAULT_FROM_EMAIL ="thiagolocatellicdeoliveira@gmail.com"
 #
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
