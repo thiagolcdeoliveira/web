@@ -9,6 +9,9 @@ $(document).ready(function () {
         context: $('.pushable')
     }).sidebar('attach events', '.menu .item.sidebar-menu')
     ;
+// $('.ui.sidebar').first()
+//   .sidebar('attach events', '.menu .item.sidebar-menu')
+// ;
 
 });
 
