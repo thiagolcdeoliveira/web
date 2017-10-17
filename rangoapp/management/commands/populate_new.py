@@ -3,7 +3,8 @@
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import Group
 from django.contrib.auth.hashers import make_password
-from rangoapp.models import *
+from rangoapp.models.category import *
+from rangoapp.models.page import *
 import csv
 #from django.
 import hashlib
