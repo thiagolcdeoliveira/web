@@ -6,7 +6,10 @@ Sobre o Rango
 {% endblock title_block %}
 
 {% block body_block %}
-<section class="six wide column">
+{#<section class="six wide column">#}
+    <section class="ui six wide column">
+        <h1 class="ui header ">Detalhes da categoria</h1>
+        <div class="ui  divider "></div>
 {% include 'includes/message.html' %}
     {% if object %}
         <h1>{{ object.name }}</h1>
@@ -33,5 +36,6 @@ Sobre o Rango
 {#<a href="/rango/category/{{object.slug}}/page/cadastrar/">Adicionar página em {{ object.name }}</a> <br/>#}
     <a href="{% url 'page-add' object.slug %}"><button class="ui button fluid">Adicionar página em {{ object.name }}</button></a>
 {#    <a href="{% url "home" %}">Home</a><br />#}
+    </section>
     </section>
 {% endblock %}

@@ -4,15 +4,18 @@
     Register
 {% endblock %}
 {% block body_block %}
-    <h1>Register for Rango</h1>
-    {% include 'includes/message.html' %}
+    <section class="ui twelve wide column">
+        <h1 class="ui header ">Register for Rango</h1>
+        <div class="ui  divider "></div>
+        {#    <h1>Register for Rango</h1>#}
+        {% include 'includes/message.html' %}
 
-{#    {% if registered %}#}
-{#        Rango says: <strong>thank you for registering!</strong>#}
-{#        <a href="{% url 'home' %}">Return to the homepage.</a><br/>#}
-{#    {% else %}#}
+        {#    {% if registered %}#}
+        {#        Rango says: <strong>thank you for registering!</strong>#}
+        {#        <a href="{% url 'home' %}">Return to the homepage.</a><br/>#}
+        {#    {% else %}#}
         Rango says: <strong>register here!</strong><br/>
-{#        <form id="user_form" method="post" action="{% url 'user-add' %}"#}
+        {#        <form id="user_form" method="post" action="{% url 'user-add' %}"#}
         <form id="user_form" method="post" action=""
               enctype="multipart/form-data">
             {% csrf_token %}
@@ -22,5 +25,6 @@
             <!-- Provide a button to click to submit the form. -->
             <input type="submit" name="submit" value="Register"/>
         </form>
-{#    {% endif %}#}
+        {#    {% endif %}#}
+    </section>
 {% endblock %}

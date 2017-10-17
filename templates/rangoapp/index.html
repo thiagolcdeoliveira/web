@@ -6,82 +6,87 @@
 {% endblock title_block %}
 
 {% block body_block %}
+    <section class="ui twelve wide column">
+        <h1 class="ui header ">Home</h1>
+        <div class="ui  divider "></div>
+        <section class="ui relaxed stackable column grid row">
 
-    <section class="four wide column">
-        <div class="ui card">
-            <div class="image">
-                <img src="{% media profile.picture %}"
-                     alt="Foto do {{ profile.user }} "/>
-            </div>
-            <div class="content">
-                <a class="header"> {{ profile.user.username }}</a>
-                <div class="description">
-                    {{ profile.description }}
-                </div>
-            </div>
-            <div class="extra content">
-                <a>
-                    <i class="icon"></i>
-                    {{ position }}º no Ranking
-                </a>
-                <a>
-                    <i class="icon"></i>
-                    {{ profile.points }} Pontos
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="four wide column">
-        <div class="ui celled list">
-            {% if categories %}
-                <h1>Top 5 categorias mais curtidas</h1>
-                {% for category in categories %}
-                    <div class="item">
-                        <i class="ui icon newspaper"></i>
-                        <div class="content">
-                            <div class="header">
-                                <a href="{% url 'category-detail' category.slug %}">{{ category.name|title }}</a>
-                                <a class="ui black circular label">{{ category.likes }}</a>
-                                <i class="thumbs outline up icon big right"></i>
-                                <a href="{% url 'user-detail' category.user %}"
-                                   class="ui black circular label">{{ category.user }}</a>
-                            </div>
+            <section class="five wide column">
+                <div class="ui card">
+                    <div class="image">
+                        <img src="{% media profile.picture %}"
+                             alt="Foto do {{ profile.user }} "/>
+                    </div>
+                    <div class="content">
+                        <a class="header"> {{ profile.user.username }}</a>
+                        <div class="description">
+                            {{ profile.description }}
                         </div>
                     </div>
-                {% endfor %}
-            {% else %}
-                <strong>Não existem categorias cadastradas.</strong>
-            {% endif %}
-        </div>
-    </section>
+                    <div class="extra content">
+                        <a>
+                            <i class="icon"></i>
+                            {{ position }}º no Ranking
+                        </a>
+                        <a>
+                            <i class="icon"></i>
+                            {{ profile.points }} Pontos
+                        </a>
+                    </div>
+                </div>
+            </section>
 
-    <section class="four wide column">
-        <div class="ui celled list">
-            {% if pages %}
-                <h1>Top 5 páginas mais visitadas</h1>
-                {% for page in pages %}
-                    <div class="item">
-                        <i class="ui icon newspaper"></i>
-                        <div class="content">
-                            <div class="header">
-                                <a target=_blank href="{{ page.url }}">{{ page.title|title }}</a>
-
-                                <a class="ui black circular label">{{ page.views }}</a>
-
-
-                                <i class="thumbs outline up icon big right"></i>
-
-                                <a href="{% url 'user-detail' page.category.user %}"
-                                   class="ui black circular label">{{ page.category.user }}</a>
-
+            <section class="five wide column">
+                <div class="ui celled list">
+                    {% if categories %}
+                        <h1>Top 5 categorias mais curtidas</h1>
+                        {% for category in categories %}
+                            <div class="item">
+                                <i class="ui icon newspaper"></i>
+                                <div class="content">
+                                    <div class="header">
+                                        <a href="{% url 'category-detail' category.slug %}">{{ category.name|title }}</a>
+                                        <a class="ui black circular label">{{ category.likes }}</a>
+                                        <i class="thumbs outline up icon big right"></i>
+                                        <a href="{% url 'user-detail' category.user %}"
+                                           class="ui black circular label">{{ category.user }}</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>  {% endfor %}
-            {% else %}
-                <strong>Não existem páginas cadastradas.</strong>
-            {% endif %}
-        </div>
-    </section>
+                        {% endfor %}
+                    {% else %}
+                        <strong>Não existem categorias cadastradas.</strong>
+                    {% endif %}
+                </div>
+            </section>
 
+            <section class="five wide column">
+                <div class="ui celled list">
+                    {% if pages %}
+                        <h1>Top 5 páginas mais visitadas</h1>
+                        {% for page in pages %}
+                            <div class="item">
+                                <i class="ui icon newspaper"></i>
+                                <div class="content">
+                                    <div class="header">
+                                        <a target=_blank href="{{ page.url }}">{{ page.title|title }}</a>
+
+                                        <a class="ui black circular label">{{ page.views }}</a>
+
+
+                                        <i class="thumbs outline up icon big right"></i>
+
+                                        <a href="{% url 'user-detail' page.category.user %}"
+                                           class="ui black circular label">{{ page.category.user }}</a>
+
+                                    </div>
+                                </div>
+                            </div>  {% endfor %}
+                    {% else %}
+                        <strong>Não existem páginas cadastradas.</strong>
+                    {% endif %}
+                </div>
+            </section>
+        </section>
+    </section>
 {% endblock %}
