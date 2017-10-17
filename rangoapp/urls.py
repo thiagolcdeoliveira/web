@@ -39,6 +39,9 @@ urlpatterns = [
         name='user-detail'),
     url(r'^user/(?P<username>[\w\-]+)/category/listar/$', CategoryListByUserView.as_view(),
         name='user-category-list'),
+
+    # url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
+
     # url(r'^user/(?P<user_name_slug>[\w\-]+)/editar/$', UserUpdateView.as_view(), name='user-update'),
     # url(r'^user/(?P<user_name_slug>[\w\-]+)/excluir/$', UserDeleteView.as_view(), name='user-delete'),
     # url(r'^user/listar/$', UserListView.as_view(), name='user-list'),

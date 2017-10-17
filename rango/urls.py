@@ -25,6 +25,8 @@ from registration.backends.simple.views import RegistrationView
 # class MyRegistrationView(RegistrationView):
 #       def get_success_url(self, request, user=None):
 #             return '/'
+from rangoapp.views.user import MyRegistrationView
+
 urlpatterns = [
       url(r'^$', IndexViews.as_view(), name='home'),
       # url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
@@ -36,5 +38,7 @@ urlpatterns = [
       url(r'', include('social.apps.django_app.urls', namespace='social')),
       url(r'', include('django.contrib.auth.urls', namespace='auth')),
       # url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
+      url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
+
       url(r'^accounts/', include('registration.backends.default.urls')),
       ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
