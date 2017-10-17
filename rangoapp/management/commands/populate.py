@@ -31,7 +31,7 @@ class Command(BaseCommand):
                                         # url=row["url"],
                                         # views=row['views']
                                         is_private = False,
-                                        user=User.object.get(username='thiago')
+                                        user=User.objects.get(username='thiago')
                                         
 
                                         )
