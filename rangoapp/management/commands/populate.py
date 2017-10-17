@@ -10,6 +10,9 @@ import csv
 #from django.
 import hashlib
 
+from rangoapp.models.user_profile import UserProfile
+
+
 class Command(BaseCommand):
     args = '<foo bar ...>'
     help = '''Deve conter um csv intitulado "csv/aginas.csv" na raiz do projeto.'
@@ -20,6 +23,25 @@ class Command(BaseCommand):
            "views"
            ".'''
 
+    def _create_user(self):
+        with open('csv/paginas.csv') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if not User.objects.filter(username=row['user']):
+                    user = User(
+                        username=row["user"],
+                    )
+                    user=user.save()
+                # if not UserProfile.objects.filter(user=user):
+                    userprofile = UserProfile(
+                        user=user,
+                        description="Speed Force",
+                        picture="bartholomew.jpg",
+                        points=0
+
+
+                    )
+                    userprofile.save()
 
     def _create_category(self):
         with open('csv/paginas.csv') as csvfile:
@@ -32,7 +54,7 @@ class Command(BaseCommand):
                                         # url=row["url"],
                                         # views=row['views']
                                         is_private = False,
-                                        user=User.objects.get(username='thiago')
+                                        user=User.objects.get(username=row['user'])
                                         
 
                                         )
@@ -55,5 +77,6 @@ class Command(BaseCommand):
 
 
     def handle(self, *args, **options):
+        self._create_user()
         self._create_category()
         self._create_page()
