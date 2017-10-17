@@ -30,6 +30,7 @@ class Command(BaseCommand):
                                         name=row["category"],
                                         # url=row["url"],
                                         # views=row['views']
+                                        is_private = False
 
                                         )
                     category.save()

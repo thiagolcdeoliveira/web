@@ -30,6 +30,7 @@ class Command(BaseCommand):
                                         name=row["name"],
                                         views=row["views"],
                                         likes=row["likes"],
+                                        is_private = False
                                         # url=row["url"],
                                         # views=row['views']
 
