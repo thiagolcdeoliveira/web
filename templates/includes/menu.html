@@ -26,13 +26,13 @@
     Menu
   </a></li><ul class="right menu">
      {% if user.is_authenticated %}
-            <li><a class="item {% block active_logout %}{% endblock active_logout %} right aligned" href="{% url 'logout' %}"><i
+            <li><a class="item {% block active_logout %}{% endblock active_logout %} right aligned" href="{% url 'auth_logout' %}"><i
                     class="ui sign in icon"></i>Logout</a></li>
             <li class="item disabled">{{ user|title }}</li>
         {% else %}
 
 
-            <li><a class="item {% block active_login %}{% endblock active_login %} right aligned" href="{% url 'login' %}"><i
+            <li><a class="item {% block active_login %}{% endblock active_login %} right aligned" href="{% url 'auth_login' %}"><i
                     class="ui sign in icon"></i>Login</a></li>
             <li class="item disabled">Você não está autenticado.</li>
         {% endif %}

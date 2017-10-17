@@ -59,6 +59,7 @@ ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, us
 REGISTRATION_AUTO_LOGIN = True  # If True, the user will be automatically logged in.
 LOGIN_REDIRECT_URL = '/'  # The page you want users to arrive at after they successful log in
 LOGIN_URL = '/accounts/login/'  # The page users are directed to if they are not logged in,
+LOGOUT_URL = '/accounts/logout/'  # The page users are directed to if they are not logged in,
 REGISTRATION_EMAIL_HTML = False    # and are trying to access pages requiring authentication
 
 #
@@ -154,6 +155,7 @@ USE_TZ = True
 
 # LOGIN_REDIRECT_URL = '/'
 # LOGOUT_REDIRECT_URL = 'auth_logout'
+# LOGOUT_REDIRECT_URL = '/accounts/logout/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
