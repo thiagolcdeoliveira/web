@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth.models import User
 
 from rangoapp.models.user_profile import UserProfile
-from registration.forms import RegistrationFormUniqueEmail, RegistrationForm
+from registration.forms import RegistrationFormUniqueEmail, RegistrationForm, RegistrationFormNoFreeEmail
 
 
 class UserForm(forms.ModelForm):
@@ -17,13 +17,12 @@ class UserForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('website', 'picture')
+        fields = ('description','website', 'picture')
 
 
 
 
-class UserProfileRegistrationForm(RegistrationFormUniqueEmail):
-    # field = forms.CharField()
+class UserProfileRegistrationForm(RegistrationFormNoFreeEmail):
 
     class Meta:
         model = UserProfile

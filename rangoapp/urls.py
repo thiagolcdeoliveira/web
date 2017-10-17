@@ -1,4 +1,6 @@
 from django.conf.urls import url
+
+from rangoapp.views.user_profile import *
 from rangoapp.views.views import *
 from rangoapp.views.category import *
 from rangoapp.views.page import *
@@ -45,5 +47,6 @@ urlpatterns = [
     # url(r'^user/(?P<user_name_slug>[\w\-]+)/editar/$', UserUpdateView.as_view(), name='user-update'),
     # url(r'^user/(?P<user_name_slug>[\w\-]+)/excluir/$', UserDeleteView.as_view(), name='user-delete'),
     # url(r'^user/listar/$', UserListView.as_view(), name='user-list'),
+    url(r'^userprofile/cadastrar/$', UserProfileCreateView.as_view(), name='user-profile-add'),
 
 ]

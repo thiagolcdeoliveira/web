@@ -38,7 +38,7 @@ urlpatterns = [
       url(r'', include('social.apps.django_app.urls', namespace='social')),
       url(r'', include('django.contrib.auth.urls', namespace='auth')),
       # url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
-      url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
+      # url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
 
       url(r'^accounts/', include('registration.backends.default.urls')),
       ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

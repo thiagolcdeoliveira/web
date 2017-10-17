@@ -89,9 +89,10 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{% url 'user-category-list' category.user %}"><button class="ui button fluid">All category </button></a>
 
                 {% endfor %}
+                <a href="{% url 'user-category-list' user %}"><button class="ui button fluid">All category </button></a>
+
             {% else %}
                 <strong>Não existem categorias cadastradas.</strong>
             {% endif %}
@@ -120,8 +121,9 @@
                         </div>
                     </div>
 {#                <button class="ui button">All page</button>#}
-                <a href=""> <button class="ui button fluid">All page</button></a>
                 {% endfor %}
+                                <a href=""> <button class="ui button fluid">All page</button></a>
+
             {% else %}
                 <strong>Não existem páginas cadastradas.</strong>
             {% endif %}

@@ -10,8 +10,9 @@
             <li><a class="item {% block active_logout %}{% endblock active_logout %}" href="{% url 'logout' %}"><i
                     class="ui sign in icon"></i>Logout</a></li>
             <li class="item disabled">{{ user|title }}</li>
+
         {% else %}
-            <li><a class="item {% block active_register %}{% endblock active_register %}" href="{% url 'user-add' %}"><i
+            <li><a class="item {% block active_register %}{% endblock active_register %}" href="{% url 'registration_register' %}"><i
                     class="ui sign in icon"></i>Registre-se</a></li>
 
             <li><a class="item {% block active_login %}{% endblock active_login %}" href="{% url 'login' %}"><i
