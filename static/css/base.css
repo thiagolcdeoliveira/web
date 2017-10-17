@@ -23,7 +23,7 @@ ul.list > li.item:before {
 ul.list {
     margin-left: 2px !important;
 }
-ul.ui.menu, article > ul.list > li.item {
+ul.ui.menu, article > ul.list > li.item,ul.right.menu > li  {
     list-style: none;
     padding: 0;
 
@@ -31,10 +31,19 @@ ul.ui.menu, article > ul.list > li.item {
 .ui.bottom.attached.segment.pushable{
     border: none;
 }
+/*ul.right.menu > li  {*/
+      /*list-style: none;*/
+/*}*/
+
 .errorlist > li{
     list-style: none;
     padding: 0;
     margin-left: -30px;
     margin-top: -10px;
     margin-bottom:-10px;
+}
+ul.ui.menu, article > ul.list > li.item {
+    list-style: none;
+    padding: 0;
+
 }
