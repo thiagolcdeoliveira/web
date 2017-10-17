@@ -11,9 +11,9 @@ class UserProfile(models.Model):
 
     website = models.URLField(blank=True)
     picture = models.ImageField(upload_to='profile_images', blank=True)
-    points  = models.IntegerField(default=0)
+    points  = models.FloatField(default=0)
     description  = models.CharField(max_length=200)
-
+    # friends = models.ManyToManyField(User)
     def __str__(self):
         return self.user.username
     def get_absolute_url(self):

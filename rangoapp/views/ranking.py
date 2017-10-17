@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 from rangoapp.models.category import Category
 from rangoapp.models.page import  Page
 from rangoapp.models.user_profile import UserProfile
-
-
+from rangoapp.models.category import Category
+# from
 
 
 def calculatePosition(points):
@@ -16,3 +16,22 @@ def calculatePosition(points):
     print(user[0].points)
     return  position[0]+1
 
+def addPointsCategory(user):
+    profile=UserProfile.objects.get(user=user)
+    profile.points+=0.2
+    profile.save()
+
+def addPointsPage(user):
+    profile=UserProfile.objects.get(user=user)
+    profile.points+=0.5
+    profile.save()
+
+def addPointsLikes(user):
+    profile=UserProfile.objects.get(user=user)
+    profile.points+=0.5
+    profile.save()
+
+def addPointsFriends(user):
+    profile=UserProfile.objects.get(user=user)
+    profile.points+=0.3
+    profile.save()

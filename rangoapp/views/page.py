@@ -7,6 +7,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from rangoapp.forms.page import PageForm
 from rangoapp.models.category import Category
 from rangoapp.models.page import Page
+from rangoapp.views.ranking import addPointsPage
 
 
 class PageListView(ListView):
@@ -22,6 +23,7 @@ class PageCreateView(SuccessMessageMixin,CreateView):
         self.object = form.save(commit=False)
         self.object.category=get_object_or_404(Category,slug=self.kwargs["category_name_slug"])
         self.object.save()
+        addPointsPage(self.request.user)
         # messages.success(self.request, "Cadastrado com sucesso!", extra_tags='msg')
         return super(PageCreateView, self).form_valid(form)
 

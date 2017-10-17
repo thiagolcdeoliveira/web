@@ -50,9 +50,10 @@ urlpatterns = [
       # url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
       # url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
 
-      url(r'^accounts/', include('registration.backends.default.urls')),  url(r'^', handle404, name='404'),
-    url(r'^', handle403, name='403'),
-    url(r'^', handle500, name='500'),
+      url(r'^accounts/', include('registration.backends.default.urls')),
+      # url(r'^', handle404, name='404'),
+      # url(r'^', handle403, name='403'),
+      # url(r'^', handle500, name='500'),
 
 
       ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

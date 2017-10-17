@@ -6,6 +6,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 from rangoapp.models.category import Category
 from rangoapp.forms.category import CategoryForm
 from rangoapp.models.page import Page
+from rangoapp.views.ranking import addPointsCategory
+
 
 class CategoryListView(ListView):
     queryset = Category.objects.all()
@@ -45,6 +47,8 @@ class CategoryCreateView(SuccessMessageMixin,CreateView):
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.user = self.request.user
+        if not self.object.is_private:
+            addPointsCategory(self.request.user)
         self.object.save()
         # messages.success(self.request, "Cadastrado com sucesso!", extra_tags='msg')
         return super(CategoryCreateView, self).form_valid(form)
