@@ -2,6 +2,7 @@
 
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import Group
+from django.contrib.auth.models import user
 from django.contrib.auth.hashers import make_password
 from rangoapp.models.category import *
 from rangoapp.models.page import *
@@ -31,6 +32,7 @@ class Command(BaseCommand):
                                         views=row["views"],
                                         likes=row["likes"],
                                         is_private = False
+                                        user=User.objects.get(username='thiago')
                                         # url=row["url"],
                                         # views=row['views']
 

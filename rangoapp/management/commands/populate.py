@@ -30,7 +30,9 @@ class Command(BaseCommand):
                                         name=row["category"],
                                         # url=row["url"],
                                         # views=row['views']
-                                        is_private = False
+                                        is_private = False,
+                                        user=User.object.get(username='thiago')
+                                        
 
                                         )
                     category.save()
