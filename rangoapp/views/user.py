@@ -36,7 +36,6 @@ class MyRegistrationView(RegistrationView):
     def register(self, form_class):
         new_user = super(MyRegistrationView, self).register(form_class)
 
-        new_user = new_user
         user_profile = UserProfile()
         user_profile.user = new_user
         user_profile.website = form_class.cleaned_data['wibsite']
