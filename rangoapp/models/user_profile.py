@@ -13,7 +13,7 @@ class UserProfile(models.Model):
     picture = models.ImageField(upload_to='profile_images', blank=True)
     points  = models.FloatField(default=0)
     description  = models.CharField(max_length=200)
-    # friends = models.ManyToManyField(User)
+    friends = models.ManyToManyField(User, related_name='friends')
     def __str__(self):
         return self.user.username
     def get_absolute_url(self):
