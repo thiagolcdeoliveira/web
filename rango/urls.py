@@ -19,6 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login, logout
+from django.shortcuts import render
 
 from rangoapp.views.index import IndexViews
 from registration.backends.simple.views import RegistrationView
@@ -26,7 +27,16 @@ from registration.backends.simple.views import RegistrationView
 #       def get_success_url(self, request, user=None):
 #             return '/'
 from rangoapp.views.user import MyRegistrationView
+def handle404(request):
+    return render(request, '404.html', {})
 
+
+def handle403(request):
+    return render(request, '403.html', {})
+
+
+def handle500(request):
+    return render(request, '500.html', {})
 urlpatterns = [
       url(r'^$', IndexViews.as_view(), name='home'),
       # url(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
@@ -40,5 +50,9 @@ urlpatterns = [
       # url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
       # url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
 
-      url(r'^accounts/', include('registration.backends.default.urls')),
+      url(r'^accounts/', include('registration.backends.default.urls')),  url(r'^', handle404, name='404'),
+    url(r'^', handle403, name='403'),
+    url(r'^', handle500, name='500'),
+
+
       ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
