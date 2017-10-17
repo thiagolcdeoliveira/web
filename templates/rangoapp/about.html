@@ -6,16 +6,98 @@ Sobre o Rango
 {% endblock title_block %}
 
 {% block body_block %}
-<h1>Sobre o <a href="{% url 'home' %}">Rango</a><br /></h1>
-<div>
+      <section class="ui twelve wide column">
+        <h1 class="ui header ">Sobre - Sobre o <a href="{% url 'home' %}">Rango</a></h1>
+        <div class="ui  divider "></div>
+{#<h1>Sobre o <a href="{% url 'home' %}">Rango</a><br /></h1>#}
+<div class="ui row segment basic">
     O rango é uma aplicação para o gerenciamento de sites, feito em Django e utilizado nas aulas de Desenvolvimento Web 2.
+    Perfil dos desenvolvedores abaixo.
 </div>
-<div>
-    <div><img src="{% static "images/pp.jpeg" %}" alt="Foto do Flash" /></div>
-    <div><img src="/media/bartholomew.jpg" alt="Foto do Bartholomew" /></div>
+<div class="ui link cards">
+  <div class="card">
+    <div class="image">
+        <img src="{% static "images/pp.jpeg" %}" alt="Foto do Flash" />
+{#      <img src="/images/avatar2/large/matthew.png">#}
+    </div>
+    <div class="content">
+      <div class="header">Bartholomew Henry Alen I</div>
+      <div class="meta">
+        <a>Friends</a>
+      </div>
+      <div class="description">
+        Popularmente conecido com Barry Allen.
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+          1956–1985, 2008–N
+      </span>
+      <span>
+        <i class="user icon"></i>
+        Mais de 8000
+      </span>
+    </div>
+  </div>
+    <div class="card">
+    <div class="image">
+{#        <img src="/media/bartholomew.jpg" alt="Foto do Bartholomew" />#}
+{#    <div class="image">#}
+                <img src="{% static 'images/pp.jpeg' %}" alt="Foto do Bartholomew" />
+
+{#        <img src="{% static "images/pp.jpeg" %}" alt="Foto do Bartholomew" />#}
+
+{#      <img src="/images/avatar2/large/matthew.png">#}
+    </div>
+    <div class="content">
+      <div class="header">Wally West</div>
+      <div class="meta">
+        <a>Friends</a>
+      </div>
+      <div class="description">
+        kid Flash.
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+       1986–2011, 2016-N
+      </span>
+      <span>
+        <i class="user icon"></i>
+        Mais de 8000
+      </span>
+    </div>
+  </div><div class="card">
+    <div class="image">
+{#      <img src="/images/avatar2/large/matthew.png">#}
+        <img src="{% static "/media/bartholomew.jpg" %}" alt="Foto do Flash" />
+{#    <img src="/media/bartholomew.jpg" alt="Foto do Bartholomew" />#}
+    </div>
+    <div class="content">
+      <div class="header">Bartholomew herny Allen II</div>
+      <div class="meta">
+        <a>Friends</a>
+      </div>
+      <div class="description">
+        Popularmente conhecido como Bart Allen.
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        2006–2007
+      </span>
+      <span>
+        <i class="user icon"></i>
+        Mais de 8000
+      </span>
+    </div>
+  </div>
 </div>
-</hr>
+{#    <div><img src="{% static "images/pp.jpeg" %}" alt="Foto do Flash" /></div>#}
+{#    <div><img src="/media/bartholomew.jpg" alt="Foto do Bartholomew" /></div>#}
+
 <div>
     Desenvolvido por {{ autor }}
 </div>
+      </section>
 {% endblock body_block %}
