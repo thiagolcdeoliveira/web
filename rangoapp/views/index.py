@@ -11,7 +11,8 @@ from rangoapp.models.category import Category
 from rangoapp.models.page import  Page
 from rangoapp.models.user_profile import UserProfile
 from rangoapp.views.ranking import calculatePosition
-
+from datetime import datetime
+from rangoapp.views.visitor import visitor_cookie_handler
 @method_decorator(login_required,name='dispatch')
 class IndexViews(View):
     context = {}
@@ -22,5 +23,7 @@ class IndexViews(View):
         self.context['pages'] = Page.objects.filter(category__is_private=False).order_by('-views')[:5]
         self.context['profile'] = get_object_or_404(UserProfile,user=request.user)
         self.context['position'] = calculatePosition(self.context['profile'].points)
+        visitor_cookie_handler(request)
+        self.context['visits'] = request.session["visits"]
         return render(request, self.template, self.context)
 
