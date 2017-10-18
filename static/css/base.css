@@ -47,3 +47,6 @@ ul.ui.menu, article > ul.list > li.item {
     padding: 0;
 
 }
+.thumbs.down.icon.big,.thumbs.up.icon.big{
+color: #1B1C1D;
+}

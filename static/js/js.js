@@ -21,7 +21,9 @@ function setLike(category) {
     var method = 'GET';
     var url = '/rango/category/like/';
     var data = category;
-    var acategory
+    var likecategory;
+    var acategory;
+    var category;
     $.ajax({
         type: method,
         url: url,
@@ -31,10 +33,22 @@ function setLike(category) {
             var likes = data.likes;
             if (message == true) {
 
-                $('#category-' + category).removeClass('outline');
-                acategory= $('#a-category-likes-' + category)
-                acategory.text(likes);
-                acategory.on("removeLike("+category+")");
+                // $('#category-' + category).removeClass('outline');
+                category=$('#js-icon-category-' + category);
+                category.removeClass('up outline');
+                category.addClass('down');
+                likecategory= $('#js-count-likes-' + category);
+                likecategory.text(likes);
+                // acategory.changeonclick=removeLike(category);
+                // acategory.onclick=function() { removeLike(category); };
+                // acategory.setAttribute('onclick',"'removeLike("+category+")'");
+                // acategory = $('#js-a-category-' + category);
+                // acategory.onclick=function() { removeLike(category); };
+                // acategory.change=function() { removeLike(category); };
+                // acategory.text("bbblabal");
+                // acategory.onclick=function() { removeLike(category); };
+
+                // acategory.setAttribute('onclick','removeLike()');
                 //this.text(likes);
                 // $('#a-category-likes-' + category).onRemoveClick();
             }
@@ -53,7 +67,7 @@ function removeLike(category) {
     var method = 'GET';
     var url = '/rango/category/remove/like/';
     var data = category;
-
+    var category;
     $.ajax({
         type: method,
         url: url,
@@ -63,13 +77,16 @@ function removeLike(category) {
             var likes = data.likes;
             if (message == true) {
                 // alert("true");
-                $('#category-' + category).addClass('outline');
-                $('#a-category-likes-' + category).text(likes);
+                category=$('#js-icon-category-' + category);
+                category.removeClass('down');
+                category.addClass('up outline');
+                // $('#js-icon-category-' + category).addClass('outline');
+                $('#js-count-likes-' + category).text(likes);
             }
 
         },
         error: function (data) {
-            $('#category-' + category).removeClass('error');
+            $('#js-category-' + category).removeClass('error');
         }
     });
     return false;
