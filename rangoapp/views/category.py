@@ -95,7 +95,10 @@ def set_like(request):
         category = get_object_or_404(Category, slug=category_slug)
         profile.category_like.add(category)
         addPointsLike(category.user)
+        category.likes+=1
+        category.save()
         data["message"]=True
+        data['likes'] = category.likes
     else:
         data["message"]=False
 
@@ -117,8 +120,12 @@ def remove_like(request):
     if  category:
         # category = get_object_or_404(Category, slug=category_slug)
         profile.category_like.remove(category)
+        category.likes-=1
+        category.save()
+        profile.save()
         removePointsLike(category.user)
         data["message"]=True
+        data['likes'] = category.likes
     else:
         data["message"]=False
 

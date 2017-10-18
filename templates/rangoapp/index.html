@@ -18,7 +18,7 @@
                              alt="Foto do {{ profile.user }} "/>
                     </div>
                     <div class="content">
-                        <a class="header"> {{ profile.user.username }}</a>
+                        <a class="header" id="username-ranking"> {{ profile.user.username }}</a>
                         <div class="description">
                             {{ profile.description }}
                         </div>
@@ -46,8 +46,8 @@
                                 <div class="content">
                                     <div class="header">
                                         <a href="{% url 'category-detail' category.slug %}">{{ category.name|title }}</a>
-                                        <a class="ui black circular label">{{ category.likes }}</a>
-                                        {% if  category  not in profile.category_like  %}
+                                        <a id="a-category-likes-{{ category.slug }}" class="ui black circular label">{{ category.likes }}</a>
+                                        {% if  category  not in profile.category_like.all  %}
                                         <a href="#" id="a-category-{{ category.slug }}"  onclick="setLike('{{category.slug}}')"><i id="category-{{ category.slug }}" class="thumbs outline up icon big right" ></i></a>
                                         {% else %}
 {#                                        <a href="#" id="a-category-{{ category.slug }}"  onclick="setLike('{{category.slug}}')"><i id="category-{{ category.slug }}" class="thumbs outline up icon big right" ></i></a>#}

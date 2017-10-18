@@ -17,7 +17,7 @@ $(document).ready(function () {
 
 
 function setLike(category) {
-    alert(category);
+    // alert(category);
     var method = 'GET';
     var url = '/rango/category/like/';
     var data = category;
@@ -25,31 +25,27 @@ function setLike(category) {
     $.ajax({
         type: method,
         url: url,
-        data: {'category':data},
+        data: {'category': data},
         success: function (data) {
             var message = data.message;
-            if (message == true){
-                // alert("true");
-                $('#category-'+category).removeClass('outline');
-                // $('#a-category-'+category).addClass('disable');
-            }
-            // else{
-                 // alert('false');
-            // }
+            var likes = data.likes;
+            if (message == true) {
 
-            // $('#category-'+category).toggleClass('up' ,'');
+                $('#category-' + category).removeClass('outline');
+                $('#a-category-likes-' + category).text(likes);
+            }
+
 
         },
         error: function (data) {
-            // alert('false');
-           $('#category-'+category).removeClass('error');
+            $('#category-' + category).removeClass('error');
         }
     });
     return false;
 }
 
 function removeLike(category) {
-    alert(category);
+    // alert(category);
     var method = 'GET';
     var url = '/rango/category/remove/like/';
     var data = category;
@@ -57,24 +53,19 @@ function removeLike(category) {
     $.ajax({
         type: method,
         url: url,
-        data: {'category':data},
+        data: {'category': data},
         success: function (data) {
             var message = data.message;
-            if (message == true){
+            var likes = data.likes;
+            if (message == true) {
                 // alert("true");
-                $('#category-'+category).addClass('outline');
-                // $('#a-category-'+category).addClass('disable');
+                $('#category-' + category).addClass('outline');
+                $('#a-category-likes-' + category).text(likes);
             }
-            // else{
-                 // alert('false');
-            // }
-
-            // $('#category-'+category).toggleClass('up' ,'');
 
         },
         error: function (data) {
-            // alert('false');
-           $('#category-'+category).removeClass('error');
+            $('#category-' + category).removeClass('error');
         }
     });
     return false;
