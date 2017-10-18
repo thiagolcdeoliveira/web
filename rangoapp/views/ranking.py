@@ -26,9 +26,14 @@ def addPointsPage(user):
     profile.points+=0.5
     profile.save()
 
-def addPointsLikes(user):
+def addPointsLike(user):
     profile=UserProfile.objects.get(user=user)
     profile.points+=0.5
+    profile.save()
+
+def removePointsLike(user):
+    profile=UserProfile.objects.get(user=user)
+    profile.points-=0.5
     profile.save()
 
 def addPointsFriends(user):

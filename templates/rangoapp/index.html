@@ -47,7 +47,13 @@
                                     <div class="header">
                                         <a href="{% url 'category-detail' category.slug %}">{{ category.name|title }}</a>
                                         <a class="ui black circular label">{{ category.likes }}</a>
-                                        <i class="thumbs outline up icon big right"></i>
+                                        {% if  category  not in profile.category_like  %}
+                                        <a href="#" id="a-category-{{ category.slug }}"  onclick="setLike('{{category.slug}}')"><i id="category-{{ category.slug }}" class="thumbs outline up icon big right" ></i></a>
+                                        {% else %}
+{#                                        <a href="#" id="a-category-{{ category.slug }}"  onclick="setLike('{{category.slug}}')"><i id="category-{{ category.slug }}" class="thumbs outline up icon big right" ></i></a>#}
+                                        <a href="#" id="a-category-{{ category.slug }}"  onclick="removeLike('{{category.slug}}')"><i id="category-{{ category.slug }}" class="thumbs  up icon big right" ></i></a>
+
+                                        {% endif %}
                                         <a href="{% url 'user-detail' category.user %}"
                                            class="ui black circular label">{{ category.user }}</a>
                                     </div>
@@ -74,7 +80,7 @@
                                         <a class="ui black circular label">{{ page.views }}</a>
 
 
-                                        <i class="thumbs outline up icon big right"></i>
+                                        <i class="thumbs outline up icon big right" ></i>
 
                                         <a href="{% url 'user-detail' page.category.user %}"
                                            class="ui black circular label">{{ page.category.user }}</a>

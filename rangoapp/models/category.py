@@ -16,6 +16,7 @@ class Category(models.Model):
     is_private = models.BooleanField()
     slug = models.SlugField(unique=True)
 
+
     def save(self, *args, **kwargs):
         '''Amplia o método save, modificando o atributo
         slug a cada salvamento, baseado no nome da categoria.'''

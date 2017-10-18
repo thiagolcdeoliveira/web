@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 from django.views.generic import *
 from django.contrib.messages.views import SuccessMessageMixin
 from rangoapp.models.category import Category
 from rangoapp.forms.category import CategoryForm
 from rangoapp.models.page import Page
-from rangoapp.views.ranking import addPointsCategory
+from rangoapp.models.user_profile import UserProfile
+from rangoapp.views.ranking import addPointsCategory, addPointsLike, removePointsLike
 
 
 class CategoryListView(ListView):
@@ -78,3 +81,49 @@ class CategoryDeleteView(DeleteView):
         self.object = form.save(commit=False)
         self.object.save()
         return super(CategoryDeleteView, self).form_valid(form)
+
+def set_like(request):
+    data = {}
+    category_slug = request.GET.get('category')
+    profile = get_object_or_404(UserProfile,user=request.user)
+    # category = get_object_or_404(Category, slug=category_slug)
+    # category = profile.objects.filter(category_like__contains=category)
+    category_like =UserProfile.objects.filter(user=request.user,category_like__slug__in=[category_slug])
+
+    # print(category)
+    if not category_like:
+        category = get_object_or_404(Category, slug=category_slug)
+        profile.category_like.add(category)
+        addPointsLike(category.user)
+        data["message"]=True
+    else:
+        data["message"]=False
+
+    # data = {
+    #     'message': 'success',
+    #
+    # }
+    return JsonResponse(data)
+def remove_like(request):
+    data = {}
+    category_slug = request.GET.get('category')
+    profile = get_object_or_404(UserProfile,user=request.user)
+    # category = get_object_or_404(Category, slug=category_slug)
+    # category = profile.objects.filter(category_like__contains=category)
+    #category_like =UserProfile.objects.filter(user=request.user,category_like__slug__in=[category_slug])
+    category = get_object_or_404(Category, slug=category_slug)
+
+    # print(category)
+    if  category:
+        # category = get_object_or_404(Category, slug=category_slug)
+        profile.category_like.remove(category)
+        removePointsLike(category.user)
+        data["message"]=True
+    else:
+        data["message"]=False
+
+    # data = {
+    #     'message': 'success',
+    #
+    # }
+    return JsonResponse(data)
