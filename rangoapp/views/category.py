@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
@@ -110,6 +111,7 @@ def set_like(request):
 def remove_like(request):
     data = {}
     category_slug = request.GET.get('category')
+
     profile = get_object_or_404(UserProfile,user=request.user)
     # category = get_object_or_404(Category, slug=category_slug)
     # category = profile.objects.filter(category_like__contains=category)
@@ -126,6 +128,10 @@ def remove_like(request):
         removePointsLike(category.user)
         data["message"]=True
         data['likes'] = category.likes
+        # user = request.GET.get('username')
+        # profile = get_object_or_404(User, user=user)
+        # data['points'] = profile.points
+        # data['points'] = ()
     else:
         data["message"]=False
 

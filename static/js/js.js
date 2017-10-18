@@ -17,11 +17,11 @@ $(document).ready(function () {
 
 
 function setLike(category) {
-    // alert(category);
+    alert(category);
     var method = 'GET';
     var url = '/rango/category/like/';
     var data = category;
-
+    var acategory
     $.ajax({
         type: method,
         url: url,
@@ -32,7 +32,11 @@ function setLike(category) {
             if (message == true) {
 
                 $('#category-' + category).removeClass('outline');
-                $('#a-category-likes-' + category).text(likes);
+                acategory= $('#a-category-likes-' + category)
+                acategory.text(likes);
+                acategory.on("removeLike("+category+")");
+                //this.text(likes);
+                // $('#a-category-likes-' + category).onRemoveClick();
             }
 
 
