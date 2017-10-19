@@ -21,8 +21,8 @@ class IndexViews(View):
     template='rangoapp/index.html'
 
     def get(self,request):
-        self.context['categories'] = Category.objects.filter(is_private=False).order_by('-likes')[:5]
-        self.context['pages'] = Page.objects.filter(category__is_private=False).order_by('-views')[:5]
+        self.context['categories'] = Category.objects.filter(is_private=False).order_by('-likes')[:3]
+        self.context['pages'] = Page.objects.filter(category__is_private=False).order_by('-views')[:3]
         # self.context['profile'] = get_object_or_404(UserProfile,user=request.user)
         self.context['profile'] = UserProfile.objects.filter(user=request.user)
         if self.context['profile']:

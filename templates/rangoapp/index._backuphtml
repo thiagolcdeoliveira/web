@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load staticfiles system %}
+
+{% block title_block %}
+    Sobre o Rango
+{% endblock title_block %}
+
+{% block body_block %}
+    <section class="ui twelve wide column">
+        <h1 class="ui header ">Home</h1>
+        <div class="ui  divider "></div>
+        <section class="ui relaxed stackable column grid row">
+
+            <section class="five wide column">
+                <div class="ui card">
+                    <div class="image">
+                        <img src="{% media profile.picture %}"
+                             alt="Foto do {{ profile.user }} "/>
+                    </div>
+                    <div class="content">
+                        <a class="header" id="username-ranking"> {{ profile.user.username }}</a>
+                        <div class="description">
+                            {{ profile.description }}
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <a>
+                            <i class="icon"></i>
+                            {{ position }}º no Ranking
+                        </a>
+                        <a>
+                            <i class="icon"></i>
+                            {{ profile.points }} Pontos
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="five wide column">
+                <div class="ui celled list">
+                    {% if categories %}
+                        <h2>Top 5 categorias mais curtidas</h2>
+                        {% for category in categories %}
+                            <div class="item">
+                                <div class="right floated content">
+                                    <a href="{% url 'user-detail' category.user %}"
+                                       class="ui right aligned black circular label">{{ category.user }}</a>
+                                </div>
+
+                                <div id="js-like-{{ category.slug }}" class="right floated content">
+
+                                    {% if  category  not in profile.category_like.all %}
+                                        <a href="#" id="js-category-{{ category.slug }}"
+{#                                           onclick="setLike('{{ category.slug }}')">#}
+                                           onclick="set_like('{{ category.slug }}')">
+                                            <i id="js-icon-category-{{ category.slug }}"
+                                               class="thumbs  up outline icon big"></i></a>
+                                    {% else %}
+                                        {#                                        <a href="#" id="a-category-{{ category.slug }}"  onclick="setLike('{{category.slug}}')"><i id="category-{{ category.slug }}" class="thumbs outline up icon big right" ></i></a>#}
+                                        <a href="#" id="js-category-{{ category.slug }}"
+{#                                           onclick="removeLike('{{ category.slug }}')">#}
+                                           onclick="set_like('{{ category.slug }}')">
+                                            <i id="js-icon-category-{{ category.slug }}" class="thumbs down  icon big">
+                                            </i>
+                                        </a>
+
+                                    {% endif %}
+                                </div>
+                                <div class="right floated content">
+                                    <p id="js-count-likes-{{ category.slug }}"
+                                       class="ui black circular label">{{ category.likes }}</p>
+                                </div>
+                                <p class="ui middle aligned header">
+                                    <a href="{% url 'category-detail' category.slug %}"><i
+                                            class="info  icon"></i>{{ category.name|title }}</a>
+                                </p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <strong>Não existem categorias cadastradas.</strong>
+                    {% endif %}
+                </div>
+            </section>
+
+
+            <section class="five wide column">
+                <div class="ui celled list">
+                    {% if pages %}
+                        <h2>Top 5 páginas mais visitadas</h2>
+                        {% for page in pages %}
+                            <div class="item">
+
+                                <div class="ui right floated content">
+                                    <p class="ui black circular label">{{ page.views }}</p>
+                                </div>
+                                <div class="ui right floated content">
+                                    <a href="{% url 'user-detail' page.category.user %}"
+                                       class="ui black circular label">{{ page.category.user }}</a>
+                                </div>
+                                {# <i class="thumbs outline up icon big right"></i>#}
+
+
+                                <div class="ui header">
+                                    <a target=_blank href="{{ page.url }}"><i
+                                            class="ui icon info"></i>{{ page.title|title }}</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <strong>Não existem páginas cadastradas.</strong>
+                    {% endif %}
+                </div>
+            </section>
+        </section>
+    </section>
+{% endblock %}

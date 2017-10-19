@@ -12,6 +12,7 @@ class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
+    description = models.TextField(default=200)
     user = models.ForeignKey(User)
     is_private = models.BooleanField()
     slug = models.SlugField(unique=True)

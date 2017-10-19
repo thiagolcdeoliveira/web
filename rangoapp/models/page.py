@@ -12,6 +12,7 @@ class Page(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128)
     url = models.URLField()
+    description= models.TextField(default=200)
     views = models.IntegerField(default=0)
     class Meta:
         verbose_name_plural = 'Pages'

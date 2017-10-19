@@ -126,14 +126,15 @@ def set_like(request):
         data['is_like'] = True
     else:
         # data["message"]=True
-        data["message"]=False
-        # data["message"] = True
-        data['likes'] = category.likes
-        data['is_likes'] = False
+
         profile.category_like.remove(category)
         category.likes-=1
         category.save()
         profile.save()
+        data["message"] = False
+        # data["message"] = True
+        data['likes'] = category.likes
+        data['is_likes'] = False
         removePointsLike(category.user)
 
     return JsonResponse(data)

@@ -1,0 +1,55 @@
+
+                <div class="row"></div>
+                <h2>Top 3 páginas mais visitadas</h2>
+
+                <div class="ui three cards stackable ">
+                    {% if pages %}
+                        {% for page in pages %}
+                            <div class="ui  card  ">
+                                <div class="content">
+                                    <i class="right floated like icon"></i>
+                                    <i class="right floated star icon"></i>
+                                    <div class="header">Cute Dog</div>
+                                    <div class="description">
+                                        <p>  {{ category.description|truncatechars:20 }}
+{#                                            {{ page.description|truncatechars:20 }}#}
+                                              <a href="{% url 'user-detail' page.category.user %}"
+                                                                   class="ui right floated">by {{ page.category.user }}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="extra content">
+                                <span class="left floated like">
+                                  <i class="like icon"></i>
+                                  Like
+                                </span>
+                                    <span class="right floated star">
+                                  <i class="star icon"></i>
+                                          <p class="ui black circular label">{{ page.views }}</p>
+
+                                    </span>
+                                </div>
+                            </div>
+                            {#                            </div>#}
+                            {#                            <div class="item">#}
+                            {##}
+                            {#                                <div class="ui right floated content">#}
+                            {#                                    <p class="ui black circular label">{{ page.views }}</p>#}
+                            {#                                </div>#}
+                            {#                                <div class="ui right floated content">#}
+                            {#                                    <a href="{% url 'user-detail' page.category.user %}"#}
+                            {#                                       class="ui black circular label">{{ page.category.user }}</a>#}
+                            {#                                </div>#}
+                            {# <i class="thumbs outline up icon big right"></i>#}
+                            {##}
+                            {##}
+                            {#                                <div class="ui header">#}
+                            {#                                    <a target=_blank href="{{ page.url }}"><i#}
+                            {#                                            class="ui icon info"></i>{{ page.title|title }}</a>#}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                        {% endfor %}
+                    {% else %}
+                        <strong>Não existem páginas cadastradas.</strong>
+                    {% endif %}
+                </div>
