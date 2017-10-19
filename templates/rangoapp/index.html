@@ -51,13 +51,15 @@
 
                                     {% if  category  not in profile.category_like.all %}
                                         <a href="#" id="js-category-{{ category.slug }}"
-                                           onclick="setLike('{{ category.slug }}')">
+{#                                           onclick="setLike('{{ category.slug }}')">#}
+                                           onclick="set_like('{{ category.slug }}')">
                                             <i id="js-icon-category-{{ category.slug }}"
                                                class="thumbs  up outline icon big"></i></a>
                                     {% else %}
                                         {#                                        <a href="#" id="a-category-{{ category.slug }}"  onclick="setLike('{{category.slug}}')"><i id="category-{{ category.slug }}" class="thumbs outline up icon big right" ></i></a>#}
                                         <a href="#" id="js-category-{{ category.slug }}"
-                                           onclick="removeLike('{{ category.slug }}')">
+{#                                           onclick="removeLike('{{ category.slug }}')">#}
+                                           onclick="set_like('{{ category.slug }}')">
                                             <i id="js-icon-category-{{ category.slug }}" class="thumbs down  icon big">
                                             </i>
                                         </a>

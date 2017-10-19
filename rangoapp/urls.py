@@ -27,8 +27,9 @@ urlpatterns = [
     url(r'^category/(?P<category_name_slug>[\w\-]+)/editar/$', CategoryUpdateView.as_view(), name='category-update'),
     url(r'^category/(?P<category_name_slug>[\w\-]+)/excluir/$', CategoryDeleteView.as_view(), name='category-delete'),
     url(r'^category/listar/$', CategoryListView.as_view(), name='category-list'),
+    # url(r'^category/like/$', set_like, name='category-set-like'),
     url(r'^category/like/$', set_like, name='category-set-like'),
-    url(r'^category/remove/like/$', remove_like, name='category-remove-like'),
+    # url(r'^category/remove/like/$', remove_like, name='category-remove-like'),
 
     # Page
     url(r'^category/(?P<category_name_slug>[\w\-]+)/page/cadastrar/$', PageCreateView.as_view(), name='page-add'),

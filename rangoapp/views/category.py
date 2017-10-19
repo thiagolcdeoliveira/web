@@ -82,61 +82,95 @@ class CategoryDeleteView(DeleteView):
         self.object = form.save(commit=False)
         self.object.save()
         return super(CategoryDeleteView, self).form_valid(form)
-
+#
+# def set_like(request):
+#     data = {}
+#     category_slug = request.GET.get('category')
+#     profile = get_object_or_404(UserProfile,user=request.user)
+#     # category = get_object_or_404(Category, slug=category_slug)
+#     # category = profile.objects.filter(category_like__contains=category)
+#     category_like =UserProfile.objects.filter(user=request.user,category_like__slug__in=[category_slug])
+#
+#     # print(category)
+#     if not category_like:
+#         category = get_object_or_404(Category, slug=category_slug)
+#         profile.category_like.add(category)
+#         addPointsLike(category.user)
+#         category.likes+=1
+#         category.save()
+#         data["message"]=True
+#         data['likes'] = category.likes
+#     else:
+#         data["message"]=False
+#
+#     # data = {
+#     #     'message': 'success',
+#     #
+#     # }
+#     return JsonResponse(data)
 def set_like(request):
     data = {}
     category_slug = request.GET.get('category')
     profile = get_object_or_404(UserProfile,user=request.user)
-    # category = get_object_or_404(Category, slug=category_slug)
-    # category = profile.objects.filter(category_like__contains=category)
     category_like =UserProfile.objects.filter(user=request.user,category_like__slug__in=[category_slug])
+    category = get_object_or_404(Category, slug=category_slug)
 
     # print(category)
     if not category_like:
-        category = get_object_or_404(Category, slug=category_slug)
         profile.category_like.add(category)
         addPointsLike(category.user)
         category.likes+=1
         category.save()
         data["message"]=True
         data['likes'] = category.likes
+        data['is_like'] = True
     else:
+        # data["message"]=True
         data["message"]=False
-
-    # data = {
-    #     'message': 'success',
-    #
-    # }
-    return JsonResponse(data)
-def remove_like(request):
-    data = {}
-    category_slug = request.GET.get('category')
-
-    profile = get_object_or_404(UserProfile,user=request.user)
-    # category = get_object_or_404(Category, slug=category_slug)
-    # category = profile.objects.filter(category_like__contains=category)
-    #category_like =UserProfile.objects.filter(user=request.user,category_like__slug__in=[category_slug])
-    category = get_object_or_404(Category, slug=category_slug)
-
-    # print(category)
-    if  category:
-        # category = get_object_or_404(Category, slug=category_slug)
+        # data["message"] = True
+        data['likes'] = category.likes
+        data['is_likes'] = False
         profile.category_like.remove(category)
         category.likes-=1
         category.save()
         profile.save()
         removePointsLike(category.user)
-        data["message"]=True
-        data['likes'] = category.likes
-        # user = request.GET.get('username')
-        # profile = get_object_or_404(User, user=user)
-        # data['points'] = profile.points
-        # data['points'] = ()
-    else:
-        data["message"]=False
 
+    return JsonResponse(data)
     # data = {
     #     'message': 'success',
     #
     # }
-    return JsonResponse(data)
+#     return JsonResponse(data)
+# def remove_like(request):
+#     data = {}
+#     category_slug = request.GET.get('category')
+#
+#     profile = get_object_or_404(UserProfile,user=request.user)
+#     # category = get_object_or_404(Category, slug=category_slug)
+#     # category = profile.objects.filter(category_like__contains=category)
+#     #category_like =UserProfile.objects.filter(user=request.user,category_like__slug__in=[category_slug])
+#     category = get_object_or_404(Category, slug=category_slug)
+#
+#     # print(category)
+#     if  category:
+#         # category = get_object_or_404(Category, slug=category_slug)
+#         profile.category_like.remove(category)
+#         category.likes-=1
+#         category.save()
+#         profile.save()
+#         removePointsLike(category.user)
+#         data["message"]=True
+#         data['likes'] = category.likes
+#         # user = request.GET.get('username')
+#         # profile = get_object_or_404(User, user=user)
+#         # data['points'] = profile.points
+#         # data['points'] = ()
+#     else:
+#         data["message"]=False
+#
+#     # data = {
+#     #     'message': 'success',
+#     #
+#     # }
+#     return JsonResponse(data)
