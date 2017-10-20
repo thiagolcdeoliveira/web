@@ -10,7 +10,7 @@
                 <div class="ui card  black">
                     <div class="content">
 
-                        <i class="right floated">#{{ forloop.counter }}</i>
+                       <i class="ui icon hashtag right floated">{{ forloop.counter }}</i>
 
                         <div class="header"><a href="{% url 'category-detail' category.slug %}"><i
                                 class="info  icon"></i>{{ category.name|title }}
