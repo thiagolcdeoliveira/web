@@ -70,3 +70,14 @@ i.ui.red.tiny.icon.asterisk {
 .pushable {
     height: initial;
 }
+.ui.cards > .ui.black.card {
+    border-top: #343434 solid 2.5px;
+}
+.ui.stackable.centered.aligned.grid.row{
+    background-color: rgba(0,0,0,.02);
+}
+.ui.header.title:first-child{
+    color:rgba(0,0,0,.7);
+    margin: 2% !important;
+}
+

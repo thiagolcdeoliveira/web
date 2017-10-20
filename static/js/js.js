@@ -84,22 +84,22 @@ function set_like(category) {
             var likes = data.likes;
             var is_like = data.is_like;
             iconcategory = $('#js-icon-category-' + category);
-
             if (message) {
-                iconcategory.removeClass('gray');
-                // iconcategory.addClass('down');
-            } else {
-                // category=$('#js-icon-category-' + category);
-                // iconcategory.removeClass('down');
-                iconcategory.addClass('gray');
+                if (is_like) {
+                    iconcategory.removeClass('gray');
+                    // iconcategory.addClass('down');
+                } else {
+                    // category=$('#js-icon-category-' + category);
+                    // iconcategory.removeClass('down');
+                    iconcategory.addClass('gray');
+                }
+                likecategory = $('#js-count-likes-' + category);
+                likecategory.text(likes);
+                console.log("oi");
+                // category.removeClass("right");
+
+                // }
             }
-            likecategory = $('#js-count-likes-' + category);
-            likecategory.text(likes);
-            console.log("oi");
-            // category.removeClass("right");
-
-            // }
-
 
         },
         error: function (data) {
@@ -124,17 +124,18 @@ function set_deslike(category) {
         success: function (data) {
             var message = data.message;
             var deslikes = data.deslikes;
-            var is_like = data.is_deslike;
+            var is_deslike = data.is_deslike;
             iconcategory = $('#js-icon-deslike-category-' + category);
             if (message) {
-                iconcategory.removeClass('gray');
-            } else {
-                iconcategory.addClass('gray');
+                if (is_deslike) {
+                    iconcategory.removeClass('gray');
+                } else {
+                    iconcategory.addClass('gray');
+                }
+                deslikecategory = $('#js-count-deslikes-' + category);
+                deslikecategory.text(deslikes);
+                console.log("oi");
             }
-            deslikecategory = $('#js-count-deslikes-' + category);
-            deslikecategory.text(deslikes);
-            console.log("oi");
-
 
         },
         error: function (data) {

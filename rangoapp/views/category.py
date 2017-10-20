@@ -136,30 +136,35 @@ def set_like(request):
     data = {}
     category_slug = request.GET.get('category')
     profile = get_object_or_404(UserProfile, user=request.user)
-    category_like = UserProfile.objects.filter(user=request.user, category_like__slug__in=[category_slug])
+    user = UserProfile.objects.filter(user=request.user)
+    category_like = user.filter(category_like__slug__in=[category_slug])
     category = get_object_or_404(Category, slug=category_slug)
-
+    category_deslike = user.filter(category_deslike__slug__in=[category_slug])
     # print(category)
-    if not category_like:
-        profile.category_like.add(category)
-        add_points_like(category.user)
-        category.likes += 1
-        category.save()
+    if not category_deslike:
         data["message"] = True
-        data['likes'] = category.likes
-        data['is_like'] = True
-    else:
-        # data["message"]=True
 
-        profile.category_like.remove(category)
-        category.likes -= 1
-        category.save()
-        profile.save()
+        if not category_like:
+            profile.category_like.add(category)
+            add_points_like(category.user)
+            category.likes += 1
+            category.save()
+            data['likes'] = category.likes
+            data['is_like'] = True
+        else:
+            # data["message"]=True
+
+            profile.category_like.remove(category)
+            category.likes -= 1
+            category.save()
+            profile.save()
+            # data["message"] = True
+            data['likes'] = category.likes
+            data['is_likes'] = False
+            remove_points_like(category.user)
+    else:
         data["message"] = False
-        # data["message"] = True
-        data['likes'] = category.likes
-        data['is_likes'] = False
-        remove_points_like(category.user)
+
     return JsonResponse(data)
 
 
@@ -167,28 +172,31 @@ def set_deslike(request):
     data = {}
     category_slug = request.GET.get('category')
     profile = get_object_or_404(UserProfile, user=request.user)
-    category_deslikes = UserProfile.objects.filter(user=request.user, category_deslike__slug__in=[category_slug])
+    user = UserProfile.objects.filter(user=request.user)
+    category_deslikes = user.filter(category_deslike__slug__in=[category_slug])
     category = get_object_or_404(Category, slug=category_slug)
+    category_likes = user.filter(category_like__slug__in=[category_slug])
 
-
-    # print(category)
-    if not category_deslikes:
-        profile.category_deslike.add(category)
-        add_points_deslike(category.user)
-        category.deslikes += 1
-        category.save()
+    if not category_likes:
         data["message"] = True
-        data['deslikes'] = category.deslikes
-        data['is_deslike'] = True
+
+        if not category_deslikes:
+            profile.category_deslike.add(category)
+            add_points_deslike(category.user)
+            category.deslikes += 1
+            category.save()
+            data['deslikes'] = category.deslikes
+            data['is_deslike'] = True
+        else:
+            # data["message"]=True
+            profile.category_deslike.remove(category)
+            category.deslikes -= 1
+            category.save()
+            profile.save()
+            data['deslikes'] = category.deslikes
+            data['is_deslikes'] = False
+            remove_points_deslike(category.user)
     else:
-        # data["message"]=True
-        profile.category_deslike.remove(category)
-        category.deslikes -= 1
-        category.save()
-        profile.save()
         data["message"] = False
-        # data["message"] = True
-        data['deslikes'] = category.deslikes
-        data['is_deslikes'] = False
-        remove_points_deslike(category.user)
+
     return JsonResponse(data)

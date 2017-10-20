@@ -1,6 +1,6 @@
 
 {#    <div class="row">#}
-    <h2>Top 3 categorias mais curtidas</h2>
+
 {#</div>#}
     <div class="ui three cards stackable">
         {% if categories %}
@@ -36,7 +36,7 @@
                                 <a href="#" id="js-deslike-category-{{ category.slug }}"
                                    onclick="set_deslike('{{ category.slug }}')">
                                     <i id="js-icon-deslike-category-{{ category.slug }}"
-                                       class="thumbs  down  {% if  category  not in profile.category_like.all %}  gray {% endif %} icon big"></i></a>
+                                       class="thumbs  down  {% if  category  not in profile.category_deslike.all %}  gray {% endif %} icon big"></i></a>
                                     <span id="js-count-deslikes-{{ category.slug }}">{{ category.deslikes }}</span>
 {#                               Like#}
                                 </span>
