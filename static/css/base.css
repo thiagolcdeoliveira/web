@@ -76,8 +76,12 @@ i.ui.red.tiny.icon.asterisk {
 .ui.stackable.centered.aligned.grid.row{
     background-color: rgba(0,0,0,.02);
 }
-.ui.header.title:first-child{
+.ui.header.title{
     color:rgba(0,0,0,.7);
-    margin: 2% !important;
+    /*margin: 2% !important;*/
 }
 
+.ui.stackable.cards .card, .ui.three.cards {
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
+}
