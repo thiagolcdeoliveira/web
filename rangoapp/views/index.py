@@ -12,7 +12,7 @@ from django.views.generic import *
 from rangoapp.models.category import Category
 from rangoapp.models.page import  Page
 from rangoapp.models.user_profile import UserProfile
-from rangoapp.views.ranking import calculatePosition
+from rangoapp.views.ranking import calculate_position
 from datetime import datetime
 from rangoapp.views.visitor import visitor_cookie_handler
 @method_decorator(login_required,name='dispatch')
@@ -27,7 +27,7 @@ class IndexViews(View):
         self.context['profile'] = UserProfile.objects.filter(user=request.user)
         if self.context['profile']:
             self.context['profile'] = self.context['profile'][0]
-            self.context['position'] = calculatePosition(self.context['profile'].points)
+            self.context['position'] = calculate_position(self.context['profile'].points)
         else:
             return HttpResponseRedirect(reverse('user-profile-add'))
 

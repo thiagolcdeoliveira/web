@@ -12,38 +12,49 @@ from rangoapp.models.category import Category
 # from
 
 
-def calculatePosition(points):
+def calculate_position(points):
     user = UserProfile.objects.order_by('-points')
     position = [x for x, u in enumerate(user) if u.points == points]
     print(user[0].points)
     return position[0] + 1
 
 
-def addPointsCategory(user):
+def add_points_category(user):
     profile = UserProfile.objects.get(user=user)
     profile.points += 0.2
     profile.save()
 
 
-def addPointsPage(user):
+def add_points_page(user):
     profile = UserProfile.objects.get(user=user)
     profile.points += 0.5
     profile.save()
 
 
-def addPointsLike(user):
+def add_points_like(user):
     profile = UserProfile.objects.get(user=user)
     profile.points += 0.5
     profile.save()
 
 
-def removePointsLike(user):
+def remove_points_like(user):
     profile = UserProfile.objects.get(user=user)
     profile.points -= 0.5
     profile.save()
 
 
-def addPointsFriends(user):
+def add_points_friends(user):
     profile = UserProfile.objects.get(user=user)
     profile.points += 0.3
+    profile.save()
+
+def add_points_deslike(user):
+    profile = UserProfile.objects.get(user=user)
+    profile.points -= 0.5
+    profile.save()
+
+
+def remove_points_deslike(user):
+    profile = UserProfile.objects.get(user=user)
+    profile.points += 0.5
     profile.save()

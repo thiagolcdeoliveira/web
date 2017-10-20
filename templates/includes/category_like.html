@@ -7,7 +7,7 @@
 
 
             {% for category in categories %}
-                <div class="ui card">
+                <div class="ui card  black">
                     <div class="content">
 
                         <i class="right floated">#{{ forloop.counter }}</i>
@@ -27,13 +27,19 @@
                                 <a href="#" id="js-category-{{ category.slug }}"
                                    onclick="set_like('{{ category.slug }}')">
                                     <i id="js-icon-category-{{ category.slug }}"
-                                       class="thumbs   {% if  category  not in profile.category_like.all %} up outline {% else %}down {% endif %} icon big"></i></a>
-                                                                      Like
+                                       class="thumbs  up  {% if  category  not in profile.category_like.all %}  gray {% endif %} icon big"></i></a>
+                                    <span id="js-count-likes-{{ category.slug }}">{{ category.likes }}</span>
+{#                               Like#}
                                 </span>
                         <span class="right floated star">
-                                  <i class="star icon"></i>
-                                  <p id="js-count-likes-{{ category.slug }}" class="ui black circular label">{{ category.likes }}</p>
-{#                            Favorite#}
+                                <span class="left floated like">
+                                <a href="#" id="js-deslike-category-{{ category.slug }}"
+                                   onclick="set_deslike('{{ category.slug }}')">
+                                    <i id="js-icon-deslike-category-{{ category.slug }}"
+                                       class="thumbs  down  {% if  category  not in profile.category_like.all %}  gray {% endif %} icon big"></i></a>
+                                    <span id="js-count-deslikes-{{ category.slug }}">{{ category.deslikes }}</span>
+{#                               Like#}
+                                </span>
                                 </span>
                     </div>
                 </div>

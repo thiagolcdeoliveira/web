@@ -1,6 +1,7 @@
-body{
-    background-color:#1b1c1d;
+body {
+    background-color: #1b1c1d;
 }
+
 article {
     /*min-height: 80% !important;*/
 }
@@ -13,9 +14,11 @@ footer {
     /*background-color: #59487b !important;*/
     color: white;
 }
-article.ui.grid{
+
+article.ui.grid {
     margin-top: auto;
 }
+
 ul.list > li.item:before {
     display: none;
 }
@@ -23,30 +26,47 @@ ul.list > li.item:before {
 ul.list {
     margin-left: 2px !important;
 }
-ul.ui.menu, article > ul.list > li.item,ul.right.menu > li  {
+
+ul.ui.menu, article > ul.list > li.item, ul.right.menu > li {
     list-style: none;
     padding: 0;
 
 }
-.ui.bottom.attached.segment.pushable{
+
+.ui.bottom.attached.segment.pushable {
     border: none;
 }
+
 /*ul.right.menu > li  {*/
-      /*list-style: none;*/
+/*list-style: none;*/
 /*}*/
 
-.errorlist > li{
+.errorlist > li {
     list-style: none;
     padding: 0;
     margin-left: -30px;
     margin-top: -10px;
-    margin-bottom:-10px;
+    margin-bottom: -10px;
 }
+
 ul.ui.menu, article > ul.list > li.item {
     list-style: none;
     padding: 0;
 
 }
-.thumbs.down.icon.big,.thumbs.up.icon.big{
-color: #1B1C1D;
+
+.thumbs.down.icon.big, .thumbs.up.icon.big, .floated.like>span {
+    color: #343434;
+}
+
+.thumbs.down.gray.icon.big, .thumbs.up.gray.icon.big {
+    color: rgba(0, 0, 0, .4);
+}
+
+i.ui.red.tiny.icon.asterisk {
+    vertical-align: super;
+}
+
+.pushable {
+    height: initial;
 }

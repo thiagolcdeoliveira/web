@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^category/listar/$', CategoryListView.as_view(), name='category-list'),
     # url(r'^category/like/$', set_like, name='category-set-like'),
     url(r'^category/like/$', set_like, name='category-set-like'),
+    url(r'^category/deslike/$', set_deslike, name='category-set-deslike'),
     # url(r'^category/remove/like/$', remove_like, name='category-remove-like'),
 
     # Page

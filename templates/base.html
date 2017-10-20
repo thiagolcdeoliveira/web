@@ -33,50 +33,15 @@
 {% include 'includes/menu.html' %}
 <div class="ui bottom attached  segment pushable">
     {% include 'includes/sidebar.html' %}
-
     <div class="pusher">
-            <!-- main -->
-            <article class="ui  stackable centered aligned grid row ">
-                <!--<section class="fourteen wide column">-->
+        <article class="ui  stackable centered aligned grid row ">
+            {% block body_block %}
+            {% endblock %}
+        </article>        {% include 'includes/footer.html' %}
 
-                    {% block body_block %}
-                    {% endblock %}
-                <!--</section>-->
-              {#    {% block sidebar_block %} #}
 
-               {#  {% endblock %}#}
-             <!--   </section>-->
-            </article>
-            <!-- End main -->
-{#        </div>#}
     </div>
 </div>
-
-
-<footer class="ui black inverted vertical footer relaxed segment">
-    <div class="ui five column middle aligned centered inverted divided stackable grid">
-        <div class="two wide column">
-            <h2 class="ui inverted icon header">
-                <i class="rebel icon"></i>
-                <div class="content">
-                    Rebel Corporation
-                    <div class="sub header">© Copyright 2017</div>
-                </div>
-            </h2>
-        </div>
-        <div class="three wide column">
-            <ul class="ui divided celled relaxed inverted list">
-                <li class="item"><a href="http://git.fabricadesoftware.ifc.edu.br/users/sign_in" target="_blank"><i
-                        class="ui github large icon"></i>Github</a></li>
-                <li class="item"><a href="https://www.instagram.com/nodes.fabricadesoftware/" target="_blank"><i
-                        class="ui instagram large icon"></i>Instagram</a></li>
-                <li class="item"><a href="https://www.facebook.com/fabricadesoftware" target="_blank"><i
-                        class="ui facebook large icon"></i>Facebook</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
-
 
 </body>
 </html>

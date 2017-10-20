@@ -13,11 +13,14 @@ class UserProfile(models.Model):
 
     website = models.URLField(blank=True)
     picture = models.ImageField(upload_to='profile_images', blank=True)
-    points  = models.FloatField(default=0)
-    description  = models.CharField(max_length=200)
-    friends = models.ManyToManyField(User, related_name='friends',blank=True)
-    category_like = models.ManyToManyField(Category,related_name='category_like',blank=True)
+    points = models.FloatField(default=0)
+    description = models.CharField(max_length=200)
+    friends = models.ManyToManyField(User, related_name='friends', blank=True)
+    category_like = models.ManyToManyField(Category, related_name='category_like', blank=True)
+    category_deslike = models.ManyToManyField(Category, related_name='category_deslike', blank=True)
+
     def __str__(self):
         return self.user.username
+
     def get_absolute_url(self):
         return reverse_lazy('user-detail', kwargs={'username': self.user.username})
