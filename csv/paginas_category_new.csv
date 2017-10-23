@@ -1,8 +1,8 @@
 category,title,url,views,user
-NFC Leste,Eagles,http://www.espn.com/nfl/team/_/name/phi/philadelphia-eagles,0,nfl
-NFC Leste,Redskins,http://www.espn.com/nfl/team/_/name/wsh/washington-redskins,0,nfl
-NFC Leste,Cowboys,http://www.espn.com/nfl/team/_/name/dal/dallas-cowboys,0,nfl
-NFC Leste,Giants,http://www.espn.com/nfl/team/_/name/nyg/new-york-giants,0,nfl
+NFC East,Eagles,http://www.espn.com/nfl/team/_/name/phi/philadelphia-eagles,0,nfl
+NFC East,Redskins,http://www.espn.com/nfl/team/_/name/wsh/washington-redskins,0,nfl
+NFC East,Cowboys,http://www.espn.com/nfl/team/_/name/dal/dallas-cowboys,0,nfl
+NFC East,Giants,http://www.espn.com/nfl/team/_/name/nyg/new-york-giants,0,nfl
 AFC East,Buffalo Bills,http://www.espn.com/nfl/team/_/name/buf/buffalo-bills,0,nfl
 AFC East,Miami Dolphins,http://www.espn.com/nfl/team/_/name/mia/miami-dolphins,0,nfl
 AFC East,New England Patriots,http://www.espn.com/nfl/team/_/name/ne/new-england-patriots,0,nfl
@@ -36,7 +36,7 @@ DC,The Big Bang Theory,http://www.warnerchannel.com/br/thebigbangtheory/?ref=mai
 DC,Young Sheldon,http://www.warnerchannel.com/br/youngsheldon/?ref=mainmenu,0,thiago
 DC,Super girl,http://www.warnerchannel.com/br/supergirl/?ref=mainmenu,0,thiago
 DC,Gothan,http://www.warnerchannel.com/br/gotham/,0,thiago
-DC,Dc Legends of tomorrow,http://www.warnerchannel.com/br/dcslegendsoftomorrow/,,
-Marvel,,,,
-Disney,,,,
-Esporte,,,,
+DC,Dc Legends of tomorrow,http://www.warnerchannel.com/br/dcslegendsoftomorrow/,0,thiago
+Marvel,Dc Legends of tomorrow,http://www.warnerchannel.com/br/dcslegendsoftomorrow/,0,thiago
+Disney,Dc Legends of tomorrow,http://www.warnerchannel.com/br/dcslegendsoftomorrow/,0,thiago
+Esporte,Dc Legends of tomorrow,http://www.warnerchannel.com/br/dcslegendsoftomorrow/,0,thiago

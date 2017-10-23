@@ -24,33 +24,36 @@ class Command(BaseCommand):
            ".'''
 
     def _create_user(self):
-        with open('csv/paginas.csv') as csvfile:
+        with open('csv/user_profile.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                if not User.objects.filter(username=row['user']):
+                if not User.objects.filter(username=row['username']):
                     user = User(
-                        username=row["user"],
+                        username=row["username"],
+                        first_name=row["first_name"],
+                        last_name=row["last_name"],
+                        password=make_password(row["password"]),
                     )
                     user=user.save()
                 # if not UserProfile.objects.filter(user=user):
                     userprofile = UserProfile(
-                        user=user,
-                        description="Speed Force",
-                        picture="bartholomew.jpg",
-                        points=0
+                        user=User.objects.get(username=row["username"]),
+                        description=row["description"],
+                        picture=row["picture"],
+                        points=0,
 
 
                     )
                     userprofile.save()
 
     def _create_category(self):
-        with open('csv/paginas.csv') as csvfile:
+        with open('csv/category_page_new.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                if not Category.objects.filter(name=row['category']):
+                if not Category.objects.filter(name=row['name']):
                     category = Category(
                         # category=Category.objects.get(name=row["category"]),
-                                        name=row["category"],
+                                        name=row["name"],
                                         # url=row["url"],
                                         # views=row['views']
                                         is_private = False,
@@ -61,7 +64,7 @@ class Command(BaseCommand):
                     category.save()
 
     def _create_page(self):
-        with open('csv/paginas.csv') as csvfile:
+        with open('csv/paginas_category_new.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 if not Page.objects.filter(title=row['title']):

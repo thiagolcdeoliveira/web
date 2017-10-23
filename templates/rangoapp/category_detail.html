@@ -7,23 +7,23 @@ Sobre o Rango
 
 {% block body_block %}
 {#<section class="six wide column">#}
-    <section class="ui six wide column">
+    <section class="ui ten wide column">
         <h1 class="ui header ">Detalhes da categoria</h1>
         <div class="ui  divider "></div>
-{% include 'includes/message.html' %}
+    {% include 'includes/message.html' %}
+
     {% if object %}
         <h1>{{ object.name }}</h1>
-         <section class="four wide column">
-        <div class="ui celled list">
+         <section class="two wide column">
+        <div class="ui celled relaxed list">
 
             {% if pages %}
-                <h1>Top 5 páginas mais visitadas</h1>
                 {% for page in pages %}
                     <div class="item">
                         <i class="ui icon newspaper"></i>
                         <div class="content">
                             <div class="header">
-                                <a target=_blank href="{{ page.url }}">{{ page.title }}</a> <a class="ui teal circular label">2</a><a class="ui green circular label">2</a>({{ page.views }})
+                                <a target=_blank href="{{ page.url }}">{{ page.title }}</a>({{ page.views }})
                             <i class="thumbs outline up icon right"></i>
                             </div>
                         </div>
@@ -33,9 +33,11 @@ Sobre o Rango
             {% endif %}
         </div>
     {% endif %}
-{#<a href="/rango/category/{{object.slug}}/page/cadastrar/">Adicionar página em {{ object.name }}</a> <br/>#}
-    <a href="{% url 'page-add' object.slug %}"><button class="ui button fluid">Adicionar página em {{ object.name }}</button></a>
-{#    <a href="{% url "home" %}">Home</a><br />#}
+    <div class="ui  two fluid buttons ">
+         <a class="ui button gray" href="">Voltar</a>
+         <a  class="ui button black" href="{% url 'page-add' object.slug %}">Adicionar página em {{ object.name }}</a>
+    </div>
+
     </section>
     </section>
 {% endblock %}

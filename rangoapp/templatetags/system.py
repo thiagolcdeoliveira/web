@@ -16,3 +16,5 @@ def get_category_list(cat=None):
 @register.simple_tag()
 def media(image=None):
     return MEDIA_URL+str(image)
+
+
