@@ -154,7 +154,7 @@ function set_like_page(page) {
     var likepage;
     var iconpage;
     var page;
-    alert("oi");
+    // alert("oi");
     $.ajax({
         type: method,
         url: url,
