@@ -23,8 +23,8 @@ class UserDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(UserDetailView, self).get_context_data(**kwargs)
         context['profile'] = get_object_or_404(UserProfile,user__username=self.kwargs['username'])
-        context['categories'] = Category.objects.filter(is_private=False,user__username=self.kwargs['username']).order_by('-likes')[:5]
-        context['pages'] = Page.objects.filter(category__is_private=False,category__user__username=self.kwargs["username"]).order_by('-views')[:5]
+        context['categories'] = Category.objects.filter(is_private=False,user__username=self.kwargs['username']).order_by('-likes')[:3]
+        context['pages'] = Page.objects.filter(category__is_private=False,category__user__username=self.kwargs["username"]).order_by('-views')[:3]
         context['position'] = calculate_position(context['profile'].points)
         print(context['profile'])
         return context

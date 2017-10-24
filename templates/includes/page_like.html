@@ -10,7 +10,7 @@
                     <div class="description">
 {#                        <p class="ui right floated aligned">  {{ page.description|truncatechars:20 }}#}
                         <p class="ui  floated aligned">  {{ page.description|truncatechars:20 }}
-                            <a href="{% url 'user-detail' page.category.user.id %}">by {{ page.category.user }}</a>
+                            <a href="{% url 'user-detail' page.category.user %}">by {{ page.category.user }}</a>
                         </p>
                     </div>
                 </div>
