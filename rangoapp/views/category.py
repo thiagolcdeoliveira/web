@@ -10,8 +10,8 @@ from rangoapp.models.category import Category
 from rangoapp.forms.category import CategoryForm
 from rangoapp.models.page import Page
 from rangoapp.models.user_profile import UserProfile
-from rangoapp.views.ranking import add_points_category, add_points_like, remove_points_like, remove_points_deslike, \
-    add_points_deslike
+from rangoapp.views.ranking import add_points_category, add_points_like_category, remove_points_like_category, remove_points_deslike_category, \
+    add_points_deslike_category
 
 
 class CategoryListView(ListView):
@@ -132,7 +132,7 @@ class CategoryDeleteView(DeleteView):
 # return JsonResponse(data)
 
 
-def set_like(request):
+def set_like_category(request):
     data = {}
     category_slug = request.GET.get('category')
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -146,7 +146,7 @@ def set_like(request):
 
         if not category_like:
             profile.category_like.add(category)
-            add_points_like(category.user)
+            add_points_like_category(category.user)
             category.likes += 1
             category.save()
             data['likes'] = category.likes
@@ -161,14 +161,14 @@ def set_like(request):
             # data["message"] = True
             data['likes'] = category.likes
             data['is_likes'] = False
-            remove_points_like(category.user)
+            remove_points_like_category(category.user)
     else:
         data["message"] = False
 
     return JsonResponse(data)
 
 
-def set_deslike(request):
+def set_deslike_category(request):
     data = {}
     category_slug = request.GET.get('category')
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -182,7 +182,7 @@ def set_deslike(request):
 
         if not category_deslikes:
             profile.category_deslike.add(category)
-            add_points_deslike(category.user)
+            add_points_deslike_category(category.user)
             category.deslikes += 1
             category.save()
             data['deslikes'] = category.deslikes
@@ -195,7 +195,7 @@ def set_deslike(request):
             profile.save()
             data['deslikes'] = category.deslikes
             data['is_deslikes'] = False
-            remove_points_deslike(category.user)
+            remove_points_deslike_category(category.user)
     else:
         data["message"] = False
 

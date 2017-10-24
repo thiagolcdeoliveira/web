@@ -14,12 +14,6 @@ urlpatterns = [
 
     url(r'^home/$', IndexViews.as_view(), name='home'),
     url(r'^about/$', about, name='about'),
-    # url(r'^add_category', add_category, name='add_category'),
-    # url(r'^category/(?P<category_name_slug>[\w\-]+)/$',
-    #     show_category, name='show_category'),
-    # url(r'^category/(?P<category_name_slug>[\w\-]+)/add_page/$',
-    #     add_page, name='add_page'),
-    # url(r'^register', register, name='register'),
 
     # Category
     url(r'^category/cadastrar/$', CategoryCreateView.as_view(), name='category-add'),
@@ -27,18 +21,16 @@ urlpatterns = [
     url(r'^category/(?P<category_name_slug>[\w\-]+)/editar/$', CategoryUpdateView.as_view(), name='category-update'),
     url(r'^category/(?P<category_name_slug>[\w\-]+)/excluir/$', CategoryDeleteView.as_view(), name='category-delete'),
     url(r'^category/listar/$', CategoryListView.as_view(), name='category-list'),
-    # url(r'^category/like/$', set_like, name='category-set-like'),
-    url(r'^category/like/$', set_like, name='category-set-like'),
-    url(r'^category/deslike/$', set_deslike, name='category-set-deslike'),
-    # url(r'^category/remove/like/$', remove_like, name='category-remove-like'),
+    url(r'^category/like/$', set_like_category, name='category-set-like'),
+    url(r'^category/deslike/$', set_deslike_category, name='category-set-deslike'),
 
     # Page
     url(r'^category/(?P<category_name_slug>[\w\-]+)/page/cadastrar/$', PageCreateView.as_view(), name='page-add'),
-    # url(r'^page/visualizar/(?P<page_name_slug>[\w\-]+)/$', PageDetailView.as_view(), name='page-detail'),
     url(r'^page/(?P<category_name_slug>[\w\-]+)/editar/$', PageUpdateView.as_view(), name='page-update'),
     url(r'^page/(?P<category_name_slug>[\w\-]+)/excluir/$', PageDeleteView.as_view(), name='page-delete'),
     url(r'^page/listar/$', PageListView.as_view(), name='page-list'),
-
+    url(r'^page/like/$', set_like_page, name='page-set-like'),
+    url(r'^page/deslike/$', set_deslike_page, name='page-set-deslike'),
     # User
     url(r'^user/cadastrar/$', UserCreateView.as_view(), name='user-add'),
     url(r'^user/visualizar/(?P<username>[\w\-]+)/$', UserDetailView.as_view(),

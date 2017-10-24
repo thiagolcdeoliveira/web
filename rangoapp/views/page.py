@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views.generic import *
 from django.contrib.messages.views import SuccessMessageMixin
 from rangoapp.forms.page import PageForm
 from rangoapp.models.category import Category
 from rangoapp.models.page import Page
-from rangoapp.views.ranking import add_points_page
+from rangoapp.models.user_profile import UserProfile
+from rangoapp.views.ranking import add_points_page, add_points_like_page, remove_points_like_page, \
+    add_points_deslike_page, remove_points_deslike_page
 
 
 class PageListView(ListView):
@@ -52,3 +55,76 @@ class PageDeleteView(DeleteView):
         self.object = form.save(commit=False)
         self.object.save()
         return super(PageDeleteView, self).form_valid(form)
+
+def set_like_page(request):
+    data = {}
+    page_id = request.GET.get('page')
+    print("aqui")
+    profile = get_object_or_404(UserProfile, user=request.user)
+    user = UserProfile.objects.filter(user=request.user)
+    page_like = user.filter(page_like__id__in=[page_id])
+    page = get_object_or_404(Page, id=page_id)
+    page_deslike = user.filter(page_deslike__id__in=[page_id])
+    # print(category)
+    print("aqui %s" %page_id)
+    if not page_deslike:
+        data["message"] = True
+
+        if not page_like:
+            profile.page_like.add(page)
+            add_points_like_page(page.category.user)
+            page.likes += 1
+            page.save()
+            data['likes'] = page.likes
+            data['is_like'] = True
+        else:
+            # data["message"]=True
+
+            profile.page_like.remove(page)
+            page.likes -= 1
+            page.save()
+            profile.save()
+            # data["message"] = True
+            data['likes'] = page.likes
+            data['is_likes'] = False
+            remove_points_like_page(page.category.user)
+    else:
+        data["message"] = False
+
+    return JsonResponse(data)
+
+
+def set_deslike_page(request):
+    data = {}
+    page_id = request.GET.get('page')
+    profile = get_object_or_404(UserProfile, user=request.user)
+    user = UserProfile.objects.filter(user=request.user)
+    print(user)
+    page_deslikes = user.filter(page_deslike__id__in=[page_id])
+    page = get_object_or_404(Page, id=page_id)
+    print(page)
+    page_likes = user.filter(page_like__id__in=[page_id])
+
+    if not page_likes:
+        data["message"] = True
+
+        if not page_deslikes:
+            profile.page_deslike.add(page)
+            add_points_deslike_page(page.category.user)
+            page.deslikes += 1
+            page.save()
+            data['deslikes'] = page.deslikes
+            data['is_deslike'] = True
+        else:
+            # data["message"]=True
+            profile.page_deslike.remove(page)
+            page.deslikes -= 1
+            page.save()
+            profile.save()
+            data['deslikes'] = page.deslikes
+            data['is_deslikes'] = False
+            remove_points_deslike_page(page.category.user)
+    else:
+        data["message"] = False
+
+    return JsonResponse(data)

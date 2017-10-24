@@ -1,85 +1,48 @@
-
 {#    <div class="row">#}
 
 {#</div>#}
-    <div class="ui three cards stackable">
-        {% if categories %}
+<div class="ui three cards stackable">
+    {% if categories %}
 
 
-            {% for category in categories %}
-                <div class="ui card  black">
-                    <div class="content">
-
-                       <i class="ui icon hashtag right floated">{{ forloop.counter }}</i>
-
-                        <div class="header"><a href="{% url 'category-detail' category.slug %}"><i
-                                class="info  icon"></i>{{ category.name|title }}
-                        </a>
-                        </div>
-                        <div class="description">
-                            <p class="ui rigth floated aligned">  {{ category.description|truncatechars:20 }}
-                                <a href="{% url 'user-detail' category.user %}">by {{ category.user }}</a>
-                            </p>
-                        </div>
+        {% for category in categories %}
+            <div class="ui card  black">
+                <div class="content">
+                    <i class="ui icon hashtag right floated">{{ forloop.counter }}</i>
+                    <div class="header"><a href="{% url 'category-detail' category.slug %}"><i
+                            class="info  icon"></i>{{ category.name|title }}
+                    </a>
                     </div>
-                    <div class="extra content">
-                                <span class="left floated like">
-                                <a href="#" id="js-category-{{ category.slug }}"
-                                   onclick="set_like('{{ category.slug }}')">
-                                    <i id="js-icon-category-{{ category.slug }}"
-                                       class="thumbs  up  {% if  category  not in profile.category_like.all %}  gray {% endif %} icon big"></i></a>
-                                    <span id="js-count-likes-{{ category.slug }}">{{ category.likes }}</span>
-{#                               Like#}
-                                </span>
-                        <span class="right floated star">
-                                <span class="left floated like">
-                                <a href="#" id="js-deslike-category-{{ category.slug }}"
-                                   onclick="set_deslike('{{ category.slug }}')">
-                                    <i id="js-icon-deslike-category-{{ category.slug }}"
-                                       class="thumbs  down  {% if  category  not in profile.category_deslike.all %}  gray {% endif %} icon big"></i></a>
-                                    <span id="js-count-deslikes-{{ category.slug }}">{{ category.deslikes }}</span>
-{#                               Like#}
-                                </span>
-                                </span>
+                    <div class="description">
+{#                        <p class="ui right floated aligned">  {{ category.description|truncatechars:20 }}#}
+                        <p class="ui  floated aligned">  {{ category.description|truncatechars:20 }}
+                            <a href="{% url 'user-detail' category.user %}">by {{ category.user }}</a>
+                        </p>
                     </div>
                 </div>
-                {#                            <div class="item">#}
-                {#                                <div class="right floated content">#}
-                {#                                    <a href="{% url 'user-detail' category.user %}"#}
-                {#                                       class="ui right aligned black circular label">{{ category.user }}</a>#}
-                {#                                </div>#}
-                {##}
-                {#                                <div id="js-like-{{ category.slug }}" class="right floated content">#}
-                {##}
-                {#                                    {% if  category  not in profile.category_like.all %}#}
-                {#                                        <a href="#" id="js-category-{{ category.slug }}"#}
-                {#                                           onclick="setLike('{{ category.slug }}')">#}
-                {#                                           onclick="set_like('{{ category.slug }}')">#}
-                {#                                            <i id="js-icon-category-{{ category.slug }}"#}
-                {#                                               class="thumbs  up outline icon big"></i></a>#}
-                {#                                    {% else %}#}
-                {#                                        <a href="#" id="a-category-{{ category.slug }}"  onclick="setLike('{{category.slug}}')"><i id="category-{{ category.slug }}" class="thumbs outline up icon big right" ></i></a>#}
-                {#                                        <a href="#" id="js-category-{{ category.slug }}"#}
-                {#                                           onclick="removeLike('{{ category.slug }}')">#}
-                {#                                           onclick="set_like('{{ category.slug }}')">#}
-                {#                                            <i id="js-icon-category-{{ category.slug }}" class="thumbs down  icon big">#}
-                {#                                            </i>#}
-                {#                                        </a>#}
-                {##}
-                {#                                    {% endif %}#}
-                {#                                </div>#}
-                {#                                <div class="right floated content">#}
-                {#                                    <p id="js-count-likes-{{ category.slug }}"#}
-                {#                                       class="ui black circular label">{{ category.likes }}</p>#}
-                {#                                </div>#}
-                {#                                <p class="ui middle aligned header">#}
-                {#                                    <a href="{% url 'category-detail' category.slug %}"><i#}
-                {#                                            class="info  icon"></i>{{ category.name|title }}</a>#}
-                {#                                </p>#}
-                {#                            </div>#}
-            {% endfor %}
-        {% else %}
-            <strong>Não existem categorias cadastradas.</strong>
-        {% endif %}
-    </div>
+                <div class="extra content">
+                    <span class="left floated like">
+                        <a href="#" id="js-category-{{ category.slug }}"
+                           onclick="set_like_category('{{ category.slug }}')">
+                        <i id="js-icon-category-{{ category.slug }}"
+                           class="thumbs  up  {% if  category  not in profile.category_like.all %}  gray {% endif %} icon big"></i></a>
+                        <span id="js-count-likes-category-{{ category.slug }}">{{ category.likes }}</span>
+                    </span>
+                    <span class="right floated star">
+                        <span class="left floated like">
+                        <a href="#" id="js-deslike-category-{{ category.slug }}"
+                           onclick="set_deslike_category('{{ category.slug }}')">
+                        <i id="js-icon-deslike-category-{{ category.slug }}"
+                           class="thumbs  down  {% if  category  not in profile.category_deslike.all %}  gray {% endif %} icon big"></i></a>
+                        <span id="js-count-deslikes-{{ category.slug }}">{{ category.deslikes }}</span>
+                        </span>
+                    </span>
+                </div>
+            </div>
+
+        {% endfor %}
+    {% else %}
+        <strong>Não existem categorias cadastradas.</strong>
+    {% endif %}
+</div>
 {#</section>#}

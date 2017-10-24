@@ -31,13 +31,13 @@ def add_points_page(user):
     profile.save()
 
 
-def add_points_like(user):
+def add_points_like_category(user):
     profile = UserProfile.objects.get(user=user)
     profile.points += 0.5
     profile.save()
 
 
-def remove_points_like(user):
+def remove_points_like_category(user):
     profile = UserProfile.objects.get(user=user)
     profile.points -= 0.5
     profile.save()
@@ -48,13 +48,36 @@ def add_points_friends(user):
     profile.points += 0.3
     profile.save()
 
-def add_points_deslike(user):
+def add_points_deslike_category(user):
     profile = UserProfile.objects.get(user=user)
     profile.points -= 0.5
     profile.save()
 
 
-def remove_points_deslike(user):
+def remove_points_deslike_category(user):
     profile = UserProfile.objects.get(user=user)
     profile.points += 0.5
+    profile.save()
+
+def add_points_like_page(user):
+    profile = UserProfile.objects.get(user=user)
+    profile.points += 0.2
+    profile.save()
+
+
+def remove_points_like_page(user):
+    profile = UserProfile.objects.get(user=user)
+    profile.points -= 0.2
+    profile.save()
+
+
+def add_points_deslike_page(user):
+    profile = UserProfile.objects.get(user=user)
+    profile.points -= 0.2
+    profile.save()
+
+
+def remove_points_deslike_page(user):
+    profile = UserProfile.objects.get(user=user)
+    profile.points += 0.2
     profile.save()
