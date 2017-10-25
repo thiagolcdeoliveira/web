@@ -19,7 +19,7 @@
                         <a href="#" id="js-page-{{ page.id }}"
                            onclick="set_like_page('{{ page.id }}')">
                         <i id="js-icon-page-{{ page.id }}"
-                           class="thumbs  up  {% if  page  not in profile.page_like.all %}  gray {% endif %} icon big"></i></a>
+                           class="thumbs  up  {% if  page  not in profile_request.page_like.all %}  gray {% endif %} icon big"></i></a>
                         <span id="js-count-likes-page-{{ page.id }}">{{ page.likes }}</span>
                     </span>
                     <span class="right floated star">
@@ -27,7 +27,7 @@
                         <a href="#" id="js-deslike-page-{{ page.id }}"
                            onclick="set_deslike_page('{{ page.id }}')">
                         <i id="js-icon-deslike-page-{{ page.id }}"
-                           class="thumbs  down  {% if  page  not in profile.page_deslike.all %}  gray {% endif %} icon big"></i></a>
+                           class="thumbs  down  {% if  page  not in profile_request.page_deslike.all %}  gray {% endif %} icon big"></i></a>
                         <span id="js-count-deslikes-page-{{ page.id }}">{{ page.deslikes }}</span>
                         </span>
                     </span>

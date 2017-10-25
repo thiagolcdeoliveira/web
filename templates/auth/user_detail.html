@@ -24,17 +24,15 @@
                     Top 3 categorias mais curtidas
                 </h3>
                 {% include "includes/category_like.html" %}
-                 <a class="ui button fluid">Show all Category</a>
+                 <a href="{% url 'user-category-list' profile_card.user.username %}" class="ui button fluid basic ">Show all Categories</a>
             </section>
             <section class="ui row">
                 <h3 class="ui horizontal divider header title">
                     <i class="trophy icon"></i>
                     Top 3 páginas mais visitadas
                 </h3>
-
-
                 {% include "includes/page_like.html" %}
-                 <a class="ui button fluid">Show all Page</a>
+                 <a href="{% url 'user-page-list' profile_card.user.username %}" class="ui button fluid basic">Show all Pages</a>
             </section>
 
         </section>

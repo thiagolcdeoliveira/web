@@ -25,7 +25,7 @@
                         <a href="#" id="js-category-{{ category.slug }}"
                            onclick="set_like_category('{{ category.slug }}')">
                         <i id="js-icon-category-{{ category.slug }}"
-                           class="thumbs  up  {% if  category  not in profile.category_like.all %}  gray {% endif %} icon big"></i></a>
+                           class="thumbs  up  {% if  category  not in profile_request.category_like.all %}  gray {% endif %} icon big"></i></a>
                         <span id="js-count-likes-category-{{ category.slug }}">{{ category.likes }}</span>
                     </span>
                     <span class="right floated star">

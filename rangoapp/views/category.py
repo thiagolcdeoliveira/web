@@ -33,6 +33,7 @@ class CategoryListByUserView(ListView):
     def get_queryset(self):
         queryset = super(CategoryListByUserView, self).get_queryset()
         queryset = queryset.filter(is_private=False, user__username=self.kwargs["username"])
+        print (queryset)
         return queryset
 
 

@@ -24,10 +24,12 @@ class IndexViews(View):
         self.context['categories'] = Category.objects.filter(is_private=False).order_by('-likes')[:3]
         self.context['pages'] = Page.objects.filter(category__is_private=False).order_by('-views')[:3]
         # self.context['profile'] = get_object_or_404(UserProfile,user=request.user)
-        self.context['profile'] = UserProfile.objects.filter(user=request.user)
-        if self.context['profile']:
-            self.context['profile'] = self.context['profile'][0]
-            self.context['position'] = calculate_position(self.context['profile'].points)
+        self.context['profile_request'] = UserProfile.objects.filter(user=request.user)
+        self.context['profile_card'] = get_object_or_404(UserProfile,user=request.user)
+        print(self.context['profile_card'] )
+        if self.context['profile_request']:
+            self.context['profile_request'] = self.context['profile_request'][0]
+            self.context['position'] = calculate_position(self.context['profile_request'].points)
             self.context['lightning'] = lightning(self.context['position'])
 
         else:

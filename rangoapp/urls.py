@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^category/(?P<category_name_slug>[\w\-]+)/editar/$', CategoryUpdateView.as_view(), name='category-update'),
     url(r'^category/(?P<category_name_slug>[\w\-]+)/excluir/$', CategoryDeleteView.as_view(), name='category-delete'),
     url(r'^category/listar/$', CategoryListView.as_view(), name='category-list'),
+    # url(r'^category/(?P<username>[\w\-]+)/listar/$', CategoryListByUsernameView.as_view(), name='category-list-username'),
     url(r'^category/like/$', set_like_category, name='category-set-like'),
     url(r'^category/deslike/$', set_deslike_category, name='category-set-deslike'),
 
@@ -37,7 +38,8 @@ urlpatterns = [
         name='user-detail'),
     url(r'^user/(?P<username>[\w\-]+)/category/listar/$', CategoryListByUserView.as_view(),
         name='user-category-list'),
-
+    url(r'^user/(?P<username>[\w\-]+)/page/listar/$', PageListByUserView.as_view(),
+        name='user-page-list'),
     # url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
 
     # url(r'^user/(?P<user_name_slug>[\w\-]+)/editar/$', UserUpdateView.as_view(), name='user-update'),

@@ -36,6 +36,20 @@ class PageCreateView(SuccessMessageMixin,CreateView):
             name=self.object.title,
         )
 
+class PageListByUserView(ListView):
+    queryset = Page.objects.all()
+
+    # slug_field = 'username'
+    # slug_url_kwarg = 'username'
+    # template_name =
+
+    def get_queryset(self):
+        queryset = super(PageListByUserView, self).get_queryset()
+        queryset = queryset.filter(category__is_private=False, category__user__username=self.kwargs["username"])
+        print (queryset)
+        return queryset
+
+
 class PageUpdateView(UpdateView):
     model = Page
     form_class = PageForm

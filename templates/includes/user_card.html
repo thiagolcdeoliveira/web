@@ -2,13 +2,13 @@
 
 <div class="ui card">
     <div class="image">
-        <img src="{% media profile.picture %}"
-             alt="Foto do {{ profile.user }} "/>
+        <img src="{% media profile_card.picture %}"
+             alt="Foto do {{ profile_card.user }} "/>
     </div>
     <div class="content">
-        <a class="header" id="username-ranking"> {{ profile.user.username }}</a>
+        <a class="header" id="username-ranking"> {{ profile_card.user.username }}</a>
         <div class="description">
-            {{ profile.description }}
+            {{ profile_card.description }}
         </div>
     </div>
     <div class="extra content center aligned">
@@ -25,7 +25,7 @@
         {% endfor %}
     </div>
     <div class="extra content center aligned">
-        {{ profile.points }} Pontos
+        {{ profile_card.points }} Pontos
 
     </div>
 </div>
