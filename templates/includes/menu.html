@@ -28,7 +28,7 @@
      {% if user.is_authenticated %}
             <li><a class="item {% block active_logout %}{% endblock active_logout %} right aligned" href="{% url 'auth_logout' %}"><i
                     class="ui sign in icon"></i>Logout</a></li>
-            <li class="item disabled">{{ user|title }}</li>
+            <li class="item disabled"><i class="ui icon rebel"></i> {{ user|title }}</li>
         {% else %}
 {#         {{ request }}#}
             <li><a class="item {% block active_login %}{% endblock active_login %} right aligned" href="{% url 'auth_login' %}"><i

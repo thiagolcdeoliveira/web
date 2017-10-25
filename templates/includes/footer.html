@@ -1,10 +1,17 @@
+{% load staticfiles %}
+
 <footer class="ui black inverted vertical footer relaxed segment">
-    <div class="ui five column middle aligned centered inverted divided stackable grid">
+    <div class="ui seven column middle aligned centered inverted divided stackable grid">
         <div class="two wide column">
-            <h2 class="ui inverted icon header">
-                <i class="rebel icon"></i>
+                            <img class="ui image big" src="{% static "images/favicon.png" %}"/>
+
+        </div>
+        <div class="two wide column">
+{#                            <img class="ui image big" src="{% static "images/logo_flash.png" %}"/>#}
+            <h2 class="ui inverted centered header">
+{#                <i class="rebel icon"></i>#}
                 <div class="content">
-                    Rebel Corporation
+                    S.T.A.R Corporation
                     <div class="sub header">© Copyright 2017</div>
                 </div>
             </h2>
