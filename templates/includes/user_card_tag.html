@@ -1,0 +1,31 @@
+{% load staticfiles system %}
+
+<div class="ui card">
+    <div class="image">
+        <img src="{% media user_profile.picture %}"
+             alt="Foto do {{ user_profile.user }} "/>
+    </div>
+    <div class="content">
+        <a class="header" id="username-ranking"> {{ user_profile.user.username }}</a>
+        <div class="description">
+            {{ user_profile.description }}
+        </div>
+    </div>
+    <div class="extra content center aligned">
+        <span id="position-card">{{ position }}</span>º no Ranking
+    </div>
+    <div class="extra content center aligned">
+{#        <i id="lightning-1" class="icon yellow lightning"></i>#}
+
+        {% for i in lightning.yellow %}
+            <i id="lightning-{{ i }}" class="icon yellow lightning"></i>
+        {% endfor %}
+        {% for i in lightning.noyellow %}
+            <i id="lightning-{{ i }}" class="icon lightning"></i>
+        {% endfor %}
+    </div>
+    <div class="extra content center aligned">
+        {{ user_profile.points }} Pontos
+
+    </div>
+</div>
