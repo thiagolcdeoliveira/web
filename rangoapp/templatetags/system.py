@@ -29,3 +29,13 @@ def user_profile(user=None):
     context["position"] = calculate_position(context["user_profile"].points)
     #user_profile["lightning"] = 5
     return context
+@register.inclusion_tag('includes/lightning.html')
+# @register.simple_tag()
+def lightning(points=None):
+    context={}
+    context["yellow"]= range(int(points))
+    print(context["yellow"])
+    context["gray"]=range(5-int(points))
+    print(context["gray"])
+    #user_profile["lightning"] = 5
+    return context

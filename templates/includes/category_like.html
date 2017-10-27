@@ -33,7 +33,7 @@
                         <a href="#" id="js-deslike-category-{{ category.slug }}"
                            onclick="set_deslike_category('{{ category.slug }}')">
                         <i id="js-icon-deslike-category-{{ category.slug }}"
-                           class="thumbs  down  {% if  category  not in profile.category_deslike.all %}  gray {% endif %} icon big"></i></a>
+                           class="thumbs  down  {% if  category  not in profile_request.category_deslike.all %}  gray {% endif %} icon big"></i></a>
                         <span id="js-count-deslikes-{{ category.slug }}">{{ category.deslikes }}</span>
                         </span>
                     </span>

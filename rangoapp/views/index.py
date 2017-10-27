@@ -30,17 +30,18 @@ class IndexViews(View):
         if self.context['profile_request']:
             self.context['profile_request'] = self.context['profile_request'][0]
             self.context['position'] = calculate_position(self.context['profile_request'].points)
-            self.context['lightning'] = lightning(self.context['position'])
+            # self.context['lightning'] = lightning(self.context['position'])
+            # self.context['lightning'] = range(abs(int(self.context['position'].poitns / 10)))
 
         else:
             return HttpResponseRedirect(reverse('user-profile-add'))
         return render(request, self.template, self.context)
-
-def lightning(points):
-    lightning={}
-    lightning['yellow'] = range(abs(int(points / 10)))
-    if len(lightning['yellow']) > 4:
-        lightning['yellow'] = range(4)
-    else:
-        lightning['noyellow']= range(5-len(lightning['yellow']))
-    return lightning
+#
+# def lightning(points):
+#     lightning={}
+#     lightning['yellow'] = range(abs(int(points / 10)))
+#     if len(lightning['yellow']) > 4:
+#         lightning['yellow'] = range(4)
+#     else:
+#         lightning['noyellow']= range(5-len(lightning['yellow']))
+#     return lightning
