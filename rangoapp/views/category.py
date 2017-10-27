@@ -10,8 +10,9 @@ from rangoapp.models.category import Category
 from rangoapp.forms.category import CategoryForm
 from rangoapp.models.page import Page
 from rangoapp.models.user_profile import UserProfile
-from rangoapp.views.ranking import add_points_category, add_points_like_category, remove_points_like_category, remove_points_deslike_category, \
-    add_points_deslike_category
+from rangoapp.views.ranking import add_points_category, add_points_like_category, remove_points_like_category, \
+    remove_points_deslike_category, \
+    add_points_deslike_category, remove_points_category
 
 
 class CategoryListView(ListView):
@@ -22,6 +23,12 @@ class CategoryListView(ListView):
         queryset = queryset.filter(user=self.request.user)
         return queryset
 
+    def get_context_data(self, **kwargs):
+        context = super(CategoryListView, self).get_context_data(**kwargs)
+        context["categories"] =self.queryset
+        context["profile_request"] = get_object_or_404(UserProfile,user=self.request.user)
+
+        return context
 
 class CategoryListByUserView(ListView):
     queryset = Category.objects.all()
@@ -35,6 +42,13 @@ class CategoryListByUserView(ListView):
         queryset = queryset.filter(is_private=False, user__username=self.kwargs["username"])
         print (queryset)
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryListByUserView, self).get_context_data(**kwargs)
+        context["categories"] =self.queryset
+        context["profile_request"] = get_object_or_404(UserProfile,user=self.request.user)
+
+        return context
 
 
 # permissao na categoory

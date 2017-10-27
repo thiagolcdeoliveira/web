@@ -10,11 +10,20 @@ from rangoapp.models.category import Category
 from rangoapp.models.page import Page
 from rangoapp.models.user_profile import UserProfile
 from rangoapp.views.ranking import add_points_page, add_points_like_page, remove_points_like_page, \
-    add_points_deslike_page, remove_points_deslike_page
+    add_points_deslike_page, remove_points_deslike_page, remove_points_category, remove_points_page
 
 
 class PageListView(ListView):
     queryset = Page.objects.all()
+
+    def get_queryset(self):
+        queryset = super(PageListView, self).get_queryset()
+        queryset =queryset.filter(category__user=self.request.user)
+        return queryset
+    def get_context_data(self, **kwargs):
+        context = super(PageListView, self).get_context_data(**kwargs)
+        context["pages"]=self.queryset
+        context["profile_request"] = get_object_or_404(UserProfile,user=self.request.user)
 
 
 class PageCreateView(SuccessMessageMixin,CreateView):
@@ -50,6 +59,12 @@ class PageListByUserView(ListView):
         print (queryset)
         return queryset
 
+    def get_context_data(self, **kwargs):
+        context = super(PageListByUserView, self).get_context_data(**kwargs)
+        context["pages"]=self.queryset
+        context["profile_request"] = get_object_or_404(UserProfile,user=self.request.user)
+
+
 
 class PageUpdateView(UpdateView):
     model = Page
@@ -70,7 +85,7 @@ class PageDeleteView(DeleteView):
         self.object = form.save(commit=False)
         self.object.save()
         if not self.object.category.is_private:
-            remove_points_category(self.object.category.user)
+            remove_points_page(self.object.category.user)
         return super(PageDeleteView, self).form_valid(form)
 
 def set_like_page(request):
