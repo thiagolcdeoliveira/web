@@ -24,10 +24,20 @@ def add_points_category(user):
     profile.points += 0.2
     profile.save()
 
+def remove_points_category(user):
+    profile = UserProfile.objects.get(user=user)
+    profile.points -= 0.2
+    profile.save()
+
 
 def add_points_page(user):
     profile = UserProfile.objects.get(user=user)
     profile.points += 0.5
+    profile.save()
+
+def remove_points_page(user):
+    profile = UserProfile.objects.get(user=user)
+    profile.points -= 0.5
     profile.save()
 
 
