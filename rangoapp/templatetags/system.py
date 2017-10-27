@@ -39,3 +39,11 @@ def lightning(points=None):
     print(context["gray"])
     #user_profile["lightning"] = 5
     return context
+
+# @register.inclusion_tag('includes/user_card_tag.html')
+# @register.filter(needs_autoescape=True)
+# def profile(user=None):
+#     profile = get_object_or_404(UserProfile,user=user)
+#     print(profile)
+#     #user_profile["lightning"] = 5
+#     return profile

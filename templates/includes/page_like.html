@@ -1,3 +1,5 @@
+{% load staticfiles system %}
+
 <div class="ui three cards stackable ">
     {% if pages %}
         {% for page in pages %}
@@ -14,6 +16,8 @@
                         </p>
                     </div>
                 </div>
+{#                        {% profile request.user %}#}
+
                 <div class="extra content">
                     <span class="left floated like">
                         <a href="#" id="js-page-{{ page.id }}"

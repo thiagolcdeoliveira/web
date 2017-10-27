@@ -46,6 +46,7 @@ class CategoryDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(CategoryDetailView, self).get_context_data(**kwargs)
         context['pages'] = Page.objects.filter(category__slug=self.kwargs['category_name_slug'])
+        context['profile_request'] = get_object_or_404(UserProfile,user=self.request.user)
         return context
 
 
