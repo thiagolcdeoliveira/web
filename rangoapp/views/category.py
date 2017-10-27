@@ -90,6 +90,8 @@ class CategoryDeleteView(DeleteView):
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.save()
+        if not self.object.is_private:
+            remove_points_category(self.object.user)
         return super(CategoryDeleteView, self).form_valid(form)
 
     #

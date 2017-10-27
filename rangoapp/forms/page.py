@@ -25,4 +25,4 @@ class PageForm(forms.ModelForm):
         return cleaned_data
     class Meta:
         model = Page
-        exclude = ('category',)
+        exclude = ('category','likes','deslikes')

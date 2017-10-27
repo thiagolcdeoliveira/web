@@ -26,7 +26,8 @@ class PageCreateView(SuccessMessageMixin,CreateView):
         self.object = form.save(commit=False)
         self.object.category=get_object_or_404(Category,slug=self.kwargs["category_name_slug"])
         self.object.save()
-        add_points_page(self.request.user)
+        if not self.object.category.is_private:
+            add_points_page(self.request.user)
         # messages.success(self.request, "Cadastrado com sucesso!", extra_tags='msg')
         return super(PageCreateView, self).form_valid(form)
 
@@ -68,6 +69,8 @@ class PageDeleteView(DeleteView):
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.save()
+        if not self.object.category.is_private:
+            remove_points_category(self.object.category.user)
         return super(PageDeleteView, self).form_valid(form)
 
 def set_like_page(request):
