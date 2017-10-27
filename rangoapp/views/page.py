@@ -2,7 +2,7 @@
 from django.contrib import messages
 from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import *
 from django.contrib.messages.views import SuccessMessageMixin
 from rangoapp.forms.page import PageForm
@@ -25,6 +25,19 @@ class PageListView(ListView):
         context["pages"]=self.queryset
         context["profile_request"] = get_object_or_404(UserProfile,user=self.request.user)
 
+class PageDetailViews(DetailView):
+    queryset = Page.objects.all()
+    def get(self, request, *args, **kwargs):
+        page = get_object_or_404(Page,id=kwargs["id"])
+        page.views+=1
+        page.save()
+
+        # print (page.url)
+        # return redirect("http://www.google.com")
+        return redirect(page.url)
+
+        # return redirect(self.object.url)
+        # return redirect(self.object.url)
 
 class PageCreateView(SuccessMessageMixin,CreateView):
     model = Page

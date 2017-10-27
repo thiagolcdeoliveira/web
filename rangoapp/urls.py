@@ -40,6 +40,8 @@ urlpatterns = [
         name='user-category-list'),
     url(r'^user/(?P<username>[\w\-]+)/page/listar/$', PageListByUserView.as_view(),
         name='user-page-list'),
+url(r'^user/page/(?P<id>[\d\-]+)/$', PageDetailViews.as_view(),
+        name='page-detail'),
     # url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
 
     # url(r'^user/(?P<user_name_slug>[\w\-]+)/editar/$', UserUpdateView.as_view(), name='user-update'),
