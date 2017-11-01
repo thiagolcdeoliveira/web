@@ -7,13 +7,16 @@
                 class="ui user icon"></i>Adicionar Categoria</a></li>
         <li><a class="item {% block active_list_category %}{% endblock active_list_category %}"
                href="{% url 'category-list' %}"><i
-                class="ui user icon"></i>Listar Categorias</a></li>
+                class="ui user icon"></i>Listar Minhas Categorias</a></li>
          <li><a class="item {% block active_list_page %}{% endblock active_list_page %}"
                href="{% url 'page-list' %}"><i
-                class="ui user icon"></i>Listar paginas</a></li>
+                class="ui user icon"></i>Listar Minhas paginas</a></li>
         <li><a class="item {% block active_detail_user %}{% endblock active_detail_user %}"
                href="{% url 'user-detail' user %}"><i
                 class="ui user icon"></i>Perfil</a></li>
+        <li><a class="item {% block active_detail_alter_user %}{% endblock active_detail_alter_user %}"
+               href="{% url 'user-change-detail' user %}"><i
+                class="ui user icon"></i>Alterar Dados Pessoais</a></li>
         <li><a class="item {% block active_logout %}{% endblock active_logout %}" href="{% url 'auth_logout' %}"><i
                 class="ui sign in icon"></i>Logout</a></li>
         <li class="item disabled">{{ user|title }}</li>

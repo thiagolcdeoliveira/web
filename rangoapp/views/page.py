@@ -22,7 +22,7 @@ class PageListView(ListView):
         return queryset
     def get_context_data(self, **kwargs):
         context = super(PageListView, self).get_context_data(**kwargs)
-        context["pages"]=self.queryset
+        context["pages"]=self.get_queryset()
         context["profile_request"] = get_object_or_404(UserProfile,user=self.request.user)
 
 class PageDetailViews(DetailView):

@@ -8,7 +8,7 @@
 
 
         {% for category in categories %}
-            <div class="ui card  black">
+            <div class="ui card">
                 <div class="content">
                     <i class="ui icon hashtag right floated">{{ forloop.counter }}</i>
                     <div class="header"><a href="{% url 'category-detail' category.slug %}"><i
@@ -21,8 +21,11 @@
                             <a href="{% url 'user-detail' category.user %}">by {{ category.user }}</a>
                         </p>
                     </div>
-                </div>
+                </div> {% if user == category.user %}
+                <a href="{% url 'category-update' category.slug %}" class="ui button attached fluid tertiary">Editar</a>
+                 {% else %}
                 <div class="extra content">
+
                     <span class="left floated like">
                         <a href="#" id="js-category-{{ category.slug }}"
                            onclick="set_like_category('{{ category.slug }}')">
@@ -39,7 +42,10 @@
                         <span id="js-count-deslikes-{{ category.slug }}">{{ category.deslikes }}</span>
                         </span>
                     </span>
+
                 </div>
+ {% endif %}
+
             </div>
 
         {% endfor %}

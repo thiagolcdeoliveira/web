@@ -3,6 +3,9 @@ from __future__ import unicode_literals
 
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.messages.views import SuccessMessageMixin
+from django.core.urlresolvers import reverse_lazy
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import View, DetailView
 from django.views.generic import *
@@ -30,6 +33,18 @@ class UserDetailView(DetailView):
         print("%s -- -" %self.context['profile_card'])
         return self.context
 
+class UserChangeDetailView(DetailView):
+    queryset = User.objects.all()
+    slug_field = 'username'
+    slug_url_kwarg = 'username'
+    template_name= 'auth/user_change_detail.html'
+
+    def get_context_data(self, **kwargs):
+        self.context = super(UserChangeDetailView, self).get_context_data(**kwargs)
+        # self.context['profile_card'] = get_object_or_404(UserProfile,user__username=self.kwargs['username'])
+        self.context['profile_request'] = get_object_or_404(UserProfile,user=self.request.user)
+        return self.context
+
 class MyRegistrationView(RegistrationView):
 
     form_class = UserProfileRegistrationForm
@@ -45,6 +60,53 @@ class MyRegistrationView(RegistrationView):
 
 
 
+
+class UserUpdateView(SuccessMessageMixin,UpdateView):
+    model = User
+    form_class = UserForm
+    # form_class = PageEditForm
+    slug_field = 'username'
+    slug_url_kwarg = 'username'
+    # template_name = 'registration/registration_form.html'
+    success_message = u"Usuário %(name)s alterado com sucesso! "
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.save()
+        return super(UserUpdateView, self).form_valid(form)
+
+    def get_success_message(self, cleaned_data):
+        return self.success_message % dict(
+            cleaned_data,
+            name=self.object.username,
+        )
+    def get_success_url(self):
+        return reverse_lazy('user-change-detail', kwargs={'username': self.object.username})
+
+class UserDeleteView(SuccessMessageMixin,DeleteView):
+    queryset = User.objects.all()
+    success_url = reverse_lazy('auth_logout')
+    # slug_field = 'username'
+    # slug_url_kwarg = 'username'
+    # success_message = u"Usuário %(name)s deletado com sucesso! "
+    success_message = u"Usuário deletado com sucesso! "
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.save()
+        return super(UserDeleteView, self).form_valid(form)
+
+    # def get_success_message(self, cleaned_data):
+    #     return self.success_message % dict(
+    #         cleaned_data,
+    #         name=self.object.username,
+    #     )
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.is_active = False
+        self.object.save()
+        success_url = self.get_success_url()
+        return HttpResponseRedirect(success_url)
 
 class UserCreateView(View):
     template="rangoapp/register.html"

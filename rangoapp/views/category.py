@@ -25,7 +25,7 @@ class CategoryListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(CategoryListView, self).get_context_data(**kwargs)
-        context["categories"] =self.queryset
+        context["categories"] =self.get_queryset()
         context["profile_request"] = get_object_or_404(UserProfile,user=self.request.user)
 
         return context
@@ -88,7 +88,8 @@ class CategoryCreateView(SuccessMessageMixin, CreateView):
 class CategoryUpdateView(UpdateView):
     model = Category
     form_class = CategoryForm
-
+    slug_field = 'slug'
+    slug_url_kwarg = 'category_name_slug'
     # form_class = CategoryEditForm
 
     def form_valid(self, form):

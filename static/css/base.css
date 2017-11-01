@@ -70,7 +70,7 @@ i.ui.red.tiny.icon.asterisk {
 .pushable {
     height: initial;
 }
-.ui.cards > .ui.black.card {
+.ui.cards > .ui.card {
     border-top: #343434 solid 2.5px;
 }
 .ui.stackable.centered.aligned.grid.row{
@@ -84,4 +84,7 @@ i.ui.red.tiny.icon.asterisk {
 .ui.stackable.cards .card, .ui.three.cards {
     margin-top: 1em !important;
     margin-bottom: 1em !important;
+}
+.ui.grid.relaxed.stackable.column.row{
+    padding: 10px;
 }

@@ -50,16 +50,30 @@ class UserProfileCreateView(SuccessMessageMixin,CreateView):
             name=self.object.user.username,
         )
 
-class UserProfileUpdateView(UpdateView):
+class UserProfileUpdateView(SuccessMessageMixin,UpdateView):
     model = UserProfile
     form_class = UserProfileForm
+    success_message = u"Usuário %(name)s alterado com sucesso! "
+
+    # slug_field = 'username'
+    # slug_url_kwarg = 'username'
     # form_class = UserProfileEditForm
+
+    # def get_queryset(self):
+    #     queryset = super(UserProfileUpdateView, self).get_queryset()
+    #     queryset = queryset.filter(user__username=self.kwargs["username"])
+    #     return queryset
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.save()
         return super(UserProfileUpdateView, self).form_valid(form)
 
+    def get_success_message(self, cleaned_data):
+        return self.success_message % dict(
+            cleaned_data,
+            name=self.object.user.username,
+        )
 
 class UserProfileDeleteView(DeleteView):
     queryset = UserProfile.objects.all()

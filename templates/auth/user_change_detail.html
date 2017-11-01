@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load staticfiles system %}
+
+{% block title_block %}
+    Sobre o Rango
+{% endblock title_block %}
+
+{% block body_block %}
+
+    <section class="ui twelve wide column">
+        <h1 class="ui header ">Perfil</h1>
+        <div class="ui  divider "></div>
+        <div class="row">
+            {% include "includes/message.html" %}
+        </div>
+        <section class="ui relaxed stackable column grid row segment">
+    <section class="four wide column  ">
+
+                <img class="ui big image" src="{% media profile_request.picture %}">
+
+
+                <a href="{% url 'user-update' user %}" class="ui button fluid attached basic">Alterar Dados</a>
+
+
+                <a href="{% url 'user-profile-update' profile_request.id %}" class="ui button fluid attached basic">Alterar
+                    Profile</a>
+
+
+                <a href="{% url 'auth_password_change' %}" class="ui button fluid attached basic">Alterar senha </a>
+
+
+                <a href="{% url 'user-delete' user.id %}" class="ui button fluid attached basic">Desativar conta</a>
+
+            </section>
+
+            <section class="twelve wide column">
+                <div class="ui ">
+                    <p>Nome:</p>
+                    <p>{{ profile_request.user.first_name }} {{ profile_request.user.last_name }}</p>
+
+                    <p>Email: </p>
+                    <p> {{ profile_request.user.email }} </p>
+                    <p>Website:</p>
+                    <p><a href="{{ profile_request.website }}"> {{ profile_request.website }} </a></p>
+                    <p>Grupo:</p>
+                    <p>
+                        {% for group in user.groups.all %}
+                            <span class="ui tiny label">
+                              {{ group }}
+                            </span>
+                        {% endfor %}
+                    </p>
+                    <p>Descrição:</p>
+                    <p> {{ profile_request.description }} </p>
+                </div>
+
+
+            </section>
+
+        </section>
+
+
+{% endblock %}

@@ -3,16 +3,39 @@
 from django import forms
 from django.contrib.auth.models import User
 
+from rangoapp.forms.validation.email import ValidationEmail
 from rangoapp.models.user_profile import UserProfile
 from registration.forms import RegistrationFormUniqueEmail, RegistrationForm, RegistrationFormNoFreeEmail
 
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
-
+    password_checker = forms.CharField(required=True, label='Confirmar Senha', widget=forms.PasswordInput)
     class Meta:
         model = User
-        fields = ('username', 'email', 'password')
+        fields = ('first_name','last_name','username', 'email', 'password','password_checker')
+
+    def clean_email(self):
+        # print(self.cleaned_data.get("username"))
+        return ValidationEmail(self.cleaned_data.get("username"),self.cleaned_data.get("email"))
+
+    def clean_password_checker(self):
+        if 'password' in self.cleaned_data:
+            password = self.cleaned_data['password']
+            password_checker = self.cleaned_data['password_checker']
+            if password == password_checker:
+                return password_checker
+            else:
+                raise forms.ValidationError('As senhas são diferentes!')
+        else:
+            raise forms.ValidationError('As senhas são diferentes!')
+
+    def save(self, commit=True):
+        pessoa = super(UserForm, self).save(commit=False)
+        pessoa.set_password(self.cleaned_data['password'])
+        if commit:
+            pessoa.save()
+        return pessoa
 
 class UserProfileForm(forms.ModelForm):
     class Meta:
