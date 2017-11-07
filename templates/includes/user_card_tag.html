@@ -1,4 +1,5 @@
 {% load staticfiles system %}
+{% load i18n %}
 
 <div class="ui card">
     <div class="image">
@@ -12,7 +13,7 @@
         </div>
     </div>
     <div class="extra content center aligned">
-        <span id="position-card">{{ position }}</span>º no Ranking
+        <span id="position-card">{{ position }}</span>º {% trans "in ranking"|title %}
     </div>
     <div class="extra content center aligned">
 {#        <i id="lightning-1" class="icon yellow lightning"></i>#}
@@ -26,7 +27,7 @@
 {#        {% endfor %}#}
     </div>
     <div class="extra content center aligned">
-        {{ user_profile.points }} Pontos
+        {{ user_profile.points }} {% trans "Points"|title %}
 
     </div>
 </div>

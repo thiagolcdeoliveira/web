@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles system %}
+{% load i18n %}
 
 {% block title_block %}
     Sobre o Rango
@@ -20,14 +21,14 @@
             <section class="ui row ">
                 <h3 class="ui horizontal divider header title">
                     <i class="trophy icon"></i>
-                    Top 3 categorias mais curtidas
+                    {% trans "Top 3 most tanned categories" %}
                 </h3>
                 {% include "includes/category_like.html" %}
             </section>
             <section class="ui row">
                 <h3 class="ui horizontal divider header title">
                     <i class="trophy icon"></i>
-                    Top 3 páginas mais visitadas
+                    {% trans "Top 3 most viewed pages " %}
                 </h3>
 
 

@@ -2,6 +2,7 @@
 
 {#</div>#}
 {% load staticfiles system %}
+{% load i18n %}
 
 <div class="ui three cards stackable">
     {% if categories %}
@@ -22,7 +23,7 @@
                         </p>
                     </div>
                 </div> {% if user == category.user %}
-                <a href="{% url 'category-update' category.slug %}" class="ui button attached fluid tertiary">Editar</a>
+                <a href="{% url 'category-update' category.slug %}" class="ui button attached fluid tertiary">{% trans "edit"|title %}</a>
                  {% else %}
                 <div class="extra content">
 

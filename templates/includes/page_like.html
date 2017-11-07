@@ -1,4 +1,5 @@
 {% load staticfiles system %}
+{% load i18n %}
 
 <div class="ui three cards stackable ">
     {% if pages %}
@@ -19,7 +20,7 @@
                 </div>
                 {#                        {% profile request.user %}#}
     {% if user == page.category.user %}
-                    <a href="{% url 'page-update' page.id %}" class="ui button attached fluid tertiary">Editar</a>
+                    <a href="{% url 'page-update' page.id %}" class="ui button attached fluid tertiary">{% trans "edit"|title %}</a>
 
                     {% else %}
                 <div class="extra content">
