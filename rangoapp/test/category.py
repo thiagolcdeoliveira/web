@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 from django.test import TestCase
 
@@ -10,6 +11,7 @@ import datetime
 
 from django.test import TestCase
 from django.contrib.auth.models import User
+from django.utils.translation import activate
 
 from rangoapp.models.category import Category
 
@@ -20,12 +22,13 @@ class TesteCategory(TestCase):
         #     username='admin'
         # )
 
-        self.category = Category.objects.get_or_create(
-            name='DC-flash', views='2', likes='3'
-        )
-
-    def tearDown(self):
+        # self.category = Category.objects.get_or_create(
+        #     name='DC-flash', views='2', likes='3',is_private=False
+        # )
         pass
+
+    # def tearDown(self):
+    #     pass
 
     # def testUmMaisUm(self):
     #     self.assertEquals(1 + 1, 2)
@@ -35,4 +38,8 @@ class TesteCategory(TestCase):
          self.assertEquals('dc-flash', category.slug )
 
     def testObjectCreate(self):
-        self.assertEquals(Category.objects.count(), 1)
+        # self.assertEquals(Category.objects.count(), 1)
+
+        activate('pt-br')
+        response = self.client.get(reverse("home"))
+        self.assertEquals(response, "template/rangoapp/index.html")

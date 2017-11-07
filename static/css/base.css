@@ -88,3 +88,7 @@ i.ui.red.tiny.icon.asterisk {
 .ui.grid.relaxed.stackable.column.row{
     padding: 10px;
 }
+.ui.tiny.image.flag{
+    width: 25px;
+    margin: 10px 5px 10px 5px ;
+}

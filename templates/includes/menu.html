@@ -25,6 +25,8 @@
     <i class="sidebar icon"></i>
     Menu
   </a></li><ul class="right menu">
+{# {% include 'includes/language_options.html' %}#}
+ {% include 'includes/language_options.html' %}
      {% if user.is_authenticated %}
             <li><a class="item {% block active_logout %}{% endblock active_logout %} right aligned" href="{% url 'auth_logout' %}"><i
                     class="ui sign in icon"></i>Logout</a></li>

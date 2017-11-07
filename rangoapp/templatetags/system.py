@@ -1,6 +1,5 @@
 from django import template
 from django.contrib.staticfiles.storage import staticfiles_storage
-from django.contrib.staticfiles.templatetags.staticfiles import StaticFilesNode
 from django.shortcuts import get_object_or_404
 from django.templatetags.static import StaticNode
 

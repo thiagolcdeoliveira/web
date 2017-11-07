@@ -1,4 +1,6 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import login, logout
 
 from rangoapp.views.user_profile import *
 from rangoapp.views.views import *
@@ -6,6 +8,7 @@ from rangoapp.views.category import *
 from rangoapp.views.page import *
 from rangoapp.views.user import *
 from rangoapp.views.index import *
+
 
 
 
@@ -54,5 +57,11 @@ urlpatterns = [
     # url(r'^userprofile/(?P<username>[\w\-]+)/update/$', UserProfileUpdateView.as_view(), name='user-profile-update'),
     url(r'^userprofile/(?P<pk>[\d\-]+)/update/$', UserProfileUpdateView.as_view(), name='user-profile-update'),
     url(r'^user/(?P<pk>[\d\-]+)/delete/$', UserDeleteView.as_view(), name='user-delete'),
+
+    url(r'^login/$', login, {'template_name': 'registration/login.html'}, name='login'),
+    url(r'^logout/$', login_required(logout), name='logout'),
+    url(r'', include('social.apps.django_app.urls', namespace='social')),
+    url(r'', include('django.contrib.auth.urls', namespace='auth')),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
 ]

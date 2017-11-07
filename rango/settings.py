@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import smtplib
+# from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
@@ -30,14 +32,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
     # 'jet.dashboard',
     # 'jet',
+    'modeltranslation',
     'django.contrib.admin',
-   # 'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -47,8 +48,6 @@ INSTALLED_APPS = [
     'registration',
     'social.apps.django_app.default',
     'social_django',
-
-
     #'applogin',
 ]
 # SITE_ID=1
@@ -75,14 +74,15 @@ REGISTRATION_DEFAULT_FROM_EMAIL ="noreplay@starlabs.com"
 # REGISTRATION_DEFAULT_FROM_EMAIL ="thiagolocatellicdeoliveira@gmail.com"
 #
 MIDDLEWARE_CLASSES = [
-    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware'
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'rango.urls'
@@ -98,13 +98,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
+                'django.template.context_processors.i18n',
 
             ],
         },
     },
 ]
-
 WSGI_APPLICATION = 'rango.wsgi.application'
 
 
@@ -140,18 +139,24 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
+LANGUAGE_CODE = 'pt-br'
 
-LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'America/Sao_Paulo'
 
-TIME_ZONE = 'UTC'
-# LANGUAGE_CODE = 'pt-br'
-#
-# TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('pt-br', _('Portugues')),
+    ('es', _('Spanish')),
+)
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 # LOGIN_REDIRECT_URL = '/'
 # LOGOUT_REDIRECT_URL = 'auth_logout'
@@ -169,17 +174,9 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
-
 # --- INÍCIO AUTENTICAÇÃO COM AS REDE SOCIAIS ----#
 
-LANGUAGES = (
-    ('en', u'Inglês'),
-    ('pt-br', u'Português'),
-    ('es', u'Espanhol'),
-)
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
-)
+
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.github.GithubOAuth2',
@@ -188,7 +185,6 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth',
     'social_core.backends.google.GoogleOAuth2',
 )
-
 # --- END AUTENTICAÇÃO COM AS REDE SOCIAIS ----#
 
 # --- URL -----#

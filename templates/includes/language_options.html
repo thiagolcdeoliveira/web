@@ -1,0 +1,22 @@
+{% load i18n static staticfiles %}
+iii
+{% get_language_info_list for LANGUAGES as languages %}
+{#{% if settings.USE_MODELTRANSLATION and languages|length > 1 %}#}
+    <form action="{% url "set_language" %}" method="post" id="language_selector_form" hidden>
+        {% csrf_token %}
+        <select class="ui selection dropdown" name="language" id="language-page">
+            {% for language in languages %}
+                <option class="item" value="{{ language.code }}"
+                        {% if language.code == LANGUAGE_CODE %}selected="selected"{% endif %}
+                        data-value="{{ language.code }}"><i class="br flag"></i>
+                    {{ language.name_local|title|cut:" Brasileiro" }}
+                </option>
+            {% endfor %}
+        </select>
+    </form>
+    <a href="#" class="ui link" onclick="selectedLanguage('pt-br')"> <img class="ui tiny image flag" src="{% static 'img/br.svg' %}"> </a>
+    <a href="#" class="ui link" onclick="selectedLanguage('es')">  <img class="ui tiny image flag" src="{% static 'img/es.svg' %}"> </a>
+    <a href="#" class="ui link" onclick="selectedLanguage('en')"> <img class="ui tiny image flag" src="{% static 'img/us.svg' %}"></a>
+    <script src="{% static 'js/__selected_language__.js' %}" type="text/javascript"></script>
+
+{#{% endif %}#}
