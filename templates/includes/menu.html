@@ -18,7 +18,7 @@
 {#            <li class="item disabled">Você não está autenticado.</li>#}
 {#        {% endif %}#}
 {#    </ul>#}
-
+{% load i18n %}
 
 <ul class="ui  inverted attached  menu ">
  <li> <a class="item sidebar-menu">
@@ -29,13 +29,14 @@
  {% include 'includes/language_options.html' %}
      {% if user.is_authenticated %}
             <li><a class="item {% block active_logout %}{% endblock active_logout %} right aligned" href="{% url 'auth_logout' %}"><i
-                    class="ui sign in icon"></i>Logout</a></li>
+                    class="ui sign in icon"></i>{% trans "logout"|title %}</a></li>
             <li class="item disabled"><i class="ui icon rebel"></i> {{ user|title }}</li>
         {% else %}
-{#         {{ request }}#}
+{#         {{ request.path }}#}
             <li><a class="item {% block active_login %}{% endblock active_login %} right aligned" href="{% url 'auth_login' %}"><i
-                    class="ui sign in icon"></i>Login</a></li>
+                    class="ui sign in icon"></i>{% trans "login"|title %}</a></li>
             <li class="item disabled">Você não está autenticado.</li>
         {% endif %}
+
 </ul>
 </ul>
