@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
+{% load i18n %}
+
 {% block title_block %}
-    Adicionar Categoria
+    {% trans "add category"|title %}
 {% endblock title_block %}
 {% load staticfiles %}
 {% block body_block %}
  <section class="ui six wide column">
-        <h1 class="ui header ">Adicionar Categoria</h1>
+        <h1 class="ui header ">{% trans "add category"|title %}</h1>
         <div class="ui  divider "></div>
 {#<section class="six wide column">#}
 {#    <h1>Adicionar Categoria</h1>#}
