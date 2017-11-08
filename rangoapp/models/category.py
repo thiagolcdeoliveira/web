@@ -9,7 +9,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 class Category(models.Model):
-    name = models.CharField(max_length=128, unique=True,help_text=_('name'),label=_('name'))
+    name = models.CharField(max_length=128, unique=True,help_text=_('name'))
     views = models.PositiveIntegerField(default=0)
     likes = models.PositiveIntegerField(default=0)
     deslikes = models.PositiveIntegerField(default=0)

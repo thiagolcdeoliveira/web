@@ -10,8 +10,8 @@ from django.utils.translation import ugettext_lazy as _
 
 class Page(models.Model):
     category = models.ForeignKey(Category)
-    title = models.CharField(max_length=128,help_text=_('title'),label=_('title'))
-    url = models.URLField(help_text=_('url'),label=_('url'))
+    title = models.CharField(max_length=128,help_text=_('title'))
+    url = models.URLField(help_text=_('url'))
     description= models.TextField(default=200, help_text=_('description'))
     views = models.IntegerField(default=0)
     likes = models.PositiveIntegerField(default=0)
