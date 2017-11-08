@@ -2,7 +2,7 @@
 {% extends 'base.html' %}{% load i18n %}
 
 {% block title_block %}
-Adicionar Categoria
+{% trans "list categories"|title %}
 {% endblock title_block %}
 {% load staticfiles %}
 
@@ -10,7 +10,7 @@ Adicionar Categoria
 {% block body_block %}
 
      <section class="ui ten wide column">
-        <h1 class="ui header ">Listar categorias </h1>
+        <h1 class="ui header ">{% trans "list categories"|title %}</h1>
         <div class="ui  divider "></div>
 
 {#    <section class="six wide column">#}

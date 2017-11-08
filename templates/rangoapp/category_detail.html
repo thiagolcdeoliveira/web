@@ -3,13 +3,13 @@
 {% load i18n %}
 
 {% block title_block %}
-    Sobre o Rango
+   {% trans "details of category"|title %}
 {% endblock title_block %}
 
 {% block body_block %}
     {#<section class="six wide column">#}
     <section class="ui ten wide column">
-        <h1 class="ui header ">Detalhes da categoria</h1>
+        <h1 class="ui header ">{% trans "logout"|title %}</h1>
         <div class="ui  divider "></div>
         {% include 'includes/message.html' %}
 
@@ -36,8 +36,8 @@
 {#        {% endif %}#}
         {% include "includes/page_like.html" %}
         <div class="ui  two fluid buttons ">
-            <a class="ui button gray" href="">Voltar</a>
-            <a class="ui button black" href="{% url 'page-add' object.slug %}">Adicionar página em {{ object.name }}</a>
+            <a class="ui button gray" href="">{% trans "back"|title %}</a>
+            <a class="ui button black" href="{% url 'page-add' object.slug %}">{% trans "add page in"|title %} {{ object.name }}</a>
         </div>
 
         </section>

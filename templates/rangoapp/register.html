@@ -2,11 +2,11 @@
 
 {% load staticfiles %}
 {% block title_block %}
-    Register
+    {% trans "register"|title %}
 {% endblock %}
 {% block body_block %}
     <section class="ui twelve wide column">
-        <h1 class="ui header ">Register for Rango</h1>
+        <h1 class="ui header ">{% trans "register for rango"|title %}</h1>
         <div class="ui  divider "></div>
         {#    <h1>Register for Rango</h1>#}
         {% include 'includes/message.html' %}
@@ -15,7 +15,7 @@
         {#        Rango says: <strong>thank you for registering!</strong>#}
         {#        <a href="{% url 'home' %}">Return to the homepage.</a><br/>#}
         {#    {% else %}#}
-        Rango says: <strong>register here!</strong><br/>
+        {% trans "rango says"|title %}: <strong>{% trans "register here"|title %}!</strong><br/>
         {#        <form id="user_form" method="post" action="{% url 'user-add' %}"#}
         <form id="user_form" method="post" action=""
               enctype="multipart/form-data">

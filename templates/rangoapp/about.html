@@ -1,18 +1,21 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load i18n %}
 
 {% block title_block %}
-Sobre o Rango
+
+    {% trans "about"|title %}
 {% endblock title_block %}
 
 {% block body_block %}
       <section class="ui twelve wide column">
-        <h1 class="ui header ">Sobre - Sobre o <a href="{% url 'home' %}">Rango</a></h1>
+        <h1 class="ui header ">{% trans "about"|title %} <a href="{% url 'home' %}">{% trans "rango"|title %}</a></h1>
         <div class="ui  divider "></div>
 {#<h1>Sobre o <a href="{% url 'home' %}">Rango</a><br /></h1>#}
 <div class="ui row segment basic">
-    O rango é uma aplicação para o gerenciamento de sites, feito em Django e utilizado nas aulas de Desenvolvimento Web 2.
-    Perfil dos desenvolvedores abaixo.
+    {% blocktrans %} The rango is an application for the management of sites, done in Django and used in classes of Web Development 2.
+    Profile of the developers below{% endblocktrans %}.
+
 </div>
 <div class="ui link cards">
   <div class="card">
@@ -26,7 +29,7 @@ Sobre o Rango
         <a>Friends</a>
       </div>
       <div class="description">
-        Popularmente conecido com Barry Allen.
+       {% trans "popularly known as"|title %} Barry Allen.
       </div>
     </div>
     <div class="extra content">
@@ -35,7 +38,7 @@ Sobre o Rango
       </span>
       <span>
         <i class="user icon"></i>
-        Mais de 8000
+        {% trans "it's over"|title %} 8000!
       </span>
     </div>
   </div>
@@ -64,7 +67,7 @@ Sobre o Rango
       </span>
       <span>
         <i class="user icon"></i>
-        Mais de 8000
+        {% trans "it's over"|title %}8000
       </span>
     </div>
   </div><div class="card">
@@ -79,7 +82,7 @@ Sobre o Rango
         <a>Friends</a>
       </div>
       <div class="description">
-        Popularmente conhecido como Bart Allen.
+        {% trans "popularly known as"|title %} Bart Allen.
       </div>
     </div>
     <div class="extra content">
@@ -88,7 +91,7 @@ Sobre o Rango
       </span>
       <span>
         <i class="user icon"></i>
-        Mais de 8000
+        {% trans "it's over"|title %} 8000
       </span>
     </div>
   </div>
@@ -97,7 +100,7 @@ Sobre o Rango
 {#    <div><img src="/media/bartholomew.jpg" alt="Foto do Bartholomew" /></div>#}
 
 <div>
-    Desenvolvido por {{ autor }}
+    {% trans "devoloped by"|title %} {{ autor }}
 </div>
       </section>
 {% endblock body_block %}

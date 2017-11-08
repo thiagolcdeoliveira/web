@@ -1,7 +1,7 @@
 {% load i18n %}
 <ul class="ui inverted divided list">
     {% if cats %}
-        <strong>Categorias:</strong><br/>
+        <strong>{% trans "categories"|title %}</strong><br/>
         {% for c in cats %}
             {% if c == act_cat %}
                 <li class="item">
@@ -16,6 +16,6 @@
             {% endif %}
         {% endfor %}
     {% else %}
-        <li><strong>There are no categories present.</strong></li>
+        <li><strong>{% trans "there are no categories present"|title %}.</strong></li>
     {% endif %}
 </ul>
