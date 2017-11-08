@@ -7,14 +7,14 @@ from django.db import models
 
 # Create your models here.
 from django.template.defaultfilters import slugify
-
+from django.utils.translation import ugettext_lazy as _
 class Category(models.Model):
-    name = models.CharField(max_length=128, unique=True)
+    name = models.CharField(max_length=128, unique=True,help_text=_('name'),label=_('name'))
     views = models.PositiveIntegerField(default=0)
     likes = models.PositiveIntegerField(default=0)
     deslikes = models.PositiveIntegerField(default=0)
-    description = models.TextField(default=200)
-    user = models.ForeignKey(User)
+    description = models.TextField(default=200,help_text=_('description'))
+    user = models.ForeignKey(User,)
     is_private = models.BooleanField()
     slug = models.SlugField(unique=True)
 

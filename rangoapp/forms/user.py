@@ -6,11 +6,11 @@ from django.contrib.auth.models import User
 from rangoapp.forms.validation.email import ValidationEmail
 from rangoapp.models.user_profile import UserProfile
 from registration.forms import RegistrationFormUniqueEmail, RegistrationForm, RegistrationFormNoFreeEmail
-
+from django.utils.translation import ugettext_lazy as _
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
-    password_checker = forms.CharField(required=True, label='Confirmar Senha', widget=forms.PasswordInput)
+    password_checker = forms.CharField(required=True, label=_('Confirm Password'), widget=forms.PasswordInput)
     class Meta:
         model = User
         fields = ('first_name','last_name','username', 'email', 'password','password_checker')
@@ -26,9 +26,11 @@ class UserForm(forms.ModelForm):
             if password == password_checker:
                 return password_checker
             else:
-                raise forms.ValidationError('As senhas são diferentes!')
+                # raise forms.ValidationError('As senhas são diferentes!')
+                raise forms.ValidationError(_('Passwords are different'))
         else:
-            raise forms.ValidationError('As senhas são diferentes!')
+            # raise forms.ValidationError('As senhas são diferentes!')
+            raise forms.ValidationError(_('Password are differents!'))
 
     def save(self, commit=True):
         pessoa = super(UserForm, self).save(commit=False)

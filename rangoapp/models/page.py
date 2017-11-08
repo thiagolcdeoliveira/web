@@ -6,13 +6,13 @@ from django.db import models
 
 # Create your models here.
 from rangoapp.models.category import Category
-
+from django.utils.translation import ugettext_lazy as _
 
 class Page(models.Model):
     category = models.ForeignKey(Category)
-    title = models.CharField(max_length=128)
-    url = models.URLField()
-    description= models.TextField(default=200)
+    title = models.CharField(max_length=128,help_text=_('title'),label=_('title'))
+    url = models.URLField(help_text=_('url'),label=_('url'))
+    description= models.TextField(default=200, help_text=_('description'))
     views = models.IntegerField(default=0)
     likes = models.PositiveIntegerField(default=0)
     deslikes = models.PositiveIntegerField(default=0)

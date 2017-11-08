@@ -2,12 +2,12 @@
 
 from django import forms
 from rangoapp.models.page import Page
-
+from django.utils.translation import ugettext_lazy as _
 class PageForm(forms.ModelForm):
     title = forms.CharField(max_length=128,
-                            help_text="Título da página.")
+                            help_text=_("Title of Page."))
     url = forms.URLField(max_length=200,
-        help_text="URL da página.")
+        help_text=_("URL of page."))
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
     def clean(self):
