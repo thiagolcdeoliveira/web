@@ -35,7 +35,7 @@
 {#         {{ request.path }}#}
             <li><a class="item {% block active_login %}{% endblock active_login %} right aligned" href="{% url 'auth_login' %}"><i
                     class="ui sign in icon"></i>{% trans "login"|title %}</a></li>
-            <li class="item disabled">Você não está autenticado.</li>
+            <li class="item disabled">{% trans "you not is connected"|title %}.</li>
         {% endif %}
 
 </ul>

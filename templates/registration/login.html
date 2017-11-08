@@ -48,14 +48,14 @@
                         <input type="hidden" name="next" value="{{ next }}"/>
                         <div class="fields">
                             <div class="sixteen wide field">
-                                <label class="required" for="id_username"> <i class="mail icon"></i>E-mail:</label>
+                                <label class="required" for="id_username"> <i class="mail icon"></i>{% trans "email"|title %}:</label>
                                 <input type="text" name="username" autofocus required id="id_username"
                                        maxlength="254"/>
                             </div>
                         </div>
                         <div class="fields">
                             <div class="sixteen wide field">
-                                <label class="required" for="id_password"> <i class=" lock icon"></i>Senha:</label>
+                                <label class="required" for="id_password"> <i class=" lock icon"></i>{% trans "password"|title %}:</label>
                                 <input type="password" name="password"
                                        required id="id_password"/>
                             </div>
@@ -64,7 +64,7 @@
                         <div class="ui  row">
                             <div class="form">
 {#                                 <input type="submit" value="{% trans 'Log in' %}"/>#}
-                                <input class="ui  fluid  button " type="submit" value="Entrar"/>
+                                <input class="ui  fluid  button " type="submit" value="{% trans "log in"|title %}"/>
                             </div>
                         </div>
                         <div class="ui horizontal divider">

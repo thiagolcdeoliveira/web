@@ -5,12 +5,12 @@
 
 {% block body_block %}
     <section class="ui six wide column">
-        <h1 class="ui header ">Logout</h1>
+        <h1 class="ui header ">{% trans "logout"|title %}</h1>
         <div class="ui  divider "></div>
         {% include "includes/message.html" %}
         <section class="ui message positive">
             <p>{% trans "Successfully logged out" %}.</p>
         </section>
-        <p>Para se logar novamente <a href="{% url 'auth_login' %}">Click aqui </a></p>
+        <p>{% trans "for now log in"|title %} <a href="{% url 'auth_login' %}">{% trans "click here"|title %} </a></p>
     </section>
 {% endblock %}
