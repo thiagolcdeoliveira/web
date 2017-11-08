@@ -16,7 +16,7 @@ from rangoapp.models.user_profile import UserProfile
 from rangoapp.views.ranking import calculate_position
 from registration.backends.default.views import RegistrationView
 from rangoapp.forms.user import UserProfileRegistrationForm
-
+from django.utils.translation import ugettext_lazy as _
 
 class UserDetailView(DetailView):
     queryset = User.objects.all()
@@ -68,7 +68,7 @@ class UserUpdateView(SuccessMessageMixin,UpdateView):
     slug_field = 'username'
     slug_url_kwarg = 'username'
     # template_name = 'registration/registration_form.html'
-    success_message = u"Usuário %(name)s alterado com sucesso! "
+    success_message = _("user %(name)s change with succcessfull! ")
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -89,7 +89,7 @@ class UserDeleteView(SuccessMessageMixin,DeleteView):
     # slug_field = 'username'
     # slug_url_kwarg = 'username'
     # success_message = u"Usuário %(name)s deletado com sucesso! "
-    success_message = u"Usuário deletado com sucesso! "
+    success_message = _("user deactivated with successfull! ")
 
     def form_valid(self, form):
         self.object = form.save(commit=False)

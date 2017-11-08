@@ -42,10 +42,10 @@
                     <input type="hidden" name="post" value="yes"/>
                     {% if is_popup %}<input type="hidden" name="{{ is_popup_var }}" value="1"/>{% endif %}
                     {% if to_field %}<input type="hidden" name="{{ to_field_var }}" value="{{ to_field }}"/>{% endif %}
-                    <div class="ui two fluid buttons">
-                    <input class="ui button black " type="submit" value="{% trans "Yes, I'm sure" %}"/>
-                    <a href="{{ request.META.HTTP_REFERER }}"
+                    <div class="ui two fluid buttons"> <a href="{{ request.META.HTTP_REFERER }}"
                        class="ui button  ">{% trans "No, take me back" %}</a>
+                    <input class="ui button black " type="submit" value="{% trans "Yes, I'm sure" %}"/>
+
                     {#    <a href="" class="button cancel-link">{% trans "No, take me back" %}</a>#}
                         </div>
                 </div>

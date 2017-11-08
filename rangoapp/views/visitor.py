@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from datetime import datetime
-
+from django.utils.translation import ugettext_lazy as _
 def get_server_side_cookie(request, cookie, default_val=None):
      val = request.session.get(cookie)
      if not val:

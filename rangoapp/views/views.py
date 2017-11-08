@@ -17,11 +17,13 @@ from rangoapp.forms.user import UserProfileForm, UserForm
 from rangoapp.models.category import Category
 from rangoapp.models.page import  Page
 from rangoapp.models.user_profile import UserProfile
-
+from django.utils.translation import ugettext_lazy as _
 
 def index(request):
     context_dict = {}
     bold_message = 'E aí, BSI, tudo em cima?'
+    # bold_message = _('')'E aí, BSI, tudo em cima?'
+    # bold_message = _('')'E aí, BSI, tudo em cima?'
     autor = 'Thiago'
     context_dict['bold_message'] = bold_message
     context_dict['autor'] = autor

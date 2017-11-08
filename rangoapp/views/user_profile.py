@@ -6,7 +6,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from rangoapp.models.user_profile import UserProfile
 from rangoapp.forms.user import UserProfileForm
 from rangoapp.models.page import Page
-
+from django.utils.translation import ugettext_lazy as _
 class UserProfileListView(ListView):
     queryset = UserProfile.objects.all()
 
@@ -53,7 +53,7 @@ class UserProfileCreateView(SuccessMessageMixin,CreateView):
 class UserProfileUpdateView(SuccessMessageMixin,UpdateView):
     model = UserProfile
     form_class = UserProfileForm
-    success_message = u"Usuário %(name)s alterado com sucesso! "
+    success_message = _("User %(name)s changed with successful! ")
 
     # slug_field = 'username'
     # slug_url_kwarg = 'username'

@@ -11,7 +11,7 @@ from rangoapp.models.page import Page
 from rangoapp.models.user_profile import UserProfile
 from rangoapp.views.ranking import add_points_page, add_points_like_page, remove_points_like_page, \
     add_points_deslike_page, remove_points_deslike_page, remove_points_category, remove_points_page
-
+from django.utils.translation import ugettext_lazy as _
 
 class PageListView(ListView):
     queryset = Page.objects.all()

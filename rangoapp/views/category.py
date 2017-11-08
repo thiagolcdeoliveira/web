@@ -13,7 +13,7 @@ from rangoapp.models.user_profile import UserProfile
 from rangoapp.views.ranking import add_points_category, add_points_like_category, remove_points_like_category, \
     remove_points_deslike_category, \
     add_points_deslike_category, remove_points_category
-
+from django.utils.translation import ugettext_lazy as _
 
 class CategoryListView(ListView):
     queryset = Category.objects.all()
@@ -67,7 +67,7 @@ class CategoryDetailView(DetailView):
 class CategoryCreateView(SuccessMessageMixin, CreateView):
     model = Category
     form_class = CategoryForm
-    success_message = "Categoria %(name)s cadastrada com sucesso! "
+    success_message = _("Category %(name)s add with successfull! ")
 
     def form_valid(self, form):
         self.object = form.save(commit=False)

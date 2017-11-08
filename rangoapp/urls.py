@@ -58,10 +58,6 @@ urlpatterns = [
     url(r'^userprofile/(?P<pk>[\d\-]+)/update/$', UserProfileUpdateView.as_view(), name='user-profile-update'),
     url(r'^user/(?P<pk>[\d\-]+)/delete/$', UserDeleteView.as_view(), name='user-delete'),
 
-    url(r'^login/$', login, {'template_name': 'registration/login.html'}, name='login'),
-    url(r'^logout/$', login_required(logout), name='logout'),
-    url(r'', include('social.apps.django_app.urls', namespace='social')),
-    url(r'', include('django.contrib.auth.urls', namespace='auth')),
-    url(r'^accounts/', include('registration.backends.default.urls')),
+
 
 ]
