@@ -1,45 +1,22 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% load i18n %}
-
 {% block title_block %}
    {% trans "details of category"|title %}
 {% endblock title_block %}
-
 {% block body_block %}
-    {#<section class="six wide column">#}
     <section class="ui ten wide column">
-        <h1 class="ui header ">{% trans "logout"|title %}</h1>
+        <h1 class="ui header ">
+            {% trans "details of category"|title %}
+            <span class="sub header">{{ object.description }}</span>
+        </h1>
         <div class="ui  divider "></div>
         {% include 'includes/message.html' %}
-
-{#        {% if object %}#}
-{#            <h1>{{ object.name }}</h1>#}
-{#            <section class="two wide column">#}
-{#            <div class="ui celled relaxed list">#}
-{##}
-{#                {% if pages %}#}
-{#                    {% for page in pages %}#}
-{#                        <div class="item">#}
-{#                            <i class="ui icon newspaper"></i>#}
-{#                            <div class="content">#}
-{#                                <div class="header">#}
-{#                                    <a target=_blank href="{{ page.url }}">{{ page.title }}</a>({{ page.views }})#}
-{#                                    <i class="thumbs outline up icon right"></i>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>  {% endfor %}#}
-{#                {% else %}#}
-{#                    <strong>Não existem páginas cadastradas.</strong>#}
-{#                {% endif %}#}
-{#            </div>#}
-{#        {% endif %}#}
         {% include "includes/page_like.html" %}
         <div class="ui  two fluid buttons ">
             <a class="ui button gray" href="">{% trans "back"|title %}</a>
             <a class="ui button black" href="{% url 'page-add' object.slug %}">{% trans "add page in"|title %} {{ object.name }}</a>
         </div>
-
         </section>
     </section>
 {% endblock %}

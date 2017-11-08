@@ -7,23 +7,20 @@
             <div class="ui  card">
                 <div class="content">
                     <i class="ui icon hashtag right floated">{{ forloop.counter }}</i>
-                    {#                    <div class="header"><a target=_blank href="{{ page.url }}"><i#}
                     <div class="header"><a target=_blank href="{% url "page-detail" page.id %}"><i
                             class="ui icon info"></i>{{ page.title|title }}</a>
                     </div>
                     <div class="description">
-                        {#                        <p class="ui right floated aligned">  {{ page.description|truncatechars:20 }}#}
                         <p class="ui  floated aligned">  {{ page.description|truncatechars:20 }}
                             <a href="{% url 'user-detail' page.category.user %}">by {{ page.category.user }}</a>
                         </p>
                     </div>
                 </div>
-                {#                        {% profile request.user %}#}
-    {% if user == page.category.user %}
-                    <a href="{% url 'page-update' page.id %}" class="ui button attached fluid tertiary">{% trans "edit"|title %}</a>
-
-                    {% else %}
-                <div class="extra content">
+                {% if user == page.category.user %}
+                    <a href="{% url 'page-update' page.id %}"
+                       class="ui button attached fluid tertiary">{% trans "edit"|title %}</a>
+                {% else %}
+                    <div class="extra content">
 
                     <span class="left floated like">
                         <a href="#" id="js-page-{{ page.id }}"
@@ -32,7 +29,7 @@
                            class="thumbs  up  {% if  page  not in profile_request.page_like.all %}  gray {% endif %} icon big"></i></a>
                         <span id="js-count-likes-page-{{ page.id }}">{{ page.likes }}</span>
                     </span>
-                    <span class="right floated star">
+                        <span class="right floated star">
                         <span class="left floated like">
                         <a href="#" id="js-deslike-page-{{ page.id }}"
                            onclick="set_deslike_page('{{ page.id }}')">
@@ -41,13 +38,19 @@
                         <span id="js-count-deslikes-page-{{ page.id }}">{{ page.deslikes }}</span>
                         </span>
                     </span>
-
-                </div>  {% endif %}
-
+                    </div>
+                {% endif %}
             </div>
-
         {% endfor %}
     {% else %}
-        <strong>{% trans "not exist pages added"|title %}.</strong>
+        <div class="ui icon message">
+            <i class="warning icon"></i>
+            <div class="content">
+                <h3 class="header">
+                    <strong>{% trans "not exist pages added"|title %}.</strong>
+                </h3>
+                <p>{% trans "page add" %} <a href="{% url "category-list" %}">here</a>!</p>
+            </div>
+        </div>
     {% endif %}
 </div>

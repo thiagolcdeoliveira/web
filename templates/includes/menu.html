@@ -1,42 +1,22 @@
-{#  <ul class="ui stackable inverted borderless menu">#}
-{#        <li><a class="item {% block active_home %}{% endblock active_home %}" href="{% url 'home' %}"><i#}
-{#                class="ui browser icon"></i>Home</a></li>#}
-{#        <li><a class="item {% block active_cad_p %}{% endblock active_cad_p %}" href="{% url 'category-add' %}"><i#}
-{#                class="ui user icon"></i>Adicionar Categoria</a></li>#}
-{#        <li><a class="item {% block active_cad_t %}{% endblock active_cad_t %}" href="{% url 'about' %}"><i#}
-{#                class="ui phone icon"></i>Sobre</a></li>#}
-{#        {% if user.is_authenticated %}#}
-{#            <li><a class="item {% block active_logout %}{% endblock active_logout %}" href="{% url 'logout' %}"><i#}
-{#                    class="ui sign in icon"></i>Logout</a></li>#}
-{#            <li class="item disabled">{{ user|title }}</li>#}
-{#        {% else %}#}
-{#            <li><a class="item {% block active_register %}{% endblock active_register %}" href="{% url 'user-add' %}"><i#}
-{#                    class="ui sign in icon"></i>Registre-se</a></li>#}
-{#            <li class="item disabled">Você não está autenticado.</li>#}
-{#            <li><a class="item {% block active_login %}{% endblock active_login %}" href="{% url 'login' %}"><i#}
-{#                    class="ui sign in icon"></i>Login</a></li>#}
-{#            <li class="item disabled">Você não está autenticado.</li>#}
-{#        {% endif %}#}
-{#    </ul>#}
 {% load i18n %}
-
-<ul class="ui  inverted attached  menu ">
- <li> <a class="item sidebar-menu">
-    <i class="sidebar icon"></i>
-    Menu
-  </a></li><ul class="right menu">
-{# {% include 'includes/language_options.html' %}#}
- {% include 'includes/language_options.html' %}
-     {% if user.is_authenticated %}
-            <li><a class="item {% block active_logout %}{% endblock active_logout %} right aligned" href="{% url 'auth_logout' %}"><i
-                    class="ui sign in icon"></i>{% trans "logout"|title %}</a></li>
-            <li class="item disabled"><i class="ui icon rebel"></i> {{ user|title }}</li>
+<ul class="ui stackable inverted attached  menu ">
+    <a class="item sidebar-menu">
+        <i class="sidebar icon"></i>
+        Menu
+    </a>
+    <nav class="right menu">
+        {% include 'includes/language_options.html' %}
+        {% if user.is_authenticated %}
+            <a class="item {% block active_logout %}{% endblock active_logout %} right aligned"
+               href="{% url 'auth_logout' %}"><i
+                    class="ui sign in icon"></i>{% trans "logout"|title %}</a>
+            <p class="item disabled"><i class="ui icon rebel"></i> {{ user|title }}</p>
         {% else %}
-{#         {{ request.path }}#}
-            <li><a class="item {% block active_login %}{% endblock active_login %} right aligned" href="{% url 'auth_login' %}"><i
-                    class="ui sign in icon"></i>{% trans "login"|title %}</a></li>
-            <li class="item disabled">{% trans "you not is connected"|title %}.</li>
+            {#         {{ request.path }}#}
+            <a class="item {% block active_login %}{% endblock active_login %} right aligned"
+               href="{% url 'auth_login' %}"><i
+                    class="ui sign in icon"></i>{% trans "login"|title %}</a>
+            <p class="item disabled">{% trans "you not is connected"|title %}.</p>
         {% endif %}
-
-</ul>
+    </nav>
 </ul>

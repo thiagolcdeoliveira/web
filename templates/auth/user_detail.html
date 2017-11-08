@@ -1,42 +1,40 @@
 {% extends 'base.html' %}
 {% load staticfiles system %}
 {% load i18n %}
-
 {% block title_block %}
-{% trans "profile"|title %}{% endblock title_block %}
-
+    {% trans "profile"|title %}{% endblock title_block %}
 {% block body_block %}
-
-<section class="ui twelve wide column">
-    <h1 class="ui header ">{% trans "profile"|title %}</h1>
-    <div class="ui  divider "></div>
-    <section class="ui relaxed stackable column grid row">
-
-        <section class="five wide column">
-{#            {% include "includes/user_card.html" %}#}
-{% user_profile profile_card.user %}
-        </section>
-
-        <section class="ten wide column">
-            <section class="ui row ">
-                <h3 class="ui horizontal divider header title">
-                    <i class="trophy icon"></i>
-                    {% trans "Top 3 most tanned categories" %}
-                </h3>
-                {% include "includes/category_like.html" %}
-                 <a href="{% url 'user-category-list' profile_card.user.username %}" class="ui button fluid basic ">{% trans "show all categories"|title %}</a>
+    <section class="ui twelve wide column">
+        <h1 class="ui header ">{% trans "profile"|title %}</h1>
+        <div class="ui  divider "></div>
+        <section class="ui relaxed stackable column grid row">
+            <section class="five wide column">
+                {% user_profile profile_card.user %}
             </section>
-            <section class="ui row">
-                <h3 class="ui horizontal divider header title">
-                    <i class="trophy icon"></i>
-                                        {% trans "Top 3 most viewed pages " %}
-                </h3>
-                {% include "includes/page_like.html" %}
-                 <a href="{% url 'user-page-list' profile_card.user.username %}" class="ui button fluid basic">{% trans "show all pages"|title %}</a>
+            <section class="ten wide column">
+                <section class="ui row ">
+                    <h3 class="ui horizontal divider header title">
+                        <i class="trophy icon"></i>
+                        {% trans "Top 3 most tanned categories" %}
+                    </h3>
+                    {% include "includes/category_like.html" %}
+                    {% if categories.count > 3 %}
+                        <a href="{% url 'user-category-list' profile_card.user.username %}"
+                           class="ui button fluid basic ">{% trans "show all categories"|title %}</a>
+                    {% endif %}
+                </section>
+                <section class="ui row">
+                    <h3 class="ui horizontal divider header title">
+                        <i class="trophy icon"></i>
+                        {% trans "Top 3 most viewed pages " %}
+                    </h3>
+                    {% include "includes/page_like.html" %}
+                    {% if pages.count > 3 %}
+                        <a href="{% url 'user-page-list' profile_card.user.username %}"
+                           class="ui button fluid basic">{% trans "show all pages"|title %}</a>
+                    {% endif %}
+                </section>
             </section>
-
         </section>
     </section>
-
-
 {% endblock %}

@@ -90,5 +90,11 @@ i.ui.red.tiny.icon.asterisk {
 }
 .ui.tiny.image.flag{
     width: 25px;
-    margin: 10px 5px 10px 5px ;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.ui.three.cards.stackable > :not(.card) {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
 }

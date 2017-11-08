@@ -1,13 +1,7 @@
-{#    <div class="row">#}
-
-{#</div>#}
 {% load staticfiles system %}
 {% load i18n %}
-
 <div class="ui three cards stackable">
     {% if categories %}
-
-
         {% for category in categories %}
             <div class="ui card">
                 <div class="content">
@@ -17,14 +11,14 @@
                     </a>
                     </div>
                     <div class="description">
-{#                        <p class="ui right floated aligned">  {{ category.description|truncatechars:20 }}#}
                         <p class="ui  floated aligned">  {{ category.description|truncatechars:20 }}
                             <a href="{% url 'user-detail' category.user %}">by {{ category.user }}</a>
                         </p>
                     </div>
                 </div> {% if user == category.user %}
-                <a href="{% url 'category-update' category.slug %}" class="ui button attached fluid tertiary">{% trans "edit"|title %}</a>
-                 {% else %}
+                <a href="{% url 'category-update' category.slug %}"
+                   class="ui button attached fluid tertiary">{% trans "edit"|title %}</a>
+            {% else %}
                 <div class="extra content">
 
                     <span class="left floated like">
@@ -45,13 +39,19 @@
                     </span>
 
                 </div>
- {% endif %}
-
+            {% endif %}
             </div>
-
         {% endfor %}
     {% else %}
-        <strong>{% trans "not exist categories added"|title %}.</strong>
+        <div class="ui icon message">
+            <i class="warning icon"></i>
+            <div class="content">
+                <h3 class="header">
+                    <strong>{% trans "not exist categories added"|title %}.</strong>
+                </h3>
+                <p>{% trans "category add" %} <a href="{% url "category-add" %}">here</a>!</p>
+            </div>
+        </div>
     {% endif %}
 </div>
 {#</section>#}

@@ -2,35 +2,77 @@
 
 <div class="ui inverted left  vertical sidebar menu">
     {% if user.is_authenticated %}
-        <li><a class="item {% block active_home %}{% endblock active_home %}" href="{% url 'home' %}"><i
-                class="ui browser icon"></i>{% trans "home"|title %}</a></li>
-        <li><a class="item {% block active_cad_category %}{% endblock active_cad_category %}"
-               href="{% url 'category-add' %}"><i
-                class="ui user icon"></i>{% trans "add category"|title %}</a></li>
-        <li><a class="item {% block active_list_category %}{% endblock active_list_category %}"
-               href="{% url 'category-list' %}"><i
-                class="ui user icon"></i>{% trans "add page"|title %}</a></li>
-         <li><a class="item {% block active_list_page %}{% endblock active_list_page %}"
-               href="{% url 'page-list' %}"><i
-                class="ui user icon"></i>{% trans "list my pages"|title %}</a></li>
-        <li><a class="item {% block active_detail_user %}{% endblock active_detail_user %}"
-               href="{% url 'user-detail' user %}"><i
-                class="ui user icon"></i>{% trans "profile"|title %}</a></li>
-        <li><a class="item {% block active_detail_alter_user %}{% endblock active_detail_alter_user %}"
-               href="{% url 'user-change-detail' user %}"><i
-                class="ui user icon"></i>{% trans "change personal data"|title %}</a></li>
-        <li><a class="item {% block active_logout %}{% endblock active_logout %}" href="{% url 'auth_logout' %}"><i
-                class="ui sign in icon"></i>{% trans "logout"|title %}</a></li>
-        <li class="item disabled">{{ user|title }}</li>
+        <li>
+            <a class="item {% block active_home %}{% endblock active_home %}" href="{% url 'home' %}">
+                <i class="ui home icon"></i>
+                {% trans "home"|title %}
+            </a>
+        </li>
+        <li>
+            <a class="item {% block active_cad_category %}{% endblock active_cad_category %}"
+               href="{% url 'category-add' %}">
+                <i class="ui add icon"></i>
+                {% trans "add category"|title %}
+            </a>
+        </li>
+        <li>
+            <a class="item {% block active_list_category %}{% endblock active_list_category %}"
+               href="{% url 'category-list' %}">
+                <i class="ui add icon"></i>
+                {% trans "add page"|title %}
+            </a>
+        </li>
+        <li>
+            <a class="item {% block active_list_pages %}{% endblock active_list_pages %}"
+               href="{% url 'page-list' %}">
+                <i class="ui list icon"></i>
+                {% trans "list my pages"|title %}
+            </a>
+        </li>
+        <li>
+            <a class="item {% block active_list_categories %}{% endblock active_list_categories %}"
+               href="{% url 'category-list' %}">
+                <i class="ui list icon"></i>
+                {% trans "list my categories"|title %}
+            </a>
+        </li>
+        <li class="disabled item"></li>
+        <li>
+            <a class="item {% block active_detail_user %}{% endblock active_detail_user %}"
+               href="{% url 'user-detail' user %}">
+                <i class="ui user icon"></i>
+                {% trans "profile"|title %}
+            </a>
+        </li>
+        <li>
+            <a class="item {% block active_detail_alter_user %}{% endblock active_detail_alter_user %}"
+               href="{% url 'user-change-detail' user %}">
+                <i class="ui user icon"></i>
+                {% trans "change personal data"|title %}
+            </a>
+        </li>
     {% else %}
-        <li><a class="item {% block active_cad_t %}{% endblock active_cad_t %}" href="{% url 'about' %}"><i
-                class="ui phone icon"></i>{% trans "about"|title %}</a></li>
-        <li><a class="item {% block active_register %}{% endblock active_register %}"
-               href="{% url 'registration_register' %}"><i
-                class="ui sign in icon"></i>{% trans "register"|title %}</a></li>
-        <li><a class="item {% block active_login %}{% endblock active_login %}" href="{% url 'auth_login' %}"><i
-                class="ui sign in icon"></i>{% trans "login"|title %}</a></li>
-        <li class="item disabled">{% trans "you not is connected"|title %}.</li>
+        <li>
+            <a class="item {% block active_cad_t %}{% endblock active_cad_t %}" href="{% url 'about' %}">
+                <i class="ui phone icon"></i>
+                {% trans "about"|title %}
+            </a>
+        </li>
+        <li>
+            <a class="item {% block active_register %}{% endblock active_register %}"
+               href="{% url 'registration_register' %}">
+                <i class="ui sign in icon"></i>
+                {% trans "register"|title %}
+            </a>
+        </li>
+        <li>
+            <a class="item {% block active_login %}{% endblock active_login %}" href="{% url 'auth_login' %}">
+                <i class="ui sign in icon"></i>
+                {% trans "login"|title %}
+            </a>
+        </li>
+        <li class="item disabled">{% trans "you not is connected"|title %}.
+        </li>
     {% endif %}
 </div>
 

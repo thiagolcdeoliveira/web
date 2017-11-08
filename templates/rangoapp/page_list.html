@@ -1,24 +1,12 @@
-
 {% extends 'base.html' %}{% load i18n %}
-
 {% block title_block %}
 {% trans "list pages"|title %}
-
 {% endblock title_block %}
 {% load staticfiles %}
-
-
 {% block body_block %}
-
-     <section class="ui six wide column">
+    <section class="ui ten wide column">
         <h1 class="ui header ">{% trans "list pages"|title %} </h1>
         <div class="ui  divider "></div>
-
-{#    <section class="six wide column">#}
-{#    <h1>Listar categorias</h1>#}
          {% include "includes/page_like.html" %}
-{#    {% for object in object_list %}#}
-{#    {{ object }}#}
-{#    {% endfor %}#}
     </section>
 {% endblock %}
