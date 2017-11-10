@@ -243,7 +243,7 @@
                                 .replace('{left}', left)
                                 .replace('{percent}', percent)
                             ;
-                            module.verbose('Adding variables to progress bar text', templateText);
+                            module.verbose('Adding variaveis to progress bar text', templateText);
                             return templateText;
                         },
 

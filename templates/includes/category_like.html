@@ -15,11 +15,13 @@
                             <a href="{% url 'user-detail' category.user %}">by {{ category.user }}</a>
                         </p>
                     </div>
-                </div> {% if user == category.user %}
-                <a href="{% url 'category-update' category.slug %}"
-                   class="ui button attached fluid tertiary">{% trans "edit"|title %}</a>
-            {% else %}
-                <div class="extra content">
+                </div>
+                {#                {{ request.user }}#}
+                {% if request.user == category.user %}
+                    <a href="{% url 'category-update' category.slug %}"
+                       class="ui button attached fluid tertiary">{% trans "edit"|title %}</a>
+                {% else %}
+                    <div class="extra content">
 
                     <span class="left floated like">
                         <a href="#" id="js-category-{{ category.slug }}"
@@ -28,7 +30,7 @@
                            class="thumbs  up  {% if  category  not in profile_request.category_like.all %}  gray {% endif %} icon big"></i></a>
                         <span id="js-count-likes-category-{{ category.slug }}">{{ category.likes }}</span>
                     </span>
-                    <span class="right floated star">
+                        <span class="right floated star">
                         <span class="left floated like">
                         <a href="#" id="js-deslike-category-{{ category.slug }}"
                            onclick="set_deslike_category('{{ category.slug }}')">
@@ -38,8 +40,8 @@
                         </span>
                     </span>
 
-                </div>
-            {% endif %}
+                    </div>
+                {% endif %}
             </div>
         {% endfor %}
     {% else %}

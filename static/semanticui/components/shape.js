@@ -65,7 +65,7 @@
                     $sides = $module.find(selector.sides),
                     $side = $module.find(selector.side),
 
-                    // private variables
+                    // private variaveis
                     nextIndex = false,
                     $activeSide,
                     $nextSide,

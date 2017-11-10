@@ -2674,7 +2674,7 @@
                                 count,
                                 query
                                 ;
-                            module.verbose('Adding templated variables to message', message);
+                            module.verbose('Adding templated variaveis to message', message);
                             if (hasCount) {
                                 count = module.get.selectionCount();
                                 message = message.replace('{count}', count);

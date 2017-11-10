@@ -218,7 +218,7 @@
                             return;
                         }
 
-                        // replace variables
+                        // replace variaveis
                         url = module.add.urlData(url);
                         // missing url parameters
                         if (!url && !module.is.mocked()) {
@@ -357,7 +357,7 @@
                                 optionalVariables = url.match(settings.regExp.optional);
                                 urlData = urlData || settings.urlData;
                                 if (requiredVariables) {
-                                    module.debug('Looking for required URL variables', requiredVariables);
+                                    module.debug('Looking for required URL variaveis', requiredVariables);
                                     $.each(requiredVariables, function (index, templatedString) {
                                         var
                                             // allow legacy {$var} style
@@ -389,7 +389,7 @@
                                     });
                                 }
                                 if (optionalVariables) {
-                                    module.debug('Looking for optional URL variables', requiredVariables);
+                                    module.debug('Looking for optional URL variaveis', requiredVariables);
                                     $.each(optionalVariables, function (index, templatedString) {
                                         var
                                             // allow legacy {/$var} style

@@ -7080,7 +7080,7 @@
                                 count,
                                 query
                                 ;
-                            module.verbose('Adding templated variables to message', message);
+                            module.verbose('Adding templated variaveis to message', message);
                             if (hasCount) {
                                 count = module.get.selectionCount();
                                 message = message.replace('{count}', count);
@@ -12187,7 +12187,7 @@
                                 .replace('{left}', left)
                                 .replace('{percent}', percent)
                             ;
-                            module.verbose('Adding variables to progress bar text', templateText);
+                            module.verbose('Adding variaveis to progress bar text', templateText);
                             return templateText;
                         },
 
@@ -14917,7 +14917,7 @@
                     $sides = $module.find(selector.sides),
                     $side = $module.find(selector.side),
 
-                    // private variables
+                    // private variaveis
                     nextIndex = false,
                     $activeSide,
                     $nextSide,
@@ -20070,7 +20070,7 @@
                             return;
                         }
 
-                        // replace variables
+                        // replace variaveis
                         url = module.add.urlData(url);
                         // missing url parameters
                         if (!url && !module.is.mocked()) {
@@ -20209,7 +20209,7 @@
                                 optionalVariables = url.match(settings.regExp.optional);
                                 urlData = urlData || settings.urlData;
                                 if (requiredVariables) {
-                                    module.debug('Looking for required URL variables', requiredVariables);
+                                    module.debug('Looking for required URL variaveis', requiredVariables);
                                     $.each(requiredVariables, function (index, templatedString) {
                                         var
                                             // allow legacy {$var} style
@@ -20241,7 +20241,7 @@
                                     });
                                 }
                                 if (optionalVariables) {
-                                    module.debug('Looking for optional URL variables', requiredVariables);
+                                    module.debug('Looking for optional URL variaveis', requiredVariables);
                                     $.each(optionalVariables, function (index, templatedString) {
                                         var
                                             // allow legacy {/$var} style

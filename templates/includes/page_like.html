@@ -16,7 +16,8 @@
                         </p>
                     </div>
                 </div>
-                {% if user == page.category.user %}
+                {#            {{ request.user }}#}
+                {% if request.user == page.category.user %}
                     <a href="{% url 'page-update' page.id %}"
                        class="ui button attached fluid tertiary">{% trans "edit"|title %}</a>
                 {% else %}

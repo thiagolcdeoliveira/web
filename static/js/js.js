@@ -70,7 +70,7 @@ $(document).ready(function () {
 function set_like_category(category) {
     // alert(category);
     var method = 'GET';
-    var url = '/rango/category/like/';
+    var url = '/category/like/';
     var data = category;
     var likecategory;
     var iconcategory;
@@ -113,7 +113,7 @@ function set_like_category(category) {
 function set_deslike_category(category) {
     // alert(category);
     var method = 'GET';
-    var url = '/rango/category/deslike/';
+    var url = '/category/deslike/';
     var data = category;
     var deslikecategory;
     var iconcategory;
@@ -149,7 +149,7 @@ function set_deslike_category(category) {
 function set_like_page(page) {
     // alert(category);
     var method = 'GET';
-    var url = '/rango/page/like/';
+    var url = '/page/like/';
     var data = page;
     var likepage;
     var iconpage;
@@ -193,7 +193,7 @@ function set_like_page(page) {
 function set_deslike_page(page) {
     // alert(category);
     var method = 'GET';
-    var url = '/rango/page/deslike/';
+    var url = '/page/deslike/';
     var data = page;
     var deslikepage;
     var iconpage;
