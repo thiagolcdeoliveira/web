@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles system %}{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 
 
 {% block body_block %}
@@ -9,7 +10,8 @@
 {#    <div><img src="/media/404.png" alt="Error 404" /></div>#}
 {#    <div><img src="{% static "/media/404.png" %}" alt="Error 404" /></div>#}
 {#    <div><img src="{% static "/media/404.png" %}" alt="Error 404" /></div>#}
-    <div><img src="{% static "images/404.png" %}" alt="{% trans "page not found"|title %}" /></div>
+        {#    <div><img src="{% static "images/404.png" %}" alt="{% trans "page not found"|title %}" /></div>#}
+        <div><img src="/media/404new{{ LANGUAGE_CODE }}.png" alt="{% trans "page not found"|title %}"/></div>
 
 {#    <div><img src="{% static "/images/404.png" %}" alt="Error 404" /></div>#}
     </section>
