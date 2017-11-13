@@ -1,9 +1,17 @@
 {% extends 'base.html' %}{% load i18n %}
 
 {% block body_block %}
+
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_available_languages as LANGUAGES %}
+    {% get_language_info_list for LANGUAGES as languages %}
+
+
     <section class="ui twelve wide column aligned centered">
+        {#        {{LANGUAGE_CODE  }}#}
+
         <h1 class="ui header ">403 - {% trans "permission danied"|title %}</h1>
         <div class="ui  divider "></div>
-    <div><img src="/media/404.png" alt="{% trans "permission danied"|title %}" /></div>
+        <div><img src="/media/403new{{ LANGUAGE_CODE }}.png" alt="{% trans "permission danied"|title %}"/></div>
     </section>
 {% endblock %}
