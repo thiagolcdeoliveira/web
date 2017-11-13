@@ -7,6 +7,16 @@ from django.template.defaultfilters import slugify
 
 
 class Category(models.Model):
+    '''
+    :param nome: models.CharField(max_length=128, unique=True)
+    :param views = models.PositiveIntegerField(default=0)
+    :param likes = models.PositiveIntegerField(default=0)
+    :param deslikes = models.PositiveIntegerField(default=0)
+    :param description = models.TextField(default=200)
+    :param user = models.ForeignKey(User)
+    :param is_private = models.BooleanField()
+    :param slug = models.SlugField(unique=True)
+    '''
     name = models.CharField(max_length=128, unique=True)
     views = models.PositiveIntegerField(default=0)
     likes = models.PositiveIntegerField(default=0)

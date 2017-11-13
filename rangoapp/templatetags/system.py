@@ -7,7 +7,7 @@ from rangoapp.models.category import Category
 from rango.settings import MEDIA_URL
 from rangoapp.models.user_profile import UserProfile
 from rangoapp.views.ranking import calculate_position
-
+from rangoapp.variaveis.variaveis import *
 register = template.Library()
 
 @register.inclusion_tag('rangoapp/cats.html')
@@ -46,3 +46,10 @@ def lightning(points=None):
 #     print(profile)
 #     #user_profile["lightning"] = 5
 #     return profile
+
+
+@register.filter()
+def permission_add_page(user, user_category):
+    print(user, user_category)
+    return user_category == user or user.has_perm(ADD_PAGE)
+    # return True

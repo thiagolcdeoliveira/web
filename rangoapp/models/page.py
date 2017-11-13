@@ -9,6 +9,15 @@ from rangoapp.models.category import Category
 from django.utils.translation import ugettext_lazy as _
 
 class Page(models.Model):
+    '''
+    :param category = models.ForeignKey(Category)
+    :param title = models.CharField(max_length=128,help_text=_('title'))
+    :param url = models.URLField(help_text=_('url'))
+    :param description= models.TextField(default=200, help_text=_('description'))
+    :param views = models.IntegerField(default=0)
+    :param likes = models.PositiveIntegerField(default=0)
+    :param deslikes = models.PositiveIntegerField(default=0)
+    '''
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128,help_text=_('title'))
     url = models.URLField(help_text=_('url'))

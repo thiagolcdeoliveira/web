@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load staticfiles system %}
 {% load i18n %}
 {% block title_block %}
-   {% trans "details of category"|title %}
+    {% trans "details of category"|title %}
 {% endblock title_block %}
 {% block body_block %}
     <section class="ui ten wide column">
@@ -13,10 +13,12 @@
         <div class="ui  divider "></div>
         {% include 'includes/message.html' %}
         {% include "includes/page_like.html" %}
+        {% if request.user|permission_add_page:object.user %}
         <div class="ui  two fluid buttons ">
             <a class="ui button gray" href="">{% trans "back"|title %}</a>
-            <a class="ui button black" href="{% url 'page-add' object.slug %}">{% trans "add page in"|title %} {{ object.name }}</a>
+            <a class="ui button black"
+               href="{% url 'page-add' object.slug %}">{% trans "add page in"|title %} {{ object.name }}</a>
         </div>
-        </section>
+        {% endif %}
     </section>
 {% endblock %}
