@@ -36,6 +36,13 @@
                 {% trans "list my categories"|title %}
             </a>
         </li>
+        <li>
+            <a class="item {% block active_about %}{% endblock active_about %}"
+               href="{% url 'about' %}">
+                <i class="ui info icon"></i>
+                {% trans "about"|title %}
+            </a>
+        </li>
         <li class="disabled item"></li>
         <li>
             <a class="item {% block active_detail_user %}{% endblock active_detail_user %}"

@@ -10,13 +10,13 @@ from django.utils.translation import ugettext_lazy as _
 
 class Page(models.Model):
     '''
-    :param category = models.ForeignKey(Category)
-    :param title = models.CharField(max_length=128,help_text=_('title'))
-    :param url = models.URLField(help_text=_('url'))
-    :param description= models.TextField(default=200, help_text=_('description'))
-    :param views = models.IntegerField(default=0)
-    :param likes = models.PositiveIntegerField(default=0)
-    :param deslikes = models.PositiveIntegerField(default=0)
+    :param category: models.ForeignKey(Category)
+    :param title: models.CharField(max_length=128,help_text=_('title'))
+    :param url: models.URLField(help_text=_('url'))
+    :param description:  models.TextField(default=200, help_text=_('description'))
+    :param views: models.IntegerField(default=0)
+    :param likes: models.PositiveIntegerField(default=0)
+    :param deslikes: models.PositiveIntegerField(default=0)
     '''
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128,help_text=_('title'))
@@ -30,10 +30,20 @@ class Page(models.Model):
         verbose_name_plural = 'Pages'
 
     def get_absolute_url(self):
+        '''
+        :return: Define a url de retorno após executar os metodos de create e Update
+        '''
         return reverse_lazy('category-detail', kwargs={'category_name_slug': self.category.slug})
 
     def __str__(self):
+        '''
+        :return: Define nome de exibição para o objeto
+        '''
         return '%s' %self.title
 
     def __unicode__(self):
-         return self.title
+        '''
+        
+        :return: Define nome o unicode de exibição para o objeto
+        '''
+        return self.title
