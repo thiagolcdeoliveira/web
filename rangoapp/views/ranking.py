@@ -58,6 +58,12 @@ def add_points_friends(user):
     profile.points += 0.3
     profile.save()
 
+
+def remove_points_friends(user):
+    profile = UserProfile.objects.get(user=user)
+    profile.points -= 0.3
+    profile.save()
+
 def add_points_deslike_category(user):
     profile = UserProfile.objects.get(user=user)
     profile.points -= 0.5

@@ -53,3 +53,23 @@ def permission_add_page(user, user_category):
     print(user, user_category)
     return user_category == user or user.has_perm(ADD_PAGE)
     # return True
+
+
+@register.filter()
+def is_friend(user, friend):
+    print(UserProfile.objects.filter(user=user, friends__username__in=[friend]) != [])
+    return UserProfile.objects.filter(user=user, friends__username__in=[friend]) != []
+    # return True
+
+
+@register.filter()
+def profile(user):
+    return UserProfile.objects.get(user=user)
+
+
+@register.filter()
+def is_card_profile(user, user_card_profile):
+    print(user)
+    print(user_card_profile)
+    print(user == user_card_profile)
+    return user == user_card_profile

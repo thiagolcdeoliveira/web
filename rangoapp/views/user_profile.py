@@ -1,12 +1,19 @@
 # -*- coding: utf-8 -*-
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 from django.views.generic import *
 from django.contrib.messages.views import SuccessMessageMixin
 from rangoapp.models.user_profile import UserProfile
 from rangoapp.forms.user import UserProfileForm
 from rangoapp.models.page import Page
 from django.utils.translation import ugettext_lazy as _
+
+from rangoapp.views.ranking import remove_points_friends, add_points_friends
+
+
 class UserProfileListView(ListView):
     queryset = UserProfile.objects.all()
 
@@ -83,3 +90,44 @@ class UserProfileDeleteView(DeleteView):
         self.object = form.save(commit=False)
         self.object.save()
         return super(UserProfileDeleteView, self).form_valid(form)
+
+
+def set_friend(request):
+    '''
+    Adiciona um amigo.
+    :URl: http://ip_servidor/user/amigo/
+    '''
+    data = {}
+    friend_username = request.GET.get('friend')
+    # profile = get_object_or_404(UserProfile, user=request.user)
+    user = get_object_or_404(UserProfile, user=request.user)
+    # user = UserProfile.objects.filter(user=request.user)
+    friend = get_object_or_404(User, username=friend_username)
+    user_friend = UserProfile.objects.filter(user=user.user, friends__in=[friend])
+    print(user_friend)
+    # print(category)
+    if friend:
+        data["message"] = True
+        if not user_friend:
+            print("add")
+            print(friend)
+            print("in")
+            print(user)
+            user.friends.add(friend)
+            remove_points_friends(user.user)
+            user.save()
+            data['is_friend'] = True
+            print("false")
+        else:
+            print("remove")
+            print(friend)
+            print("in")
+            print(user)
+            user.friends.remove(friend)
+            user.save()
+            data['is_friend'] = False
+            add_points_friends(user.user)
+    else:
+        data["message"] = False
+
+    return JsonResponse(data)

@@ -228,3 +228,43 @@ function set_deslike_page(page) {
     return false;
 }
 
+function set_friend(username) {
+    // alert(category);
+    var method = 'GET';
+    var url = '/user/friend/';
+    var data = username;
+    // alert("oi");
+    // var friendusername;
+    var iconfriend;
+    // var username;
+    $.ajax({
+        type: method,
+        url: url,
+        data: {'friend': data},
+        success: function (data) {
+            var message = data.message;
+            // var likes = data.likes;
+            var is_friend = data.is_friend;
+            iconfriend = $('#js-icon-friend-' + username);
+            // alert(iconfriend.val());
+            // alert(message);
+            alert(is_friend);
+            if (message) {
+                if (is_friend) {
+                    iconfriend.removeClass('gray plus');
+                    iconfriend.addClass('minus');
+                } else {
+                    // alert("oioio");
+                    iconfriend.removeClass('minus');
+                    iconfriend.addClass('gray plus');
+                }
+
+            }
+
+        },
+        error: function (data) {
+            // $('#category-' + category).removeClass('error');
+        }
+    });
+    return false;
+}

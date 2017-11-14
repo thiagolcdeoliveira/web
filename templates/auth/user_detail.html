@@ -9,7 +9,8 @@
         <div class="ui  divider "></div>
         <section class="ui relaxed stackable column grid row">
             <section class="five wide column">
-                {% user_profile profile_card.user %}
+                {#                {% user_profile profile_card.user %}#}
+                {% include "includes/user_card_principal.html" %}
             </section>
             <section class="ten wide column">
                 <section class="ui row ">

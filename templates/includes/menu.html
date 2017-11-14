@@ -10,7 +10,7 @@
             <a class="item {% block active_logout %}{% endblock active_logout %} right aligned"
                href="{% url 'auth_logout' %}"><i
                     class="ui sign in icon"></i>{% trans "logout"|title %}</a>
-            <p class="item disabled"><i class="ui icon rebel"></i> {{ user|title }}</p>
+            <p class="item disabled"><i class="ui icon rebel"></i> {{ request.user|title }}</p>
         {% else %}
             {#         {{ request.path }}#}
             <a class="item {% block active_login %}{% endblock active_login %} right aligned"

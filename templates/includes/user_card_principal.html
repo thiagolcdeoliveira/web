@@ -1,0 +1,18 @@
+{% load staticfiles system %}
+{% load i18n %}
+
+<div class="ui card">
+
+    {% user_profile user %}
+
+
+    {% if not request.user|is_card_profile:user %}
+        <div class="extra content center aligned">
+            <a href="#" onclick="set_friend('{{ user|profile }}')"> <i id="js-icon-friend-{{ user|profile }}"
+                                                                       class="ui icon {% if not  request.user|is_friend:user.username %} plus gray {% else %} minus {% endif %} "></i>
+                {% trans "add friend"|title %}
+            </a>
+        </div>
+    {% endif %}
+
+</div>

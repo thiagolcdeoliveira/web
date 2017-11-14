@@ -1,7 +1,7 @@
 {% load staticfiles system %}
 {% load i18n %}
 
-<div class="ui card">
+{#<div class="ui card">#}
     <div class="image">
         <img src="{% media user_profile.picture %}"
              alt="Foto do {{ user_profile.user }} "/>
@@ -16,18 +16,10 @@
         <span id="position-card">{{ position }}</span>º {% trans "in ranking"|title %}
     </div>
     <div class="extra content center aligned">
-{#        <i id="lightning-1" class="icon yellow lightning"></i>#}
-
-{% lightning user_profile.points %}
-{#        {% for i in lightning.yellow %}#}
-{#            <i id="lightning-{{ i }}" class="icon yellow lightning"></i>#}
-{#        {% endfor %}#}
-{#        {% for i in lightning.noyellow %}#}
-{#            <i id="lightning-{{ i }}" class="icon lightning"></i>#}
-{#        {% endfor %}#}
+        {% lightning user_profile.points %}
     </div>
     <div class="extra content center aligned">
         {{ user_profile.points }} {% trans "Points"|title %}
 
     </div>
-</div>
+

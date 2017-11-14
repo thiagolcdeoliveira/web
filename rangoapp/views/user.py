@@ -31,6 +31,7 @@ class UserDetailView(DetailView):
         self.context['pages'] = Page.objects.filter(category__is_private=False,category__user__username=self.kwargs["username"]).order_by('-views')[:3]
         self.context['position'] = calculate_position(self.context['profile_card'].points)
         print("%s -- -" %self.context['profile_card'])
+        print(self.context['profile_request'])
         return self.context
 
 class UserChangeDetailView(DetailView):

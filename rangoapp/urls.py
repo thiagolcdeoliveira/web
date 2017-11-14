@@ -57,6 +57,7 @@ urlpatterns = [
     # url(r'^userprofile/(?P<username>[\w\-]+)/update/$', UserProfileUpdateView.as_view(), name='user-profile-update'),
     url(r'^userprofile/(?P<pk>[\d\-]+)/update/$', UserProfileUpdateView.as_view(), name='user-profile-update'),
     url(r'^user/(?P<pk>[\d\-]+)/delete/$', UserDeleteView.as_view(), name='user-delete'),
+    url(r'^user/friend/$', set_friend, name='user-delete'),
 
 
 
