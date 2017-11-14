@@ -25,13 +25,15 @@
             </section>
             <section class="twelve wide column">
                 <div class="ui ">
-                    <p>{% trans "name"|title %}:</p>
+                    <p class="ui tag label ">{% trans "name"|title %}:</p>
                     <p>{{ profile_request.user.first_name }} {{ profile_request.user.last_name }}</p>
-                    <p>{% trans "email"|title %}: </p>
+                    <p class="ui tag label ">{% trans "email"|title %}: </p>
                     <p> {{ profile_request.user.email }} </p>
-                    <p>{% trans "website"|title %}:</p>
+                    <p class="ui tag label ">{% trans "website"|title %}:</p>
                     <p><a href="{{ profile_request.website }}"> {{ profile_request.website }} </a></p>
-                    <p>{% trans "group"|title %}:</p>
+                    <p class="ui tag label ">{% trans "friend"|title %}:</p>
+                    <p>{{ profile_request.friends.count }} {% trans "friend"|title %}</p>
+                    <p class="ui tag label ">{% trans "group"|title %}:</p>
                     <p>
                         {% for group in user.groups.all %}
                             <span class="ui tiny label">
@@ -39,7 +41,7 @@
                             </span>
                         {% endfor %}
                     </p>
-                    <p>{% trans "description"|title %}:</p>
+                    <p class="ui tag label ">{% trans "description"|title %}:</p>
                     <p> {{ profile_request.description }} </p>
                 </div>
             </section>
