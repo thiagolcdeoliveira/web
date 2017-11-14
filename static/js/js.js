@@ -10,6 +10,10 @@ $(document).ready(function () {
     }).sidebar('attach events', '.menu .item.sidebar-menu')
         .sidebar('setting', 'transition', 'overlay')
     ;
+    // $('.image .dimmer').dimmer({
+    $('.dimmable.image').dimmer({
+        on: 'hover'
+    });
 // $('.ui.sidebar').first()
 //   .sidebar('attach events', '.menu .item.sidebar-menu')
 // ;
@@ -248,7 +252,7 @@ function set_friend(username) {
             iconfriend = $('#js-icon-friend-' + username);
             // alert(iconfriend.val());
             // alert(message);
-            alert(is_friend);
+            // alert(is_friend);
             if (message) {
                 if (is_friend) {
                     iconfriend.removeClass('gray plus');

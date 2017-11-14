@@ -2,7 +2,26 @@
 {% load i18n %}
 
 <div class="ui card">
-    <div class="image">
+    <div class=" blurring dimmable image">
+        {% if not request.user|is_card_profile:profile_card.user %}
+
+            <div class="ui dimmer">
+                <div class="content">
+                    <div class="center">
+
+
+                        <div class="ui inverted button">
+                            <a href="#" onclick="set_friend('{{ user|profile }}')">
+                                <i id="js-icon-friend-{{ user|profile }}"
+                                   class="ui icon {% if not  request.user|is_friend:user.username %} plus gray {% else %} minus {% endif %} "></i>
+                                {% trans "friend"|title %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
         <img src="{% media profile_card.picture %}"
              alt="Foto do {{ profile_card.user }} "/>
     </div>
@@ -16,18 +35,19 @@
         <span id="position-card">{{ position }}</span>º {% trans "in ranking"|title %}
     </div>
     <div class="extra content center aligned">
-{#        <i id="lightning-1" class="icon yellow lightning"></i>#}
+        {% lightning profile_card.points %}
 
-{#        {% for i in lightning.yellow %}#}
-{#            <i id="lightning-{{ i }}" class="icon yellow lightning"></i>#}
-{#        {% endfor %}#}
-{#        {% for i in lightning.noyellow %}#}
-{#            <i id="lightning-{{ i }}" class="icon lightning"></i>#}
-{#        {% endfor %}#}
     </div>
     <div class="extra content center aligned">
         {{ profile_card.points }} {% trans "points"|title %}
 
     </div>
-
+    {% if not request.user|is_card_profile:profile_card.user %}
+        <div class="extra content center aligned">
+            <a href="#" onclick="set_friend('{{ user|profile }}')"> <i id="js-icon-friend-{{ user|profile }}"
+                                                                       class="ui icon {% if not  request.user|is_friend:user.username %} plus gray {% else %} minus {% endif %} "></i>
+                {% trans "add friend"|title %}
+            </a>
+        </div>
+    {% endif %}
 </div>
