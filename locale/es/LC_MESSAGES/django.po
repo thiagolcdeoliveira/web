@@ -61,111 +61,111 @@ msgstr "URL de la página."
 
 #: rangoapp/forms/user.py:13
 msgid "Confirm Password"
-msgstr ""
+msgstr "Confirmar contraseña"
 
 #: rangoapp/forms/user.py:30
 msgid "Passwords are different"
-msgstr ""
+msgstr "Las contraseñas son diferentes"
 
 #: rangoapp/forms/user.py:33
 msgid "Password are differents!"
-msgstr ""
+msgstr "La contraseña son diferentes!"
 
 #: rangoapp/forms/validation/email.py:11
 msgid "Email already existed!"
-msgstr ""
+msgstr "¡El correo electrónico ya existió!"
 
 #: rangoapp/models/page.py:22
 msgid "title"
-msgstr ""
+msgstr "título"
 
 #: rangoapp/models/page.py:23
 msgid "url"
-msgstr ""
+msgstr "url"
 
 #: rangoapp/models/user_profile.py:27 templates/auth/user_change_detail.html:32
 msgid "website"
-msgstr ""
+msgstr "website"
 
 #: rangoapp/models/user_profile.py:28
 msgid "picture"
-msgstr ""
+msgstr "imagen"
 
 #: rangoapp/views/category.py:111
 #, python-format
 msgid "Category %(name)s add with successfull! "
-msgstr ""
+msgstr "¡La categoría %(name)s agrega con éxito!"
 
 #: rangoapp/views/user.py:72
 #, python-format
 msgid "user %(name)s change with succcessfull! "
-msgstr ""
+msgstr "usuario  %(name)s cambia con éxito!"
 
 #: rangoapp/views/user.py:93
 msgid "user deactivated with successfull! "
-msgstr ""
+msgstr "usuario desactivado con éxito!"
 
 #: rangoapp/views/user_profile.py:63
 #, python-format
 msgid "User %(name)s changed with successful! "
-msgstr ""
+msgstr "¡El usuario %(name)s ha cambiado con éxito!"
 
 #: templates/403.html:12 templates/403.html:14
 msgid "permission danied"
-msgstr ""
+msgstr "Permiso denegado"
 
 #: templates/404.html:8 templates/404.html:14
 msgid "page not found"
-msgstr ""
+msgstr "página no encontrada"
 
 #: templates/500.html:7
 msgid "internal error"
-msgstr ""
+msgstr "error interno"
 
 #: templates/auth/user_change_detail.html:5
 msgid "details of profile"
-msgstr ""
+msgstr "detalles del perfil"
 
 #: templates/auth/user_change_detail.html:9 templates/auth/user_detail.html:5
 #: templates/auth/user_detail.html:8 templates/includes/sidebar.html:51
 msgid "profile"
-msgstr ""
+msgstr "perfil"
 
 #: templates/auth/user_change_detail.html:18
 msgid "change datas"
-msgstr ""
+msgstr "cambiar datos"
 
 #: templates/auth/user_change_detail.html:20
 msgid "change profile"
-msgstr ""
+msgstr "cambiar el perfil"
 
 #: templates/auth/user_change_detail.html:22
 msgid "change password"
-msgstr ""
+msgstr "Cambia la contraseña"
 
 #: templates/auth/user_change_detail.html:24
 msgid "deactivate account"
-msgstr ""
+msgstr "desactivar cuenta"
 
 #: templates/auth/user_change_detail.html:30
 #: templates/registration/login.html:51
 msgid "email"
-msgstr ""
+msgstr "email"
 
 #: templates/auth/user_change_detail.html:34
 #: templates/auth/user_change_detail.html:35
 #: templates/includes/user_card.html:17
 msgid "friend"
-msgstr ""
+msgstr "amigo"
 
 #: templates/auth/user_change_detail.html:36
 msgid "group"
-msgstr ""
+msgstr "grupo"
 
 #: templates/auth/user_confirm_delete.html:5
 #: templates/auth/user_confirm_delete.html:14
 msgid "Confirm Delete"
-msgstr ""
+msgstr "Confirmar eliminación"
 
 #: templates/auth/user_confirm_delete.html:18
 #, python-format
@@ -193,131 +193,131 @@ msgstr ""
 
 #: templates/auth/user_confirm_delete.html:46
 msgid "No, take me back"
-msgstr ""
+msgstr "No, llévame de vuelta"
 
 #: templates/auth/user_confirm_delete.html:47
 msgid "Yes, I'm sure"
-msgstr ""
+msgstr "Sí estoy seguro"
 
 #: templates/auth/user_detail.html:20 templates/rangoapp/index.html:25
 msgid "Top 3 most tanned categories"
-msgstr ""
+msgstr "Las 3 categorías más bronceadas"
 
 #: templates/auth/user_detail.html:25
 msgid "show all categories"
-msgstr ""
+msgstr "mostrar todas las categorías"
 
 #: templates/auth/user_detail.html:31 templates/rangoapp/index.html:32
 msgid "Top 3 most viewed pages "
-msgstr ""
+msgstr "Las 3 páginas más vistas"
 
 #: templates/auth/user_detail.html:36
 msgid "show all pages"
-msgstr ""
+msgstr "mostrar todas las páginas"
 
 #: templates/auth/user_form.html:5
 #: templates/registration/registration_form.html:4
 #: templates/registration/registration_form.html:8
 msgid "Register for an account"
-msgstr ""
+msgstr "Registrarse para una cuenta"
 
 #: templates/auth/user_form.html:9
 msgid "Change for an account"
-msgstr ""
+msgstr "Cambiar para una cuenta"
 
 #: templates/includes/category_like.html:22
 #: templates/includes/page_like.html:22
 msgid "edit"
-msgstr ""
+msgstr "editar"
 
 #: templates/includes/category_like.html:52
 msgid "not exist categories added"
-msgstr ""
+msgstr "no existen categorías añadidas"
 
 #: templates/includes/category_like.html:54
 msgid "category add"
-msgstr ""
+msgstr "categoría añadir"
 
 #: templates/includes/form.html:10 templates/rangoapp/category_detail.html:18
 msgid "back"
-msgstr ""
+msgstr "espalda"
 
 #: templates/includes/form.html:11
 msgid "save"
-msgstr ""
+msgstr "salvar"
 
 #: templates/includes/menu.html:12 templates/registration/logout.html:8
 msgid "logout"
-msgstr ""
+msgstr "cerrar sesión"
 
 #: templates/includes/menu.html:18 templates/includes/sidebar.html:78
 #: templates/registration/login.html:25
 msgid "login"
-msgstr ""
+msgstr "iniciar sesión"
 
 #: templates/includes/menu.html:19 templates/includes/sidebar.html:81
 msgid "you not is connected"
-msgstr ""
+msgstr "tu no esta conectado"
 
 #: templates/includes/page_like.html:51
 msgid "not exist pages added"
-msgstr ""
+msgstr "no existen páginas agregadas"
 
 #: templates/includes/page_like.html:53
 msgid "page add"
-msgstr ""
+msgstr "página agregar"
 
 #: templates/includes/sidebar.html:8 templates/rangoapp/index.html:11
 msgid "home"
-msgstr ""
+msgstr "casa"
 
 #: templates/includes/sidebar.html:15 templates/rangoapp/category_form.html:5
 #: templates/rangoapp/category_form.html:10
 msgid "add category"
-msgstr ""
+msgstr "añadir categoría"
 
 #: templates/includes/sidebar.html:22 templates/rangoapp/page_form.html:5
 #: templates/rangoapp/page_form.html:18
 msgid "add page"
-msgstr ""
+msgstr "añadir página"
 
 #: templates/includes/sidebar.html:29
 msgid "list my pages"
-msgstr ""
+msgstr "lista mis páginas"
 
 #: templates/includes/sidebar.html:36
 msgid "list my categories"
-msgstr ""
+msgstr "enumera mis categorías"
 
 #: templates/includes/sidebar.html:43 templates/includes/sidebar.html:65
 #: templates/rangoapp/about.html:7 templates/rangoapp/about.html:12
 msgid "about"
-msgstr ""
+msgstr "sobre"
 
 #: templates/includes/sidebar.html:58
 msgid "change personal data"
-msgstr ""
+msgstr "cambiar datos personales"
 
 #: templates/includes/sidebar.html:72 templates/rangoapp/register.html:5
 msgid "register"
-msgstr ""
+msgstr "registro"
 
 #: templates/includes/user_card.html:36
 #: templates/includes/user_card_tag.html:16
 msgid "in ranking"
-msgstr ""
+msgstr "en el ranking"
 
 #: templates/includes/user_card.html:43
 msgid "points"
-msgstr ""
+msgstr "puntos"
 
 #: templates/includes/user_card_principal.html:13
 msgid "add friend"
-msgstr ""
+msgstr "añadir amigo"
 
 #: templates/includes/user_card_tag.html:22
 msgid "Points"
-msgstr ""
+msgstr "Puntos"
 
 #: templates/rangoapp/about.html:12
 msgid "rango"
@@ -332,42 +332,42 @@ msgstr ""
 
 #: templates/rangoapp/about.html:18
 msgid "documentation"
-msgstr ""
+msgstr "documentación"
 
 #: templates/rangoapp/about.html:33 templates/rangoapp/about.html:86
 msgid "popularly known as"
-msgstr ""
+msgstr "popularmente conocido como"
 
 #: templates/rangoapp/about.html:42 templates/rangoapp/about.html:71
 #: templates/rangoapp/about.html:95
 msgid "it's over"
-msgstr ""
+msgstr "se acabó"
 
 #: templates/rangoapp/about.html:104
 msgid "devoloped by"
-msgstr ""
+msgstr "desarrollado por"
 
 #: templates/rangoapp/category_detail.html:5
 #: templates/rangoapp/category_detail.html:10
 msgid "details of category"
-msgstr ""
+msgstr "detalles de la categoría"
 
 #: templates/rangoapp/category_detail.html:20
 msgid "add page in"
-msgstr ""
+msgstr "agregar página en"
 
 #: templates/rangoapp/category_list.html:3
 #: templates/rangoapp/category_list.html:8
 msgid "list categories"
-msgstr ""
+msgstr "categorías de lista"
 
 #: templates/rangoapp/cats.html:4
 msgid "categories"
-msgstr ""
+msgstr "categorías"
 
 #: templates/rangoapp/cats.html:19
 msgid "there are no categories present"
-msgstr ""
+msgstr "no hay categorías presentes"
 
 #: templates/rangoapp/index.html:6
 msgid "the flash"
@@ -375,53 +375,53 @@ msgstr ""
 
 #: templates/rangoapp/page_list.html:3 templates/rangoapp/page_list.html:8
 msgid "list pages"
-msgstr ""
+msgstr "páginas de lista"
 
 #: templates/rangoapp/register.html:9
 msgid "register for rango"
-msgstr ""
+msgstr "registrarse para rango"
 
 #: templates/rangoapp/register.html:18
 msgid "rango says"
-msgstr ""
+msgstr "rango dice"
 
 #: templates/rangoapp/register.html:18
 msgid "register here"
-msgstr ""
+msgstr "registrar aquí"
 
 #: templates/rangoapp/userprofile_form.html:4
 #: templates/rangoapp/userprofile_form.html:9
 msgid "add profile"
-msgstr ""
+msgstr "agregar perfil"
 
 #: templates/registration/activate.html:4
 msgid "Activation Failure"
-msgstr ""
+msgstr "Error de activación"
 
 #: templates/registration/activate.html:8
 #: templates/registration/activation_complete.html:8
 msgid "activation"
-msgstr ""
+msgstr "activación"
 
 #: templates/registration/activate.html:11
 msgid "Account activation failed."
-msgstr ""
+msgstr "La activación de la cuenta falló."
 
 #: templates/registration/activation_complete.html:4
 msgid "Account Activated"
-msgstr ""
+msgstr "Cuenta activada"
 
 #: templates/registration/activation_complete.html:12
 msgid "Your account is now activated."
-msgstr ""
+msgstr "Su cuenta ahora está activada."
 
 #: templates/registration/activation_complete.html:14
 msgid "You can log in."
-msgstr ""
+msgstr "Puede iniciar sesión"
 
 #: templates/registration/activation_email.html:6
 msgid "registration"
-msgstr ""
+msgstr "registro"
 
 #: templates/registration/activation_email.html:11
 #, python-format
@@ -480,27 +480,27 @@ msgstr ""
 
 #: templates/registration/activation_email_subject.txt:1
 msgid "Account activation on"
-msgstr ""
+msgstr "Activación de cuenta en"
 
 #: templates/registration/login.html:4
 msgid "Log in"
-msgstr ""
+msgstr "Iniciar sesión"
 
 #: templates/registration/login.html:58
 msgid "password"
-msgstr ""
+msgstr "contraseña"
 
 #: templates/registration/login.html:67
 msgid "log in"
-msgstr ""
+msgstr "iniciar sesión"
 
 #: templates/registration/login.html:90
 msgid "Not a member?"
-msgstr ""
+msgstr "No es un miembro?"
 
 #: templates/registration/login.html:92
 msgid "Register"
-msgstr ""
+msgstr "Registro"
 
 #: templates/registration/login.html:102
 msgid "Reset it"
@@ -508,81 +508,81 @@ msgstr "Redefinir contraseña"
 
 #: templates/registration/logout.html:4
 msgid "Logged out"
-msgstr ""
+msgstr "Desconectado"
 
 #: templates/registration/logout.html:12
 msgid "Successfully logged out"
-msgstr ""
+msgstr "Cerrado exitosamente"
 
 #: templates/registration/logout.html:14
 msgid "for now log in"
-msgstr ""
+msgstr "por ahora inicie sesión"
 
 #: templates/registration/logout.html:14
 msgid "click here"
-msgstr ""
+msgstr "haga clic aquí"
 
 #: templates/registration/password_change_done.html:4
 msgid "Password changed"
-msgstr ""
+msgstr "contraseña cambiada"
 
 #: templates/registration/password_change_done.html:9
 #: templates/registration/password_change_form.html:4
 #: templates/registration/password_change_form.html:13
 msgid "Change password"
-msgstr ""
+msgstr "Cambia la contraseña"
 
 #: templates/registration/password_change_done.html:13
 msgid "Password successfully changed!"
-msgstr ""
+msgstr "Contraseña cambiada correctamente!"
 
 #: templates/registration/password_reset_complete.html:4
 msgid "Password reset complete"
-msgstr ""
+msgstr "Restablecimiento de contraseña completo"
 
 #: templates/registration/password_reset_complete.html:8
 #: templates/registration/password_reset_form.html:4
 msgid "Reset password"
-msgstr ""
+msgstr "Restablecer la contraseña"
 
 #: templates/registration/password_reset_complete.html:15
 msgid "Your password has been reset!"
-msgstr ""
+msgstr "Tu contraseña ha sido restablecida!"
 
 #: templates/registration/password_reset_complete.html:16
 #, python-format
 msgid "You may now <a href=\"%(login_url)s\">log in</a>"
-msgstr ""
+msgstr "Ahora puede <a href=\"%(login_url)s\"> iniciar sesión </a>"
 
 #: templates/registration/password_reset_confirm.html:10
 #: templates/registration/password_reset_confirm.html:28
 msgid "Confirm password reset"
-msgstr ""
+msgstr "Confirmar restablecimiento de contraseña"
 
 #: templates/registration/password_reset_confirm.html:12
 msgid "confirm passowrd"
-msgstr ""
+msgstr "Confirmar contraseña"
 
 #: templates/registration/password_reset_confirm.html:29
 msgid "Enter your new password below to reset your password:"
-msgstr ""
+msgstr "Ingrese su nueva contraseña a continuación para restablecer su contraseña:"
 
 #: templates/registration/password_reset_confirm.html:32
 msgid "password reset unsuccessful"
-msgstr ""
+msgstr "restablecimiento de contraseña sin éxito"
 
 #: templates/registration/password_reset_confirm.html:32
 msgid "please"
-msgstr ""
+msgstr "Por favor"
 
 #: templates/registration/password_reset_confirm.html:32
 msgid "try again"
-msgstr ""
+msgstr "Inténtalo de nuevo"
 
 #: templates/registration/password_reset_done.html:4
 #: templates/registration/password_reset_done.html:8
 msgid "Password reset"
-msgstr ""
+msgstr "Restablecimiento de contraseña"
 
 #: templates/registration/password_reset_done.html:14
 msgid ""
@@ -595,7 +595,7 @@ msgstr ""
 
 #: templates/registration/password_reset_email.html:3
 msgid "Greetings"
-msgstr ""
+msgstr "Saludos"
 
 #: templates/registration/password_reset_email.html:5
 #, python-format
@@ -616,15 +616,15 @@ msgstr ""
 
 #: templates/registration/password_reset_email.html:20
 msgid "Your username, in case you've forgotten:"
-msgstr ""
+msgstr "Su nombre de usuario, en caso de que lo haya olvidado:"
 
 #: templates/registration/password_reset_email.html:23
 msgid "Best regards"
-msgstr ""
+msgstr "Mejor Saludos"
 
 #: templates/registration/password_reset_email.html:24
 msgid "Management"
-msgstr ""
+msgstr "Gestión"
 
 #: templates/registration/password_reset_form.html:17
 msgid ""
@@ -641,23 +641,23 @@ msgstr ""
 
 #: templates/registration/registration_closed.html:13
 msgid "Sorry, but registration is closed at this moment. Come back later."
-msgstr ""
+msgstr "Lo sentimos, pero el registro está cerrado en este momento. Vuelve mas tarde."
 
 #: templates/registration/registration_complete.html:4
 msgid "Activation email sent"
-msgstr ""
+msgstr "email de activación enviado"
 
 #: templates/registration/registration_complete.html:14
 msgid "Please check your email to complete the registration process."
-msgstr ""
+msgstr "Por favor revise su correo electrónico para completar el proceso de registro."
 
 #: templates/registration/resend_activation_complete.html:4
 msgid "Account Activation Resent"
-msgstr ""
+msgstr "Resentimiento de activación de la cuenta"
 
 #: templates/registration/resend_activation_complete.html:9
 msgid "email successuful"
-msgstr ""
+msgstr "email exitoso"
 
 #: templates/registration/resend_activation_complete.html:15
 #, python-format
@@ -670,4 +670,4 @@ msgstr ""
 #: templates/registration/resend_activation_form.html:4
 #: templates/registration/resend_activation_form.html:13
 msgid "Resend Activation Email"
-msgstr ""
+msgstr "Reenviar la activación email"
