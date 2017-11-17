@@ -16,14 +16,15 @@ from django.utils.translation import activate
 from rangoapp.models.category import Category
 
 
-class TesteCategory(TestCase):
+class TestCategory(TestCase):
     def setUp(self):
-        # self.user, new = User.objects.get_or_create(
+        # self.user_admin = User(
         #     username='admin'
         # )
-
-        # self.category = Category.objects.get_or_create(
-        #     name='DC-flash', views='2', likes='3',is_private=False
+        #
+        # self.category_public = Category(
+        #     name='DC-flash', views='2', likes='3',is_private=False, user = self.
+        #
         # )
         pass
 

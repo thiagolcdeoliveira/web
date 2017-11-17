@@ -32,9 +32,11 @@ def user_profile(user=None):
 # @register.simple_tag()
 def lightning(points=None):
     context={}
-    context["yellow"]= range(int(points))
+    # print("lightning", int(points / 5) if (int(points / 5)) <= 5 else 5)
+    # context["gray"] = range(5 - (int(points / 5) if (int(points / 5)) <= 5 else 5))
+    context["yellow"] = range((int(points / 5) if (int(points / 5)) <= 5 else 5))
     print(context["yellow"])
-    context["gray"]=range(5-int(points))
+    context["gray"] = range(5 - int(points / 5))
     print(context["gray"])
     #user_profile["lightning"] = 5
     return context

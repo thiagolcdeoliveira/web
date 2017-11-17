@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-08 10:39-0200\n"
+"POT-Creation-Date: 2017-11-17 16:54-0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,62 +30,136 @@ msgstr "Portugues"
 msgid "Spanish"
 msgstr "Espanhol"
 
-#: templates/403.html:5 templates/403.html:7
+#: rangoapp/forms/category.py:9 templates/auth/user_change_detail.html:28
+msgid "name"
+msgstr "nombre"
+
+#: rangoapp/forms/category.py:10
+msgid "must contain a maximum of 128 characters"
+msgstr "debe contener un máximo de 128 caracteres"
+
+#: rangoapp/forms/category.py:12 rangoapp/models/page.py:24
+#: rangoapp/models/user_profile.py:30 templates/auth/user_change_detail.html:44
+msgid "description"
+msgstr "descripción"
+
+#: rangoapp/forms/category.py:13
+msgid "must contain a maximum of 200 characters"
+msgstr "debe contener un máximo de 200 caracteres"
+
+#: rangoapp/forms/category.py:15
+msgid "is private"
+msgstr "es privado"
+
+#: rangoapp/forms/page.py:8
+msgid "Title of Page."
+msgstr "Título de la página."
+
+#: rangoapp/forms/page.py:10
+msgid "URL of page."
+msgstr "URL de la página."
+
+#: rangoapp/forms/user.py:13
+msgid "Confirm Password"
+msgstr ""
+
+#: rangoapp/forms/user.py:30
+msgid "Passwords are different"
+msgstr ""
+
+#: rangoapp/forms/user.py:33
+msgid "Password are differents!"
+msgstr ""
+
+#: rangoapp/forms/validation/email.py:11
+msgid "Email already existed!"
+msgstr ""
+
+#: rangoapp/models/page.py:22
+msgid "title"
+msgstr ""
+
+#: rangoapp/models/page.py:23
+msgid "url"
+msgstr ""
+
+#: rangoapp/models/user_profile.py:27 templates/auth/user_change_detail.html:32
+msgid "website"
+msgstr ""
+
+#: rangoapp/models/user_profile.py:28
+msgid "picture"
+msgstr ""
+
+#: rangoapp/views/category.py:111
+#, python-format
+msgid "Category %(name)s add with successfull! "
+msgstr ""
+
+#: rangoapp/views/user.py:72
+#, python-format
+msgid "user %(name)s change with succcessfull! "
+msgstr ""
+
+#: rangoapp/views/user.py:93
+msgid "user deactivated with successfull! "
+msgstr ""
+
+#: rangoapp/views/user_profile.py:63
+#, python-format
+msgid "User %(name)s changed with successful! "
+msgstr ""
+
+#: templates/403.html:12 templates/403.html:14
 msgid "permission danied"
 msgstr ""
 
-#: templates/404.html:7 templates/404.html:12
+#: templates/404.html:8 templates/404.html:14
 msgid "page not found"
 msgstr ""
 
-#: templates/500.html:5
+#: templates/500.html:7
 msgid "internal error"
 msgstr ""
 
-#: templates/auth/user_change_detail.html:6
+#: templates/auth/user_change_detail.html:5
 msgid "details of profile"
 msgstr ""
 
-#: templates/auth/user_change_detail.html:12 templates/auth/user_detail.html:6
-#: templates/auth/user_detail.html:11 templates/includes/sidebar.html:18
+#: templates/auth/user_change_detail.html:9 templates/auth/user_detail.html:5
+#: templates/auth/user_detail.html:8 templates/includes/sidebar.html:51
 msgid "profile"
 msgstr ""
 
-#: templates/auth/user_change_detail.html:23
+#: templates/auth/user_change_detail.html:18
 msgid "change datas"
 msgstr ""
 
-#: templates/auth/user_change_detail.html:26
+#: templates/auth/user_change_detail.html:20
 msgid "change profile"
 msgstr ""
 
-#: templates/auth/user_change_detail.html:29
+#: templates/auth/user_change_detail.html:22
 msgid "change password"
 msgstr ""
 
-#: templates/auth/user_change_detail.html:32
+#: templates/auth/user_change_detail.html:24
 msgid "deactivate account"
 msgstr ""
 
-#: templates/auth/user_change_detail.html:38
-msgid "name"
-msgstr ""
-
-#: templates/auth/user_change_detail.html:41
+#: templates/auth/user_change_detail.html:30
 #: templates/registration/login.html:51
 msgid "email"
 msgstr ""
 
-#: templates/auth/user_change_detail.html:43
-msgid "website"
+#: templates/auth/user_change_detail.html:34
+#: templates/auth/user_change_detail.html:35
+#: templates/includes/user_card.html:17
+msgid "friend"
 msgstr ""
 
-#: templates/auth/user_change_detail.html:45
+#: templates/auth/user_change_detail.html:36
 msgid "group"
-msgstr ""
-
-#: templates/auth/user_change_detail.html:53
-msgid "description"
 msgstr ""
 
 #: templates/auth/user_confirm_delete.html:5
@@ -118,26 +192,26 @@ msgid ""
 msgstr ""
 
 #: templates/auth/user_confirm_delete.html:46
-msgid "Yes, I'm sure"
-msgstr ""
-
-#: templates/auth/user_confirm_delete.html:48
 msgid "No, take me back"
 msgstr ""
 
-#: templates/auth/user_detail.html:24 templates/rangoapp/index.html:24
+#: templates/auth/user_confirm_delete.html:47
+msgid "Yes, I'm sure"
+msgstr ""
+
+#: templates/auth/user_detail.html:20 templates/rangoapp/index.html:25
 msgid "Top 3 most tanned categories"
 msgstr ""
 
-#: templates/auth/user_detail.html:27
+#: templates/auth/user_detail.html:25
 msgid "show all categories"
 msgstr ""
 
-#: templates/auth/user_detail.html:32 templates/rangoapp/index.html:31
+#: templates/auth/user_detail.html:31 templates/rangoapp/index.html:32
 msgid "Top 3 most viewed pages "
 msgstr ""
 
-#: templates/auth/user_detail.html:35
+#: templates/auth/user_detail.html:36
 msgid "show all pages"
 msgstr ""
 
@@ -151,26 +225,37 @@ msgstr ""
 msgid "Change for an account"
 msgstr ""
 
-#: templates/includes/category_like.html:26
-#: templates/includes/page_like.html:23
+#: templates/includes/category_like.html:22
+#: templates/includes/page_like.html:22
 msgid "edit"
 msgstr ""
 
-#: templates/includes/category_like.html:54
+#: templates/includes/category_like.html:52
 msgid "not exist categories added"
 msgstr ""
 
-#: templates/includes/menu.html:32 templates/includes/sidebar.html:23
-#: templates/rangoapp/category_detail.html:12
-#: templates/registration/logout.html:8
+#: templates/includes/category_like.html:54
+msgid "category add"
+msgstr ""
+
+#: templates/includes/form.html:10 templates/rangoapp/category_detail.html:18
+msgid "back"
+msgstr ""
+
+#: templates/includes/form.html:11
+msgid "save"
+msgstr ""
+
+#: templates/includes/menu.html:12 templates/registration/logout.html:8
 msgid "logout"
 msgstr ""
 
-#: templates/includes/menu.html:37 templates/includes/sidebar.html:32
+#: templates/includes/menu.html:18 templates/includes/sidebar.html:78
+#: templates/registration/login.html:25
 msgid "login"
 msgstr ""
 
-#: templates/includes/menu.html:38 templates/includes/sidebar.html:33
+#: templates/includes/menu.html:19 templates/includes/sidebar.html:81
 msgid "you not is connected"
 msgstr ""
 
@@ -178,47 +263,59 @@ msgstr ""
 msgid "not exist pages added"
 msgstr ""
 
-#: templates/includes/sidebar.html:6 templates/rangoapp/index.html:11
+#: templates/includes/page_like.html:53
+msgid "page add"
+msgstr ""
+
+#: templates/includes/sidebar.html:8 templates/rangoapp/index.html:11
 msgid "home"
 msgstr ""
 
-#: templates/includes/sidebar.html:9 templates/rangoapp/category_form.html:5
+#: templates/includes/sidebar.html:15 templates/rangoapp/category_form.html:5
 #: templates/rangoapp/category_form.html:10
 msgid "add category"
 msgstr ""
 
-#: templates/includes/sidebar.html:12 templates/rangoapp/page_form.html:5
+#: templates/includes/sidebar.html:22 templates/rangoapp/page_form.html:5
 #: templates/rangoapp/page_form.html:18
 msgid "add page"
 msgstr ""
 
-#: templates/includes/sidebar.html:15
+#: templates/includes/sidebar.html:29
 msgid "list my pages"
 msgstr ""
 
-#: templates/includes/sidebar.html:21
-msgid "change personal data"
+#: templates/includes/sidebar.html:36
+msgid "list my categories"
 msgstr ""
 
-#: templates/includes/sidebar.html:27 templates/rangoapp/about.html:7
-#: templates/rangoapp/about.html:12
+#: templates/includes/sidebar.html:43 templates/includes/sidebar.html:65
+#: templates/rangoapp/about.html:7 templates/rangoapp/about.html:12
 msgid "about"
 msgstr ""
 
-#: templates/includes/sidebar.html:30 templates/rangoapp/register.html:5
+#: templates/includes/sidebar.html:58
+msgid "change personal data"
+msgstr ""
+
+#: templates/includes/sidebar.html:72 templates/rangoapp/register.html:5
 msgid "register"
 msgstr ""
 
-#: templates/includes/user_card.html:16
+#: templates/includes/user_card.html:36
 #: templates/includes/user_card_tag.html:16
 msgid "in ranking"
 msgstr ""
 
-#: templates/includes/user_card.html:29
+#: templates/includes/user_card.html:43
 msgid "points"
 msgstr ""
 
-#: templates/includes/user_card_tag.html:30
+#: templates/includes/user_card_principal.html:13
+msgid "add friend"
+msgstr ""
+
+#: templates/includes/user_card_tag.html:22
 msgid "Points"
 msgstr ""
 
@@ -233,33 +330,34 @@ msgid ""
 "    Profile of the developers below"
 msgstr ""
 
-#: templates/rangoapp/about.html:32 templates/rangoapp/about.html:85
+#: templates/rangoapp/about.html:18
+msgid "documentation"
+msgstr ""
+
+#: templates/rangoapp/about.html:33 templates/rangoapp/about.html:86
 msgid "popularly known as"
 msgstr ""
 
-#: templates/rangoapp/about.html:41 templates/rangoapp/about.html:70
-#: templates/rangoapp/about.html:94
+#: templates/rangoapp/about.html:42 templates/rangoapp/about.html:71
+#: templates/rangoapp/about.html:95
 msgid "it's over"
 msgstr ""
 
-#: templates/rangoapp/about.html:103
+#: templates/rangoapp/about.html:104
 msgid "devoloped by"
 msgstr ""
 
-#: templates/rangoapp/category_detail.html:6
+#: templates/rangoapp/category_detail.html:5
+#: templates/rangoapp/category_detail.html:10
 msgid "details of category"
 msgstr ""
 
-#: templates/rangoapp/category_detail.html:39
-msgid "back"
-msgstr ""
-
-#: templates/rangoapp/category_detail.html:40
+#: templates/rangoapp/category_detail.html:20
 msgid "add page in"
 msgstr ""
 
-#: templates/rangoapp/category_list.html:5
-#: templates/rangoapp/category_list.html:13
+#: templates/rangoapp/category_list.html:3
+#: templates/rangoapp/category_list.html:8
 msgid "list categories"
 msgstr ""
 
@@ -275,7 +373,7 @@ msgstr ""
 msgid "the flash"
 msgstr ""
 
-#: templates/rangoapp/page_list.html:5 templates/rangoapp/page_list.html:14
+#: templates/rangoapp/page_list.html:3 templates/rangoapp/page_list.html:8
 msgid "list pages"
 msgstr ""
 
