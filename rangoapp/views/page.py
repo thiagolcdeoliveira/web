@@ -17,14 +17,27 @@ from django.utils.translation import ugettext_lazy as _
 from rangoapp.variaveis.variaveis import ADD_PAGE
 
 class PageListView(ListView):
+    '''
+       Lista todos as categorias.
+       :URl: http://ip_servidor/page/listar/
+       '''
     queryset = Page.objects.all()
 
     def get_queryset(self):
+        ''''
+       Define a consulta a ser feita.
+       :return páginas do usuário logado
+       '''
         queryset = super(PageListView, self).get_queryset()
         queryset = queryset.filter(category__user=self.request.user)
         return queryset
 
     def get_context_data(self, **kwargs):
+        '''
+        Define o contexto a ser enviado para página.
+        
+        :return: Adiciona ao contexto pages (páginas do usuário logado) e profile_request (perfil do usuário logado)
+        '''
         context = super(PageListView, self).get_context_data(**kwargs)
         context["pages"] = self.get_queryset()
         context["profile_request"] = get_object_or_404(UserProfile, user=self.request.user)
@@ -33,7 +46,15 @@ class PageListView(ListView):
 class PageDetailViews(DetailView):
     queryset = Page.objects.all()
 
+    '''
+     Detalhes da categoria.
+     :URl: http://ip_servidor/user/page/<id>/
+     '''
     def get(self, request, *args, **kwargs):
+        '''
+        Define o o redirecionamento da pagiona baseado no id da página.
+        :return: Redirenciona para o link correspondente ao id da página
+        '''
         page = get_object_or_404(Page, id=kwargs["id"])
         page.views += 1
         page.save()
