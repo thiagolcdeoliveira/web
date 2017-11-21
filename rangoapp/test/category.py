@@ -39,39 +39,11 @@ class TestCategory(TestCase):
         self.category_public.save()
         pass
 
-    # def test_form_error(self):
-    #     # print(self.client.get(reverse('category-add')))
-    #     category = self.client.get(reverse('category-add'))
-    #     category = category.form.submit()
-    #     # self.assertContains(category, "This field is required.")
 
-    # def test_form_success(self):
-    #     page = self.app.get(self.entry.get_absolute_url())
-    #     page.form['name'] = "Phillip"
-    #     page.form['email'] = "phillip@example.com"
-    #     page.form['body'] = "Test comment body."
-    #     page = page.form.submit()
-    #     self.assertRedirects(page, self.entry.get_absolute_url())
-
-    # def test_valida_data(self):
-    #     form = CategoryForm({
-    #         'name': "DC",
-    #         'description': "blabla",
-    #         'is_private': False,
-    #
-    #     })
-    #     self.assertTrue(form.is_valid())
-    #     comment = form.save()
-    #     self.assertEqual(comment.name, "DC")
-    #     self.assertEqual(comment.description, "blabla")
-    #     self.assertEqual(comment.is_private, False)
-    #     self.assertEqual(comment.user, self.user_admin)
     def test_error_view_category(self):
-        # self.assertTrue(self.client.login(username='admin', password='teste'))
         self.client.login(username='admin', password='teste')
         response = self.client.post(reverse('category-add'),
                                     {})
-        # print(response)
         self.assertContains(response, "This field is required.")
 
     def test_view_category(self):
@@ -80,23 +52,16 @@ class TestCategory(TestCase):
                                     {'name': 'teste',
                                      'description': 'teste',
                                      }, follow=True)
+
         self.assertEqual(response.status_code, 200)
         self.assertNotContains(response, "This field is required.")
         # self.assertRedirects(response, reverse("auth_login"))
         self.assertRedirects(response, reverse("category-detail", kwargs={"category_name_slug": 'teste'}))
-        # print(teste)
-        #
-        # category = self.client.get(reverse('category-add'))
-        # self.assertEqual(len(category.forms), 1)
 
-    # def test_blank_data(self):
-    #     form = CommentForm({}, entry=self.entry)
-    #     self.assertFalse(form.is_valid())
-    #     self.assertEqual(form.errors, {
-    #         'name': ['required'],
-    #         'email': ['required'],
-    #         'body': ['required'],
-    #     })
+    # def test_point_by_category(self):
+    #     profile = get_object_or_404(UserProfile, user=self.user_admin)
+    #     print(profile.points)
+
     def testUser(self):
         self.assertEquals(self.category_public.user.username, 'admin')
 
@@ -106,7 +71,3 @@ class TestCategory(TestCase):
 
     def testObjectCreate(self):
         self.assertEquals(Category.objects.count(), 1)
-
-        # activate('pt-br')
-        # response = self.client.get(reverse("home"))
-        # self.assertEquals(response, "template/rangoapp/index.html")
