@@ -1,11 +1,9 @@
 Categoria
 =========
+views
+-----
 .. automodule:: rangoapp.views.category
-:members:
 
+model
+-----
 .. automodule:: rangoapp.models.category
-:members:
-
-
-
-

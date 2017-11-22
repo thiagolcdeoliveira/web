@@ -1,10 +1,9 @@
 Auth User
 =========
+views
+-----
 .. automodule:: django.contrib.auth.views
-:members:
 
-
+model
+-----
 .. automodule:: django.contrib.auth.models
-:members:
-
-

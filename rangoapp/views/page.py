@@ -18,24 +18,23 @@ from rangoapp.variaveis.variaveis import ADD_PAGE
 
 class PageListView(ListView):
     '''
-       Lista todos as categorias.
-       :URl: http://ip_servidor/page/listar/
-       '''
+     Lista todos as categorias.
+    :URl: http://ip_servidor/page/listar/
+    '''
     queryset = Page.objects.all()
 
     def get_queryset(self):
-        ''''
-       Define a consulta a ser feita.
-       :return páginas do usuário logado
-       '''
+        '''
+         Define a consulta a ser feita.
+        :return: páginas do usuário logado
+        '''
         queryset = super(PageListView, self).get_queryset()
         queryset = queryset.filter(category__user=self.request.user)
         return queryset
 
     def get_context_data(self, **kwargs):
         '''
-        Define o contexto a ser enviado para página.
-        
+         Define o contexto a ser enviado para página.
         :return: Adiciona ao contexto pages (páginas do usuário logado) e profile_request (perfil do usuário logado)
         '''
         context = super(PageListView, self).get_context_data(**kwargs)
@@ -44,15 +43,16 @@ class PageListView(ListView):
 
 
 class PageDetailViews(DetailView):
-    queryset = Page.objects.all()
-
     '''
      Detalhes da categoria.
-     :URl: http://ip_servidor/user/page/<id>/
-     '''
+    :URl: http://ip_servidor/user/page/<id>/
+    '''
+    queryset = Page.objects.all()
+
+
     def get(self, request, *args, **kwargs):
         '''
-        Define o o redirecionamento da pagiona baseado no id da página.
+         Define o o redirecionamento da pagiona baseado no id da página.
         :return: Redirenciona para o link correspondente ao id da página
         '''
         page = get_object_or_404(Page, id=kwargs["id"])
@@ -69,6 +69,10 @@ class PageDetailViews(DetailView):
 
 @method_decorator(is_ownerpage(ADD_PAGE), name='dispatch')
 class PageCreateView(SuccessMessageMixin, CreateView):
+    '''
+     Adiciona uma página na categoria.
+    :URl: http://ip_servidor/category/<category_name_slug>/page/cadastrar/
+    '''
     model = Page
     form_class = PageForm
     success_message = u"Página %(name)s cadastrada com sucesso! "
@@ -89,6 +93,11 @@ class PageCreateView(SuccessMessageMixin, CreateView):
 
 
 class PageListByUserView(ListView):
+    '''
+     Lista páginas por usuario.
+    :URl: http://ip_servidor/user/<username>/page/listar
+    '''
+
     queryset = Page.objects.all()
 
     # slug_field = 'username'
@@ -96,18 +105,31 @@ class PageListByUserView(ListView):
     # template_name =
 
     def get_queryset(self):
+        '''
+         Define a consulta a ser feita.
+        :return Páginas do usuário logado
+        '''
         queryset = super(PageListByUserView, self).get_queryset()
         queryset = queryset.filter(category__is_private=False, category__user__username=self.kwargs["username"])
         print (queryset)
         return queryset
 
     def get_context_data(self, **kwargs):
+        '''
+         Define o contexto a ser enviado para página.
+
+        :return: Adiciona ao contexto pages (páginas de um usuário) e profile_request (perfil do usuário logado)
+       '''
         context = super(PageListByUserView, self).get_context_data(**kwargs)
         context["pages"] = self.queryset
         context["profile_request"] = get_object_or_404(UserProfile, user=self.request.user)
 
 
 class PageUpdateView(UpdateView):
+    '''
+     Atualiza uma página.
+    :URl: http://ip_servidor/category/listar/
+    '''
     model = Page
     form_class = PageForm
 
@@ -120,6 +142,11 @@ class PageUpdateView(UpdateView):
 
 
 class PageDeleteView(DeleteView):
+    '''
+     Deletar uma página.
+    :URl: http://ip_servidor/page/<pk>/excluir
+    '''
+
     queryset = Page.objects.all()
     success_url = reverse_lazy('page-list')
 

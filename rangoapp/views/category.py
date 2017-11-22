@@ -18,15 +18,15 @@ from django.utils.translation import ugettext_lazy as _
 
 class CategoryListView(ListView):
     '''
-    Lista todos as categorias.
+     Lista todos as categorias.
     :URl: http://ip_servidor/category/listar/
     '''
     queryset = Category.objects.all()
 
     def get_queryset(self):
-        ''''
-        Define a consulta a ser feita.
-        :return Categorias do usuário logado
+        '''
+         Define a consulta a ser feita.
+        :return: Categorias do usuário logado
         '''
         queryset = super(CategoryListView, self).get_queryset()
         queryset = queryset.filter(user=self.request.user)
@@ -34,7 +34,7 @@ class CategoryListView(ListView):
 
     def get_context_data(self, **kwargs):
         '''
-        Define o contexto a ser enviado para página.
+         Define o contexto a ser enviado para página.
         
         :return: Adiciona ao contexto categories (categorias do usuário logado) e profile_request (perfil do usuário logado)
         '''
@@ -47,7 +47,7 @@ class CategoryListView(ListView):
 
 class CategoryListByUserView(ListView):
     '''
-    Lista todos as categorias por usuário especifico.
+     Lista todos as categorias por usuário especifico.
     :URl: http://ip_servidor/user/<username>/category/listar/
     '''
     queryset = Category.objects.all()
@@ -59,7 +59,7 @@ class CategoryListByUserView(ListView):
     def get_queryset(self):
         '''
         Define a consulta a ser feita.
-        :return Categorias do usuário selecionado.
+        :return: Categorias do usuário selecionado.
         '''
         queryset = super(CategoryListByUserView, self).get_queryset()
         queryset = queryset.filter(is_private=False, user__username=self.kwargs["username"])
@@ -68,7 +68,7 @@ class CategoryListByUserView(ListView):
 
     def get_context_data(self, **kwargs):
         '''
-        Define o contexto a ser enviado para página.
+         Define o contexto a ser enviado para página.
         :return: Adiciona ao contexto categories (categorias do usuário selecionado) e profile_request (perfil do usuário selecionado)
         '''
 
@@ -82,7 +82,7 @@ class CategoryListByUserView(ListView):
 # permissao na categoory
 class CategoryDetailView(DetailView):
     '''
-    Detalhes da categoria.
+     Detalhes da categoria.
     :URl: http://ip_servidor/category/visualizar/<category_name_slug>/
     '''
 
@@ -92,7 +92,7 @@ class CategoryDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         '''
-        Define o contexto a ser enviado para página.
+         Define o contexto a ser enviado para página.
         :return: Adiciona ao contexto pages (páginas da categoria selecionada) e profile_request (perfil do usuário logado)
         '''
         context = super(CategoryDetailView, self).get_context_data(**kwargs)
@@ -103,7 +103,7 @@ class CategoryDetailView(DetailView):
 
 class CategoryCreateView(SuccessMessageMixin, CreateView):
     '''
-    Cria  categoria.
+     Cria  categoria.
     :URl: http://ip_servidor/category/cadastrar/
     '''
     model = Category
@@ -112,7 +112,7 @@ class CategoryCreateView(SuccessMessageMixin, CreateView):
 
     def form_valid(self, form):
         '''
-        Valida o form. 
+         Valida o form. 
         Se categoria for publica (não privada) adicioana os pontos.
         '''
         self.object = form.save(commit=False)
@@ -125,7 +125,7 @@ class CategoryCreateView(SuccessMessageMixin, CreateView):
 
     def get_success_message(self, cleaned_data):
         '''
-        Define mensagem de sucesso.
+         Define mensagem de sucesso.
         :return: categoria <nome> cadastrada com sucesso.
         '''
         return self.success_message % dict(
@@ -136,7 +136,7 @@ class CategoryCreateView(SuccessMessageMixin, CreateView):
 
 class CategoryUpdateView(UpdateView):
     '''
-    Atualiza a categoria.
+     Atualiza a categoria.
     :URl: http://ip_servidor/category/<category_name_slug>/editar/
     '''
     model = Category
@@ -148,7 +148,7 @@ class CategoryUpdateView(UpdateView):
 
     def form_valid(self, form):
         '''
-        Valida o form. 
+         Valida o form. 
         '''
         self.object = form.save(commit=False)
         self.object.save()
@@ -157,7 +157,7 @@ class CategoryUpdateView(UpdateView):
 
 class CategoryDeleteView(DeleteView):
     '''
-    Deleta a categoria.
+     Deleta a categoria.
     :URl: http://ip_servidor/category/listar/
     '''
     queryset = Category.objects.all()
@@ -165,7 +165,7 @@ class CategoryDeleteView(DeleteView):
 
     def form_valid(self, form):
         '''
-        Valida o form. 
+         Valida o form. 
         Se categoria for publica (não privada) remove os pontos.
         '''
 
@@ -219,7 +219,7 @@ class CategoryDeleteView(DeleteView):
 
 def set_like_category(request):
     '''
-    Define o like para categoria.
+     Define o like para categoria.
     :URl: http://ip_servidor/category/like/
     '''
     data = {}
@@ -259,7 +259,7 @@ def set_like_category(request):
 
 def set_deslike_category(request):
     '''
-    Define o deslike para categoria.
+     Define o deslike para categoria.
     :URl: http://ip_servidor/category/deslike/
     '''
     data = {}

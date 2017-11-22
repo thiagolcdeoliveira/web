@@ -19,6 +19,10 @@ from rangoapp.forms.user import UserProfileRegistrationForm
 from django.utils.translation import ugettext_lazy as _
 
 class UserDetailView(DetailView):
+    '''
+     Detalhe do usuário.
+    :URl: http://ip_servidor/user/visualizar/<username>
+    '''
     queryset = User.objects.all()
     slug_field = 'username'
     slug_url_kwarg = 'username'
@@ -35,6 +39,10 @@ class UserDetailView(DetailView):
         return self.context
 
 class UserChangeDetailView(DetailView):
+    '''
+     Alterar um usuário.
+    :URl: http://ip_servidor/user/visualizar/<username>/update
+    '''
     queryset = User.objects.all()
     slug_field = 'username'
     slug_url_kwarg = 'username'
@@ -47,7 +55,10 @@ class UserChangeDetailView(DetailView):
         return self.context
 
 class MyRegistrationView(RegistrationView):
-
+    # '''
+    #  Adicionar um usuario.
+    # :URl: http://ip_servidor/category/listar/
+    # '''
     form_class = UserProfileRegistrationForm
 
     def register(self, form_class):
@@ -63,6 +74,10 @@ class MyRegistrationView(RegistrationView):
 
 
 class UserUpdateView(SuccessMessageMixin,UpdateView):
+    '''
+     Alterar um usuário.
+    :URl: http://ip_servidor/user/<username>/update
+    '''
     model = User
     form_class = UserForm
     # form_class = PageEditForm
@@ -85,6 +100,10 @@ class UserUpdateView(SuccessMessageMixin,UpdateView):
         return reverse_lazy('user-change-detail', kwargs={'username': self.object.username})
 
 class UserDeleteView(SuccessMessageMixin,DeleteView):
+    '''
+     Deleta um usuario.
+    :URl: http://ip_servidor/user/<pk>/delete
+    '''
     queryset = User.objects.all()
     success_url = reverse_lazy('auth_logout')
     # slug_field = 'username'
@@ -110,6 +129,10 @@ class UserDeleteView(SuccessMessageMixin,DeleteView):
         return HttpResponseRedirect(success_url)
 
 class UserCreateView(View):
+    '''
+    Lista todos as categorias.
+   :URl: http://ip_servidor/user/cadastrar/
+   '''
     template="rangoapp/register.html"
     context ={}
     def post(self,request,pk=None):

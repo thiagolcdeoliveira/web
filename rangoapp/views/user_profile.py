@@ -15,6 +15,10 @@ from rangoapp.views.ranking import remove_points_friends, add_points_friends
 
 
 class UserProfileListView(ListView):
+    # '''
+    # Lista os perfis dos  usuário.
+    # :URl: Sem URL
+    # '''
     queryset = UserProfile.objects.all()
 
     def get_queryset(self):
@@ -23,11 +27,16 @@ class UserProfileListView(ListView):
         return queryset
 
 class UserProfileListByUserView(ListView):
+    '''
+     Lista os perfis dos usuários.
+    :URl: Sem URL
+    '''
     queryset = UserProfile.objects.all()
 
     def get_queryset(self):
         queryset = super(UserProfileListByUserView, self).get_queryset()
-        queryset = queryset.filter(is_private=False,user__username=self.kwargs["username"])
+        # queryset = queryset.filter(is_private=False,user__username=self.kwargs["username"])
+        # queryset = queryset
         return queryset
 
 #permissao na categoory
@@ -40,9 +49,13 @@ class UserProfileDetailView(DetailView):
     #     return context
 
 class UserProfileCreateView(SuccessMessageMixin,CreateView):
+    '''
+     Adiciona um perfil ao usuário.
+    :URl: http://ip_servidor/userprofile/cadastrar/
+    '''
     model = UserProfile
     form_class = UserProfileForm
-    success_message = "Perfil %(name)s cadastrado com sucesso! "
+    success_message = _("Profile of %(name)s add with successful! ")
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -58,6 +71,10 @@ class UserProfileCreateView(SuccessMessageMixin,CreateView):
         )
 
 class UserProfileUpdateView(SuccessMessageMixin,UpdateView):
+    '''
+     Alterar o perfil do usuário.
+    :URl: http://ip_servidor/userprofile/<pk>/update/
+    '''
     model = UserProfile
     form_class = UserProfileForm
     success_message = _("User %(name)s changed with successful! ")
@@ -83,6 +100,10 @@ class UserProfileUpdateView(SuccessMessageMixin,UpdateView):
         )
 
 class UserProfileDeleteView(DeleteView):
+    '''
+     Deleta um perfil de usuário.
+    :URl: Sem URL
+    '''
     queryset = UserProfile.objects.all()
     success_url = reverse_lazy('user-profile-list')
 
@@ -94,7 +115,7 @@ class UserProfileDeleteView(DeleteView):
 
 def set_friend(request):
     '''
-    Adiciona um amigo.
+     Adiciona um amigo.
     :URl: http://ip_servidor/user/amigo/
     '''
     data = {}

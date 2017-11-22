@@ -1,9 +1,11 @@
 Pagina
 ======
+views
+-----
 .. automodule:: rangoapp.views.page
-:members:
-
+.. py:function:: rangoapp.views.page
+model
+-----
 .. automodule:: rangoapp.models.page
-:members:
 
 
