@@ -7,16 +7,14 @@ from django.test import TestCase
 import datetime
 
 from django.contrib.auth.models import User
+from django.urls import reverse
+
 from rangoapp.models.user_profile import UserProfile
 
 
 
 class TesteUserProfile(TestCase):
     def setUp(self):
-        # self.user, new = User.objects.get_or_create(
-        #     username='admin'
-        # )
-
         self.user, new = User.objects.get_or_create(
             username='admin'
         )
@@ -24,13 +22,18 @@ class TesteUserProfile(TestCase):
             website='http://www.com',  user=self.user
         )
 
-    def tearDown(self):
-        pass
+    def test_view_category(self):
+        response = self.client.post(reverse('registration_register'),
+                                    {
+                                        'username': 'teste',
+                                        'email': 'email@gmail.com',
+                                        'password1': 'root1234',
+                                        'password2': 'root1234'
+                                    }, follow=True)
 
-    # def testUmMaisUm(self):
-    #     self.assertEquals(1 + 1, 2)
+        self.assertEqual(response.status_code, 200)
+        self.assertRedirects(response, reverse("registration_complete"))
+
 
     def testObjetosCriados(self):
-        # self.assertEquals(User.objects.count(), 1)
         self.assertEquals(UserProfile.objects.count(), 1)
-        # self.assertEquals(Category.objects.count(), 2)

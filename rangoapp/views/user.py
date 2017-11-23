@@ -130,7 +130,7 @@ class UserDeleteView(SuccessMessageMixin,DeleteView):
 
 class UserCreateView(View):
     '''
-    Lista todos as categorias.
+    Adicionar usuário.
    :URl: http://ip_servidor/user/cadastrar/
    '''
     template="rangoapp/register.html"
@@ -147,7 +147,7 @@ class UserCreateView(View):
             if 'picture' in request.FILES:
                 profile.picture = request.FILES['picture']
             profile.save()
-            messages.success(self.request, "Cadastrado com sucesso!", extra_tags='msg')
+            messages.success(self.request, _("Add with successufull!"), extra_tags='msg')
             self.context['user_form'] = UserForm()
             self.context['profile_form'] = UserProfileForm()
             return render(request,self.template,self.context)

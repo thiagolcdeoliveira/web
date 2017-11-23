@@ -55,12 +55,7 @@ class TestCategory(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertNotContains(response, "This field is required.")
-        # self.assertRedirects(response, reverse("auth_login"))
         self.assertRedirects(response, reverse("category-detail", kwargs={"category_name_slug": 'teste'}))
-
-    # def test_point_by_category(self):
-    #     profile = get_object_or_404(UserProfile, user=self.user_admin)
-    #     print(profile.points)
 
     def testUser(self):
         self.assertEquals(self.category_public.user.username, 'admin')

@@ -42,12 +42,8 @@ class TestPage(TestCase):
 
     def test_error_view_page(self):
         self.client.login(username='admin', password='teste')
-        # self.user_admin.is_superuser=True
-        # self.user_admin.save()
-        # print(reverse('page-add', kwargs={'category_name_slug': 'dc-flash'}))
         response = self.client.post(reverse('page-add', kwargs={'category_name_slug': 'dc-flash'}),
                                     {})
-
         self.assertContains(response, "This field is required.")
 
     def test_view_page(self):
@@ -57,25 +53,12 @@ class TestPage(TestCase):
                                      'description': 'teste',
                                      'url': 'flash.com'
                                      }, follow=True)
+
         self.assertEqual(response.status_code, 200)
         self.assertNotContains(response, "This field is required.")
-        # self.assertRedirects(response, reverse("auth_login"))
-        # print(response.request)
-        # self.assertRedirects(response, reverse("category-detail", kwargs={'category_name_slug':'dc-flash'}))
-
-        #
-        # # def test_point_by_category(self):
-        # #     profile = get_object_or_404(UserProfile, user=self.user_admin)
-        # #     print(profile.points)
-        #
 
     def testUser(self):
         self.assertEquals(self.page.category.user.username, 'admin')
-        #
-        # def testSlug(self):
-        #      category=get_object_or_404(Category,name='DC-flash')
-        #      self.assertEquals('dc-flash', category.slug )
-        #
 
     def testObjectCreate(self):
         self.assertEquals(Page.objects.count(), 1)
