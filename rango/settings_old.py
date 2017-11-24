@@ -15,6 +15,7 @@ import os
 import smtplib
 # from django.utils.translation import ugettext as _
 from django.utils.translation import ugettext_lazy as _
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
@@ -48,18 +49,18 @@ INSTALLED_APPS = [
     'registration',
     'social.apps.django_app.default',
     'social_django',
-    #'applogin',
+    # 'applogin',
 ]
 # SITE_ID=1
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-REGISTRATION_OPEN = True                # If True, users can register
-ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
+REGISTRATION_OPEN = True  # If True, users can register
+ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window; you may, of course, use a different value.
 REGISTRATION_AUTO_LOGIN = True  # If True, the user will be automatically logged in.
 LOGIN_REDIRECT_URL = '/'  # The page you want users to arrive at after they successful log in
 LOGIN_URL = '/accounts/login/'  # The page users are directed to if they are not logged in,
 LOGOUT_URL = '/accounts/logout/'  # The page users are directed to if they are not logged in,
-REGISTRATION_EMAIL_HTML = False    # and are trying to access pages requiring authentication
+REGISTRATION_EMAIL_HTML = False  # and are trying to access pages requiring authentication
 
 #
 # EMAIL_HOST = 'localhost'
@@ -70,7 +71,7 @@ REGISTRATION_EMAIL_HTML = False    # and are trying to access pages requiring au
 #     EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 # REGISTRATION_AUTO_LOGIN = True #
-REGISTRATION_DEFAULT_FROM_EMAIL ="noreplay@starlabs.com"
+REGISTRATION_DEFAULT_FROM_EMAIL = "noreplay@starlabs.com"
 # REGISTRATION_DEFAULT_FROM_EMAIL ="thiagolocatellicdeoliveira@gmail.com"
 #
 MIDDLEWARE_CLASSES = [
@@ -90,7 +91,7 @@ ROOT_URLCONF = 'rango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,7 +107,6 @@ TEMPLATES = [
 ]
 WSGI_APPLICATION = 'rango.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -116,7 +116,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -135,7 +134,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -172,7 +170,7 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 DOC_ROOT = os.path.join(PROJECT_DIR, '../doc')
 DOC_URL = '/doc/'
-#Media files
+# Media files
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 

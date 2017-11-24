@@ -1,0 +1,56 @@
+{% load staticfiles system %}
+{% load i18n %}
+<div class="ui three cards stackable">
+    {% if categories_friends %}
+        {% for category in categories_friends %}
+            <div class="ui card">
+                <div class="content">
+                    <i class="ui icon hashtag right floated">{{ forloop.counter }}</i>
+                    <div class="header"><a href="{% url 'category-detail' category.slug %}"><i
+                            class="info  icon"></i>{{ category.name|title }}
+                    </a>
+                    </div>
+                    <div class="description">
+                        <p class="ui  floated aligned">  {{ category.description|truncatechars:20 }}
+                            <a href="{% url 'user-detail' category.user %}">by {{ category.user }}</a>
+                        </p>
+                    </div>
+                </div>
+                {#                {{ request.user }}#}
+
+                <div class="extra content">
+
+                    <span class="left floated like">
+                        <a href="#" id="js-category-{{ category.slug }}"
+                           onclick="set_like_category('{{ category.slug }}')">
+                        <i id="js-icon-category-{{ category.slug }}"
+                           class="thumbs  up  {% if  category  not in profile_request.category_like.all %}  gray {% endif %} icon big"></i></a>
+                        <span id="js-count-likes-category-{{ category.slug }}">{{ category.likes }}</span>
+                    </span>
+                    <span class="right floated star">
+                        <span class="left floated like">
+                        <a href="#" id="js-deslike-category-{{ category.slug }}"
+                           onclick="set_deslike_category('{{ category.slug }}')">
+                        <i id="js-icon-deslike-category-{{ category.slug }}"
+                           class="thumbs  down  {% if  category  not in profile_request.category_deslike.all %}  gray {% endif %} icon big"></i></a>
+                        <span id="js-count-deslikes-{{ category.slug }}">{{ category.deslikes }}</span>
+                        </span>
+                    </span>
+
+                </div>
+
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="ui icon message">
+            <i class="warning icon"></i>
+            <div class="content">
+                <h3 class="header">
+                    <strong>{% trans "not exist categories added"|title %}.</strong>
+                </h3>
+
+            </div>
+        </div>
+    {% endif %}
+</div>
+{#</section>#}
