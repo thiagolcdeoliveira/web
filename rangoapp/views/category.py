@@ -4,18 +4,21 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+from django.utils.decorators import method_decorator
 from django.views.generic import *
 from django.contrib.messages.views import SuccessMessageMixin
 from rangoapp.models.category import Category
 from rangoapp.forms.category import CategoryForm
 from rangoapp.models.page import Page
 from rangoapp.models.user_profile import UserProfile
+from rangoapp.permission.decorators import profile_required
 from rangoapp.views.ranking import add_points_category, add_points_like_category, remove_points_like_category, \
     remove_points_deslike_category, \
     add_points_deslike_category, remove_points_category
 from django.utils.translation import ugettext_lazy as _
 
 
+@method_decorator(profile_required, name='dispatch')
 class CategoryListView(ListView):
     '''
      Lista todos as categorias.

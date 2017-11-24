@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+from django.utils.decorators import method_decorator
 from django.views.generic import *
 from django.contrib.messages.views import SuccessMessageMixin
 from rangoapp.models.user_profile import UserProfile
@@ -11,6 +12,7 @@ from rangoapp.forms.user import UserProfileForm
 from rangoapp.models.page import Page
 from django.utils.translation import ugettext_lazy as _
 
+from rangoapp.permission.decorators import profile_required
 from rangoapp.views.ranking import remove_points_friends, add_points_friends
 
 

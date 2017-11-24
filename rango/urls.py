@@ -41,8 +41,7 @@ urlpatterns = i18n_patterns(
     url(r'', include('social.apps.django_app.urls', namespace='social')),
     url(r'', include('django.contrib.auth.urls', namespace='auth')),
     url(r'^accounts/', include('registration.backends.default.urls')),
-    url(r'^accounts/activate/complete/$', UserProfileCreateView.as_view(),
-        name='registration_activation_complete'),
+
     # url(r'^login/$', login, {'template_name': 'registration/login.html'}, name='login'),
     # url(r'^logout/$', login_required(logout), name='logout'),
     # url(r'', include('social.apps.django_app.urls', namespace='social')),

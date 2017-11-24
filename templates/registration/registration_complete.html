@@ -11,7 +11,8 @@
 {#            <section class="six wide column">#}
 {#    <h1>Adicionar Categoria</h1>#}
     <div class="ui message positive">
-            <p>{% trans "Please check your email to complete the registration process." %}</p></div>
+        <p>{% trans "Please check your email to complete the registration process." %} <a
+                href="{% url 'home' %}">{% trans 'home'|title %}</a></p></div>
             </section>
 
         {% endblock %}

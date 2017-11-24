@@ -1,13 +1,15 @@
 # coding=utf-8
 # from django.contrib.auth.models import Permission
 from django.core.exceptions import PermissionDenied
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render, redirect
+from django.urls import reverse
 
 from rangoapp.models.category import Category
 from rangoapp.models.page import Page
 
 
 # from appusuario.models import ComplementoUsuario
+from rangoapp.models.user_profile import UserProfile
 
 
 def is_owner_submissao(object, permission):
@@ -41,3 +43,23 @@ def is_ownerpage(permission):
         return _new_func
 
     return _dec
+
+
+def profile_required(func):
+    """
+    Verifica se possui um perfil, caso contário retorna para adicionar perfil.
+    """
+
+    def _decorated(request, *args, **kwargs):
+        profile = UserProfile.objects.filter(user=request.user)
+        if not profile:
+            return redirect(reverse("user-profile-add"))
+        # if not request.user.is_authenticated:
+        #     context={}
+        #     context["message"]= True
+        #     context["next"]=request.path
+        #     return render(request,'home.html',context)
+
+        return func(request, *args, **kwargs)
+
+    return _decorated
