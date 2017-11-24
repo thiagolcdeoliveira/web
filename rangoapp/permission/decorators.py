@@ -51,9 +51,10 @@ def profile_required(func):
     """
 
     def _decorated(request, *args, **kwargs):
-        profile = UserProfile.objects.filter(user=request.user)
-        if not profile:
-            return redirect(reverse("user-profile-add"))
+        if request.user.is_authenticated:
+            profile = UserProfile.objects.filter(user=request.user)
+            if not profile:
+                return redirect(reverse("user-profile-add"))
         # if not request.user.is_authenticated:
         #     context={}
         #     context["message"]= True

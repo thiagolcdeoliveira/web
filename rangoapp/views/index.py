@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
@@ -20,7 +21,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 @method_decorator(profile_required, name='dispatch')
-class IndexViews(View):
+class IndexViews(LoginRequiredMixin, View):
     context = {}
     template = 'rangoapp/index.html'
 
