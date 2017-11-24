@@ -59,9 +59,5 @@ urlpatterns = [
     url(r'^user/(?P<pk>[\d\-]+)/delete/$', UserDeleteView.as_view(), name='user-delete'),
     url(r'^user/friend/$', set_friend, name='user-delete'),
     # url(r'^/accounts/activate/complete/$', UserProfileCreateView.as_view(), name='user-profile-add-redirect'),
-    url(r'^activate/complete/$',
-        UserProfileCreateView.as_view(),
-        name='registration_activation_complete'),
-
 
 ]
