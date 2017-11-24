@@ -108,7 +108,7 @@ class CategoryCreateView(SuccessMessageMixin, CreateView):
     '''
     model = Category
     form_class = CategoryForm
-    success_message = _("Category %(name)s add with successfull! ")
+    success_message = _("Category %(name)s added with successfull! ")
 
     def form_valid(self, form):
         '''
@@ -134,7 +134,7 @@ class CategoryCreateView(SuccessMessageMixin, CreateView):
         )
 
 
-class CategoryUpdateView(UpdateView):
+class CategoryUpdateView(SuccessMessageMixin, UpdateView):
     '''
      Atualiza a categoria.
     :URl: http://ip_servidor/category/<category_name_slug>/editar/
@@ -143,6 +143,7 @@ class CategoryUpdateView(UpdateView):
     form_class = CategoryForm
     slug_field = 'slug'
     slug_url_kwarg = 'category_name_slug'
+    success_message = _("Category %(name)s changed with successfull! ")
 
     # form_class = CategoryEditForm
 
@@ -154,14 +155,27 @@ class CategoryUpdateView(UpdateView):
         self.object.save()
         return super(CategoryUpdateView, self).form_valid(form)
 
+    def get_success_message(self, cleaned_data):
+        '''
+         Define mensagem de sucesso.
+        :return: categoria <nome> cadastrada com sucesso.
+        '''
+        return self.success_message % dict(
+            cleaned_data,
+            name=self.object.name,
+        )
 
-class CategoryDeleteView(DeleteView):
+
+class CategoryDeleteView(SuccessMessageMixin, DeleteView):
     '''
      Deleta a categoria.
     :URl: http://ip_servidor/category/listar/
     '''
     queryset = Category.objects.all()
     success_url = reverse_lazy('category-list')
+    slug_field = 'slug'
+    slug_url_kwarg = 'category_name_slug'
+    success_message = _("Category  deleted with successfull! ")
 
     def form_valid(self, form):
         '''
@@ -175,46 +189,18 @@ class CategoryDeleteView(DeleteView):
             remove_points_category(self.object.user)
         return super(CategoryDeleteView, self).form_valid(form)
 
-        #
+    # def get(self, *args, **kwargs):
+    #     return self.post(*args, **kwargs)
+    def get_success_message(self, cleaned_data):
+        '''
+         Define mensagem de sucesso.
+        :return: categoria <nome> cadastrada com sucesso.
+        '''
+        return self.success_message % dict(
+            cleaned_data,
+            name=self.object.name,
+        )
 
-        # def set_like(request):
-        #     data = {}
-        #     category_slug = request.GET.get('category')
-        #     profile = get_object_or_404(UserProfile,user=request.user)
-        #     category_like =UserProfile.objects.filter(user=request.user,category_like__slug__in=[category_slug])
-        #     category = get_object_or_404(Category, slug=category_slug)
-        #
-        #     # print(category)
-        #     if not category_like:
-        #         profile.category_like.add(category)
-        #         addPointsLike(category.user)
-        #         category.likes+=1
-        #         category.save()
-        #         data["message"]=True
-        #         data['likes'] = category.likes
-        #         data['is_like'] = True
-        #     else:
-        #         # data["message"]=True
-        #
-        #         profile.category_like.remove(category)
-        #         category.likes-=1
-        #         category.save()
-        #         profile.save()
-        #         data["message"] = False
-        #         # data["message"] = True
-        #         data['likes'] = category.likes
-        #         data['is_likes'] = False
-        #         removePointsLike(category.user)
-        #
-        #     return JsonResponse(data)
-
-        # data = {
-        #     'message': 'success',
-        #
-        # }
-
-
-# return JsonResponse(data)
 
 
 def set_like_category(request):

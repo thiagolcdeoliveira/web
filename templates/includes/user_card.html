@@ -27,7 +27,8 @@
              alt="Foto do {{ profile_card.user }} "/>
     </div>
     <div class="content">
-        <a class="header" id="username-ranking"> {{ profile_card.user.username }}</a>
+        <a class="header" id="username-ranking"
+           href="{% url 'user-detail'  profile_card.user.username %}"> {{ profile_card.user.username }}</a>
         <div class="description">
             {{ profile_card.description }}
         </div>
@@ -45,3 +46,4 @@
     </div>
 
 </div>
+

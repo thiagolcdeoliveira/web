@@ -17,9 +17,15 @@ $(document).ready(function () {
 // $('.ui.sidebar').first()
 //   .sidebar('attach events', '.menu .item.sidebar-menu')
 // ;
+// $('.ui.modal').modal('show');
+    $('.ui.delete').click(function () {
+        $('.tiny.modal.category').modal('show');
+    });
+    $('.ui.delete').click(function () {
+        $('.tiny.modal.page').modal('show');
+    });
 
 });
-
 // function set_like(category) {
 //     // alert(category);
 //     var method = 'GET';

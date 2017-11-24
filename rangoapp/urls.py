@@ -31,7 +31,7 @@ urlpatterns = [
     # Page
     url(r'^category/(?P<category_name_slug>[\w\-]+)/page/cadastrar/$', PageCreateView.as_view(), name='page-add'),
     url(r'^page/(?P<pk>[\d\-]+)/editar/$', PageUpdateView.as_view(), name='page-update'),
-    url(r'^page/(?P<category_name_slug>[\w\-]+)/excluir/$', PageDeleteView.as_view(), name='page-delete'),
+    url(r'^page/(?P<pk>[\w\-]+)/excluir/$', PageDeleteView.as_view(), name='page-delete'),
     url(r'^page/listar/$', PageListView.as_view(), name='page-list'),
     url(r'^page/like/$', set_like_page, name='page-set-like'),
     url(r'^page/deslike/$', set_deslike_page, name='page-set-deslike'),

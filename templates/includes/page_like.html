@@ -18,8 +18,14 @@
                 </div>
                 {#            {{ request.user }}#}
                 {% if request.user == page.category.user %}
+                    <span class="ui two buttons">
                     <a href="{% url 'page-update' page.id %}"
-                       class="ui button attached fluid tertiary">{% trans "edit"|title %}</a>
+                       class="ui button attached fluid gray"><i class="icon edit"></i></a>
+
+                 <a class="ui button attached fluid tertiary black delete page"
+                    href="{% url 'page-delete' page.id %}"><i class="icon close"></i> </a>
+{#                     {% include "includes/modal_page.html" %}#}
+                     </span>
                 {% else %}
                     <div class="extra content">
 

@@ -98,3 +98,11 @@ i.ui.red.tiny.icon.asterisk {
     margin-left: 10px !important;
     margin-right: 10px !important;
 }
+
+.ui.attached.button.fluid.tertiary {
+    box-shadow: none !important;
+}
+
+.ui.positive.right.labeled.icon.button > a {
+    color: white;
+}

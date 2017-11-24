@@ -75,7 +75,7 @@ class PageCreateView(SuccessMessageMixin, CreateView):
     '''
     model = Page
     form_class = PageForm
-    success_message = u"Página %(name)s cadastrada com sucesso! "
+    success_message = _("Page %(name)s added with successufull!")
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -125,13 +125,14 @@ class PageListByUserView(ListView):
         context["profile_request"] = get_object_or_404(UserProfile, user=self.request.user)
 
 
-class PageUpdateView(UpdateView):
+class PageUpdateView(SuccessMessageMixin, UpdateView):
     '''
      Atualiza uma página.
     :URl: http://ip_servidor/category/listar/
     '''
     model = Page
     form_class = PageForm
+    success_message = _("Page %(name)s changed with successufull!")
 
     # form_class = PageEditForm
 
@@ -140,12 +141,19 @@ class PageUpdateView(UpdateView):
         self.object.save()
         return super(PageUpdateView, self).form_valid(form)
 
+    def get_success_message(self, cleaned_data):
+        return self.success_message % dict(
+            cleaned_data,
+            name=self.object.title,
+        )
 
-class PageDeleteView(DeleteView):
+
+class PageDeleteView(SuccessMessageMixin, DeleteView):
     '''
      Deletar uma página.
     :URl: http://ip_servidor/page/<pk>/excluir
     '''
+    success_message = _("Page %(name)s deleted with successufull!")
 
     queryset = Page.objects.all()
     success_url = reverse_lazy('page-list')
@@ -157,7 +165,14 @@ class PageDeleteView(DeleteView):
             remove_points_page(self.object.category.user)
         return super(PageDeleteView, self).form_valid(form)
 
+    # def get(self, *args, **kwargs):
+    #     return self.post(*args, **kwargs)
 
+    def get_success_message(self, cleaned_data):
+        return self.success_message % dict(
+            cleaned_data,
+            name=self.object.title,
+        )
 def set_like_page(request):
     data = {}
     page_id = request.GET.get('page')
