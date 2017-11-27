@@ -1,0 +1,57 @@
+{% load staticfiles system %}
+{% load i18n %}
+
+{% for category in categories %}
+    <div class="ui card">
+        <div class="content">
+            <i class="ui icon hashtag right floated">{{ forloop.counter }}</i>
+            <div class="header"><a href="{% url 'category-detail' category.slug %}"><i
+                    class="info  icon"></i>{{ category.name|title }}
+            </a>
+            </div>
+            <div class="description">
+                <p class="ui  floated aligned">  {{ category.description|truncatechars:20 }}
+                    <a href="{% url 'user-detail' category.user %}">by {{ category.user }}</a>
+                </p>
+            </div>
+        </div>
+        {#                {{ request.user }}#}
+        {% if request.user == category.user %}
+            <span class="ui three buttons">
+                        <a href="{% url 'page-add' category.slug %}"
+                           class="ui button attached fluid "><i class="icon add"></i> </a>
+
+                    <a href="{% url 'category-update' category.slug %}"
+                       class="ui button attached fluid grey"><i class="icon edit"></i> </a>
+                    <a class="ui button attached fluid  black delete"
+                       href="{% url 'category-delete' category.slug %}"><i class="icon close"></i> </a>
+{#                     <a href="{% url 'category-delete' category.slug %}"#}
+{#                       class="ui button attached fluid tertiary black">{% trans "delete"|title %}</a>#}
+{#                    {% include "includes/modal_category.html" %}#}
+                    </span>
+        {% else %}
+            <div class="extra content">
+
+                    <span class="left floated like">
+                        <a href="#" id="js-category-{{ category.slug }}"
+                           onclick="set_like_category('{{ category.slug }}')">
+                        <i id="js-icon-category-{{ category.slug }}"
+                           class="thumbs  up  {% if  category  not in profile_request.category_like.all %}  gray {% endif %} icon big"></i></a>
+                        <span id="js-count-likes-category-{{ category.slug }}">{{ category.likes }}</span>
+                    </span>
+                <span class="right floated star">
+                        <span class="left floated like">
+                        <a href="#" id="js-deslike-category-{{ category.slug }}"
+                           onclick="set_deslike_category('{{ category.slug }}')">
+                        <i id="js-icon-deslike-category-{{ category.slug }}"
+                           class="thumbs  down  {% if  category  not in profile_request.category_deslike.all %}  gray {% endif %} icon big"></i></a>
+                        <span id="js-count-deslikes-{{ category.slug }}">{{ category.deslikes }}</span>
+                        </span>
+                    </span>
+
+            </div>
+        {% endif %}
+    </div>
+{% endfor %}
+
+{#</section>#}
