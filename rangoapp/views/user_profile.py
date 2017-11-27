@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse
@@ -16,7 +18,7 @@ from rangoapp.permission.decorators import profile_required
 from rangoapp.views.ranking import remove_points_friends, add_points_friends
 
 
-class UserProfileListView(ListView):
+class UserProfileListView(LoginRequiredMixin, ListView):
     # '''
     # Lista os perfis dos  usuário.
     # :URl: Sem URL
@@ -28,7 +30,8 @@ class UserProfileListView(ListView):
         queryset = queryset.filter(user=self.request.user)
         return queryset
 
-class UserProfileListByUserView(ListView):
+
+class UserProfileListByUserView(LoginRequiredMixin, ListView):
     '''
      Lista os perfis dos usuários.
     :URl: Sem URL
@@ -42,7 +45,7 @@ class UserProfileListByUserView(ListView):
         return queryset
 
 #permissao na categoory
-class UserProfileDetailView(DetailView):
+class UserProfileDetailView(LoginRequiredMixin, DetailView):
     queryset = UserProfile.objects.all()
     #
     #
@@ -50,7 +53,8 @@ class UserProfileDetailView(DetailView):
     #     context = super(UserProfileDetailView, self).get_context_data(**kwargs)
     #     return context
 
-class UserProfileCreateView(SuccessMessageMixin,CreateView):
+
+class UserProfileCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     '''
      Adiciona um perfil ao usuário.
     :URl: http://ip_servidor/userprofile/cadastrar/
@@ -72,7 +76,8 @@ class UserProfileCreateView(SuccessMessageMixin,CreateView):
             name=self.object.user.username,
         )
 
-class UserProfileUpdateView(SuccessMessageMixin,UpdateView):
+
+class UserProfileUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     '''
      Alterar o perfil do usuário.
     :URl: http://ip_servidor/userprofile/<pk>/update/
@@ -101,7 +106,8 @@ class UserProfileUpdateView(SuccessMessageMixin,UpdateView):
             name=self.object.user.username,
         )
 
-class UserProfileDeleteView(DeleteView):
+
+class UserProfileDeleteView(LoginRequiredMixin, DeleteView):
     '''
      Deleta um perfil de usuário.
     :URl: Sem URL
@@ -115,6 +121,7 @@ class UserProfileDeleteView(DeleteView):
         return super(UserProfileDeleteView, self).form_valid(form)
 
 
+@login_required
 def set_friend(request):
     '''
      Adiciona um amigo.

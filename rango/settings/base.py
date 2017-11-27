@@ -156,9 +156,9 @@ LANGUAGES = (
     ('es', _('Spanish')),
 )
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
+    os.path.join(BASE_DIR, '../locale'),
 )
-
+# print LOCALE_PATHS
 # LOGIN_REDIRECT_URL = '/'
 # LOGOUT_REDIRECT_URL = 'auth_logout'
 # LOGOUT_REDIRECT_URL = '/accounts/logout/'

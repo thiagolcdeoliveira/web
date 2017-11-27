@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse
@@ -48,7 +50,7 @@ class CategoryListView(ListView):
         return context
 
 
-class CategoryListByUserView(ListView):
+class CategoryListByUserView(LoginRequiredMixin, ListView):
     '''
      Lista todos as categorias por usuário especifico.
     :URl: http://ip_servidor/user/<username>/category/listar/
@@ -83,7 +85,7 @@ class CategoryListByUserView(ListView):
 
 
 # permissao na categoory
-class CategoryDetailView(DetailView):
+class CategoryDetailView(LoginRequiredMixin, DetailView):
     '''
      Detalhes da categoria.
     :URl: http://ip_servidor/category/visualizar/<category_name_slug>/
@@ -104,7 +106,7 @@ class CategoryDetailView(DetailView):
         return context
 
 
-class CategoryCreateView(SuccessMessageMixin, CreateView):
+class CategoryCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     '''
      Cria  categoria.
     :URl: http://ip_servidor/category/cadastrar/
@@ -137,7 +139,7 @@ class CategoryCreateView(SuccessMessageMixin, CreateView):
         )
 
 
-class CategoryUpdateView(SuccessMessageMixin, UpdateView):
+class CategoryUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     '''
      Atualiza a categoria.
     :URl: http://ip_servidor/category/<category_name_slug>/editar/
@@ -169,7 +171,7 @@ class CategoryUpdateView(SuccessMessageMixin, UpdateView):
         )
 
 
-class CategoryDeleteView(SuccessMessageMixin, DeleteView):
+class CategoryDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     '''
      Deleta a categoria.
     :URl: http://ip_servidor/category/listar/
@@ -205,7 +207,7 @@ class CategoryDeleteView(SuccessMessageMixin, DeleteView):
         )
 
 
-
+@login_required
 def set_like_category(request):
     '''
      Define o like para categoria.
@@ -246,6 +248,7 @@ def set_like_category(request):
     return JsonResponse(data)
 
 
+@login_required
 def set_deslike_category(request):
     '''
      Define o deslike para categoria.

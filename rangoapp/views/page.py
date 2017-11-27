@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect
@@ -18,7 +20,7 @@ from rangoapp.variaveis.variaveis import ADD_PAGE
 
 
 @method_decorator(profile_required, name='dispatch')
-class PageListView(ListView):
+class PageListView(LoginRequiredMixin, ListView):
     '''
      Lista todos as categorias.
     :URl: http://ip_servidor/page/listar/
@@ -44,7 +46,7 @@ class PageListView(ListView):
         context["profile_request"] = get_object_or_404(UserProfile, user=self.request.user)
 
 
-class PageDetailViews(DetailView):
+class PageDetailViews(LoginRequiredMixin, DetailView):
     '''
      Detalhes da categoria.
     :URl: http://ip_servidor/user/page/<id>/
@@ -70,7 +72,7 @@ class PageDetailViews(DetailView):
 
 
 @method_decorator(is_ownerpage(ADD_PAGE), name='dispatch')
-class PageCreateView(SuccessMessageMixin, CreateView):
+class PageCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     '''
      Adiciona uma página na categoria.
     :URl: http://ip_servidor/category/<category_name_slug>/page/cadastrar/
@@ -93,7 +95,8 @@ class PageCreateView(SuccessMessageMixin, CreateView):
             name=self.object.title,
         )
 
-class PageListByUserView(ListView):
+
+class PageListByUserView(LoginRequiredMixin, ListView):
     '''
      Lista páginas por usuario.
     :URl: http://ip_servidor/user/<username>/page/listar
@@ -126,7 +129,7 @@ class PageListByUserView(ListView):
         context["profile_request"] = get_object_or_404(UserProfile, user=self.request.user)
 
 
-class PageUpdateView(SuccessMessageMixin, UpdateView):
+class PageUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     '''
      Atualiza uma página.
     :URl: http://ip_servidor/category/listar/
@@ -149,7 +152,7 @@ class PageUpdateView(SuccessMessageMixin, UpdateView):
         )
 
 
-class PageDeleteView(SuccessMessageMixin, DeleteView):
+class PageDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     '''
      Deletar uma página.
     :URl: http://ip_servidor/page/<pk>/excluir
@@ -174,6 +177,9 @@ class PageDeleteView(SuccessMessageMixin, DeleteView):
             cleaned_data,
             name=self.object.title,
         )
+
+
+@login_required
 def set_like_page(request):
     data = {}
     page_id = request.GET.get('page')
@@ -212,6 +218,7 @@ def set_like_page(request):
     return JsonResponse(data)
 
 
+@login_required
 def set_deslike_page(request):
     data = {}
     page_id = request.GET.get('page')

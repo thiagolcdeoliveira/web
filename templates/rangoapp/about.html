@@ -8,100 +8,98 @@
 {% endblock title_block %}
 
 {% block body_block %}
-      <section class="ui twelve wide column">
+    <section class="ui twelve wide column  centered">
         <h1 class="ui header ">{% trans "about"|title %} <a href="{% url 'home' %}">{% trans "rango"|title %}</a></h1>
         <div class="ui  divider "></div>
-{#<h1>Sobre o <a href="{% url 'home' %}">Rango</a><br /></h1>#}
-<div class="ui row segment basic">
-    {% blocktrans %} The rango is an application for the management of sites, done in Django and used in classes of Web Development 2.
-    Profile of the developers below{% endblocktrans %}.
-       <a href="/doc/_build/html/index.html">{% trans "documentation"|title %}</a>
+        {#<h1>Sobre o <a href="{% url 'home' %}">Rango</a><br /></h1>#}
+        <div class="ui row segment basic aligned centered ">
+            {% blocktrans %} The rango is an application for the management of sites, done in Django and used in classes
+                of Web Development 2.
+                Profile of the developers below{% endblocktrans %}.
+            <a href="/doc/_build/html/index.html">{% trans "documentation"|title %}</a>
 
-</div>
-<div class="ui link cards">
-  <div class="card">
-    <div class="image">
-        <img src="{% static "images/pp.jpeg" %}" alt="Foto do Flash" />
-{#      <img src="/images/avatar2/large/matthew.png">#}
-    </div>
-    <div class="content">
-      <div class="header">Bartholomew Henry Alen I</div>
-      <div class="meta">
-        <a>Friends</a>
-      </div>
-      <div class="description">
-       {% trans "popularly known as"|title %} Barry Allen.
-      </div>
-    </div>
-    <div class="extra content">
+        </div>
+        <div class="ui link cards centered">
+            <div class="card">
+                <div class="image">
+                    <img src="{% static "images/pp.jpeg" %}" alt="Foto do Flash"/>
+                    {#      <img src="/images/avatar2/large/matthew.png">#}
+                </div>
+                <div class="content">
+                    <div class="header">Bartholomew Henry Alen I</div>
+                    <div class="meta">
+                        <a>Friends</a>
+                    </div>
+                    <div class="description">
+                        {% trans "popularly known as"|title %} Barry Allen.
+                    </div>
+                </div>
+                <div class="extra content">
       <span class="right floated">
           1956–1985, 2008–N
       </span>
-      <span>
+                    <span>
         <i class="user icon"></i>
         {% trans "it's over"|title %} 8000!
       </span>
-    </div>
-  </div>
-    <div class="card">
-    <div class="image">
-{#        <img src="/media/bartholomew.jpg" alt="Foto do Bartholomew" />#}
-{#    <div class="image">#}
-                <img src="{% static 'images/pp.jpeg' %}" alt="Foto do Bartholomew" />
-
-{#        <img src="{% static "images/pp.jpeg" %}" alt="Foto do Bartholomew" />#}
-
-{#      <img src="/images/avatar2/large/matthew.png">#}
-    </div>
-    <div class="content">
-      <div class="header">Wally West</div>
-      <div class="meta">
-        <a>Friends</a>
-      </div>
-      <div class="description">
-        kid Flash.
-      </div>
-    </div>
-    <div class="extra content">
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    {#        <img src="/media/bartholomew.jpg" alt="Foto do Bartholomew" />#}
+                    {#    <div class="image">#}
+                    <img src="{% static 'images/pp.jpeg' %}" alt="Foto do Bartholomew"/>
+                </div>
+                <div class="content">
+                    <div class="header">Wally West</div>
+                    <div class="meta">
+                        <a>Friends</a>
+                    </div>
+                    <div class="description">
+                        kid Flash.
+                    </div>
+                </div>
+                <div class="extra content">
       <span class="right floated">
        1986–2011, 2016-N
       </span>
-      <span>
+                    <span>
         <i class="user icon"></i>
         {% trans "it's over"|title %}8000
       </span>
-    </div>
-  </div><div class="card">
-    <div class="image">
-{#      <img src="/images/avatar2/large/matthew.png">#}
-        <img src="/media/bartholomew.jpg" " alt="Foto do Flash" />
-{#    <img src="/media/bartholomew.jpg" alt="Foto do Bartholomew" />#}
-    </div>
-    <div class="content">
-      <div class="header">Bartholomew herny Allen II</div>
-      <div class="meta">
-        <a>Friends</a>
-      </div>
-      <div class="description">
-        {% trans "popularly known as"|title %} Bart Allen.
-      </div>
-    </div>
-    <div class="extra content">
+                </div>
+            </div>
+            <div class="card">
+                <div class="image">
+                    {#      <img src="/images/avatar2/large/matthew.png">#}
+                    <img src="/media/bartholomew.jpg" " alt="Foto do Flash" />
+                    {#    <img src="/media/bartholomew.jpg" alt="Foto do Bartholomew" />#}
+                </div>
+                <div class="content">
+                    <div class="header">Bartholomew herny Allen II</div>
+                    <div class="meta">
+                        <a>Friends</a>
+                    </div>
+                    <div class="description">
+                        {% trans "popularly known as"|title %} Bart Allen.
+                    </div>
+                </div>
+                <div class="extra content">
       <span class="right floated">
         2006–2007
       </span>
-      <span>
+                    <span>
         <i class="user icon"></i>
         {% trans "it's over"|title %} 8000
       </span>
-    </div>
-  </div>
-</div>
-{#    <div><img src="{% static "images/pp.jpeg" %}" alt="Foto do Flash" /></div>#}
-{#    <div><img src="/media/bartholomew.jpg" alt="Foto do Bartholomew" /></div>#}
+                </div>
+            </div>
+        </div>
+        {#    <div><img src="{% static "images/pp.jpeg" %}" alt="Foto do Flash" /></div>#}
+        {#    <div><img src="/media/bartholomew.jpg" alt="Foto do Bartholomew" /></div>#}
 
-<div>
-    {% trans "devoloped by"|title %} {{ autor }}
-</div>
-      </section>
+        <div class="ui row segment basic aligned centered ">
+            {% trans "devoloped by"|title %} Thiago L. C. de Oliveira.
+        </div>
+    </section>
 {% endblock body_block %}

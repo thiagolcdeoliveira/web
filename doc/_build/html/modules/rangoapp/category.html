@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Categoria &mdash; Rango 0.1 documentation</title>
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css"/>
+
+
+    <link rel="index" title="Index"
+          href="../../genindex.html"/>
+    <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Rango 0.1 documentation" href="../../index.html"/>
+    <link rel="next" title="Pagina" href="page.html"/>
+    <link rel="prev" title="Welcome to rango’s documentation!" href="../../index.html"/>
+
+
+    <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+
+<div class="wy-grid-for-nav">
+
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search">
+
+
+                <a href="../../index.html" class="icon icon-home"> Rango
+
+
+                </a>
+
+
+                <div class="version">
+                    0.1
+                </div>
+
+
+                <div role="search">
+                    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                        <input type="text" name="q" placeholder="Search docs"/>
+                        <input type="hidden" name="check_keywords" value="yes"/>
+                        <input type="hidden" name="area" value="default"/>
+                    </form>
+                </div>
+
+
+            </div>
+
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="current reference internal" href="#">Categoria</a>
+                        <ul>
+                            <li class="toctree-l2"><a class="reference internal" href="#module-rangoapp.views.category">views</a>
+                            </li>
+                            <li class="toctree-l2"><a class="reference internal"
+                                                      href="#module-rangoapp.models.category">model</a></li>
+                        </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="page.html">Pagina</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="user_profile.html">Perfil</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="user.html">Usuário</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+        <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="../../index.html">Rango</a>
+
+        </nav>
+
+
+        <div class="wy-nav-content">
+            <div class="rst-content">
+
+
+                <div role="navigation" aria-label="breadcrumbs navigation">
+
+                    <ul class="wy-breadcrumbs">
+
+                        <li><a href="../../index.html">Docs</a> &raquo;</li>
+
+                        <li>Categoria</li>
+
+
+                        <li class="wy-breadcrumbs-aside">
+
+
+                            <a href="../../_sources/modules/rangoapp/category.rst.txt" rel="nofollow"> View page
+                                source</a>
+
+
+                        </li>
+
+                    </ul>
+
+
+                    <hr/>
+                </div>
+                <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                    <div itemprop="articleBody">
+
+                        <div class="section" id="categoria">
+                            <h1>Categoria<a class="headerlink" href="#categoria"
+                                            title="Permalink to this headline">¶</a></h1>
+                            <div class="section" id="module-rangoapp.views.category">
+                                <span id="views"></span>
+                                <h2>views<a class="headerlink" href="#module-rangoapp.views.category"
+                                            title="Permalink to this headline">¶</a></h2>
+                                <dl class="class">
+                                    <dt id="rangoapp.views.category.CategoryListView">
+                                        <em class="property">class </em><code class="descclassname">rangoapp.views.category.</code><code
+                                            class="descname">CategoryListView</code><span class="sig-paren">(</span><em>**kwargs</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#rangoapp.views.category.CategoryListView"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd>
+                                        <blockquote>
+                                            <div>Lista todos as categorias.</div>
+                                        </blockquote>
+                                        <table class="docutils field-list" frame="void" rules="none">
+                                            <col class="field-name"/>
+                                            <col class="field-body"/>
+                                            <tbody valign="top">
+                                            <tr class="field-odd field">
+                                                <th class="field-name">URl:</th>
+                                                <td class="field-body"><a class="reference external"
+                                                                          href="http://ip_servidor/category/listar/">http://ip_servidor/category/listar/</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <dl class="method">
+                                            <dt id="rangoapp.views.category.CategoryListView.get_queryset">
+                                                <code class="descname">get_queryset</code><span
+                                                    class="sig-paren">(</span><span class="sig-paren">)</span><a
+                                                    class="headerlink"
+                                                    href="#rangoapp.views.category.CategoryListView.get_queryset"
+                                                    title="Permalink to this definition">¶</a></dt>
+                                            <dd>
+                                                <blockquote>
+                                                    <div>Define a consulta a ser feita.</div>
+                                                </blockquote>
+                                                <table class="docutils field-list" frame="void" rules="none">
+                                                    <col class="field-name"/>
+                                                    <col class="field-body"/>
+                                                    <tbody valign="top">
+                                                    <tr class="field-odd field">
+                                                        <th class="field-name">Returns:</th>
+                                                        <td class="field-body">Categorias do usuário logado</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="rangoapp.views.category.CategoryListView.get_context_data">
+                                                <code class="descname">get_context_data</code><span
+                                                    class="sig-paren">(</span><em>**kwargs</em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#rangoapp.views.category.CategoryListView.get_context_data"
+                                                                                 title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd>
+                                                <blockquote>
+                                                    <div>Define o contexto a ser enviado para página.</div>
+                                                </blockquote>
+                                                <table class="docutils field-list" frame="void" rules="none">
+                                                    <col class="field-name"/>
+                                                    <col class="field-body"/>
+                                                    <tbody valign="top">
+                                                    <tr class="field-odd field">
+                                                        <th class="field-name">Returns:</th>
+                                                        <td class="field-body">Adiciona ao contexto categories
+                                                            (categorias do usuário logado) e profile_request (perfil do
+                                                            usuário logado)
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </dd>
+                                        </dl>
+
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="rangoapp.views.category.CategoryListByUserView">
+                                        <em class="property">class </em><code class="descclassname">rangoapp.views.category.</code><code
+                                            class="descname">CategoryListByUserView</code><span
+                                            class="sig-paren">(</span><em>**kwargs</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#rangoapp.views.category.CategoryListByUserView"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd>
+                                        <blockquote>
+                                            <div>Lista todos as categorias por usuário especifico.</div>
+                                        </blockquote>
+                                        <table class="docutils field-list" frame="void" rules="none">
+                                            <col class="field-name"/>
+                                            <col class="field-body"/>
+                                            <tbody valign="top">
+                                            <tr class="field-odd field">
+                                                <th class="field-name">URl:</th>
+                                                <td class="field-body"><a class="reference external"
+                                                                          href="http://ip_servidor/user">http://ip_servidor/user</a>/&lt;username&gt;/category/listar/
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <dl class="method">
+                                            <dt id="rangoapp.views.category.CategoryListByUserView.get_queryset">
+                                                <code class="descname">get_queryset</code><span
+                                                    class="sig-paren">(</span><span class="sig-paren">)</span><a
+                                                    class="headerlink"
+                                                    href="#rangoapp.views.category.CategoryListByUserView.get_queryset"
+                                                    title="Permalink to this definition">¶</a></dt>
+                                            <dd><p>Define a consulta a ser feita.
+                                                :return: Categorias do usuário selecionado.</p>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="rangoapp.views.category.CategoryListByUserView.get_context_data">
+                                                <code class="descname">get_context_data</code><span
+                                                    class="sig-paren">(</span><em>**kwargs</em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#rangoapp.views.category.CategoryListByUserView.get_context_data"
+                                                                                 title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd>
+                                                <blockquote>
+                                                    <div>Define o contexto a ser enviado para página.</div>
+                                                </blockquote>
+                                                <table class="docutils field-list" frame="void" rules="none">
+                                                    <col class="field-name"/>
+                                                    <col class="field-body"/>
+                                                    <tbody valign="top">
+                                                    <tr class="field-odd field">
+                                                        <th class="field-name">Returns:</th>
+                                                        <td class="field-body">Adiciona ao contexto categories
+                                                            (categorias do usuário selecionado) e profile_request
+                                                            (perfil do usuário selecionado)
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </dd>
+                                        </dl>
+
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="rangoapp.views.category.CategoryDetailView">
+                                        <em class="property">class </em><code class="descclassname">rangoapp.views.category.</code><code
+                                            class="descname">CategoryDetailView</code><span
+                                            class="sig-paren">(</span><em>**kwargs</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#rangoapp.views.category.CategoryDetailView"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd>
+                                        <blockquote>
+                                            <div>Detalhes da categoria.</div>
+                                        </blockquote>
+                                        <table class="docutils field-list" frame="void" rules="none">
+                                            <col class="field-name"/>
+                                            <col class="field-body"/>
+                                            <tbody valign="top">
+                                            <tr class="field-odd field">
+                                                <th class="field-name">URl:</th>
+                                                <td class="field-body"><a class="reference external"
+                                                                          href="http://ip_servidor/category/visualizar">http://ip_servidor/category/visualizar</a>/&lt;category_name_slug&gt;/
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <dl class="method">
+                                            <dt id="rangoapp.views.category.CategoryDetailView.get_context_data">
+                                                <code class="descname">get_context_data</code><span
+                                                    class="sig-paren">(</span><em>**kwargs</em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#rangoapp.views.category.CategoryDetailView.get_context_data"
+                                                                                 title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd>
+                                                <blockquote>
+                                                    <div>Define o contexto a ser enviado para página.</div>
+                                                </blockquote>
+                                                <table class="docutils field-list" frame="void" rules="none">
+                                                    <col class="field-name"/>
+                                                    <col class="field-body"/>
+                                                    <tbody valign="top">
+                                                    <tr class="field-odd field">
+                                                        <th class="field-name">Returns:</th>
+                                                        <td class="field-body">Adiciona ao contexto pages (páginas da
+                                                            categoria selecionada) e profile_request (perfil do usuário
+                                                            logado)
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </dd>
+                                        </dl>
+
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="rangoapp.views.category.CategoryCreateView">
+                                        <em class="property">class </em><code class="descclassname">rangoapp.views.category.</code><code
+                                            class="descname">CategoryCreateView</code><span
+                                            class="sig-paren">(</span><em>**kwargs</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#rangoapp.views.category.CategoryCreateView"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd>
+                                        <blockquote>
+                                            <div>Cria categoria.</div>
+                                        </blockquote>
+                                        <table class="docutils field-list" frame="void" rules="none">
+                                            <col class="field-name"/>
+                                            <col class="field-body"/>
+                                            <tbody valign="top">
+                                            <tr class="field-odd field">
+                                                <th class="field-name">URl:</th>
+                                                <td class="field-body"><a class="reference external"
+                                                                          href="http://ip_servidor/category/cadastrar/">http://ip_servidor/category/cadastrar/</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <dl class="attribute">
+                                            <dt id="rangoapp.views.category.CategoryCreateView.model">
+                                                <code class="descname">model</code><a class="headerlink"
+                                                                                      href="#rangoapp.views.category.CategoryCreateView.model"
+                                                                                      title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd><p>alias of <code class="xref py py-class docutils literal"><span
+                                                    class="pre">Category</span></code></p>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="rangoapp.views.category.CategoryCreateView.form_valid">
+                                                <code class="descname">form_valid</code><span class="sig-paren">(</span><em>form</em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#rangoapp.views.category.CategoryCreateView.form_valid"
+                                                                                 title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd>
+                                                <blockquote>
+                                                    <div>Valida o form.</div>
+                                                </blockquote>
+                                                <p>Se categoria for publica (não privada) adicioana os pontos.</p>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="rangoapp.views.category.CategoryCreateView.get_success_message">
+                                                <code class="descname">get_success_message</code><span
+                                                    class="sig-paren">(</span><em>cleaned_data</em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#rangoapp.views.category.CategoryCreateView.get_success_message"
+                                                                                 title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd>
+                                                <blockquote>
+                                                    <div>Define mensagem de sucesso.</div>
+                                                </blockquote>
+                                                <table class="docutils field-list" frame="void" rules="none">
+                                                    <col class="field-name"/>
+                                                    <col class="field-body"/>
+                                                    <tbody valign="top">
+                                                    <tr class="field-odd field">
+                                                        <th class="field-name">Returns:</th>
+                                                        <td class="field-body">categoria &lt;nome&gt; cadastrada com
+                                                            sucesso.
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </dd>
+                                        </dl>
+
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="rangoapp.views.category.CategoryUpdateView">
+                                        <em class="property">class </em><code class="descclassname">rangoapp.views.category.</code><code
+                                            class="descname">CategoryUpdateView</code><span
+                                            class="sig-paren">(</span><em>**kwargs</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#rangoapp.views.category.CategoryUpdateView"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd>
+                                        <blockquote>
+                                            <div>Atualiza a categoria.</div>
+                                        </blockquote>
+                                        <table class="docutils field-list" frame="void" rules="none">
+                                            <col class="field-name"/>
+                                            <col class="field-body"/>
+                                            <tbody valign="top">
+                                            <tr class="field-odd field">
+                                                <th class="field-name">URl:</th>
+                                                <td class="field-body"><a class="reference external"
+                                                                          href="http://ip_servidor/category">http://ip_servidor/category</a>/&lt;category_name_slug&gt;/editar/
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <dl class="attribute">
+                                            <dt id="rangoapp.views.category.CategoryUpdateView.model">
+                                                <code class="descname">model</code><a class="headerlink"
+                                                                                      href="#rangoapp.views.category.CategoryUpdateView.model"
+                                                                                      title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd><p>alias of <code class="xref py py-class docutils literal"><span
+                                                    class="pre">Category</span></code></p>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="rangoapp.views.category.CategoryUpdateView.form_valid">
+                                                <code class="descname">form_valid</code><span class="sig-paren">(</span><em>form</em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#rangoapp.views.category.CategoryUpdateView.form_valid"
+                                                                                 title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd><p>Valida o form.</p>
+                                            </dd>
+                                        </dl>
+
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="rangoapp.views.category.CategoryDeleteView">
+                                        <em class="property">class </em><code class="descclassname">rangoapp.views.category.</code><code
+                                            class="descname">CategoryDeleteView</code><span
+                                            class="sig-paren">(</span><em>**kwargs</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#rangoapp.views.category.CategoryDeleteView"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd>
+                                        <blockquote>
+                                            <div>Deleta a categoria.</div>
+                                        </blockquote>
+                                        <table class="docutils field-list" frame="void" rules="none">
+                                            <col class="field-name"/>
+                                            <col class="field-body"/>
+                                            <tbody valign="top">
+                                            <tr class="field-odd field">
+                                                <th class="field-name">URl:</th>
+                                                <td class="field-body"><a class="reference external"
+                                                                          href="http://ip_servidor/category/listar/">http://ip_servidor/category/listar/</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <dl class="method">
+                                            <dt id="rangoapp.views.category.CategoryDeleteView.form_valid">
+                                                <code class="descname">form_valid</code><span class="sig-paren">(</span><em>form</em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#rangoapp.views.category.CategoryDeleteView.form_valid"
+                                                                                 title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd>
+                                                <blockquote>
+                                                    <div>Valida o form.</div>
+                                                </blockquote>
+                                                <p>Se categoria for publica (não privada) remove os pontos.</p>
+                                            </dd>
+                                        </dl>
+
+                                    </dd>
+                                </dl>
+
+                                <dl class="function">
+                                    <dt id="rangoapp.views.category.set_like_category">
+                                        <code class="descclassname">rangoapp.views.category.</code><code
+                                            class="descname">set_like_category</code><span
+                                            class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a
+                                            class="headerlink" href="#rangoapp.views.category.set_like_category"
+                                            title="Permalink to this definition">¶</a></dt>
+                                    <dd>
+                                        <blockquote>
+                                            <div>Define o like para categoria.</div>
+                                        </blockquote>
+                                        <table class="docutils field-list" frame="void" rules="none">
+                                            <col class="field-name"/>
+                                            <col class="field-body"/>
+                                            <tbody valign="top">
+                                            <tr class="field-odd field">
+                                                <th class="field-name">URl:</th>
+                                                <td class="field-body"><a class="reference external"
+                                                                          href="http://ip_servidor/category/like/">http://ip_servidor/category/like/</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </dd>
+                                </dl>
+
+                                <dl class="function">
+                                    <dt id="rangoapp.views.category.set_deslike_category">
+                                        <code class="descclassname">rangoapp.views.category.</code><code
+                                            class="descname">set_deslike_category</code><span class="sig-paren">(</span><em>request</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#rangoapp.views.category.set_deslike_category"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd><p>Define o deslike para categoria.
+                                        :URl: <a class="reference external" href="http://ip_servidor/category/deslike/">http://ip_servidor/category/deslike/</a>
+                                    </p>
+                                    </dd>
+                                </dl>
+
+                                <p>#.. py:function:: rangoapp.views.category</p>
+                            </div>
+                            <div class="section" id="module-rangoapp.models.category">
+                                <span id="model"></span>
+                                <h2>model<a class="headerlink" href="#module-rangoapp.models.category"
+                                            title="Permalink to this headline">¶</a></h2>
+                                <dl class="class">
+                                    <dt id="rangoapp.models.category.Category">
+                                        <em class="property">class </em><code class="descclassname">rangoapp.models.category.</code><code
+                                            class="descname">Category</code><span
+                                            class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#rangoapp.models.category.Category"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd>
+                                        <table class="docutils field-list" frame="void" rules="none">
+                                            <col class="field-name"/>
+                                            <col class="field-body"/>
+                                            <tbody valign="top">
+                                            <tr class="field-odd field">
+                                                <th class="field-name">Parameters:</th>
+                                                <td class="field-body">
+                                                    <ul class="first last simple">
+                                                        <li><strong>nome</strong> – models.CharField(max_length=128,
+                                                            unique=True)
+                                                        </li>
+                                                        <li><strong>views</strong> –
+                                                            models.PositiveIntegerField(default=0)
+                                                        </li>
+                                                        <li><strong>likes</strong> –
+                                                            models.PositiveIntegerField(default=0)
+                                                        </li>
+                                                        <li><strong>deslikes</strong> –
+                                                            models.PositiveIntegerField(default=0)
+                                                        </li>
+                                                        <li><strong>description</strong> – models.TextField(default=200)
+                                                        </li>
+                                                        <li><strong>user</strong> – models.ForeignKey(User)</li>
+                                                        <li><strong>is_private</strong> – models.BooleanField()</li>
+                                                        <li><strong>slug</strong> – models.SlugField(unique=True)</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <dl class="method">
+                                            <dt id="rangoapp.models.category.Category.save">
+                                                <code class="descname">save</code><span class="sig-paren">(</span><em>*args</em>,
+                                                <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink"
+                                                                                                    href="#rangoapp.models.category.Category.save"
+                                                                                                    title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd><p>Amplia o método save, modificando o atributo
+                                                slug a cada salvamento, baseado no nome da categoria.</p>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="rangoapp.models.category.Category.get_absolute_url">
+                                                <code class="descname">get_absolute_url</code><span
+                                                    class="sig-paren">(</span><span class="sig-paren">)</span><a
+                                                    class="headerlink"
+                                                    href="#rangoapp.models.category.Category.get_absolute_url"
+                                                    title="Permalink to this definition">¶</a></dt>
+                                            <dd>
+                                                <table class="docutils field-list" frame="void" rules="none">
+                                                    <col class="field-name"/>
+                                                    <col class="field-body"/>
+                                                    <tbody valign="top">
+                                                    <tr class="field-odd field">
+                                                        <th class="field-name">Returns:</th>
+                                                        <td class="field-body">Define a url de retorno após executar os
+                                                            metodos de create e Update
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </dd>
+                                        </dl>
+
+                                    </dd>
+                                </dl>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="articleComments">
+
+                    </div>
+                </div>
+                <footer>
+
+                    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+                        <a href="page.html" class="btn btn-neutral float-right" title="Pagina" accesskey="n" rel="next">Next
+                            <span class="fa fa-arrow-circle-right"></span></a>
+
+
+                        <a href="../../index.html" class="btn btn-neutral" title="Welcome to rango’s documentation!"
+                           accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+
+                    </div>
+
+
+                    <hr/>
+
+                    <div role="contentinfo">
+                        <p>
+                            &copy; Copyright 2017, Thiago L C de Oliveira.
+
+                        </p>
+                    </div>
+                    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a
+                        href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a
+                        href="https://readthedocs.org">Read the Docs</a>.
+
+                </footer>
+
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+
+<script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT: '../../',
+        VERSION: '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE: true,
+        SOURCELINK_SUFFIX: '.txt'
+    };
+</script>
+<script type="text/javascript" src="../../_static/jquery.js"></script>
+<script type="text/javascript" src="../../_static/underscore.js"></script>
+<script type="text/javascript" src="../../_static/doctools.js"></script>
+
+
+<script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.StickyNav.enable();
+    });
+</script>
+
+
+</body>
+</html>

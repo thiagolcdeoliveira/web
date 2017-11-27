@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-17 16:54-0200\n"
+"POT-Creation-Date: 2017-11-27 15:42-0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: rango/settings.py:153
+#: rango/settings/base.py:154 rango/settings_old.py:151
 msgid "English"
 msgstr ""
 
-#: rango/settings.py:154
+#: rango/settings/base.py:155 rango/settings_old.py:152
 msgid "Portugues"
 msgstr ""
 
-#: rango/settings.py:155
+#: rango/settings/base.py:156 rango/settings_old.py:153
 msgid "Spanish"
 msgstr ""
 
@@ -90,26 +90,60 @@ msgstr ""
 msgid "picture"
 msgstr ""
 
-#: rangoapp/views/category.py:111
+#: rangoapp/views/category.py:116
 #, python-format
-msgid "Category %(name)s add with successfull! "
+msgid "Category %(name)s added with successfull! "
 msgstr ""
 
-#: rangoapp/views/user.py:72
+#: rangoapp/views/category.py:151
+#, python-format
+msgid "Category %(name)s changed with successfull! "
+msgstr ""
+
+#: rangoapp/views/category.py:183
+msgid "Category  deleted with successfull! "
+msgstr ""
+
+#: rangoapp/views/page.py:82
+#, python-format
+msgid "Page %(name)s added with successufull!"
+msgstr ""
+
+#: rangoapp/views/page.py:138
+#, python-format
+msgid "Page %(name)s changed with successufull!"
+msgstr ""
+
+#: rangoapp/views/page.py:159
+#, python-format
+msgid "Page %(name)s deleted with successufull!"
+msgstr ""
+
+#: rangoapp/views/user.py:92
 #, python-format
 msgid "user %(name)s change with succcessfull! "
 msgstr ""
 
-#: rangoapp/views/user.py:93
+#: rangoapp/views/user.py:117
 msgid "user deactivated with successfull! "
 msgstr ""
 
-#: rangoapp/views/user_profile.py:63
+#: rangoapp/views/user.py:155
+msgid "Add with successufull!"
+msgstr ""
+
+#: rangoapp/views/user_profile.py:62
+#, python-format
+msgid "Profile of %(name)s add with successful! "
+msgstr ""
+
+#: rangoapp/views/user_profile.py:84
 #, python-format
 msgid "User %(name)s changed with successful! "
 msgstr ""
 
 #: templates/403.html:12 templates/403.html:14
+#: templates/registration/login.html:14 templates/registration/login.html:16
 msgid "permission danied"
 msgstr ""
 
@@ -147,13 +181,13 @@ msgid "deactivate account"
 msgstr ""
 
 #: templates/auth/user_change_detail.html:30
-#: templates/registration/login.html:51
+#: templates/registration/login.html:45
 msgid "email"
 msgstr ""
 
 #: templates/auth/user_change_detail.html:34
 #: templates/auth/user_change_detail.html:35
-#: templates/includes/user_card.html:17
+#: templates/includes/user_card.html:19
 msgid "friend"
 msgstr ""
 
@@ -163,6 +197,10 @@ msgstr ""
 
 #: templates/auth/user_confirm_delete.html:5
 #: templates/auth/user_confirm_delete.html:14
+#: templates/rangoapp/category_confirm_delete.html:5
+#: templates/rangoapp/category_confirm_delete.html:14
+#: templates/rangoapp/page_confirm_delete.html:5
+#: templates/rangoapp/page_confirm_delete.html:14
 msgid "Confirm Delete"
 msgstr ""
 
@@ -191,10 +229,14 @@ msgid ""
 msgstr ""
 
 #: templates/auth/user_confirm_delete.html:46
+#: templates/rangoapp/category_confirm_delete.html:49
+#: templates/rangoapp/page_confirm_delete.html:49
 msgid "No, take me back"
 msgstr ""
 
 #: templates/auth/user_confirm_delete.html:47
+#: templates/rangoapp/category_confirm_delete.html:50
+#: templates/rangoapp/page_confirm_delete.html:50
 msgid "Yes, I'm sure"
 msgstr ""
 
@@ -224,24 +266,21 @@ msgstr ""
 msgid "Change for an account"
 msgstr ""
 
-#: templates/includes/category_like.html:22
-#: templates/includes/page_like.html:22
-msgid "edit"
-msgstr ""
-
-#: templates/includes/category_like.html:52
+#: templates/includes/category_like.html:11
+#: templates/includes/category_like_friends.html:11
 msgid "not exist categories added"
 msgstr ""
 
-#: templates/includes/category_like.html:54
+#: templates/includes/category_like.html:13
 msgid "category add"
 msgstr ""
 
 #: templates/includes/form.html:10 templates/rangoapp/category_detail.html:18
+#: templates/rangoapp/userprofile_form.html:19
 msgid "back"
 msgstr ""
 
-#: templates/includes/form.html:11
+#: templates/includes/form.html:11 templates/rangoapp/userprofile_form.html:20
 msgid "save"
 msgstr ""
 
@@ -250,7 +289,7 @@ msgid "logout"
 msgstr ""
 
 #: templates/includes/menu.html:18 templates/includes/sidebar.html:78
-#: templates/registration/login.html:25
+#: templates/registration/login.html:23
 msgid "login"
 msgstr ""
 
@@ -258,15 +297,40 @@ msgstr ""
 msgid "you not is connected"
 msgstr ""
 
-#: templates/includes/page_like.html:51
+#: templates/includes/modal_category.html:30
+#: templates/includes/modal_page.html:31
+msgid "confirm"
+msgstr ""
+
+#: templates/includes/modal_category.html:33
+msgid "Are you sure you want to delete your category"
+msgstr ""
+
+#: templates/includes/modal_category.html:38
+#: templates/includes/modal_page.html:39
+msgid "no"
+msgstr ""
+
+#: templates/includes/modal_category.html:42
+#: templates/includes/modal_page.html:43
+msgid "yes"
+msgstr ""
+
+#: templates/includes/modal_page.html:34
+msgid "Are you sure you want to delete your page"
+msgstr ""
+
+#: templates/includes/page_like.html:57
 msgid "not exist pages added"
 msgstr ""
 
-#: templates/includes/page_like.html:53
+#: templates/includes/page_like.html:59
 msgid "page add"
 msgstr ""
 
 #: templates/includes/sidebar.html:8 templates/rangoapp/index.html:11
+#: templates/registration/activation_complete.html:16
+#: templates/registration/registration_complete.html:15
 msgid "home"
 msgstr ""
 
@@ -301,12 +365,12 @@ msgstr ""
 msgid "register"
 msgstr ""
 
-#: templates/includes/user_card.html:36
+#: templates/includes/user_card.html:39
 #: templates/includes/user_card_tag.html:16
 msgid "in ranking"
 msgstr ""
 
-#: templates/includes/user_card.html:43
+#: templates/includes/user_card.html:46
 msgid "points"
 msgstr ""
 
@@ -325,25 +389,56 @@ msgstr ""
 #: templates/rangoapp/about.html:16
 msgid ""
 " The rango is an application for the management of sites, done in Django and "
-"used in classes of Web Development 2.\n"
-"    Profile of the developers below"
+"used in classes\n"
+"                of Web Development 2.\n"
+"                Profile of the developers below"
 msgstr ""
 
-#: templates/rangoapp/about.html:18
+#: templates/rangoapp/about.html:19
 msgid "documentation"
 msgstr ""
 
-#: templates/rangoapp/about.html:33 templates/rangoapp/about.html:86
+#: templates/rangoapp/about.html:34 templates/rangoapp/about.html:84
 msgid "popularly known as"
 msgstr ""
 
-#: templates/rangoapp/about.html:42 templates/rangoapp/about.html:71
-#: templates/rangoapp/about.html:95
+#: templates/rangoapp/about.html:43 templates/rangoapp/about.html:68
+#: templates/rangoapp/about.html:93
 msgid "it's over"
 msgstr ""
 
-#: templates/rangoapp/about.html:104
+#: templates/rangoapp/about.html:102
 msgid "devoloped by"
+msgstr ""
+
+#: templates/rangoapp/category_confirm_delete.html:18
+#: templates/rangoapp/page_confirm_delete.html:18
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '\n"
+"                %(escaped_object)s' would\n"
+"                result in deleting related objects, but your account doesn't "
+"have permission to delete the following\n"
+"                types of objects:"
+msgstr ""
+
+#: templates/rangoapp/category_confirm_delete.html:28
+#: templates/rangoapp/page_confirm_delete.html:28
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '\n"
+"                %(escaped_object)s' would\n"
+"                require deleting the following protected related objects:"
+msgstr ""
+
+#: templates/rangoapp/category_confirm_delete.html:37
+#: templates/rangoapp/page_confirm_delete.html:37
+#, python-format
+msgid ""
+"Are you sure you want to delete the\n"
+"                %(object_name)s \"\n"
+"                %(escaped_object)s\"? All of the following related items "
+"will be deleted:"
 msgstr ""
 
 #: templates/rangoapp/category_detail.html:5
@@ -370,6 +465,10 @@ msgstr ""
 
 #: templates/rangoapp/index.html:6
 msgid "the flash"
+msgstr ""
+
+#: templates/rangoapp/index.html:41
+msgid "Top 3 most tanned categories of your friends"
 msgstr ""
 
 #: templates/rangoapp/page_list.html:3 templates/rangoapp/page_list.html:8
@@ -485,23 +584,31 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: templates/registration/login.html:58
+#: templates/registration/login.html:32
+msgid "error while trying to sign in "
+msgstr ""
+
+#: templates/registration/login.html:34
+msgid "your email or password may be wrong"
+msgstr ""
+
+#: templates/registration/login.html:53
 msgid "password"
 msgstr ""
 
-#: templates/registration/login.html:67
+#: templates/registration/login.html:61
 msgid "log in"
 msgstr ""
 
-#: templates/registration/login.html:90
+#: templates/registration/login.html:84
 msgid "Not a member?"
 msgstr ""
 
-#: templates/registration/login.html:92
+#: templates/registration/login.html:86
 msgid "Register"
 msgstr ""
 
-#: templates/registration/login.html:102
+#: templates/registration/login.html:92
 msgid "Reset it"
 msgstr ""
 

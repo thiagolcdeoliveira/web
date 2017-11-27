@@ -2,8 +2,9 @@ from django.conf.urls import url, include
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login, logout
 
+from rangoapp.views.about import AboutViews
 from rangoapp.views.user_profile import *
-from rangoapp.views.views import *
+# from rangoapp.views.views import *
 from rangoapp.views.category import *
 from rangoapp.views.page import *
 from rangoapp.views.user import *
@@ -16,7 +17,8 @@ from rangoapp.views.index import *
 urlpatterns = [
 
     url(r'^home/$', IndexViews.as_view(), name='home'),
-    url(r'^about/$', about, name='about'),
+    # url(r'^about/$', about, name='about'),
+    url(r'^about/$', AboutViews.as_view(), name='about'),
 
     # Category
     url(r'^category/cadastrar/$', CategoryCreateView.as_view(), name='category-add'),

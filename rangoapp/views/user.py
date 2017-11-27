@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.urlresolvers import reverse_lazy
@@ -22,7 +23,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 @method_decorator(profile_required, name='dispatch')
-class UserDetailView(DetailView):
+class UserDetailView(LoginRequiredMixin, DetailView):
     '''
      Detalhe do usuário.
     :URl: http://ip_servidor/user/visualizar/<username>
@@ -42,7 +43,8 @@ class UserDetailView(DetailView):
         print(self.context['profile_request'])
         return self.context
 
-class UserChangeDetailView(DetailView):
+
+class UserChangeDetailView(LoginRequiredMixin, DetailView):
     '''
      Alterar um usuário.
     :URl: http://ip_servidor/user/visualizar/<username>/update
@@ -75,9 +77,7 @@ class MyRegistrationView(RegistrationView):
         return user_profile
 
 
-
-
-class UserUpdateView(SuccessMessageMixin,UpdateView):
+class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     '''
      Alterar um usuário.
     :URl: http://ip_servidor/user/<username>/update
@@ -103,7 +103,8 @@ class UserUpdateView(SuccessMessageMixin,UpdateView):
     def get_success_url(self):
         return reverse_lazy('user-change-detail', kwargs={'username': self.object.username})
 
-class UserDeleteView(SuccessMessageMixin,DeleteView):
+
+class UserDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     '''
      Deleta um usuario.
     :URl: http://ip_servidor/user/<pk>/delete

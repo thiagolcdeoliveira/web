@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Auth User &mdash; Rango 0.1 documentation</title>
+
+
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css"/>
+
+
+    <link rel="index" title="Index"
+          href="../../genindex.html"/>
+    <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Rango 0.1 documentation" href="../../index.html"/>
+
+
+    <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+
+<div class="wy-grid-for-nav">
+
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search">
+
+
+                <a href="../../index.html" class="icon icon-home"> Rango
+
+
+                </a>
+
+
+                <div class="version">
+                    0.1
+                </div>
+
+
+                <div role="search">
+                    <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                        <input type="text" name="q" placeholder="Search docs"/>
+                        <input type="hidden" name="check_keywords" value="yes"/>
+                        <input type="hidden" name="area" value="default"/>
+                    </form>
+                </div>
+
+
+            </div>
+
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="category.html">Categoria</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="page.html">Pagina</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="user_profile.html">Perfil</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="user.html">Usuário</a></li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+        <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="../../index.html">Rango</a>
+
+        </nav>
+
+
+        <div class="wy-nav-content">
+            <div class="rst-content">
+
+
+                <div role="navigation" aria-label="breadcrumbs navigation">
+
+                    <ul class="wy-breadcrumbs">
+
+                        <li><a href="../../index.html">Docs</a> &raquo;</li>
+
+                        <li>Auth User</li>
+
+
+                        <li class="wy-breadcrumbs-aside">
+
+
+                            <a href="../../_sources/modules/rangoapp/auth_user.rst.txt" rel="nofollow"> View page
+                                source</a>
+
+
+                        </li>
+
+                    </ul>
+
+
+                    <hr/>
+                </div>
+                <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                    <div itemprop="articleBody">
+
+                        <div class="section" id="auth-user">
+                            <h1>Auth User<a class="headerlink" href="#auth-user"
+                                            title="Permalink to this headline">¶</a></h1>
+                            <div class="section" id="module-django.contrib.auth.views">
+                                <span id="views"></span>
+                                <h2>views<a class="headerlink" href="#module-django.contrib.auth.views"
+                                            title="Permalink to this headline">¶</a></h2>
+                                <dl class="function">
+                                    <dt id="django.contrib.auth.views.deprecate_current_app">
+                                        <code class="descclassname">django.contrib.auth.views.</code><code
+                                            class="descname">deprecate_current_app</code><span
+                                            class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a
+                                            class="headerlink" href="#django.contrib.auth.views.deprecate_current_app"
+                                            title="Permalink to this definition">¶</a></dt>
+                                    <dd><p>Handle deprecation of the current_app parameter of the views.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="django.contrib.auth.views.LoginView">
+                                        <em class="property">class </em><code class="descclassname">django.contrib.auth.views.</code><code
+                                            class="descname">LoginView</code><span class="sig-paren">(</span><em>**kwargs</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#django.contrib.auth.views.LoginView"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd><p>Displays the login form and handles the login action.</p>
+                                        <dl class="attribute">
+                                            <dt id="django.contrib.auth.views.LoginView.form_class">
+                                                <code class="descname">form_class</code><a class="headerlink"
+                                                                                           href="#django.contrib.auth.views.LoginView.form_class"
+                                                                                           title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd><p>alias of <code class="xref py py-class docutils literal"><span
+                                                    class="pre">AuthenticationForm</span></code></p>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="django.contrib.auth.views.LoginView.get_success_url">
+                                                <code class="descname">get_success_url</code><span
+                                                    class="sig-paren">(</span><span class="sig-paren">)</span><a
+                                                    class="headerlink"
+                                                    href="#django.contrib.auth.views.LoginView.get_success_url"
+                                                    title="Permalink to this definition">¶</a></dt>
+                                            <dd><p>Ensure the user-originating redirection URL is safe.</p>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="django.contrib.auth.views.LoginView.form_valid">
+                                                <code class="descname">form_valid</code><span class="sig-paren">(</span><em>form</em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#django.contrib.auth.views.LoginView.form_valid"
+                                                                                 title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd><p>Security check complete. Log the user in.</p>
+                                            </dd>
+                                        </dl>
+
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="django.contrib.auth.views.LogoutView">
+                                        <em class="property">class </em><code class="descclassname">django.contrib.auth.views.</code><code
+                                            class="descname">LogoutView</code><span class="sig-paren">(</span><em>**kwargs</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#django.contrib.auth.views.LogoutView"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd><p>Logs out the user and displays ‘You are logged out’ message.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="function">
+                                    <dt id="django.contrib.auth.views.logout_then_login">
+                                        <code class="descclassname">django.contrib.auth.views.</code><code
+                                            class="descname">logout_then_login</code><span
+                                            class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#django.contrib.auth.views.logout_then_login"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd><p>Logs out the user if they are logged in. Then redirects to the log-in
+                                        page.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="function">
+                                    <dt id="django.contrib.auth.views.redirect_to_login">
+                                        <code class="descclassname">django.contrib.auth.views.</code><code
+                                            class="descname">redirect_to_login</code><span
+                                            class="sig-paren">(</span><em>next</em>, <em>login_url=None</em>, <em>redirect_field_name='next'</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#django.contrib.auth.views.redirect_to_login"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd><p>Redirects the user to the login page, passing the given ‘next’ page</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="function">
+                                    <dt id="django.contrib.auth.views.password_reset_confirm">
+                                        <code class="descclassname">django.contrib.auth.views.</code><code
+                                            class="descname">password_reset_confirm</code><span
+                                            class="sig-paren">(</span><em>request</em>, <em>*args</em>,
+                                        <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink"
+                                                                                            href="#django.contrib.auth.views.password_reset_confirm"
+                                                                                            title="Permalink to this definition">¶</a>
+                                    </dt>
+                                    <dd><p>View that checks the hash in a password reset link and presents a
+                                        form for entering a new password.</p>
+                                    </dd>
+                                </dl>
+
+                            </div>
+                            <div class="section" id="module-django.contrib.auth.models">
+                                <span id="model"></span>
+                                <h2>model<a class="headerlink" href="#module-django.contrib.auth.models"
+                                            title="Permalink to this headline">¶</a></h2>
+                                <dl class="function">
+                                    <dt id="django.contrib.auth.models.update_last_login">
+                                        <code class="descclassname">django.contrib.auth.models.</code><code
+                                            class="descname">update_last_login</code><span
+                                            class="sig-paren">(</span><em>sender</em>, <em>user</em>,
+                                        <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink"
+                                                                                            href="#django.contrib.auth.models.update_last_login"
+                                                                                            title="Permalink to this definition">¶</a>
+                                    </dt>
+                                    <dd><p>A signal receiver which updates the last_login date for
+                                        the user logging in.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="django.contrib.auth.models.Permission">
+                                        <em class="property">class </em><code class="descclassname">django.contrib.auth.models.</code><code
+                                            class="descname">Permission</code><span
+                                            class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span
+                                            class="sig-paren">)</span><a class="headerlink"
+                                                                         href="#django.contrib.auth.models.Permission"
+                                                                         title="Permalink to this definition">¶</a></dt>
+                                    <dd><p>The permissions system provides a way to assign permissions to specific
+                                        users and groups of users.</p>
+                                        <p>The permission system is used by the Django admin site, but may also be
+                                            useful in your own code. The Django admin site uses permissions as
+                                            follows:</p>
+                                        <blockquote>
+                                            <div>
+                                                <ul class="simple">
+                                                    <li>The “add” permission limits the user’s ability to view the “add”
+                                                        form
+                                                        and add an object.
+                                                    </li>
+                                                    <li>The “change” permission limits a user’s ability to view the
+                                                        change
+                                                        list, view the “change” form and change an object.
+                                                    </li>
+                                                    <li>The “delete” permission limits the ability to delete an
+                                                        object.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </blockquote>
+                                        <p>Permissions are set globally per type of object, not per specific object
+                                            instance. It is possible to say “Mary may change news stories,” but it’s
+                                            not currently possible to say “Mary may change news stories, but only the
+                                            ones she created herself” or “Mary may only change news stories that have a
+                                            certain status or publication date.”</p>
+                                        <p>Three basic permissions – add, change and delete – are automatically
+                                            created for each Django model.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="django.contrib.auth.models.GroupManager">
+                                        <em class="property">class </em><code class="descclassname">django.contrib.auth.models.</code><code
+                                            class="descname">GroupManager</code><a class="headerlink"
+                                                                                   href="#django.contrib.auth.models.GroupManager"
+                                                                                   title="Permalink to this definition">¶</a>
+                                    </dt>
+                                    <dd><p>The manager for the auth’s Group model.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="django.contrib.auth.models.Group">
+                                        <em class="property">class </em><code class="descclassname">django.contrib.auth.models.</code><code
+                                            class="descname">Group</code><span class="sig-paren">(</span><em>*args</em>,
+                                        <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink"
+                                                                                            href="#django.contrib.auth.models.Group"
+                                                                                            title="Permalink to this definition">¶</a>
+                                    </dt>
+                                    <dd><p>Groups are a generic way of categorizing users to apply permissions, or
+                                        some other label, to those users. A user can belong to any number of
+                                        groups.</p>
+                                        <p>A user in a group automatically has all the permissions granted to that
+                                            group. For example, if the group ‘Site editors’ has the permission
+                                            can_edit_home_page, any user in that group will have that permission.</p>
+                                        <p>Beyond permissions, groups are a convenient way to categorize users to
+                                            apply some label, or extended functionality, to them. For example, you
+                                            could create a group ‘Special users’, and you could write code that would
+                                            do special things to those users – such as giving them access to a
+                                            members-only portion of your site, or sending them members-only email
+                                            messages.</p>
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="django.contrib.auth.models.PermissionsMixin">
+                                        <em class="property">class </em><code class="descclassname">django.contrib.auth.models.</code><code
+                                            class="descname">PermissionsMixin</code><span class="sig-paren">(</span><em>*args</em>,
+                                        <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink"
+                                                                                            href="#django.contrib.auth.models.PermissionsMixin"
+                                                                                            title="Permalink to this definition">¶</a>
+                                    </dt>
+                                    <dd><p>A mixin class that adds the fields and methods necessary to support
+                                        Django’s Group and Permission model using the ModelBackend.</p>
+                                        <dl class="method">
+                                            <dt id="django.contrib.auth.models.PermissionsMixin.get_group_permissions">
+                                                <code class="descname">get_group_permissions</code><span
+                                                    class="sig-paren">(</span><em>obj=None</em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#django.contrib.auth.models.PermissionsMixin.get_group_permissions"
+                                                                                 title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd><p>Returns a list of permission strings that this user has through their
+                                                groups. This method queries all available auth backends. If an object
+                                                is passed in, only permissions matching this object are returned.</p>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="django.contrib.auth.models.PermissionsMixin.has_perm">
+                                                <code class="descname">has_perm</code><span
+                                                    class="sig-paren">(</span><em>perm</em>, <em>obj=None</em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#django.contrib.auth.models.PermissionsMixin.has_perm"
+                                                                                 title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd><p>Returns True if the user has the specified permission. This method
+                                                queries all available auth backends, but returns immediately if any
+                                                backend returns True. Thus, a user who has permission from a single
+                                                auth backend is assumed to have permission in general. If an object is
+                                                provided, permissions for this specific object are checked.</p>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="django.contrib.auth.models.PermissionsMixin.has_perms">
+                                                <code class="descname">has_perms</code><span
+                                                    class="sig-paren">(</span><em>perm_list</em>, <em>obj=None</em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#django.contrib.auth.models.PermissionsMixin.has_perms"
+                                                                                 title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd><p>Returns True if the user has each of the specified permissions. If
+                                                object is passed, it checks if the user has all required perms for this
+                                                object.</p>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="django.contrib.auth.models.PermissionsMixin.has_module_perms">
+                                                <code class="descname">has_module_perms</code><span
+                                                    class="sig-paren">(</span><em>app_label</em><span class="sig-paren">)</span><a
+                                                    class="headerlink"
+                                                    href="#django.contrib.auth.models.PermissionsMixin.has_module_perms"
+                                                    title="Permalink to this definition">¶</a></dt>
+                                            <dd><p>Returns True if the user has any permissions in the given app label.
+                                                Uses pretty much the same logic as has_perm, above.</p>
+                                            </dd>
+                                        </dl>
+
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="django.contrib.auth.models.AbstractUser">
+                                        <em class="property">class </em><code class="descclassname">django.contrib.auth.models.</code><code
+                                            class="descname">AbstractUser</code><span class="sig-paren">(</span><em>*args</em>,
+                                        <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink"
+                                                                                            href="#django.contrib.auth.models.AbstractUser"
+                                                                                            title="Permalink to this definition">¶</a>
+                                    </dt>
+                                    <dd><p>An abstract base class implementing a fully featured User model with
+                                        admin-compliant permissions.</p>
+                                        <p>Username and password are required. Other fields are optional.</p>
+                                        <dl class="method">
+                                            <dt id="django.contrib.auth.models.AbstractUser.get_full_name">
+                                                <code class="descname">get_full_name</code><span
+                                                    class="sig-paren">(</span><span class="sig-paren">)</span><a
+                                                    class="headerlink"
+                                                    href="#django.contrib.auth.models.AbstractUser.get_full_name"
+                                                    title="Permalink to this definition">¶</a></dt>
+                                            <dd><p>Returns the first_name plus the last_name, with a space in
+                                                between.</p>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="django.contrib.auth.models.AbstractUser.get_short_name">
+                                                <code class="descname">get_short_name</code><span
+                                                    class="sig-paren">(</span><span class="sig-paren">)</span><a
+                                                    class="headerlink"
+                                                    href="#django.contrib.auth.models.AbstractUser.get_short_name"
+                                                    title="Permalink to this definition">¶</a></dt>
+                                            <dd><p>Returns the short name for the user.</p>
+                                            </dd>
+                                        </dl>
+
+                                        <dl class="method">
+                                            <dt id="django.contrib.auth.models.AbstractUser.email_user">
+                                                <code class="descname">email_user</code><span class="sig-paren">(</span><em>subject</em>,
+                                                <em>message</em>, <em>from_email=None</em>, <em>**kwargs</em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#django.contrib.auth.models.AbstractUser.email_user"
+                                                                                 title="Permalink to this definition">¶</a>
+                                            </dt>
+                                            <dd><p>Sends an email to this User.</p>
+                                            </dd>
+                                        </dl>
+
+                                    </dd>
+                                </dl>
+
+                                <dl class="class">
+                                    <dt id="django.contrib.auth.models.User">
+                                        <em class="property">class </em><code class="descclassname">django.contrib.auth.models.</code><code
+                                            class="descname">User</code><span class="sig-paren">(</span><em>*args</em>,
+                                        <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink"
+                                                                                            href="#django.contrib.auth.models.User"
+                                                                                            title="Permalink to this definition">¶</a>
+                                    </dt>
+                                    <dd><p>Users within the Django authentication system are represented by this
+                                        model.</p>
+                                        <p>Username, password and email are required. Other fields are optional.</p>
+                                    </dd>
+                                </dl>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="articleComments">
+
+                    </div>
+                </div>
+                <footer>
+
+
+                    <hr/>
+
+                    <div role="contentinfo">
+                        <p>
+                            &copy; Copyright 2017, Thiago L C de Oliveira.
+
+                        </p>
+                    </div>
+                    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a
+                        href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a
+                        href="https://readthedocs.org">Read the Docs</a>.
+
+                </footer>
+
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+
+<script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+        URL_ROOT: '../../',
+        VERSION: '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE: true,
+        SOURCELINK_SUFFIX: '.txt'
+    };
+</script>
+<script type="text/javascript" src="../../_static/jquery.js"></script>
+<script type="text/javascript" src="../../_static/underscore.js"></script>
+<script type="text/javascript" src="../../_static/doctools.js"></script>
+
+
+<script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.StickyNav.enable();
+    });
+</script>
+
+
+</body>
+</html>
