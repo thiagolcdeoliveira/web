@@ -29,6 +29,7 @@ SECRET_KEY = '#rx6=ne$1dwk4!hb985qw!0sqm*le3ya=nzk_#@g)txf0y5=l^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -169,7 +170,7 @@ LOCALE_PATHS = (
 STATICFILES_DIRS = [STATIC_DIR, ]
 STATIC_URL = '/static/'
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, '../static')
 DOC_ROOT = os.path.join(PROJECT_DIR, '../../doc')
 DOC_URL = '/doc/'
 #Media files

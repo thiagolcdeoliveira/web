@@ -11,9 +11,11 @@
 
 
                         <div class="ui inverted button">
-                            <a href="#" onclick="set_friend('{{ user|profile }}')">
+                            <a href="#" onclick="set_friend('{{ user }}')">
+                                {#                            {{ request.user|is_friend:profile_card.user.username  }}#}
+
                                 <i id="js-icon-friend-{{ user|profile }}"
-                                   class="ui icon {% if   request.user|is_friend:user.username %} plus gray {% else %} minus {% endif %} "></i>
+                                   class="ui icon {% if not request.user|is_friend:profile_card.user.username %} plus gray {% else %} minus {% endif %} "></i>
                                 {% trans "friend"|title %}
                             </a>
                         </div>

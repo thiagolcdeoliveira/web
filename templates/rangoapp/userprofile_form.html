@@ -5,19 +5,22 @@
 {% endblock title_block %}
 {% load staticfiles %}
 {% block body_block %}
-<section class="ui six wide column">
+    <section class="ui six wide column">
         <h1 class="ui header ">{% trans "add profile"|title %}</h1>
         <div class="ui  divider "></div>
-{% load staticfiles %}
+        {% load staticfiles %}
 
 
-    {{ message_success }}
-    <form class="ui form warning" action="" method="post" enctype="multipart/form-data">
+        {{ message_success }}
+        <form class="ui form warning" action="" method="post" enctype="multipart/form-data">
 
-      {% include 'includes/fields.html' %}
+            {% include 'includes/fields.html' %}
+            <div class="ui two buttons">
+                <a href="{{ request.META.HTTP_REFERER }}" class="ui button fluid ">{% trans "back"|title %}</a>
+                <input class="ui button fluid black" type="submit" value="{% trans "save"|title %}"/>
+            </div>
 
-      <input class="ui button fluid" type="submit" value="Save"/>
-    </form>
+        </form>
 
 
     </section>

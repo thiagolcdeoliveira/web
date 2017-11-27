@@ -162,7 +162,7 @@ msgstr "email"
 #: templates/auth/user_change_detail.html:35
 #: templates/includes/user_card.html:17
 msgid "friend"
-msgstr ""
+msgstr "amigo"
 
 #: templates/auth/user_change_detail.html:36
 msgid "group"
@@ -252,7 +252,7 @@ msgstr "voltar"
 
 #: templates/includes/form.html:11
 msgid "save"
-msgstr ""
+msgstr "salvar"
 
 #: templates/includes/menu.html:12 templates/registration/logout.html:8
 msgid "logout"

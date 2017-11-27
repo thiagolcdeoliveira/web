@@ -59,8 +59,13 @@ def permission_add_page(user, user_category):
 
 @register.filter()
 def is_friend(user, friend):
-    print(UserProfile.objects.filter(user=user, friends__username__in=[friend]) != [])
-    return UserProfile.objects.filter(user=user, friends__username__in=[friend]) != []
+    print("aquiiiiiiii")
+    print(user)
+    print(friend)
+    amigo = UserProfile.objects.filter(user=user, friends__username=friend)
+    print("e amigo %s" % amigo)
+    print("aquiiiiiiii")
+    return UserProfile.objects.filter(user=user, friends__username__in=[friend])
     # return True
 
 
