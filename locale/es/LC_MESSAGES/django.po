@@ -317,21 +317,21 @@ msgstr "Confirmar contraseña"
 
 #: templates/includes/modal_category.html:33
 msgid "Are you sure you want to delete your category"
-msgstr ""
+msgstr "Está seguro de que desea eliminar su categoría"
 
 #: templates/includes/modal_category.html:38
 #: templates/includes/modal_page.html:39
 msgid "no"
-msgstr ""
+msgstr "no"
 
 #: templates/includes/modal_category.html:42
 #: templates/includes/modal_page.html:43
 msgid "yes"
-msgstr ""
+msgstr "sí"
 
 #: templates/includes/modal_page.html:34
 msgid "Are you sure you want to delete your page"
-msgstr ""
+msgstr "Seguro que quieres eliminar tu página"
 
 #: templates/includes/page_like.html:57
 msgid "not exist pages added"
@@ -406,6 +406,12 @@ msgid ""
 "                of Web Development 2.\n"
 "                Profile of the developers below"
 msgstr ""
+" El rango es una aplicación para la gestión de sitios, realizada en Django y"
+"usado en clases\n"
+"                de Desarrollo Web 2.\n"
+"                Perfil de los desarrolladores a continuación"
+
+
 
 #: templates/rangoapp/about.html:19
 msgid "documentation"
@@ -434,14 +440,19 @@ msgid ""
 "have permission to delete the following\n"
 "                types of objects:"
 msgstr ""
+"Deletando Eliminando el %(object_name)s '\n"
+"                %(escaped_object)s' haría\n"
+"                provocar la eliminación de objetos relacionados, pero su cuenta no "
+"tener permiso para eliminar lo siguiente\n"
+"                tipos de objetos:"
 
 #: templates/rangoapp/category_confirm_delete.html:28
 #: templates/rangoapp/page_confirm_delete.html:28
 #, python-format
 msgid ""
-"Deleting the %(object_name)s '\n"
-"                %(escaped_object)s' would\n"
-"                require deleting the following protected related objects:"
+"Deletando Eliminando el %(object_name)s '\n"
+"                %(escaped_object)s' haría\n"
+"                requiere eliminar los siguientes objetos relacionados protegidos:"
 msgstr ""
 
 #: templates/rangoapp/category_confirm_delete.html:37
@@ -453,7 +464,10 @@ msgid ""
 "                %(escaped_object)s\"? All of the following related items "
 "will be deleted:"
 msgstr ""
-
+"Seguro que quieres eliminar el\n"
+"                %(object_name)s \"\n"
+"                %(escaped_object)s\"? Todos los siguientes artículos relacionados"
+"will be deleted:"
 #: templates/rangoapp/category_detail.html:5
 #: templates/rangoapp/category_detail.html:10
 msgid "details of category"
@@ -546,6 +560,12 @@ msgid ""
 "    and your address will be removed from our records.\n"
 "    "
 msgstr ""
+"\n"
+"    Usted (o alguien que pretende ser usted) ha solicitado registrar una cuenta "
+"a\n"
+"    %(site_name)s.  Si no fue usted, ignore este correo electrónico\n"
+"    y su dirección será eliminada de nuestros registros.\n"
+"    "
 
 #: templates/registration/activation_email.html:18
 #, python-format
@@ -556,13 +576,17 @@ msgid ""
 "    %(expiration_days)s days:\n"
 "    "
 msgstr ""
-
+"\n"
+"    Para activar esta cuenta, haga clic en el siguiente enlace dentro del "
+"siguiente\n"
+"    %(expiration_days)s dias:\n"
+"    "
 #: templates/registration/activation_email.html:30
 #, python-format
 msgid ""
 "\n"
-"    Sincerely,\n"
-"    %(site_name)s Management\n"
+"    Atentamente,\n"
+"    Gestión del %(site_name)s\n"
 "    "
 msgstr ""
 
@@ -574,6 +598,10 @@ msgid ""
 "%(site_name)s.  If this wasn't you, please ignore this email\n"
 "and your address will be removed from our records.\n"
 msgstr ""
+"\n"
+"Usted (o alguien que pretende ser usted) ha solicitado registrar una cuenta en\n"
+"%(site_name)s.  Si no fue usted, ignore este correo electrónico\n"
+"y su dirección será eliminada de nuestros registros.\n"
 
 #: templates/registration/activation_email.txt:7
 #, python-format
@@ -582,13 +610,17 @@ msgid ""
 "To activate this account, please click the following link within the next\n"
 "%(expiration_days)s days:\n"
 msgstr ""
+"\n"
+"Para activar esta cuenta, haga clic en el siguiente enlace dentro de la siguiente\n"
+"%(expiration_days)s dias:\n"
+
 
 #: templates/registration/activation_email.txt:14
 #, python-format
 msgid ""
 "\n"
-"Sincerely,\n"
-"%(site_name)s Management\n"
+"Atentamente,\n"
+"Gestión del %(site_name)s\n"
 msgstr ""
 
 #: templates/registration/activation_email_subject.txt:1
@@ -601,11 +633,11 @@ msgstr "Iniciar sesión"
 
 #: templates/registration/login.html:32
 msgid "error while trying to sign in "
-msgstr ""
+msgstr "error al intentar iniciar sesión"
 
 #: templates/registration/login.html:34
 msgid "your email or password may be wrong"
-msgstr ""
+msgstr "su correo electrónico o contraseña pueden estar equivocados"
 
 #: templates/registration/login.html:53
 msgid "password"
@@ -714,7 +746,11 @@ msgid ""
 "                    your email and click the link to continue.\n"
 "                "
 msgstr ""
-
+"\n"
+"                    Le hemos enviado un correo electrónico con un enlace para restablecer su "
+"contraseña. por favor, compruebe\n"
+"                    su correo electrónico y haga clic en el enlace para continuar.\n"
+"                "
 #: templates/registration/password_reset_email.html:3
 msgid "Greetings"
 msgstr "Saludos"
@@ -727,6 +763,10 @@ msgid ""
 "requested that your password be reset on the %(domain)s site. If you do not\n"
 "wish to reset your password, please ignore this message.\n"
 msgstr ""
+"\n"
+"Usted está recibiendo este correo electrónico porque usted (o alguien que pretende ser usted)\n"
+"solicitó que su contraseña se restablezca en el sitio %(domain) s. Si no lo hace\n"
+"desea restablecer su contraseña, ignore este mensaje.\n"
 
 #: templates/registration/password_reset_email.html:11
 msgid ""
@@ -735,6 +775,10 @@ msgid ""
 "it\n"
 "into your web browser:\n"
 msgstr ""
+"\n"
+"Para restablecer su contraseña, haga clic en el siguiente enlace, o copie y pegue "
+"eso\n"
+"en su navegador web:\n"
 
 #: templates/registration/password_reset_email.html:20
 msgid "Your username, in case you've forgotten:"
@@ -755,11 +799,14 @@ msgid ""
 "you instructions for creating a new one.\n"
 "    "
 msgstr ""
-
+"\n"
+"    Olvidaste tu contraseña? Ingrese su correo electrónico en el siguiente formulario y le enviaremos"
+"instrucciones para crear uno nuevo.\n"
+"    "
 #: templates/registration/registration_closed.html:4
 #: templates/registration/registration_closed.html:8
 msgid "Registration is closed"
-msgstr ""
+msgstr "El registro está cerrado"
 
 #: templates/registration/registration_closed.html:13
 msgid "Sorry, but registration is closed at this moment. Come back later."
@@ -790,6 +837,9 @@ msgid ""
 "  We have sent an email to %(email)s with further instructions.\n"
 "  "
 msgstr ""
+"\n"
+"Hemos enviado un correo electrónico a %(email)s con más instrucciones"
+"  "
 
 #: templates/registration/resend_activation_form.html:4
 #: templates/registration/resend_activation_form.html:13
