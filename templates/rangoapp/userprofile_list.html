@@ -21,7 +21,20 @@
             <tbody>
             {% for object in object_list %}
                 <tr>
-                    <td>{{ object.user.username|position }}</td>
+                    {#                {% with object.user.username|position as position %}#}
+                    {#                    {{ position }}<i class="ui icon trophy"></i>#}
+                    <td>{{ object.user.username|position }}
+                        {#                    {% if  object.user.username|position == 1 %}#}
+                        {#                        <i class="ui icon trophy yellow"></i>#}
+                        {#                        {% elif  object.user.username|position == 2 %}#}
+                        {#                        <i class="ui icon trophy gray"></i>#}
+                        {#                        {% elif object.user.username|position == 3 %}#}
+                        {#                        <i class="ui icon trophy green"></i>#}
+                        {#                        {% endif %}#}
+                    </td>
+                    {#                {% endwith %}#}
+                    {#                        {% lightning object.points %}#}
+                    {#                        {% lightning object.points object.points %}#}
                     <td>
                         <h4 class="ui image header">
                             {#          <img src="{% static object.picture %}" class="ui mini rounded image">#}
