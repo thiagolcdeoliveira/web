@@ -9,12 +9,11 @@
         <h1 class="ui header ">{% trans "ranking"|title %}</h1>
         <div class="ui  divider "></div>
         {% load staticfiles %}
-
         <table class="ui very basic collapsing celled table aligned centered">
             <thead>
             <tr>
 
-                {#  <th>{% trans "position"|title %}</th>#}
+                <th>{% trans "position"|title %}</th>
                 <th>{% trans "user"|title %}</th>
                 <th>{% trans "points"|title %}</th>
             </tr>
@@ -22,7 +21,7 @@
             <tbody>
             {% for object in object_list %}
                 <tr>
-                    {#        <td>{{ forloop.counter }}</td>#}
+                    <td>{{ object.user.username|position }}</td>
                     <td>
                         <h4 class="ui image header">
                             {#          <img src="{% static object.picture %}" class="ui mini rounded image">#}

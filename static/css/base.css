@@ -106,3 +106,7 @@ i.ui.red.tiny.icon.asterisk {
 .ui.positive.right.labeled.icon.button > a {
     color: white;
 }
+
+.ui.collapsing.table {
+    width: 100%;
+}

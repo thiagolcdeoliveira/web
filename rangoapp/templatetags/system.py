@@ -65,12 +65,12 @@ def permission_add_page(user, user_category):
 
 @register.filter()
 def is_friend(user, friend):
-    print("aquiiiiiiii")
-    print(user)
-    print(friend)
-    amigo = UserProfile.objects.filter(user=user, friends__username=friend)
-    print("e amigo %s" % amigo)
-    print("aquiiiiiiii")
+    # print("aquiiiiiiii")
+    # print(user)
+    # print(friend)
+    # amigo = UserProfile.objects.filter(user=user, friends__username=friend)
+    # print("e amigo %s" % amigo)
+    # print("aquiiiiiiii")
     return UserProfile.objects.filter(user=user, friends__username__in=[friend])
     # return True
 
@@ -79,6 +79,10 @@ def is_friend(user, friend):
 def profile(user):
     return UserProfile.objects.get(user=user)
 
+
+@register.filter()
+def position(user):
+    return calculate_position(get_object_or_404(UserProfile, user__username=user).points)
 
 @register.filter()
 def is_card_profile(user, user_card_profile):

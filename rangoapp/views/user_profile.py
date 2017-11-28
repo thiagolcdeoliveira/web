@@ -24,7 +24,7 @@ class UserProfileListView(LoginRequiredMixin, ListView):
     # :URl: Sem URL
     # '''
     queryset = UserProfile.objects.all()
-    paginate_by = 5
+    paginate_by = 10
 
     def get_queryset(self):
         queryset = super(UserProfileListView, self).get_queryset()
