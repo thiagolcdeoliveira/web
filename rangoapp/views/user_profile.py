@@ -146,7 +146,7 @@ def set_friend(request):
             print("in")
             print(user)
             user.friends.add(friend)
-            remove_points_friends(friend)
+            add_points_friends(friend)
             user.save()
             data['is_friend'] = True
             print("false")
@@ -158,7 +158,7 @@ def set_friend(request):
             user.friends.remove(friend)
             user.save()
             data['is_friend'] = False
-            add_points_friends(friend)
+            remove_points_friends(friend)
     else:
         data["message"] = False
 
