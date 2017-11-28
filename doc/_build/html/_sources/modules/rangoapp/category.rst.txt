@@ -3,7 +3,6 @@ Categoria
 views
 -----
 .. automodule:: rangoapp.views.category
-#.. py:function:: rangoapp.views.category
 
 model
 -----
