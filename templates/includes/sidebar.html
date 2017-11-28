@@ -37,6 +37,13 @@
             </a>
         </li>
         <li>
+            <a class="item {% block active_userprofile_list %}{% endblock active_userprofile_list %}"
+               href="{% url 'user-profile-list' %}">
+                <i class="ui icon trophy"></i>
+                {% trans "ranking"|title %}
+            </a>
+        </li>
+        <li>
             <a class="item {% block active_about %}{% endblock active_about %}"
                href="{% url 'about' %}">
                 <i class="ui info icon"></i>
