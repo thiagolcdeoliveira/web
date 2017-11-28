@@ -15,7 +15,7 @@
         {% include "includes/page_like.html" %}
         {% if request.user|permission_add_page:object.user %}
         <div class="ui  two fluid buttons ">
-            <a class="ui button gray" href="">{% trans "back"|title %}</a>
+            <a class="ui button gray" href="{{ request.META.HTTP_REFERER }}">{% trans "back"|title %}</a>
             <a class="ui button black"
                href="{% url 'page-add' object.slug %}">{% trans "add page in"|title %} {{ object.name }}</a>
         </div>

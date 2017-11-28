@@ -54,6 +54,12 @@ def lightning(points=None):
 def permission_add_page(user, user_category):
     print(user, user_category)
     return user_category == user or user.has_perm(ADD_PAGE)
+
+
+# @register.filter()
+# def permission_add_page(user, user_category):
+#     print(user, user_category)
+#     return user_category == user or user.has_perm(ADD_PAGE)
     # return True
 
 

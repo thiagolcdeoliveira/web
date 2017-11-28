@@ -12,6 +12,7 @@
         <h1 class="ui header ">{% trans "about"|title %} <a href="{% url 'home' %}">{% trans "rango"|title %}</a></h1>
         <div class="ui  divider "></div>
         {#<h1>Sobre o <a href="{% url 'home' %}">Rango</a><br /></h1>#}
+        <div class="ui segment">
         <div class="ui row segment basic aligned centered ">
             {% blocktrans %} The rango is an application for the management of sites, done in Django and used in classes
                 of Web Development 2.
@@ -100,6 +101,7 @@
 
         <div class="ui row segment basic aligned centered ">
             {% trans "devoloped by"|title %} Thiago L. C. de Oliveira.
+        </div>
         </div>
     </section>
 {% endblock body_block %}
