@@ -24,4 +24,19 @@
     * mkvirtualenv <nome_projeto>
       * Após criada ela executara o ambiente virtual, porém nas próximas vezes será necessario executar o comando workon <nome_projeto>
  * Instalar Postfix
+    * pip install postfix
  * Instalar GetText
+    * Obs: No windows [Configuração](http://gnuwin32.sourceforge.net/packages/gettext.htm), no Linux é pip que está no requirements.txt
+    
+### Respositório
+* Baixar 
+    * git clone https://github.com/thiagolcdeoliveira/web.git
+    * ative a virtualenv criada
+         * workon <nome_projeto>
+    * Na raiz  do projeto (web) 
+         * python manage.py makemigrations
+         * python manage.py migrate
+         * python manage.py runserver
+    * acesse 
+         * http://localhost:8000
+ 
