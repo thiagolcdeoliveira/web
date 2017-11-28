@@ -24,10 +24,12 @@ class UserProfileListView(LoginRequiredMixin, ListView):
     # :URl: Sem URL
     # '''
     queryset = UserProfile.objects.all()
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = super(UserProfileListView, self).get_queryset()
-        queryset = queryset.filter(user=self.request.user)
+        # queryset = queryset.filter(user=self.request.user)
+        queryset = queryset.order_by("points", "id").reverse()
         return queryset
 
 

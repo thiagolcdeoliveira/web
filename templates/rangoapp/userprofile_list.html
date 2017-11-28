@@ -1,0 +1,50 @@
+{% extends 'base.html' %}{% load i18n %}
+
+{% block title_block %}
+    {% trans "add profile"|title %}
+{% endblock title_block %}
+{% load staticfiles static system %}
+{% block body_block %}
+    <section class="ui six wide column">
+        <h1 class="ui header ">{% trans "ranking"|title %}</h1>
+        <div class="ui  divider "></div>
+        {% load staticfiles %}
+
+        <table class="ui very basic collapsing celled table aligned centered">
+            <thead>
+            <tr>
+
+                {#  <th>{% trans "position"|title %}</th>#}
+                <th>{% trans "user"|title %}</th>
+                <th>{% trans "points"|title %}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for object in object_list %}
+                <tr>
+                    {#        <td>{{ forloop.counter }}</td>#}
+                    <td>
+                        <h4 class="ui image header">
+                            {#          <img src="{% static object.picture %}" class="ui mini rounded image">#}
+                            <img src="{% media object.picture %}" class="ui mini rounded image">
+                            <div class="content">
+                                {{ object.user.username }}
+                                <div class="sub header">{{ object.description|truncatechars:20 }}
+                                </div>
+                            </div>
+                        </h4>
+                    </td>
+                    <td>
+                        {{ object.points }}
+                    </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+        {% include "includes/paginete.html" %}
+
+
+    </section>
+
+{% endblock %}

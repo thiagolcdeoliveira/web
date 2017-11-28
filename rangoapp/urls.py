@@ -58,6 +58,7 @@ urlpatterns = [
     url(r'^userprofile/cadastrar/$', UserProfileCreateView.as_view(), name='user-profile-add'),
     # url(r'^userprofile/(?P<username>[\w\-]+)/update/$', UserProfileUpdateView.as_view(), name='user-profile-update'),
     url(r'^userprofile/(?P<pk>[\d\-]+)/update/$', UserProfileUpdateView.as_view(), name='user-profile-update'),
+    url(r'^userprofile/list/$', UserProfileListView.as_view(), name='user-profile-list'),
     url(r'^user/(?P<pk>[\d\-]+)/delete/$', UserDeleteView.as_view(), name='user-delete'),
     url(r'^user/friend/$', set_friend, name='user-delete'),
     # url(r'^/accounts/activate/complete/$', UserProfileCreateView.as_view(), name='user-profile-add-redirect'),

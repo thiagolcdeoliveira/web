@@ -13,7 +13,7 @@ class UserProfile(models.Model):
 
     '''
     :param user: models.OneToOneField(User)
-    :param website: models.URLField(blank=True,help_text=_('website'))
+    :param website: models.CharField(blank=True,help_text=_('website'),max_length=100)
     :param picture: models.ImageField(upload_to='profile_images', blank=True,help_text=_('picture'))
     :param points: models.FloatField(default=0)
     :param description: models.CharField(max_length=200,help_text=_('description'))
@@ -24,7 +24,7 @@ class UserProfile(models.Model):
     :param page_deslike: models.ManyToManyField(Page, related_name='page_deslike', blank=True)
     '''
     user = models.OneToOneField(User)
-    website = models.URLField(blank=True,help_text=_('website'))
+    website = models.CharField(blank=True, help_text=_('website'), max_length=100)
     picture = models.ImageField(upload_to='profile_images', blank=True,help_text=_('picture'))
     points = models.FloatField(default=0)
     description = models.CharField(max_length=200,help_text=_('description'))

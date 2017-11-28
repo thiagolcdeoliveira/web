@@ -39,12 +39,35 @@ class UserForm(forms.ModelForm):
             pessoa.save()
         return pessoa
 
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'username', 'email')
+
+    def clean_email(self):
+        # print(self.cleaned_data.get("username"))
+        return ValidationEmail(self.cleaned_data.get("username"), self.cleaned_data.get("email"))
+
+    def save(self, commit=True):
+        pessoa = super(UserForm, self).save(commit=False)
+        pessoa.set_password(self.cleaned_data['password'])
+        if commit:
+            pessoa.save()
+        return pessoa
+
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ('description','website', 'picture')
 
-
+    def clean_website(self):
+        url = self.cleaned_data.get('website')
+        url = url.lower()
+        if url and not url.startswith('http://'):
+            url = 'http://' + url
+        self.cleaned_data['website'] = url
+        return self.cleaned_data['website']
 
 
 class UserProfileRegistrationForm(RegistrationFormNoFreeEmail):

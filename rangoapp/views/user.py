@@ -11,7 +11,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils.decorators import method_decorator
 from django.views.generic import View, DetailView
 from django.views.generic import *
-from rangoapp.forms.user import UserProfileForm, UserForm
+from rangoapp.forms.user import UserProfileForm, UserForm, UserUpdateForm
 from rangoapp.models.category import Category
 from rangoapp.models.page import Page
 from rangoapp.models.user_profile import UserProfile
@@ -83,7 +83,7 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     :URl: http://ip_servidor/user/<username>/update
     '''
     model = User
-    form_class = UserForm
+    form_class = UserUpdateForm
     # form_class = PageEditForm
     slug_field = 'username'
     slug_url_kwarg = 'username'
