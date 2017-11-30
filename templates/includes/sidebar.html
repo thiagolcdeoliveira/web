@@ -53,7 +53,7 @@
         <li class="disabled item"></li>
         <li>
             <a class="item {% block active_detail_user %}{% endblock active_detail_user %}"
-               href="{% url 'user-detail' user %}">
+               href="{% url 'user-detail' request.user.username %}">
                 <i class="ui user icon"></i>
                 {% trans "profile"|title %}
             </a>

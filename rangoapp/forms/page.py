@@ -13,9 +13,9 @@ class PageForm(forms.ModelForm):
     def clean_url(self):
         url = self.cleaned_data.get('url')
         url = url.lower()
-        if url and not url.startswith('http://'):
+        if url and not url.startswith('http://') and not url.startswith('https://'):
             url = 'http://' + url
-        self.cleaned_data['url'] = url
+            self.cleaned_data['url'] = url
 
         return self.cleaned_data['url']
     class Meta:
