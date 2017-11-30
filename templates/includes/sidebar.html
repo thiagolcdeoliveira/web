@@ -60,7 +60,7 @@
         </li>
         <li>
             <a class="item {% block active_detail_alter_user %}{% endblock active_detail_alter_user %}"
-               href="{% url 'user-change-detail' user %}">
+               href="{% url 'user-change-detail' request.user.username %}">
                 <i class="ui user icon"></i>
                 {% trans "change personal data"|title %}
             </a>
