@@ -13,7 +13,7 @@ Jinja2==2.9.6
 MarkupSafe==1.0
 oauthlib==2.0.4
 olefile==0.44
-Pillow==4.2.1
+Pillow==8.1.1
 Pygments==2.2.0
 PyJWT==1.5.3
 python-openid==2.2.5
